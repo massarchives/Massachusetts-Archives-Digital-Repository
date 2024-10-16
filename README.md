@@ -1,6 +1,6 @@
 Google Fonts:<br>
 &emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a><br>
-&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a>
+&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a><br>
 <br>
 Main CSS:<br>
 &emsp;preservica_layout.css: Stylesheet for main Wordpress layout.<br>
