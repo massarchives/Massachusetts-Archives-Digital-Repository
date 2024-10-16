@@ -1,6 +1,6 @@
 Main CSS:<br>
 &emsp;preservica_layout.css: Stylesheet for main Wordpress layout.<br>
-&emsp;preservica_additional.css: Goes under Additional CSS section when customizing on Wordpress. Contains CSS for some widgets and header/footer.<br>
+&emsp;preservica_additional.css: Goes under Additional CSS section when customizing on Wordpress. Contains CSS for widgets.<br>
 <br>
 Header & Footer:<br>
 &emsp;sitewide_header.html: Goes under Header on WPCode Global Header and Footer section.<br>
