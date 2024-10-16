@@ -1,4 +1,5 @@
-<i>Preservica/Wordpress layouts and widgets currently in use on the Massachusetts Archives Digital Repository website. Feel free to edit and use.</i>
+<i>Preservica/Wordpress layouts and widgets currently in use on the Massachusetts Archives Digital Repository website.<br>
+Feel free to edit and use.</i>
 <br><br>
 Google Fonts:<br>
 &emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a><br>
