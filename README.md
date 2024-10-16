@@ -4,7 +4,8 @@ Google Fonts:<br><br>
 <br><br>
 Main CSS:<br><br>
 &emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout.<br>
-&emsp;<b>preservica_additional.css</b>: Goes under Additional CSS section when customizing on Wordpress. Contains CSS for WPCode Snippets.<br>
+&emsp;<b>preservica_additional.css</b>: Goes under Additional CSS section when customizing on Wordpress.<br>
+&emsp;Contains CSS for WPCode Snippets.<br>
 <br><br>
 Header & Footer:<br><br>
 &emsp;<b>sitewide_header.html</b>: Goes under Header on WPCode Global Header and Footer section.<br>
