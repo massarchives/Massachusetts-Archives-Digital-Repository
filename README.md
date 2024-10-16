@@ -1,1 +1,3 @@
-preservica_layout_october_2024.css: Stylesheet for main wordpress layout.
+preservica_layout.css: Stylesheet for main Wordpress layout.
+
+preservica_additional.css: Goes underneath the 'Additional CSS' section when customizing on Wordpress.
