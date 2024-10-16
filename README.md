@@ -4,5 +4,7 @@ Main CSS:
 
 Header & Footer:
   sitewide_header.html: Goes under 'Header' on WPCode 'Global Header and Footer' section.
-  sitewide_footer.html: Goes under 'Header' on WPCode 'Global Header and Footer' section.
+  sitewide_footer.html: Goes under 'Footer' on WPCode 'Global Header and Footer' section.
 
+Widgets:
+  featured_collections.html: 'Featured Collections' slideshow on homepage.
