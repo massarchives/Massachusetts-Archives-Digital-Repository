@@ -8,5 +8,5 @@ Header & Footer:<br>
 <br>
 Widgets:<br>
 &emsp;featured_collections.html: Featured Collections slideshow on homepage.<br>
-&emsp;homepage_guide_buttons.html: Collections Guide and Search Guide buttons on homepage.
+&emsp;homepage_guide_buttons.html: Collections Guide and Search Guide buttons on homepage.<br>
 &emsp;collection_guides.html: Collection Guides slideshow on Guides page.
