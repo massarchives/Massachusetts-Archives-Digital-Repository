@@ -5,7 +5,7 @@ Google Fonts:<br>
 &emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a> for body<br>
 <br>
 Main CSS:<br>
-&emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout (edited from <a href="https://github.com/preservica/universal-access-css/tree/master/base-preservica-theme">here,</a> using <i>Preservica Version: 4.0</i> theme by Preservica/Duncan Arrow.<br>
+&emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout (edited from <i><a href="https://github.com/preservica/universal-access-css/tree/master/base-preservica-theme">here,</i> using <i>Preservica Version: 4.0</i> theme by Preservica/Duncan Arrow.<br>
 &emsp;<b>preservica_additional.css</b>: Goes under <i>Additional CSS</i> section when customizing on Wordpress.<br>
 &emsp;<i>preservica_additional.css contains CSS for header and some other widgets.</i><br>
 <br>
