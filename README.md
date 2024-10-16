@@ -18,4 +18,4 @@ WPCode Snippets:<br><br>
 &emsp;<b>sacco_and_vanzetti_exhibit.html</b>: Exhibit template for Exhibits page.<br>
 <br><br>
 Wordpress Pages:<br><br>
-&emsp;<b>digital_repository_home</b>: Digital Repository Home page.
+&emsp;<b>digital_repository_home.html</b>: Digital Repository Home page.
