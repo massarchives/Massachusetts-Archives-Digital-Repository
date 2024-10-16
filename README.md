@@ -2,7 +2,7 @@
 <br><br>
 Google Fonts:<br>
 &emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a> for heading<br>
-&emsp;Body: <a href="https://fonts.google.com/specimen/Inter">Inter</a> for body<br>
+&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a> for body<br>
 <br>
 Main CSS:<br>
 &emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout.<br>
