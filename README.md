@@ -13,5 +13,5 @@ Header & Footer<br><br>
 Widgets<br><br>
 &emsp;<b>featured_collections.html</b>: Featured Collections slideshow on Homepage.<br>
 &emsp;<b>homepage_guide_buttons.html</b>: Collections Guide and Search Guide buttons on Homepage.<br>
-&emsp;<b>collection_guides.html</b>: Collection Guides slideshow on Guides page.
+&emsp;<b>collection_guides.html</b>: Collection Guides slideshow on Guides page.<br>
 &emsp;<b>recently_added.html</b>: Recently Added section on Homepage.
