@@ -11,15 +11,15 @@
 &emsp;<i>preservica_additional.css contains CSS for header and some other widgets.</i><br>
 <br>
 <b>Header & Footer</b><br><br>
-&emsp;<b>sitewide_header.html</b>: Goes under <i>Header</i> on WPCode Global <i>Header and Footer</i> section.<br>
-&emsp;<b>sitewide_footer.html</b>: Goes under <i>Footer</i> on WPCode Global <i>Header and Footer</i> section.<br>
+&emsp;<b>sitewide_header.html</b>: Goes under 'Header' on WPCode Global 'Header and Footer' section.<br>
+&emsp;<b>sitewide_footer.html</b>: Goes under 'Footer' on WPCode Global 'Header and Footer' section.<br>
 <br>
 <b>WPCode Snippets:</b><br><br>
-&emsp;<b>featured_collections.html</b>: <i>Featured Collections</i> slideshow on Homepage.<br>
-&emsp;<b>homepage_guide_buttons.html</b>: <i>Collections Guide</i> and <i>Search Guide</i> buttons on Homepage.<br>
-&emsp;<b>collection_guides.html</b>: <i>Collection Guides</i> slideshow on <i>Guides</i> page.<br>
-&emsp;<b>recently_added.html</b>: <i>Recently Added</i> section on Homepage.<br>
-&emsp;<b>sacco_and_vanzetti_exhibit.html</b>: Exhibit template for <i>Exhibits</i> page.<br>
+&emsp;<b>featured_collections.html</b>: 'Featured Collections' slideshow on Homepage.<br>
+&emsp;<b>homepage_guide_buttons.html</b>: 'Collections Guide' and 'Search Guide' buttons on Homepage.<br>
+&emsp;<b>collection_guides.html</b>: 'Collection Guides' slideshow on 'Guides' page.<br>
+&emsp;<b>recently_added.html</b>: 'Recently Added' section on Homepage.<br>
+&emsp;<b>sacco_and_vanzetti_exhibit.html</b>: Exhibit template for 'Exhibits' page.<br>
 <br>
 <b>Wordpress Pages:</b><br>
-&emsp;<b>digital_repository_home.html</b>: <i>Digital Repository Home</i> page content.
+&emsp;<b>digital_repository_home.html</b>: 'Digital Repository Home' page content.
