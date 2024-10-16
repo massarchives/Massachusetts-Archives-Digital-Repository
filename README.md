@@ -16,5 +16,6 @@ Widgets:<br><br>
 &emsp;<b>collection_guides.html</b>: Collection Guides slideshow on Guides page.<br>
 &emsp;<b>recently_added.html</b>: Recently Added section on Homepage.<br>
 &emsp;<b>sacco_and_vanzetti_exhibit.html</b>: Exhibit template for Exhibits page.<br>
+<br><br>
 Pages:<br><br>
-&emsp;<b>digital_repository_home</b>: <i>Digital Repository Home</i>.
+&emsp;<b>digital_repository_home</b>: Digital Repository Home page.
