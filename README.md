@@ -1,3 +1,7 @@
+Google Fonts:<br>
+&emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a><br>
+&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a>
+<br>
 Main CSS:<br>
 &emsp;preservica_layout.css: Stylesheet for main Wordpress layout.<br>
 &emsp;preservica_additional.css: Goes under Additional CSS section when customizing on Wordpress. Contains CSS for widgets.<br>
