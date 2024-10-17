@@ -39,6 +39,41 @@ h5.metadata-title {
 	padding-bottom: 5px;
 }
 
+h10 {
+	font-family: 'Space Grotesk', sans-serif;
+	color: #17183b;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.hero-image {
+	background-image: url("https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/08/galvin-header-background-wide.png");
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 20px
+}
+
+.hero-text p {
+	font-size: 12px;
+	color: #181818;
+	font-weight: 400;
+	line-height: 14px;
+	margin: 5px 0px 0px 5px;
+	padding-left: 50px;
+	font: 'Inter', sans-serif;
+}
+
+.hero-text h1 {
+	font-size: 14px;
+	color: #181818;
+	font-weight: 600px;
+	line-height:16px;
+	font: 'Space Grotesk', sans-serif;
+	margin: 0px 0px 0px 5px;
+	padding-left: 50px;
+}
+
 a.metadata-expand {
 	font-size:11px;
 }
@@ -136,34 +171,6 @@ label.ellipsis.multiline {
 	font-size: 12px;
 }
 
-.hero-image {
-	background-image: url("https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/08/galvin-header-background-wide.png");
-	background-position: left bottom;
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding: 20px
-}
-
-.hero-text p {
-	font-size: 12px;
-	color: #181818;
-	font-weight: 400;
-	line-height: 14px;
-	margin: 5px 0px 0px 5px;
-	padding-left: 50px;
-	font: 'Inter', sans-serif;
-}
-
-.hero-text h1 {
-	font-size: 14px;
-	color: #181818;
-	font-weight: 600px;
-	line-height:16px;
-	font: 'Space Grotesk', sans-serif;
-	margin: 0px 0px 0px 5px;
-	padding-left: 50px;
-}
-
 div.new-primary-background {
 	opacity: 100 !important;
 	font-size: 14px;
@@ -255,54 +262,31 @@ div.content_wrapper {
 	padding-bottom: 10px;
 }
 
-p.p1 {
-	padding-left: 150px;
-	padding-right: 150px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	font-size: 16px;
-	font-weight: 300;
-	color: #2F2F2F;
-	font-family: 'Inter', sans-serif;
-}
-
 fieldset {
 	border: none;
 }
 
 @media (max-width: 980px) {
-	p.p1 {
-		padding: 25px 40px 0px 40px;
-		font-size: 13px;
-	}
 	div.container {
 		padding-left: 30px;
 	}
+
 	h2 {
 		font-size: 18px;
 	}
+
 	div.text1, div.text2 {
 		font-size: 14px;
 	}
-	div.insta a {
-		font-size: 12px;
-	}
+
 	div#mobile-search-button {
 		font-size: 12px;
 		padding-top:9.75px;
 	}
+    
 	div.overview, div.overview a {
 		display: none;
 	}
-}
-
-div.insta {
-	text-align: right;
-	padding-top: 75px;
-	padding-bottom: 25px;
-	font-size: 13px;
-	font-weight: 400;
-	font-family: 'Space Grotesk', sans-serif;
 }
 
 button#filter-editor-button {
@@ -355,10 +339,6 @@ div#footer, div#subfooter {
 .bottomnav input {
 	font-family: 'Inter', sans-serif;
 	border-radius: 1px;
-}
-
-div.insta a {
-	font-family: 'Inter', sans-serif;
 }
 
 select#sort-dropdown.default-text {
@@ -438,11 +418,4 @@ div#content-panel.twelve.columns.last {
 	font-size: 13px;
 	font-weight: 400;
 	font-family: 'Inter', sans-serif;
-}
-
-h10 {
-	font-family: 'Space Grotesk', sans-serif;
-	color: #17183b;
-	font-weight: 400;
-	font-size: 20px;
 }
