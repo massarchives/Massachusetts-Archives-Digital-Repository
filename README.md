@@ -8,7 +8,7 @@
 &emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout.<br>
 &emsp;<i>Edited from <a href="https://github.com/preservica/universal-access-css/tree/master/base-preservica-theme">these</a>, using Preservica Version: 4.0 theme by Preservica/Duncan Arrow on Wordpress as base.</i><br><br>
 &emsp;<b>preservica_additional.css</b>: Goes under Additional CSS section when customizing on Wordpress.<br>
-&emsp;<i>preservica_additional.css contains CSS for header and some other widgets.</i><br>
+&emsp;<i>preservica_additional.css contains CSS for header and other sitewide styles.</i><br>
 <br>
 <b>Header & Footer</b><br><br>
 &emsp;<b>sitewide_header.html</b>: Goes under Header on WPCode Global Header and Footer section.<br>
