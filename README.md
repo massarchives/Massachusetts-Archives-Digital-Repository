@@ -1,8 +1,8 @@
 <i>Preservica/Wordpress code currently in use on the <a href="https://digitalarchives.sec.state.ma.us/">Massachusetts Archives Digital Repository</a> website. Feel free to edit and use.</i>
 <br><br>
 <b>Google Fonts</b><br><br>
-&emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a> (Heading)<br> #17183b
-&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a> (Body)<br> #181818
+&emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a> (Heading) #17183b<br>
+&emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a> (Body) #181818<br>
 <br>
 <b>Main CSS</b><br><br>
 &emsp;<b>preservica_layout.css</b>: Stylesheet for main Wordpress layout.<br>
