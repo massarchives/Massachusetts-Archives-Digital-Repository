@@ -1,77 +1,93 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <div class="hero-image">
-    <div class="hero-text">
-      <h1><a href="https://www.sec.state.ma.us/">Secretary of the Commonwealth of Massachusetts</a></h1>
-      <p>William Francis Galvin</p>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1><a href="https://www.sec.state.ma.us/">Secretary of the Commonwealth of Massachusetts</a></h1>
+            <p>William Francis Galvin</p>
+        </div>
     </div>
-  </div>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-    }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-    .topnav {
-      overflow: hidden;
-      background-color: #f3f3f3;
-    }
+        .notice {
+            background-color: #f3f3f3;
+            padding-top: 19px;
+            padding-bottom: 10px;
+        }
 
-    .topnav a {
-      float: left;
-      display: block;
-      font-family: 'Inter', sans-serif;
-      color: #181818;
-      text-align: center;
-      padding: 20px 20px;
-      text-decoration: none;
-      text-transform: none;
-      font-size: 12px;
-      font-weight: 400;
-    }
+        .notice p {
+            font-family: 'Inter', sans-serif;
+            color: #17183b;
+            font-style: italic;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+        }
 
-    .topnav a:hover {
-      background-color: #DBDBDB;
-    }
+        .topnav {
+            padding-right: 10px;
+        }
 
-    .topnav a.active {
-      background-color: #DBDBDB;
-    }
+        .topnav a {
+            float: right;
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #17183b;
+            text-align: center;
+            padding: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-    @media screen and (max-width: 600px) {
-      .topnav .search-sec {
-        float: none;
-      }
+        .topnav a:hover {
+            text-decoration: underline;
+        }
 
-      .topnav a {
-        float: none;
-        display: block;
-        text-align: left;
-        cursor: pointer;
-        width: 100%;
-        margin: 0;
-        padding: 14px;
-      }
-    }
-  </style>
+        @media screen and (max-width: 600px) {
+            .topnav .search-sec {
+                float: none;
+            }
+
+            .topnav a {
+                float: none;
+                display: block;
+                text-align: left;
+                cursor: pointer;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="topnav">
-    <a href="https://digitalarchives.sec.state.ma.us/">Home</a>
-    <a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">About</a>
-    <a href="https://digitalarchives.sec.state.ma.us/exhibits/">Exhibits</a>
-    <a href="https://digitalarchives.sec.state.ma.us/guides/">Guides</a>
-  </div>
+    <div class="notice">
+        <p>Notice: Due to an ongoing technical issue, some digital collections may not load properly. Staff are aware of
+            this problem and working to resolve it.
+        </p>
+    </div>
+
+    <div class="topnav">
+        <a href="https://digitalarchives.sec.state.ma.us/exhibits/">Exhibits</a>
+		<a href="https://digitalarchives.sec.state.ma.us/guides/">Guides</a>
+        <a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">About</a>
+        <a href="https://digitalarchives.sec.state.ma.us/">Home</a>
+    </div>
+
 </body>
 
 </html>
