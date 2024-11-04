@@ -1,6 +1,8 @@
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+
     <style>
         .newspaper {
             column-count: 2;
@@ -9,6 +11,7 @@
             font-weight: 400;
             font-size: 12px;
             padding-bottom: 5px;
+            line-height: 20px;
         }
 
         h11 {
@@ -17,6 +20,40 @@
             font-weight: 600;
             color: #17183b;
         }
+
+        h20,
+        h20 a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline-block;
+        }
+
+        h20 a:hover {
+            text-decoration: underline;
+        }
+
+        h13 {
+            line-height: 300%;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        h14, h14 a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 300%;
+        }
+
+        h14 a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 
@@ -25,252 +62,501 @@
         <h11>On August 23, 1927,</h11>&ensp;two Italian-American immigrants and anarchist radicals in Boston were
         executed for murder after a seven-year judicial battle. Muddied by anti-Italian and anti-immigrant prejudice,
         fear of left-wing radicals, judicial ethics, and civil rights, the Sacco and Vanzetti case became one of
-        America's most infamous murder trials and ignited passions worldwide.
-        <br>The story began one night in 1920, when two factory workers transporting payroll were shot dead in a
+        America's most infamous murder trials and ignited passions worldwide. 
+        The story began one night in 1920, when two factory workers transporting payroll were shot dead in a
         robbery. Weeks later, police arrested Nicola Sacco and Bartolomeo Vanzetti and found loaded pistols on their
         persons. Questions were raised about the subsequent trial and the state's investigative methods: did Sacco and
         Vanzetti receive a fair trial, or were they condemned simply for their nationality and connections to violent
         revolutionary groups? Prominent figures such as future Supreme Court Justice Felix Frankfurter and Italian
-        dictator Benito Mussolini called publicly for action in this political powder keg of a case.
-        <br>
-        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/"><i>Click
-                here</i></a>
-        to learn firsthand about a case that remains unclear to historians today with our digital
+        dictator Benito Mussolini called publicly for action in this political powder keg of a case.<br>
+        Learn firsthand about a case that remains unclear to historians today with our digital
         collection, <i>Commonwealth v. Sacco and Vanzetti,</i> featuring case files and affidavits, court documents,
         letters, hearing transcripts, and image exhibits. Explore the rabbit hole that brought on state-wide judicial
         reforms, international discourse, protests, bombings, books, plays, TV shows, movies, and a century of
-        investigation.&ensp;<i>Text by John Eckert, Digital Intern</i>
+        investigation.&ensp;<i>Text by John Eckert, Digital Intern</i><br>
+        <h14><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">View collection</a></h14>
     </div>
 </body>
 
-</html>
-<html>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #181818;
+        margin: 0;
+    }
 
-<head>
-    <style>
-        div.gallery img {
-            width: 100%;
-            height: auto;
+    p#caption {
+        padding-top: 150px;
+    }
+
+    .caption-container {
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 400;
+        text-align: left;
+        background-color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #181818;
+    }
+
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    div.clearfix {
+        padding-bottom: 15px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row>.ecolumn {
+        padding: 0 8px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .row {
+        padding-top: 15px;
+    }
+
+    .ecolumn {
+        float: left;
+        width: 25%;
+    }
+
+    div.ecolumn {
+        background-color: #ffffff;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding: 25px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: white;
+    }
+
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 100px;
+        width: 100%;
+        max-width: 1300px;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #17183b;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        font-size: 40px;
+        font-weight: 500;
+        z-index: 1;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #101129;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .mySlides {
+        display: none;
+        column-count: 2;
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        width: auto;
+        color: #17183b;
+        font-size: 12px;
+        font-family: 'Space Mono', sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+	
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        font-style: italic;
+    }
+
+    img {
+        margin-bottom: -4px;
+    }
+
+    img.hover-shadow.cursor,
+    img.demo.cursor.active,
+    img.demo.cursor {
+        border-radius: 0px;
+    }
+
+    img.demo.cursor.active,
+    img.demo.cursor {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .demo {
+        opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+    .ecolumn {
+        opacity: 1;
+    }
+
+    .ecolumn:hover {
+        opacity: 0.7;
+    }
+
+    @media (max-width: 980px) {
+        .mySlides {
+        display: none;
+        column-count: 1;
         }
 
-        div.desc {
-            padding-top: 10px;
-            padding-bottom: 20px;
-            padding-right: 15px;
-            padding-left: 15px;
-            line-height: 20px;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 11px;
-            font-style: italic;
-            color: #181818;
+        p#caption {
+        padding-top: 10px;
         }
 
-        * {
-            box-sizing: border-box;
+        h20,
+        h20 a {
+            margin-top: 10px;
         }
+    }
 
-        .responsive {
-            padding: 0 6px;
-            float: left;
-            width: 24.99999%;
-        }
-
-        @media only screen and (max-width: 700px) {
-            .responsive {
-                width: 49.99999%;
-                margin: 6px 0;
-            }
-        }
-
-        @media only screen and (max-width: 500px) {
-            .responsive {
-                width: 100%;
-            }
-        }
-
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
-</head>
-<br>
+</style>
 
 <body>
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_09d24719-491d-4999-8bae-8a0c6bb7a8a5/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54055106630_a63bdd8190_o.png"
-                    alt="Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the story of Sacco's Hunger Strike"
-                    width="150" height="100">
-            </a>
-            <div class="desc">Flyer for International Protest Meeting at Ford Hall, March 11, 1923:
-                Back Sacco's Protest! Hear the story of Sacco's Hunger Strike</div>
+
+    <div class="row">
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54055106630_a63bdd8190_o.png" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54053105813_48f2954f6e_o.png" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54057034646_5943893725_o.png" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54057007936_fbeec872e4_o.png" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+    
+        <div class="clearfix"></div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54054914813_27624b7862_o.png" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54052986261_53c5b398b3_o.png" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54090561211_97821df3b8_o.png" style="width:100%"
+                onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54090810223_5b5f3e0126_o.png" style="width:100%"
+                onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54093133570_bbecc35aa6_o.png" style="width:100%"
+                onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54056190307_f7b32545c4_k.png" style="width:100%"
+                onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54089914587_ecec348ee0_o.png" style="width:100%"
+                onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54092680961_cefbd3da75_o.png" style="width:100%"
+                onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+        </div>
+    
+        <div class="clearfix"></div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54093011464_5a1d527ece_o.png" style="width:100%"
+                onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54054756016_e009278957_o.png" style="width:100%"
+                onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54093135460_a9ba80d7c1_o.png" style="width:100%"
+                onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+        </div>
+
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54089920152_97c0360ab2_o.png" style="width:100%"
+                onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+        </div>
+    
+        <div class="clearfix"></div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54055106630_a63bdd8190_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_09d24719-491d-4999-8bae-8a0c6bb7a8a5/">Flyer for International Protest Meeting at Ford Hall, March 11, 1923:<br>Back Sacco's Protest! Hear the story of Sacco's Hunger Strike</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54053105813_48f2954f6e_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/">Photograph of Nicola Sacco</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54057034646_5943893725_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0f11a1d2-4866-4072-90fa-977dbac55997/">L'Ideale Anarchico</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54057007936_fbeec872e4_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e7be308d-6f91-4625-beb0-22cb040dce0c/">Advertisement for a Bayard Automatic Colt gun</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54054914813_27624b7862_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c5f44698-4ec6-4cf6-9984-ff73019d11e9/">Glass plate negative for photograph of Nicola, Rose, and Dante Sacco</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54052986261_53c5b398b3_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1af4120f-bb09-4aa1-b9d3-120be0b522ea/">Mailers from the Sacco-Vanzetti Defense Committee to Mary E. Haskell</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54090561211_97821df3b8_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c6ab52ed-0ab6-4bd0-8f41-a12b92e24842/">Blueprint of a primer anvil and the end of a shell</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54090810223_5b5f3e0126_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_91f85f3f-f2f9-457e-b34c-2d9e3e8ad283/">Indictment of Nicola Sacco and Bartolomeo Vanzetti</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54093133570_bbecc35aa6_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e916a42e-67f8-4299-b55a-9d22b65dcef2/">Affidavit of Lewis L. Wade</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54056190307_f7b32545c4_k.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_87bf9fc5-34d7-4646-96b9-06d6fd5f841c/">Photograph of the railroad shanty looking east on Pearl Street<br>at South Braintree</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54089914587_ecec348ee0_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c0a0b9e8-66a2-452e-b8dc-8bd55601a312/">Photograph of Buick Car - 'D'</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54092680961_cefbd3da75_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_df456224-2bb9-47a0-b695-906564df3e34/">Order of commitment and Warrant for commitment<br>to Bridgewater State Hospital for Nicola Sacco</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54093011464_5a1d527ece_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_78e6d25d-9a9d-482f-8257-1536c58b4fc8/">Photograph to William P. Kelley, Assistant District Attorney<br>(Southeastern District)</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54054756016_e009278957_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_fb815a68-3294-4aa3-a84b-fbc56325e6f4/">Photograph of Celestino Madeiros</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54093135460_a9ba80d7c1_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2be8453b-5f44-48b6-ace9-c6a74992a75f/">Warrant of Bartolomeo Vanzetti and Certified Copy of<br>Record of Conviction and Sentence of Death of Nicola Sacco<br>and Bartolomeo Vanzetti</a></h20>
+                            <br><br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <img src="https://live.staticflickr.com/65535/54089920152_97c0360ab2_o.png" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/">Photograph of Nicola, Rose, and Dante Sacco</a></h20>         
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54053105813_48f2954f6e_o.png"
-                    alt="Photograph of Nicola Sacco" width="150" height="100">
-            </a>
-            <div class="desc">Photograph of Nicola Sacco</div>
-        </div>
-    </div>
+        <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0f11a1d2-4866-4072-90fa-977dbac55997/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54057034646_5943893725_o.png" alt="L'Ideale Anarchico"
-                    width="150" height="100">
-            </a>
-            <div class="desc">L'Ideale Anarchico</div>
-        </div>
-    </div>
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e7be308d-6f91-4625-beb0-22cb040dce0c/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54057007936_fbeec872e4_o.png"
-                    alt="Advertisement for a Bayard Automatic Colt gun" width="150" height="100">
-            </a>
-            <div class="desc">Advertisement for a Bayard Automatic Colt gun</div>
-        </div>
-    </div>
+            var slideIndex = 1;
+            showSlides(slideIndex);
 
-    <div class="clearfix"></div>
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c5f44698-4ec6-4cf6-9984-ff73019d11e9/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54054914813_27624b7862_o.png"
-                    alt="Glass plate negative for photograph of Nicola, Rose, and Dante Sacco" width="150" height="100">
-            </a>
-            <div class="desc">Glass plate negative for photograph of Nicola, Rose, and Dante Sacco</div>
-        </div>
-    </div>
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1af4120f-bb09-4aa1-b9d3-120be0b522ea/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54052986261_53c5b398b3_o.png"
-                    alt="Mailers from the Sacco-Vanzetti Defense Committee to Mary E. Haskell" width="150" height="100">
-            </a>
-            <div class="desc">Mailers from the Sacco-Vanzetti Defense Committee to Mary E. Haskell</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c6ab52ed-0ab6-4bd0-8f41-a12b92e24842/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54090561211_97821df3b8_o.png"
-                    alt="Blueprint of a primer anvil and the end of a shell" width="150" height="100">
-            </a>
-            <div class="desc">Blueprint of a primer anvil and the end of a shell</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_91f85f3f-f2f9-457e-b34c-2d9e3e8ad283/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54090810223_5b5f3e0126_o.png"
-                    alt="Indictment of Nicola Sacco and Bartolomeo Vanzetti" width="150" height="100">
-            </a>
-            <div class="desc">Indictment of Nicola Sacco and Bartolomeo Vanzetti</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_87bf9fc5-34d7-4646-96b9-06d6fd5f841c/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54056190307_f7b32545c4_k.png"
-                    alt="Photograph of the railroad shanty looking east on Pearl Street at South Braintree" width="150"
-                    height="100">
-            </a>
-            <div class="desc">Photograph of the railroad shanty looking east on Pearl Street at South Braintree</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_fb815a68-3294-4aa3-a84b-fbc56325e6f4/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54054756016_e009278957_o.png"
-                    alt="Photograph of Celestino Madeiros" width="150" height="100">
-            </a>
-            <div class="desc">Photograph of Celestino Madeiros</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_070d1e62-65cc-4fc6-948a-da0ad9d04ac3/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54089909302_b65a59bd8d_o.png"
-                    alt="Photograph Album of Ballistics, Albert H. Hamilton, Analytical Chemist and Wilbur F. Turner, Photographer"
-                    width="150" height="100">
-            </a>
-            <div class="desc">Photograph Album of Ballistics, Albert H. Hamilton, Analytical Chemist and Wilbur F.
-                Turner, Photographer</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c0a0b9e8-66a2-452e-b8dc-8bd55601a312/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54089914587_ecec348ee0_o.png"
-                    alt="Photograph of Buick Car - 'D'" width="150" height="100">
-            </a>
-            <div class="desc">Photograph of Buick Car - 'D'</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54089920152_97c0360ab2_o.png"
-                    alt="Photograph of Nicola, Rose, and Dante Sacco" width="150" height="100">
-            </a>
-            <div class="desc">Photograph of Nicola, Rose, and Dante Sacco</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3073ed46-7b88-4597-b0ad-7b586d4d42ff/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54091134834_4afb020bb8_o.png"
-                    alt="Permit to dig clams in the Town of Plymouth awarded to 'Bert Vanzetti'" width="150"
-                    height="100">
-            </a>
-            <div class="desc">Permit to dig clams in the Town of Plymouth awarded to 'Bert Vanzetti'</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_739b7457-34c6-40c5-be06-1af0835ba6fb/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54089934142_47c1dda541_o.png"
-                    alt="Copy of cut showing lead into the barrel of a gun" width="150" height="100">
-            </a>
-            <div class="desc">Copy of cut showing lead into the barrel of a gun</div>
-        </div>
-    </div>
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6a79e79c-3256-4bd7-af86-9714cbc82074/" rel="noopener">
-                <img src="https://live.staticflickr.com/65535/54091261725_a431892280_o.png"
-                    alt="Notes about Insanity Issue, re: Nicola Sacco" width="150" height="100">
-            </a>
-            <div class="desc">Notes about Insanity Issue, re: Nicola Sacco</div>
-        </div>
-    </div>
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
 
 </body>
 
