@@ -1,0 +1,145 @@
+<html>
+
+<head>
+
+    <style>
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.ecolumn {
+            padding: 40px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row {
+            padding-top: 0px;
+        }
+
+        .ecolumn {
+            float: left;
+            width: 50%;
+            position: relative;
+        }
+
+        .ecolumn:hover .overlay {
+            opacity: 1;
+        }
+
+        div.ecolumn {
+            background-color: #ffffff;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .ecolumn img {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .ecolumn img:hover {
+            opacity: 0.7;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #ffffff;
+        }
+
+        .text a {
+            color: #17183b;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54119326878_22dc56b4bb_o.png" style="width:100%">
+                <div class="overlay">
+                    <div class="text"><a href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">Commonwealth v.<br>Sacco and Vanzetti</a>
+                </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54118967856_25c2c83ac5_o.png" style="width:100%">
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54118967856_25c2c83ac5_o.png" style="width:100%">
+    </div>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54119429645_b110bcce3f_o.png" style="width:100%">
+                <div class="overlay">
+                    <div class="text"><a href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">Paintings from:<br>Birds of Massachusetts and<br>Other New England States</a></div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54119241503_d940fe8d29_o.png" style="width:100%">
+                <div class="overlay">
+                    <div class="text"><a href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">Quabbin Reservoir Cemetery<br>Photographs, 1928&ndash;1945</a>
+                </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="ecolumn">
+            <img src="https://live.staticflickr.com/65535/54118967856_25c2c83ac5_o.png" style="width:100%">
+    </div>
+
+</div>
+
+</body>
+
+</html>
