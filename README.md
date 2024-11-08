@@ -26,6 +26,4 @@ Preservica/Wordpress code currently in use on the <a href="https://digitalarchiv
 &emsp;<b>recently_added.html</b>: Recently Added section on Homepage.<br>
 &emsp;<b>exhibits_main.html</b>: Exhibits page.<br>
 &emsp;<b>template.html</b>: Exhibit template.<br>
-<br>
-<b>Wordpress Pages:</b><br><br>
 &emsp;<b>home.html</b>: Digital Repository homepage content.
