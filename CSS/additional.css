@@ -14,6 +14,8 @@ h2, h1.new-primary {
 	font-family: 'Space Grotesk', sans-serif;
 	font-weight: 600;
 	font-size:22px;
+	padding-bottom: 10px;
+	padding-top: 25px;
 }
 
 a.metadata-link.new-primary {
@@ -60,18 +62,23 @@ h10 {
 	font-weight: 400;
 	line-height: 14px;
 	margin: 5px 0px 0px 5px;
-	padding-left: 50px;
+	padding-left: 75px;
 	font: 'Inter', sans-serif;
 }
 
 .hero-text h1 {
 	font-size: 14px;
 	color: #181818;
-	font-weight: 600px;
-	line-height:16px;
+	font-weight: 500;
+	line-height: 16px;
 	font: 'Space Grotesk', sans-serif;
 	margin: 0px 0px 0px 5px;
-	padding-left: 50px;
+	padding-left: 75px;
+}
+
+.hero-text h1 a {
+	color: #17183b;
+	font-family: 'Space Grotesk';
 }
 
 a.metadata-expand {
@@ -222,9 +229,10 @@ a {
 }
 
 a.new-primary.new-primary-tint-hover.multiline {
-	font-family: 'Inter', sans-serif;
+	font-family: 'Space Grotesk', sans-serif;
 	font-weight: 600;
 	font-size: 14px;
+	padding-bottom: 2px;
 }
 
 button {
@@ -286,6 +294,70 @@ fieldset {
     
 	div.overview, div.overview a {
 		display: none;
+	}
+	
+	div.column {
+		width: 50%;
+	}
+	
+	div.notice p {
+		padding: 10px;
+	}
+	
+	div.topnav a {
+		text-align: center;
+		padding: 20px;
+	}
+	
+	div.desc {
+		float: left;
+	}
+	
+}
+
+@media (max-width: 400px) {
+		img {
+		max-width: 230px;
+	}
+	
+	div.column {
+		width: 100%;
+	} 
+	
+	div.footer p {
+		padding-right: 40px;
+		font-size: 18px;
+	}
+	
+	div.notice {
+		padding: 5px;
+	}
+	
+	div.topnav a {
+		text-align: center;
+	}
+	
+	div.topnav, div.topnav a {
+		background-color: #f3f3f3;
+	}
+	
+	div.grid-item, div.grid-item a {
+		font-size: 14px;
+		line-height: 18px;
+		text-align: left;
+	}
+	
+	div.gallery img {
+		display: none;
+	}
+	
+	div.desc {
+		font-size: 11px;
+		padding: 0px;
+	}
+	
+	div.column {
+		padding-bottom: 0px;
 	}
 }
 
@@ -354,7 +426,7 @@ div.sixteen.columns.results-and-filters, div.no-render {
 div.overview {
 	text-align: center;
 	padding-bottom: 25px;
-	padding-top: 13px;
+	padding-top: 22px;
 }
 
 div.overview a {
@@ -367,8 +439,17 @@ div.overview a {
 	border-radius: 5px;
 }
 
-div.overview a:hover {
-	background-color: #101129;
+div.overview2, div.overview2 a {
+	text-align: left;
+	padding-top: 40px;
+	font-size: 11px;
+	font-weight: 400;
+	text-transform: uppercase;
+	font-family: 'Space Mono', sans-serif;
+}
+
+div.overview2 a:hover {
+	text-decoration: underline;
 }
 
 div.cookie-consent-inner, span.cookie-consent-summary {
@@ -418,4 +499,11 @@ div#content-panel.twelve.columns.last {
 	font-size: 13px;
 	font-weight: 400;
 	font-family: 'Inter', sans-serif;
+}
+
+h13 {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #17183b;
 }
