@@ -6,8 +6,8 @@
 &emsp;<a href="https://fonts.google.com/specimen/Inter">Inter</a><br>
 <br>
 <b>Colors</b><br><br>
-&emsp;Headings: #17183b<br>
-&emsp;Body: #181818<br>
+&emsp;#17183b<br>
+&emsp;#181818<br>
 &emsp;#F3F3F3<br><br>
 <b>Main CSS</b><br><br>
 &emsp;<b>main_layout.css</b>: Stylesheet for main Wordpress layout.<br>
