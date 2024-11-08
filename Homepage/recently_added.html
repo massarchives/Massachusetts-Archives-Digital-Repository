@@ -1,0 +1,124 @@
+<html>
+
+<head>
+
+    <style>
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row2>.column2 {
+            padding: 0px 10px 0px 10px;
+        }
+
+        .row2:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row2 {
+            padding-top: 0px;
+        }
+
+        .column2 {
+            float: left;
+            width: 50%;
+            position: relative;
+        }
+
+        .column2:hover .overlay2 {
+            opacity: 0.9;
+        }
+
+        div.column2 {
+            background-color: #ffffff;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .column2 img {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .column2 img:hover {
+            opacity: 0.7;
+        }
+
+        .overlay2 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #ffffff;
+        }
+
+        .text2 a {
+            color: #17183b;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .text2 a:hover {
+            text-decoration: underline 2px;
+        }
+
+        .clearfix {
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row2">
+        <div class="column2">
+            <img src="https://live.staticflickr.com/65535/54052157156_90e4961129_o.png" style="width:100%">
+                <div class="overlay2">
+                    <div class="text2"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">Commonwealth v.<br>Sacco and Vanzetti</a>
+                </div>
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="column2">
+            <img src="https://live.staticflickr.com/65535/54052472678_ee1e91c93d_o.png" style="width:100%">
+                <div class="overlay2">
+                    <div class="text2"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/"><i>Coming Soon</i><br>Salem Witch Trials Papers</a>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+</body>
+
+</html>
