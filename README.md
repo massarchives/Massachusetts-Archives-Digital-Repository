@@ -1,4 +1,4 @@
-<i>Preservica/Wordpress code currently in use on the <a href="https://digitalarchives.sec.state.ma.us/">Massachusetts Archives Digital Repository</a> website.
+Preservica/Wordpress code currently in use on the <a href="https://digitalarchives.sec.state.ma.us/">Massachusetts Archives Digital Repository</a> website.
 <br><br>
 <b>Google Fonts</b><br><br>
 &emsp;<a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a><br>
