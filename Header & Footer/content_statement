@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <style>
+        .newspaper {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            padding-bottom: 5px;
+        }
+
+        h11 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #17183b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="newspaper">
+        <h11>The Massachusetts Archives</h11>&ensp;serves the Commonwealth and its citizens by preserving and making accessible the records documenting government action. The Archives provides leadership in preserving historical records and ensuring that those records are known and valued by the public. The catalog and web pages of the Massachusetts Archives provide access to thousands of descriptions and digital copies of the permanent records of the Commonwealth. Massachusetts Archives records span the history of the Commonwealth and may contain content and language that may be deemed harmful or difficult to view. Some records, and the language in them, may reflect outdated, biased or offensive views and opinions. While objectionable today, this language was used at the time these records were created and may be reflected within our catalog, finding aids, and descriptive materials. The Massachusetts Archives is committed to diversity, equity, inclusion, and accessibility and will continue to evaluate outdated language and terminology in our descriptive materials. Archivists choose what language to use when describing materials and may reuse pre-existing language and terminology that reflects biases and prejudices. In these cases, terms are retained to provide important context. Members of the public who encounter problematic language should notify Archives Staff at <a href='mailto:archives@sec.state.ma.us'>archives@sec.state.ma.us</a>. Staff will review the description and may update it in a way that balances the preservation of original context with an awareness of the effect of language on our users.<br>&emsp;</div>
+</body>
+
+</html>
