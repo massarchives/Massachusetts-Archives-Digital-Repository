@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: #f0f0f0;
+  color: #17183b;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  padding: 20px;
+  width: 100%;
+  border-radius: 0px;
+  text-align: left;
+  outline: none;
+}
+
+h78 {
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    color: #17183b;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.collapsible:hover {
+  background-color: #D8D8D8;
+  text-transform: none;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: #181818;
+  text-transform: none;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<button class="collapsible">Contact Details</button>
+<div class="content">
+  <p><h78>Reference Inquiries</h78><br>
+    <a href="mailto:archives@sec.state.ma.us">archives@sec.state.ma.us</a>
+    <br><br>
+    <h78>Elizabeth O'Connell</h78><br>
+    Digital Archivist<br>
+    <a href="mailto:elizabeth.oconnell@sec.state.ma.us">elizabeth.oconnell@sec.state.ma.us</a>
+    <br><br>
+    <h78>Yolande Bennett</h78><br>
+    Assistant Digital Archivist<br>
+    <a href="mailto:yolande.bennett@sec.state.ma.us">yolande.bennett@sec.state.ma.us</a><br>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
