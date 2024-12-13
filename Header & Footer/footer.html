@@ -1,183 +1,262 @@
 <html>
+	<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			* {
+				box-sizing: border-box;
+			}
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+			.footer {
+				position: static;
+				bottom: 0;
+				z-index: 10;
+			}
 
-        .footer {
-            position: static;
-            bottom: 0;
-            z-index: 10;
-        }
+			.footer-content {
+				overflow: hidden;
+				background: #E8E8EB;
+			}
 
-        .bottomnav {
-            overflow: hidden;
-            background: #f3f3f3;
-        }
+			.footer-content p {
+				float: left;
+				display: block;
+				color: #17183b;
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 140%;
+				text-align: center;
+				text-decoration: none;
+				padding-top: 20px;
+				padding-left: 30px;
+			}
 
-        .bottomnav p {
-            float: left;
-            display: block;
-            color: #17183b;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            padding-top: 15px;
-            padding-left: 35px;
-        }
+			.footer-content a:hover {
+				text-decoration: none;
+			}
 
-        .bottomnav a:hover {
-            text-decoration: none;
-        }
+			.second-column .search-container {
+				float: right;
+			}
+			
+			.second-column input {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				line-height: 140%;
+				border-radius: 1px;
+			}
+			
+			.second-column input[type=text] {
+				padding: 8px;
+				margin-top: 8px;
+				font-size: 12.5px;
+				line-height: 140%;
+				color: #181818;
+				font-weight: 400;
+				width: 400px;
+				border: none;
+			}
 
-        .bottomnav .search-container {
-            float: right;
-            padding-top: 5px;
-        }
+			.second-column .search-container button {
+				float: right;
+				padding: 6px 10px;
+				margin-top: 8px;
+				margin-right: 8px;
+				color: #fafafa;
+				background-color: #17183b;
+				font-size: 15px;
+				border: none;
+			}
 
-        .bottomnav input[type=text] {
-            padding: 6px;
-            margin-top: 8px;
-            font-size: 11px;
-            color: #181818;
-            font-weight: 400;
-            width: 645px;
-            border: none;
-        }
+			* {
+				box-sizing: border-box;
+			}
 
-        .bottomnav .search-container button {
-            float: right;
-            padding: 5px 10px;
-            margin-top: 8px;
-            margin-right: 8px;
-            color: #181818;
-            background-color: #f3f3f3;
-            font-size: 14.7px;
-            border: none;
-        }
+			.column {
+				float: left;
+				width: 25%;
+				height: 155px;
+				padding-left: 30px;
+				background-color: #E8E8EB;
+			}
 
-        @media screen and (max-width: 980px) {
-            .bottomnav .search-container {
-                float: none;
-            }
+			.second-column {
+				float: left;
+				width: 100%;
+				padding: 20px;
+        padding-left: 30px;
+        padding-top: 13px;
+				background-color: #17183b;
+			}
 
-            .bottomnav a,
-            .bottomnav input[type=text] {
-                float: none;
-                display: block;
-                text-align: left;
-                width: 100%;
-                margin: 0;
-                padding: 14px;
-            }
+      .row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
 
-            .bottomnav input[type=text] {
-                border: 1px solid #ccc;
-                width: 100%;
-            }
+			.column p,
+			.column a {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 13px;
+				font-weight: 400;
+				color: #181818;
+				line-height: 150%;
+			}
 
-            .bottomnav .search-container button {
-                display: none;
-            }
-        }
+			.column a:hover {
+				text-decoration: underline;
+			}
 
-        * {
-            box-sizing: border-box;
-        }
+			.column h6 {
+				font-family: 'Space Grotesk', sans-serif;
+				color: #17183b;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 140%;
+				padding-bottom: 10px;
+				padding-top: 5px;
+			}
 
-        /* Create three equal columns that floats next to each other */
-        .column {
-            float: left;
-            width: 25%;
-            height: 175px;
-            padding-left: 35px;
-            background-color: #f3f3f3;
-        }
+			.second-column footnote {
+				font-family: 'DM Sans', sans-serif;
+				color: #fafafa;
+				font-weight: 500;
+				font-size: 13px;
+        padding-top: 15px;
+				line-height: 140%;
+        display: inline-block;
+				font-style: none!important;
+			}
+			
+			@media screen and (max-width: 400px) {
+				.search-container, .column {
+					display: none;
+				}
 
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+				.footer-content p {
+					text-align: center;
+					float: none;
+					padding-left: 0px;
+					padding-top: 20px;
+					font-size: 20px;
+				}
 
-        .column p,
-        .column a {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            color: #181818;
-            line-height: 20px;
-        }
+				.column h6 {
+					padding-top: 0px; 
+				}
+			}
 
-        .column a:hover {
-            text-decoration: underline;
-        }
+			@media screen and (max-width: 600px) {
+				.search-container, .column {
+					display: none;
+				}
 
-        .column h5 {
-            font-family: 'Space Grotesk', sans-serif;
-            color: #17183b;
-            font-weight: 400;
-            font-size: 16px;
-            padding-bottom: 10px;
-            padding-top: 25px;
-        }
-    </style>
-</head>
+				.footer-content p {
+					text-align: center;
+					float: none;
+					padding-left: 0px;
+					padding-top: 20px;
+					font-size: 20px;
+				}
 
-<body>
-    <div class="footer">
-        <div class="bottomnav">
-            <p>Massachusetts Archives Digital Repository</p>
-            <div class="search-container">
-                <form action="https://www.google.com/search?q=site:https://www.sec.state.ma.us/" class="input-group"
-                    method="get" name="search-sec" target="_blank">
-                    <input name="sitesearch" type="hidden" value="www.sec.state.ma.us/">
-                    <input class=".bottomnav input" name="q" placeholder=" Search the Secretary's website"
-                        required="required" type="text">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="column">
-        <h5>Links</h5>
-        <p>
-            <a href="https://www.sec.state.ma.us/divisions/accessibility-statement.htm">Accessibility
-                Statement</a><br>
-            <a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">Archives Homepage</a><br>
-            <a href="https://digitalarchives.sec.state.ma.us/content-statement/">Content Statement</a><br>
-            <a href="https://www.sec.state.ma.us/divisions/terms.htm">Terms & Conditions</a>
-        </p>
-    </div>
-    <div class="column">
-        <h5>Contact</h5>
-        <p><a href="tel:617-727-2816">617–727–2816</a><br>
-            <a href="mailto:archives@sec.state.ma.us">archives@sec.state.ma.us</a><br>
-            <a href="https://www.sec.state.ma.us/divisions/archives/staff-directory.htm">Staff Directory</a>
-        </p>
-    </div>
-    <div class="column">
-        <h5>Hours</h5>
-        <p>
-            Monday — Friday<br>
-            8:30 a.m. — 4:30 p.m.<br>
-            <a href="https://www.instagram.com/massachusettsarchives"><i class="fa fa-instagram"
+				.column h6 {
+					padding-top: 0px; 
+				}
+			}
+			
+			@media screen and (max-width: 980px) {
+				.second-column .search-container {
+					float: none;
+				}
+
+				.footer-content a,
+				.second-column input[type=text] {
+					float: none;
+					display: block;
+					text-align: left;
+					width: 100%;
+					margin: 0;
+					padding: 14px;
+				}
+
+				.second-column input[type=text] {
+					border: 1px solid #ccc;
+					width: 100%;
+				}
+
+				.second-column .search-container button {
+					display: none;
+				}
+				
+				.search-container, .column {
+					display: none;
+				}
+
+				.footer-content p {
+					text-align: center;
+					float: none;
+					padding-left: 0px;
+					padding-top: 20px;
+					font-size: 18px;
+				}
+
+				.column h6 {
+					padding-top: 0px; 
+				}			
+			}
+		</style>
+	</head>
+	<body>
+		<div class="footer">
+			<div class="footer-content">
+				<p>Massachusetts Archives Digital Repository</p>
+			</div>
+		</div>
+		<div class="column">
+			<h6>Links</h6>
+				<p>
+					<a href="https://www.sec.state.ma.us/divisions/accessibility-statement.htm">Accessibility Statement</a><br>
+					<a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">Archives Homepage</a><br>
+					<a href="https://digitalarchives.sec.state.ma.us/content-statement/">Content Statement</a><br>
+					<a href="https://www.sec.state.ma.us/divisions/terms.htm">Terms & Conditions</a>
+				</p>
+		</div>
+		<div class="column">
+			<h6>Contact</h6>
+				<p>
+					<a href="tel:617-727-2816">617-727-2816</a><br>
+					<a href="mailto:archives@sec.state.ma.us">archives@sec.state.ma.us</a><br>
+					<a href="https://www.sec.state.ma.us/divisions/archives/staff-directory.htm">Staff Directory</a>
+				</p>
+		</div>
+		<div class="column">
+			<h6>Hours</h6>
+				<p>
+					Monday — Friday<br>
+					8:30 a.m. — 4:30 p.m.<br>
+					<a href="https://www.instagram.com/massachusettsarchives"><i class="fa fa-instagram"
                     aria-hidden="true"></i></a>
-        </p>
-    </div>
-    <div class="column">
-        <h5>Directions</h5>
-        <p>Massachusetts Archives<br>
-            <a href="https://maps.app.goo.gl/RMcbQThz3f9CUp2G8">220 Morrissey Blvd.<br>
-                Boston, MA 02125</a>
-        </p>
-    </div>
-</body>
-
+				</p>
+		</div>
+		<div class="column">
+			<h6>Directions</h6>
+			<p>Massachusetts Archives<br>
+				<a href="https://maps.app.goo.gl/RMcbQThz3f9CUp2G8">
+					220 Morrissey Blvd.<br>
+					Boston, MA 02125
+				</a>
+			</p>
+		</div>
+		<div class="second-column">
+			<footnote>Massachusetts Archives Digital Repository is best viewed on a desktop computer.</footnote>
+      <div class="search-container">
+        <form action="https://www.google.com/search?q=site:https://www.sec.state.ma.us/" class="input-group"
+          method="get" name="search-sec" target="_blank">
+          <input name="sitesearch" type="hidden" value="www.sec.state.ma.us/">
+          <input class=".footer-content input" name="q" placeholder="Search the Secretary's website" required="required" type="text"><button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+		</div>
+	</body>
 </html>
