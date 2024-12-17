@@ -1,131 +1,84 @@
 <html>
+	<head>
+		<style>
+			div.recently-added-item {
+				border: none;
+			}
 
-<head>
+			div.recently-added-item:hover {
+				border: none;
+			}
 
-    <style>
+			div.recently-added-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+        transition: .6s ease;
+			}
 
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+			div.recently-added-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
 
-        * {
-            box-sizing: border-box;
-        }
+			div.collection-title, div.collection-title a {
+				padding: 15px;
+				text-align: left;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+			}
 
-        .row2>.column2 {
-            padding: 0px 3px 0px 3px;
-        }
+			* {
+				box-sizing: border-box;
+			}
 
-        .row2:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+			.recently-added {
+				padding-right: 20px;
+				float: left;
+				width: 40%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 40px;
+			}
 
-        .row2 {
-            padding-top: 0px;
-        }
+			@media only screen and (max-width: 700px) {
+				.recently-added {
+					width: 49.99999%;
+					margin: 6px 0;
+				}
+			}
 
-        .column2 {
-            float: left;
-            width: 50%;
-            position: relative;
-        }
-
-        .column2:hover .overlay2 {
-            opacity: 0.9;
-        }
-
-        div.column2 {
-            background-color: #FAFAFA;
-        }
-
-        .cursor {
-            cursor: pointer;
-        }
-
-        .column2 img {
-            opacity: 1;
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .column2 img:hover {
-            opacity: 0.7;
-        }
-
-        .overlay2 {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            opacity: 0;
-            transition: .5s ease;
-            background-color: #FAFAFA;
-        }
-
-        .text2 a {
-            color: #17183b;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 500;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .text2 a:hover {
-            text-decoration: underline 2px;
-        }
-
-        .clearfix {
-            padding-bottom: 50px;
-        }
-
-        h50 {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: #181818;
-            font-style: italic;
-            font-weight: 400;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="row2">
-        <div class="column2">
-            <img src="https://live.staticflickr.com/65535/54052157156_90e4961129_o.png" style="width:100%">
-                <div class="overlay2">
-                    <div class="text2"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">Commonwealth v.<br>Sacco and Vanzetti</a>
-                </div>
-        </div>
-    </div>
-
-    <div class="row2">
-        <div class="column2">
-            <img src="https://live.staticflickr.com/65535/54142076530_b66e943df5_o.png" style="width:100%">
-                <div class="overlay2">
-                    <div class="text2"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">Salem Witch Trials Papers</a>
-                </div>
-        </div>
-    </div>
-
-</div>
-<div class="clearfix"></div>
-
-</body>
-
+			@media only screen and (max-width: 500px) {
+				.recently-added {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="recently-added">
+			<div class="recently-added-item"">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
+					<img src="https://live.staticflickr.com/65535/54052157156_90e4961129_o.png" alt="Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the Story of Sacco's Hunger Strike" width="600" height="400"></a>
+						<div class="collection-title">Commonwealth v. Sacco & Vanzetti</div>
+			</div>
+		</div>
+		<div class="recently-added">
+			<div class="recently-added-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+					<img src="https://live.staticflickr.com/65535/54142076530_b66e943df5_o.png" alt="Table of cases, Salem Witch Trials Papers" width="600" height="400"></a>
+						<div class="collection-title">Salem Witch Trials Papers</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</body>
 </html>
