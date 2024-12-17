@@ -1,55 +1,99 @@
 <html>
+	<head>
+		<style>
+			.about {
+				column-count: 2;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.about p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 13px;
+				line-height: 150%;
+			}
 
-<head>
-    <style>
-        .newspaper {
-            column-count: 2;
-            max-width: 1000px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 20px;
-            padding-top: 20px;
-        }
+			.about a:hover {
+				text-decoration: underline;
+			}
 
-        .newspaper a:hover {
-            text-decoration: underline;
-        }
+			about-strong {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 130%;
+				margin-bottom: 30px;
+				color: #17183b;
+			}
 
-        h80 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 26px;
-            color: #17183b;
-        }
+			.about-link,
+			.about-link a, .about a {
+				font-family: 'Space Mono', sans-serif;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: #17183b;
+				font-weight: 400;
+				line-height: 250%;
+			}
 
-        h14, h14 a {
-            font-family: 'Space Mono', sans-serif;
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #17183b;
-            font-weight: 400;
-            line-height: 300%;
-        }
+			about-link a:hover {
+				text-decoration: underline;
+			}
 
-        h14 a:hover {
-            text-decoration: underline;
-        }
+			@media screen and (max-width: 400px) {
+				about-strong {
+					font-size: 18px;
+					line-height: 24px;
+				}
 
-    </style>
-</head>
+				.about {
+					column-count: 1;
+				}
+				
+				.about p {
+					padding-top: 6px;
+				}
+			}
 
-<body>
-    <div class="newspaper">
-        <h80>The Massachusetts Archives works to ensure the preservation and accessibility of government records, and helps protect 
-        the Commonwealth's historic heritage for its citizens, students, and scholars.</h80><br><br>
-        The Massachusetts Archives Digital Repository provides access to permanent digital records of Massachusetts state
-        government. These records comprise born-digital materials, or records that were produced electronically, and
-        digitized reproductions of originals at the Archives. The records in the Digital Repository do not represent the
-        full scope of what is publicly accessible at the Massachusetts Archives.<br><h14>
-        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;<a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">Learn more</a></h14>
-    </div>
-</body>
+			@media screen and (max-width: 600px) {
+				about-strong {
+					font-size: 18px;
+					line-height: 24px;
+				}
 
+				.about {
+					column-count: 1;
+				}
+				
+				.about p {
+					padding-top: 6px;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				about-strong {
+					font-size: 18px;
+					line-height: 24px;
+				}
+
+				.about {
+					column-count: 1;
+				}
+				
+				.about p {
+					padding-top: 6px;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="about">
+			<about-strong>The Massachusetts Archives works to ensure the preservation and accessibility of government records, and helps protect the Commonwealth's historic heritage for its citizens, students, and scholars.</about-strong><br>
+			<p>The Archives' Digital Repository provides access to permanent digital records of Massachusetts state government. These records comprise born-digital materials, or records that were produced electronically, and digitized reproductions of originals at the Archives. The records in the Digital Repository do not represent the full scope of what is publicly accessible at the Massachusetts Archives.<br>
+			<about-link><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;<a href="https://www.sec.state.ma.us/divisions/archives/archives.htm">Learn more</a></about-link>
+			</p>
+		</div>
+	</body>
 </html>
