@@ -1,671 +1,740 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
-
     <style>
-        .newspaper {
+        .exhibit-desc {
             column-count: 2;
             max-width: 1000px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             font-weight: 400;
-            font-size: 12px;
+            font-size: 13px;
             padding-bottom: 5px;
-            line-height: 20px;
+            line-height: 150%;
         }
 
-        h11 {
+        strong-line {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 500;
             color: #17183b;
         }
 
-        h20,
-        h20 a {
+        item-title,
+        item-title a {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 4px;
             color: #17183b;
             display: inline-block;
         }
-		
-		h20 a:hover {
-			text-decoration: underline;
-		}
 
-        h13 {
-            line-height: 300%;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 12px;
+        item-title a:hover {
+            text-decoration: underline;
         }
 
-        h14 a {
+        author {
+            line-height: 300%;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        view-collection a {
             font-family: 'Space Mono', sans-serif;
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             color: #17183b;
             font-weight: 400;
-            line-height: 300%;
+            line-height: 250%;
         }
 
-        h14 a:hover {
+        view-collection a:hover {
             text-decoration: underline;
         }
-		
-		h30 {
+
+        prev-next {
             color: #D1D1D8;
-			font-family: 'Space Mono', sans-serif;
-			font-size: 11px;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
 			font-weight: 400;
-        }
-    </style>
+			color: #181818;
+			margin: 0;
+		}
+
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 150%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 200%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+		}
+
+		.exhibit,
+		.mySlides {
+			opacity: 1;
+		}
+
+		.exhibit:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
+		}
+
+		@media (max-width: 600px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+
+			.row>.exhibit {
+				padding: 5px;
+			}
+		}
+	</style>
 </head>
-
 <body>
-    <div class="newspaper">
-        <h11>In 1921, the Commonwealth of Massachusetts</h11>&ensp;authorized the publication of <i>Birds of Massachusetts and Other New England States</i> for the purpose of studying the economic value, geographical distribution, and life history of the birds of New England, with $8,000 being allotted for color illustrations. 
-        These paintings (1921&ndash;1927) were created by Louis Agassiz Fuertes, an American ornithologist and prominent artist, and, upon the death of Fuertes, by Allan Brooks, an ornithologist and artist from Canada. Due to his intricate style, Fuertes is credited for having established the modern standard for ornithological art and naturalist depiction. <i>Birds of Massachusetts and Other New England States</i> was written by Edward Howe Forbrush and published in 1925. Forbrush was a notable Massachusetts ornithologist, writer, and conservationist. He became interested in birds at an early age, initially experimenting with taxidermy and hunting birds in order to get a closer look at them. Throughout his lifetime, Forbrush stood at the forefront
-        of various conservation initiatives across New England. An active member of the Worcester Natural History Society, he was appointed Curator of Ornithology of the society's museum at the age of sixteen. In 1894, Forbrush was elected Ornithologist to the State Board of Agriculture, and in 1908 was named State Ornithologist by the state board. Forbrush later became director of the Division of Ornithology within the Department of Agriculture in
-        1919.<br><h14><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">View collection</a></h14></div>
+    <div class="exhibit-desc">
+        <strong-line>In 1921, the Commonwealth of Massachusetts</strong-line>&ensp;authorized the publication of <i>Birds of
+        Massachusetts and Other New England States</i> for the purpose of studying the economic value, geographical
+        distribution, and life history of the birds of New England, with $8,000 being allotted for color illustrations.
+        These paintings were created by Louis Agassiz Fuertes, an American ornithologist and prominent
+        artist, and, upon the death of Fuertes, by Allan Brooks, an ornithologist and artist from Canada. Due to his
+        intricate style, Fuertes is credited for having established the modern standard for ornithological art and
+        naturalist depiction. <i>Birds of Massachusetts and Other New England States</i> was written by Edward Howe
+        Forbrush and published in 1925. Forbrush was a notable Massachusetts ornithologist, writer, and conservationist.
+        He became interested in birds at an early age, initially experimenting with taxidermy and hunting birds in order
+        to get a closer look at them. Throughout his lifetime, Forbrush stood at the forefront of various conservation initiatives across New England. 
+		An active member of the Worcester Natural History Society, he was appointed Curator of Ornithology of the society's museum at the age of sixteen. 
+		In 1894, Forbrush was elected Ornithologist to the State Board of Agriculture, and in 1908 was named State Ornithologist
+        by the state board. Forbrush later became director of the Division of Ornithology within the Department of
+        Agriculture in 1919.<br>
+			<view-collection><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			&ensp;<a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">View collection</a></view-collection>
+    </div>
 </body>
-
-<style>
-    body {
-        font-family: 'Inter', sans-serif;
-        font-size: 12px;
-        font-weight: 400;
-        color: #181818;
-        margin: 0;
-    }
-
-    p#caption {
-        padding-top: 150px;
-    }
-
-    .caption-container {
-        font-family: 'Inter', sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 400;
-        text-align: left;
-        background-color: white;
-        padding-left: 15px;
-        padding-right: 15px;
-        color: #181818;
-    }
-
-    .clearfix:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .row>.ecolumn {
-        padding: 30px;
-    }
-
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .ecolumn {
-        float: left;
-        width: 33.3%;
-    }
-
-    div.ecolumn {
-        background-color: #FAFAFA;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding: 25px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: white;
-    }
-
-    /* Modal Content */
-    .modal-content {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 75px;
-        width: 100%;
-        max-width: 1200px;
-    }
-
-    /* The Close Button */
-    .close {
-        color: #17183b;
-        position: absolute;
-        top: 50px;
-        right: 50px;
-        font-size: 40px;
-        font-weight: 500;
-        z-index: 1;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #101129;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .mySlides {
-        display: none;
-        column-count: 2;
-    }
-
-    .cursor {
-        cursor: pointer;
-    }
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        width: auto;
-        color: #17183b;
-        font-size: 12px;
-        font-family: 'Space Mono', sans-serif;
-        font-weight: 400;
-        text-transform: uppercase;
-    }
-	
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        font-style: italic;
-    }
-
-    img {
-        margin-bottom: -4px;
-    }
-
-    img.hover-shadow.cursor,
-    img.demo.cursor.active,
-    img.demo.cursor {
-        border-radius: 0px;
-    }
-
-    img.demo.cursor.active,
-    img.demo.cursor {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .demo {
-        opacity: 0.6;
-    }
-
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-
-    .ecolumn, .mySlides {
-        opacity: 1;
-    }
-
-    .ecolumn:hover, .mySlides img:hover {
-        opacity: 0.7;
-    }
-
-    @media (max-width: 980px) {
-        .mySlides {
-        display: none;
-        column-count: 1;
-        }
-
-        p#caption {
-        padding-top: 10px;
-        }
-
-        h20,
-        h20 a {
-            margin-top: 10px;
-        }
-
-        .row>.ecolumn {
-        padding: 5px;
-        }
-    }
-
-</style>
-
 <body>
-
     <div class="row">
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103263403_d61584abcc_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103263403_d61584abcc_o.jpg" alt="Plate 46: Great Gray Owl, Barred Owl, Great Horned Owl, Snowy Owl" style="width:100%"
                 onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+			<center><p>Plate 46: Great Gray Owl, Barred Owl, Great Horned Owl, Snowy Owl</p></center>
         </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103002986_eb3a532935_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103002986_eb3a532935_o.jpg" alt="Plate 57: Prairie Horned Lark, Horned Lark" style="width:100%"
                 onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+			<center><p>Plate 57: Prairie Horned Lark,<br>Horned Lark</p></center>
         </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103348239_e3aee1c55a_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103348239_e3aee1c55a_o.jpg" alt="Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl" style="width:100%"
                 onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+			<center><p>Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl</p></center>
         </div>
-
         <div class="clearfix"></div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103263278_17230a434e_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103263278_17230a434e_o.jpg" alt="Plate 53: Nighthawk, Chimney Swift, Whip-poor-will" style="width:100%"
                 onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103348404_b4b383d3b7_o.jpg" style="width:100%"
+			<center><p>Plate 53: Nighthawk, Chimney Swift, Whip-poor-will</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103348404_b4b383d3b7_o.jpg" alt="Plate 25: Woodcock, Wilson's Snipe, Dowitcher" style="width:100%"
                 onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54102146907_6d4bb4dd9d_o.jpg" style="width:100%"
+			<center><p>Plate 25: Woodcock, Wilson's Snipe, Dowitcher</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54102146907_6d4bb4dd9d_o.jpg" alt="Plate 40: Red-shouldered Hawk, Red-tailed Hawk, Broad-winged Hawk" style="width:100%"
                 onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-        </div>
-
+			<center><p>Plate 40: Red-shouldered Hawk,<br>Red-tailed Hawk, Broad-winged Hawk</p></center>
+		</div>
         <div class="clearfix"></div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103003196_2ac5191c22_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103003196_2ac5191c22_o.jpg" alt="Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk" style="width:100%"
                 onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103263228_7915f1c8bc_o.jpg" style="width:100%"
+			<center><p>Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103263228_7915f1c8bc_o.jpg" alt="Plate 67: Lapland Longspur, Snow Bunting" style="width:100%"
                 onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54102146977_889ca51330_o.jpg" style="width:100%"
+			<center><p>Plate 67: Lapland Longspur,<br>Snow Bunting</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54102146977_889ca51330_o.jpg" alt="Plate 34: Bob-white, Spruce Partridge, European Partridge" style="width:100%"
                 onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
-        </div>
-
+			<center><p>Plate 34: Bob-white, Spruce Partridge, European Partridge</p></center>
+		</div>
         <div class="clearfix"></div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103003236_620e74b035_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103003236_620e74b035_o.jpg" alt="Plate 36: Passenger Pigeon, Mourning Dove" style="width:100%"
                 onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103002991_c66eee6011_o.jpg" style="width:100%"
+			<center><p>Plate 36: Passenger Pigeon,<br>Mourning Dove</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103002991_c66eee6011_o.jpg" alt="Plate 55: Crested Flycatcher, Olive-sided Flycatcher, Kingbird, Arkansas Kingbird" style="width:100%"
                 onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54102146682_baa7868253_o.jpg" style="width:100%"
+			<center><p>Plate 55: Crested Flycatcher,<br>Olive-sided Flycatcher, Kingbird, Arkansas Kingbird</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54102146682_baa7868253_o.jpg" alt="Plate 54: Ruby-throated Hummingbird" style="width:100%"
                 onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
-        </div>
-
+			<center><p>Plate 54: Ruby-throated Hummingbird</p></center>
+		</div>
         <div class="clearfix"></div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103263383_48c6ded966_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103263383_48c6ded966_o.jpg" alt="Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk" style="width:100%"
                 onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103263528_e38a9c0158_o.jpg" style="width:100%"
+			<center><p>Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103263528_e38a9c0158_o.jpg" alt="Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant" style="width:100%"
                 onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54103003051_c6c4f5193c_o.jpg" style="width:100%"
+			<center><p>Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54103003051_c6c4f5193c_o.jpg" alt="Plate 48: Black-billed Cuckoo, Yellow-billed Cuckoo, Belted Kingfisher" style="width:100%"
                 onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
-        </div>
-
+			<center><p>Plate 48: Black-billed Cuckoo,<br>Yellow-billed Cuckoo, Belted Kingfisher</p></center>
+		</div>
         <div class="clearfix"></div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54121429174_3cebe64b63_o.jpg" style="width:100%"
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54121429174_3cebe64b63_o.jpg" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%"
                 onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54121551670_0d9c40a543_o.jpg" style="width:100%"
+			<center><p>Plate 3: Black Guillemot, Puffin,<br>Razor-billed Auk, Dovekie,<br>Brunnich's Murre</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54121551670_0d9c40a543_o.jpg" alt="Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover" style="width:100%"
                 onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
-        </div>
-
-        <div class="ecolumn">
-            <img src="https://live.staticflickr.com/65535/54121429119_95b1892bb1_o.jpg" style="width:100%"
+			<center><p>Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover</p></center>
+		</div>
+        <div class="exhibit">
+            <img src="https://live.staticflickr.com/65535/54121429119_95b1892bb1_o.jpg" alt="Plate 59: Northern Raven, Fish Crow, Crow" style="width:100%"
                 onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
-        </div>
-
+			<center><p>Plate 59: Northern Raven,<br>Fish Crow, Crow</p></center>
+		</div>
         <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6dab3b38-3fc1-4bbc-b2de-cb99d7117e27/"><img src="https://live.staticflickr.com/65535/54103263403_d61584abcc_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6dab3b38-3fc1-4bbc-b2de-cb99d7117e27/">
+					<img src="https://live.staticflickr.com/65535/54103263403_d61584abcc_o.jpg" alt="Plate 46: Great Gray Owl, Barred Owl, Great Horned Owl, Snowy Owl" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6dab3b38-3fc1-4bbc-b2de-cb99d7117e27/">
-                            Plate 46: Great Gray Owl, Barred Owl, Great Horned Owl, Snowy Owl</a></h20>
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6dab3b38-3fc1-4bbc-b2de-cb99d7117e27/">
+                            Plate 46: Great Gray Owl, Barred Owl, Great Horned Owl, Snowy Owl</a></item-title><br>
+                            "Reverberant hooting in the big woods had called me from the roadway to follow the sound for
+                            half a mile, when suddenly&mdash; there sat the great [Barred Owl] before me, on a horizontal limb,
+                            keeping the ready attitude of apprehension, his head turned squarely around so that his dark, solemn eyes
+                            stared fixedly at me."<br>
+							<author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=320">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_36ae4a29-1d31-439c-9799-dbba4c4fec59/">
+					<img src="https://live.staticflickr.com/65535/54103002986_eb3a532935_o.jpg" alt="Plate 57: Prairie Horned Lark, Horned Lark" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_36ae4a29-1d31-439c-9799-dbba4c4fec59/">
+							Plate 57: Prairie Horned Lark, Horned Lark</a></item-title>
+                            <br>"While singing [the Prairie Horned Lark] holds his wings motionless, stiffly outstretched, and his tail widely spread, as if he
+                            were doing his utmost to transform himself into a parachute&mdash; as no doubt he is. Then, the brief, hurried strain delivered, he 
+							beats the air again and makes another shoot heavenward."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=546">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e6a8b67b-7966-4517-8dc2-8343efddbacc/">
+					<img src="https://live.staticflickr.com/65535/54103348239_e3aee1c55a_o.jpg" alt="Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e6a8b67b-7966-4517-8dc2-8343efddbacc/">
+                            Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl</a></item-title><br>
+                            "Many still shudder whenever they hear [the Screech Owl's] plaintive, long-drawn-out wail,
+                            which, though it seems to carry a note of sadness, is merely a love song, unappreciated, except, perhaps, by
+                            the ears for which it is especially intended."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=335">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2222b88e-45d1-4d2d-aee0-467b5788720f/">
+					<img src="https://live.staticflickr.com/65535/54103263278_17230a434e_o.jpg" alt="Plate 53: Nighthawk, Chimney Swift, Whip-poor-will" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2222b88e-45d1-4d2d-aee0-467b5788720f/">
+                            Plate 53: Nighthawk, Chimney Swift, Whip-poor-will</a></item-title><br>
+                            "Zigzags and long curves intersect one another as the merry [Chimney Swifts] drive through
+                            the fresh morning air with quivering wings and shrill titterings&mdash; erratic avian missiles 
+							seeking luckless winged insects in the over-arching skies."<br>
+                            <author><i>&mdash; <a ref="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=463">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_aadd5b88-1ed5-4854-a158-07d364bbc853/">
+					<img src="https://live.staticflickr.com/65535/54103348404_b4b383d3b7_o.jpg" alt="Plate 25: Woodcock, Wilson's Snipe, Dowitcher" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_aadd5b88-1ed5-4854-a158-07d364bbc853/">
+							Plate 25: Woodcock, Wilson's Snipe, Dowitcher</a></item-title><br>
+                            "When the spring rains and mounting sun begin to tint the meadow grass, when the alewives
+                            run up the streams, when the blackbirds and the spring frogs sing their full chorus, then
+                            the Snipe arrives at night on the south wind."<br>
+                            <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=555">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db87dc5e-ff74-4a4c-90e4-ba3a45541e7f/">
+					<img src="https://live.staticflickr.com/65535/54102146907_6d4bb4dd9d_o.jpg" alt="Plate 40: Red-shouldered Hawk, Red-tailed Hawk, Broad-winged Hawk" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db87dc5e-ff74-4a4c-90e4-ba3a45541e7f/">
+							Plate 40: Red-shouldered Hawk, Red-tailed Hawk, Broad-winged Hawk</a></item-title><br>
+                            "There is no more pleasing spring sound than the lusty scream of the [Red-shouldered Hawk]
+                            as it rings through the bare leafless woods as they stand up straight and brown against the pale blue
+                            sky of April."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=220">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e29334aa-72c0-41e5-a61c-e9e5cbebd23c/">
+					<img src="https://live.staticflickr.com/65535/54103003196_2ac5191c22_o.jpg" alt="Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e29334aa-72c0-41e5-a61c-e9e5cbebd23c/">
+                            Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk</a></item-title><br>
+                            "Five little downy young Sharp-shins in a nest are a beautiful sight. They fill the nest
+                            full to overflowing with their palpitating, snowy, fluffy mass, with five pairs of bright
+                            black eyes punctuating the fluff."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=191">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e5dbdda4-2987-4955-9c7f-94f157b410d1/">
+					<img src="https://live.staticflickr.com/65535/54103263228_7915f1c8bc_o.jpg" alt="Plate 67: Lapland Longspur, Snow Bunting" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e5dbdda4-2987-4955-9c7f-94f157b410d1/">
+                            Plate 67: Lapland Longspur, Snow Bunting</a></item-title><br>
+                            "When winter really comes to New England, when icy blasts sweep down from the north and snow
+                            fills the air and whitens field and pasture, these little birds ride down on wintry winds
+                            and whirl about the fields amid the driving snow."
                             <br>
-                            "Reverberant hooting in the big woods had called me from the roadway to follow the sound for half a mile,
-                            when suddenly&mdash; there sat the great [Barred Owl] before me, on a horizontal limb, keeping the ready
-                            attitude of apprehension, his head turned squarely around so that his dark, solemn eyes stared fixedly at me."<br>
-                            <h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=320">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="next" onclick="plusSlides(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>&ensp;Next</a>          
+                            <author><i>&mdash; <a href="https://ia801304.us.archive.org/32/items/birdsofmassachus03forb/birdsofmassachus03forb.pdf#page=104">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_36ae4a29-1d31-439c-9799-dbba4c4fec59/"><img src="https://live.staticflickr.com/65535/54103002986_eb3a532935_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0a45f12c-d644-4203-b789-9e1fe085481f/">
+					<img src="https://live.staticflickr.com/65535/54102146977_889ca51330_o.jpg" alt="Plate 34: Bob-white, Spruce Partridge, European Partridge" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_36ae4a29-1d31-439c-9799-dbba4c4fec59/">
-                            Plate 57: Prairie Horned Lark, Horned Lark</a></h20>
-                            <br>
-                            "While singing [the Prairie Horned Lark] holds his wings motionless, stiffly outstretched, and his tail widely spread, as if he
-                            were doing his utmost to transform himself into a parachute&mdash; as no doubt he is. Then, the brief, hurried strain
-                            delivered, he beats the air again and makes another shoot heavenward."<br>
-                            <h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=546">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0a45f12c-d644-4203-b789-9e1fe085481f/">
+                            Plate 34: Bob-white, Spruce Partridge, European Partridge</a></item-title>
+                            <br>"The young [Bob-whites] grow rather slowly, and their little wings do not develop quite
+                            so fast as in the Ruffed Grouse or the Spruce Grouse, but they begin to use them at an early age. Wings are needed indeed,
+                            as the little ones must run the gauntlet of many enemies."<br>
+                            <author> <i>&mdash; 
+							<a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=65">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e6a8b67b-7966-4517-8dc2-8343efddbacc/"><img src="https://live.staticflickr.com/65535/54103348239_e3aee1c55a_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_249ccadb-217b-49a6-9aa8-4b9b4fd3190d/">
+					<img src="https://live.staticflickr.com/65535/54103003236_620e74b035_o.jpg" alt="Plate 36: Passenger Pigeon, Mourning Dove" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e6a8b67b-7966-4517-8dc2-8343efddbacc/">
-                            Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl</a></h20><br>
-                            "Many still shudder whenever they hear [the Screech Owl's] plaintive, long-drawn-out wail, which, though it
-                            seems to carry a note of sadness, is merely a love song, unappreciated, except, perhaps, by the ears
-                            for which it is especially intended."<br>
-                            <h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=335">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_249ccadb-217b-49a6-9aa8-4b9b4fd3190d/">
+                            Plate 36: Passenger Pigeon, Mourning Dove</a></item-title>
+                            <br>"Lawson (1709) speaks of prodigious flocks of pigeons in 1701-02, which broke down trees
+                            in the woods where they roosted, and cleaned up all the food in the country, scarcely
+                            leaving one acorn on the ground."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=127">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2222b88e-45d1-4d2d-aee0-467b5788720f/"><img src="https://live.staticflickr.com/65535/54103263278_17230a434e_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_928c2b61-277b-454c-a111-0d0dad93b48f/">
+					<img src="https://live.staticflickr.com/65535/54103002991_c66eee6011_o.jpg" alt="Plate 55: Crested Flycatcher, Olive-sided Flycatcher, Kingbird, Arkansas Kingbird" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2222b88e-45d1-4d2d-aee0-467b5788720f/">
-                            Plate 53: Nighthawk, Chimney Swift, Whip-poor-will</a></h20>
-                            <br>
-                            "Zigzags and long curves intersect one another as the merry [Chimney Swifts] drive through the fresh morning air with
-                            quivering wings and shrill titterings&mdash; erratic avian missiles seeking luckless winged insects in the over-arching
-                            skies."<br><h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=463">Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_aadd5b88-1ed5-4854-a158-07d364bbc853/"><img src="https://live.staticflickr.com/65535/54103348404_b4b383d3b7_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_aadd5b88-1ed5-4854-a158-07d364bbc853/">Plate 25: Woodcock, Wilson's Snipe, Dowitcher</a></h20>
-                            <br>
-                            "When the spring rains and mounting sun begin to tint the meadow grass, when the alewives run up the streams, when the blackbirds and the spring frogs sing their full chorus, then the Snipe arrives at night on the south wind."<br>
-                            <h13><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=555">Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db87dc5e-ff74-4a4c-90e4-ba3a45541e7f/"><img src="https://live.staticflickr.com/65535/54102146907_6d4bb4dd9d_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db87dc5e-ff74-4a4c-90e4-ba3a45541e7f/">Plate 40: Red-shouldered Hawk, Red-tailed Hawk, Broad-winged Hawk</a></h20>
-                            <br>
-                            "There is no more pleasing spring sound than the lusty scream of the [Red-shouldered Hawk] as it rings
-                            through the bare leafless woods as they stand up straight and brown against the pale blue sky of April."<br>
-                            <h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=220">
-                                Edward Howe Forbrush</a></i></h13><br>
-                                <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>             
-                                </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e29334aa-72c0-41e5-a61c-e9e5cbebd23c/"><img src="https://live.staticflickr.com/65535/54103003196_2ac5191c22_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e29334aa-72c0-41e5-a61c-e9e5cbebd23c/">
-                            Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk</a></h20><br>
-                            "Five little downy young Sharp-shins in a nest are a beautiful sight. They fill the nest full to overflowing with their palpitating, snowy, fluffy mass, with five pairs of bright black eyes punctuating the fluff."<br><h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=191">Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e5dbdda4-2987-4955-9c7f-94f157b410d1/"><img src="https://live.staticflickr.com/65535/54103263228_7915f1c8bc_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e5dbdda4-2987-4955-9c7f-94f157b410d1/">
-                            Plate 67: Lapland Longspur, Snow Bunting</a></h20><br>
-                            "When winter really comes to New England, when icy blasts sweep down from the north and snow fills the air and whitens field and pasture, these little birds ride down on wintry winds and whirl about the fields amid the driving snow."
-                            <br><h13><i>&mdash; <a href="https://ia801304.us.archive.org/32/items/birdsofmassachus03forb/birdsofmassachus03forb.pdf#page=104">Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0a45f12c-d644-4203-b789-9e1fe085481f/"><img src="https://live.staticflickr.com/65535/54102146977_889ca51330_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0a45f12c-d644-4203-b789-9e1fe085481f/">
-                            Plate 34: Bob-white, Spruce Partridge, European Partridge</a></h20>
-                            <br>"The young [Bob-whites] grow rather slowly, and their little wings do not develop quite so fast as in the Ruffed Grouse
-                            or the Spruce Grouse, but they begin to use them at an early age. Wings are needed indeed, as the little ones must run the gauntlet of many enemies."<br><h13>
-                            <i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=65">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_249ccadb-217b-49a6-9aa8-4b9b4fd3190d/"><img src="https://live.staticflickr.com/65535/54103003236_620e74b035_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_249ccadb-217b-49a6-9aa8-4b9b4fd3190d/">
-                            Plate 36: Passenger Pigeon, Mourning Dove</a></h20>
-                            <br>"Lawson (1709) speaks of prodigious flocks of pigeons in 1701-02, which broke down trees in the woods where they roosted, and cleaned up all the food in the country, scarcely
-                            leaving one acorn on the ground."<br><h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=127">Edward Howe Forbrush</a></i></h13>
-                            <br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_928c2b61-277b-454c-a111-0d0dad93b48f/"><img src="https://live.staticflickr.com/65535/54103002991_c66eee6011_o.jpg" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_928c2b61-277b-454c-a111-0d0dad93b48f/">
-                            Plate 55: Crested Flycatcher, Olive-sided Flycatcher, Kingbird, Arkansas Kingbird</a></h20><br>
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_928c2b61-277b-454c-a111-0d0dad93b48f/">
+                            Plate 55: Crested Flycatcher, Olive-sided Flycatcher, Kingbird, Arkansas Kingbird</a></item-title><br>
                             "[The Crested Flycatcher] is a prominent bird, for it is the largest and in some ways the
-                            handsomest of our flycatchers; it often occupies a conspicuous perch, and its notes are so loud as to
-                            compel attention. Its battles in the air are fierce and noisy and it is inclined to bully other
-                            birds."<br><h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=497">Edward Howe Forbrush</a></i></h13>
-                            <br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            handsomest of our flycatchers; it often occupies a conspicuous perch, and its notes are so
+                            loud as to compel attention. Its battles in the air are fierce and noisy and it is inclined to bully
+                            other birds."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=497">
+							Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ae3ef964-230f-4422-9d07-b36160384a36/"><img src="https://live.staticflickr.com/65535/54102146682_baa7868253_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ae3ef964-230f-4422-9d07-b36160384a36/">
+					<img src="https://live.staticflickr.com/65535/54102146682_baa7868253_o.jpg" alt="Plate 54: Ruby-throated Hummingbird" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ae3ef964-230f-4422-9d07-b36160384a36/">
-                            Plate 54: Ruby-throated Hummingbird</a></h20><br>
-                            "Sometimes this bird has a savage battle with the 'bumblebees' which are reluctant to leave its favorite flowers. The tiny hummingbird is a
-                            mighty warrior, with greater strength and speed in proportion to its size than any other bird that flies."<br>
-                            <h13><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=473">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ae3ef964-230f-4422-9d07-b36160384a36/">
+                            Plate 54: Ruby-throated Hummingbird</a></item-title><br>
+                            "Sometimes this bird has a savage battle with the 'bumblebees' which are reluctant to leave
+                            its favorite flowers. The tiny hummingbird is a mighty warrior, with greater strength and speed 
+							in proportion to its size than any other bird that flies."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=473">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_04e13490-5801-4309-9d2b-0d78f39977aa/"><img src="https://live.staticflickr.com/65535/54103263383_48c6ded966_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_04e13490-5801-4309-9d2b-0d78f39977aa/">
+					<img src="https://live.staticflickr.com/65535/54103263383_48c6ded966_o.jpg" alt="Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_04e13490-5801-4309-9d2b-0d78f39977aa/">
-                            Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk</a></h20><br>
-                            "The courage and intrepidity of this falcon are so great that it sometimes attacks very large birds. Commander Donald MacMillan
-                            says that he once saw [a Duck Hawk] drop like a comet out of the blue sky and knock down a Blue Goose with such force
-                            as to partially disable it."<br><h13>
-                            <i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=272">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_04e13490-5801-4309-9d2b-0d78f39977aa/">
+                            Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk</a></item-title><br>
+                            "The courage and intrepidity of this falcon are so great that it sometimes attacks very
+                            large birds. Commander Donald MacMillan says that he once saw [a Duck Hawk] drop like a 
+							comet out of the blue sky and knock down a Blue Goose with such force as to partially disable it."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=272">
+                            Edward Howe Forbrush</a></i>
+                            </author><br>
+							<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6605e60a-475d-410b-bd46-e78f4788901f/"><img src="https://live.staticflickr.com/65535/54103263528_e38a9c0158_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6605e60a-475d-410b-bd46-e78f4788901f/">
+					<img src="https://live.staticflickr.com/65535/54103263528_e38a9c0158_o.jpg" alt="Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6605e60a-475d-410b-bd46-e78f4788901f/">
-                            Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant</a></h20><br>
-                            "While ice still covers our lakes, before even the wood frogs begin to croak, when the spring floods first begin to break up the frozen rivers, 
-                            the geese are on their way; and when that 'flying wedge' sweeps fast across the sky, it brings to all who see or hear the promise of another spring."
-                            <br><h13><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=429">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6605e60a-475d-410b-bd46-e78f4788901f/">
+                            Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant</a></item-title><br>
+                            "While ice still covers our lakes, before even the wood frogs begin to croak, when the
+                            spring floods first begin to break up the frozen rivers, the geese are on their way; and 
+							when that 'flying wedge' sweeps fast across the sky, it brings to all who see or hear the 
+							promise of another spring."<br>
+                            <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=429">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_760e913a-00e4-4e87-9ba2-6d40b870138b/"><img src="https://live.staticflickr.com/65535/54103003051_c6c4f5193c_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_760e913a-00e4-4e87-9ba2-6d40b870138b/">
+					<img src="https://live.staticflickr.com/65535/54103003051_c6c4f5193c_o.jpg" alt="Plate 48: Black-billed Cuckoo, Yellow-billed Cuckoo, Belted Kingfisher" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_760e913a-00e4-4e87-9ba2-6d40b870138b/">
-                            Plate 48: Black-billed Cuckoo, Yellow-billed Cuckoo, Belted Kingfisher</a></h20>
-                            <br>
-                            "The Yellow-billed Cuckoo is a harbinger of summer. When the woods and orchards have put on their
-                            spring greenery; when the blossom-buds of the moccasin flower and the columbine begin to unfold their petals, then
-                            the voice of the cuckoo is heard in the land."<br>
-                            <h13><i> &mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=366">
-                            Edward Howe Forbrush</a></i></h13><br>   
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_760e913a-00e4-4e87-9ba2-6d40b870138b/">
+                            Plate 48: Black-billed Cuckoo, Yellow-billed Cuckoo, Belted Kingfisher</a></item-title>
+                            <br>"The Yellow-billed Cuckoo is a harbinger of summer. When the woods and orchards have put on
+                            their spring greenery; when the blossom-buds of the moccasin flower and the columbine begin to
+                            unfold their petals, then the voice of the cuckoo is heard in the land."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=366">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c3701c19-5a2f-41eb-8568-7a4faa541f03/"><img src="https://live.staticflickr.com/65535/54121429174_3cebe64b63_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c3701c19-5a2f-41eb-8568-7a4faa541f03/">
+					<img src="https://live.staticflickr.com/65535/54121429174_3cebe64b63_o.jpg" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c3701c19-5a2f-41eb-8568-7a4faa541f03/">Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie,<br>Brunnich's Murre</a></h20><br>
-                            "The serio-comic appearance of the little feathered clown is laughable. &hellip; The [Puffin] stands erect like a little soldier, its red splay feet slightly straddled and planted firmly on the rock, resting not on its tail and tarsi, but standing up high and clear."<br>
-                            <h13><i> &mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=82">
-                            Edward Howe Forbrush</a></i></h13><br>
-                                                        <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>                         
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c3701c19-5a2f-41eb-8568-7a4faa541f03/">
+							Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie,<br>Brunnich's Murre</a></item-title><br>
+                            "The serio-comic appearance of the little feathered clown is laughable. &hellip; The
+                            [Puffin] stands erect like a little soldier, its red splay feet slightly straddled and
+                            planted firmly on the rock, resting not on its tail and tarsi, but standing up high and
+                            clear."<br>
+                            <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=82">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53aa5d8e-a8ba-4d9e-a8ee-e9137a5833af/"><img src="https://live.staticflickr.com/65535/54121551670_0d9c40a543_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53aa5d8e-a8ba-4d9e-a8ee-e9137a5833af/">
+					<img src="https://live.staticflickr.com/65535/54121551670_0d9c40a543_o.jpg" alt="Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53aa5d8e-a8ba-4d9e-a8ee-e9137a5833af/">Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover</a></h20><br>
-                            "While the tide is out [the American Black-bellied Plovers] run about with heads up, apparently without aim or purpose, but now and then one thrusts its open bill down into sand or water and pulls up a long marine worm."<br>
-                            <h13><i> &mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=653">
-                            Edward Howe Forbrush</a></i></h13><br>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<h30>|</h30>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>           
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53aa5d8e-a8ba-4d9e-a8ee-e9137a5833af/">
+							Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover</a></item-title><br>
+                            "While the tide is out [the American Black-bellied Plovers] run about with heads up,
+                            apparently without aim or purpose, but now and then one thrusts its open bill down into sand
+                            or water and pulls up a long marine worm."<br>
+                            <author><i> &mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=653">
+                        	Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;
+							<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11610f74-0939-46c2-9800-a335d8b32dd2/"><img src="https://live.staticflickr.com/65535/54121429119_95b1892bb1_o.jpg" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11610f74-0939-46c2-9800-a335d8b32dd2/">
+					<img src="https://live.staticflickr.com/65535/54121429119_95b1892bb1_o.jpg" alt="Plate 59: Northern Raven, Fish Crow, Crow" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <h20><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11610f74-0939-46c2-9800-a335d8b32dd2/">Plate 59: Northern Raven, Fish Crow, Crow</a></h20> 
-                            <br>"Our Raven is merely a geographical race of the ancient Raven of the Old World, and that bird of sinister appearance was regarded as a mysterious and semi-sacred being by peoples of the long ago."<br>
-                            <h13><i> &mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=571">
-                                Edward Howe Forbrush</a></i></h13><br> 
-                                <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>                      
-                            </p>
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11610f74-0939-46c2-9800-a335d8b32dd2/">
+							Plate 59: Northern Raven, Fish Crow, Crow</a></item-title>
+                            <br>"Our Raven is merely a geographical race of the ancient Raven of the Old World, and that
+                            bird of sinister appearance was regarded as a mysterious and semi-sacred being by peoples of
+                            the long ago."<br>
+                            <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=571">
+                            Edward Howe Forbrush</a></i></author>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left"  aria-hidden="true"></i>&ensp;Prev</a>
+                        </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
 
-        <script>
-            function openModal() {
-                document.getElementById("myModal").style.display = "block";
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
             }
-
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
-        </script>
-
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
 </body>
-
 </html>
