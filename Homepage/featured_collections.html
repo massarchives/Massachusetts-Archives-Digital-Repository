@@ -1,280 +1,249 @@
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
-            box-sizing: border-box
+      * {
+        box-sizing: border-box
+      }
+
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+        margin: 0
+      }
+
+      .mySlides {
+        display: none;
+      }
+
+      .featured img {
+        opacity: 1;
+        vertical-align: middle;
+        width: 100%;
+        height: auto;
+      }
+
+      .featured img:hover {
+        opacity: 0.7;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #17183b;
+      }
+
+      .text,
+      text a {
+        color: #FAFAFA;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .text:hover,
+      text a:hover {
+        text-decoration: underline 2px !important;
+      }
+
+      .featured {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      .featured {
+        float: center;
+        width: 100%;
+        position: relative;
+      }
+
+      .featured:hover .overlay {
+        opacity: 0.9;
+      }
+
+      div.featured {
+        background-color: #FAFAFA;
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: #FAFAFA;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        color: #E8E8EB;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 9px;
+        width: 9px;
+        margin: 0 2px;
+        background-color: #DBDBDB;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #C2C2C2;
+      }
+
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: .4
         }
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0
+        to {
+          opacity: 1
         }
+      }
 
-        .mySlides {
-            display: none;
-        }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
 
-        .ecolumn img {
-            opacity: 1;
-            vertical-align: middle;
-            width: 100%;
-            height: auto;
-        }
-
-        .ecolumn img:hover {
-            opacity: 0.7;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            opacity: 0;
-            transition: .5s ease;
-            background-color: #17183b;
-        }
-
-        .text,
-        text a {
-            color: #FAFAFA;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 600;
-            position: absolute;
-            top: 52%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .text:hover, text a:hover {
-            text-decoration: underline 2px!important;
-        }
-
-        /* Slideshow container */
-        .ecolumn {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-
-        .ecolumn {
-            float: center;
-            width: 100%;
-            position: relative;
-        }
-
-        .ecolumn:hover .overlay {
-            opacity: 0.9;
-        }
-
-        div.ecolumn {
-            background-color: #FAFAFA;
-        }
-
-        /* Next & previous buttons */
         .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: #FAFAFA;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
+        .next,
+        .text2,
+        .text1 {
+          font-size: 11px
         }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover,
-        .next:hover {
-            color: #E8E8EB;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            cursor: pointer;
-            height: 9px;
-            width: 9px;
-            margin: 0 2px;
-            background-color: #DBDBDB;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active,
-        .dot:hover {
-            background-color: #C2C2C2;
-        }
-
-        /* Fading animation */
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-
-            .prev,
-            .next,
-            .text2,
-            .text1 {
-                font-size: 11px
-            }
-        }
+      }
     </style>
-</head>
-
-<body>
-
-    <div class="ecolumn">
-
-        <div class="mySlides fade">
-            <img src="https://live.staticflickr.com/65535/53956571364_e39568941f_o.png" style="width:100%"
-                alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
-                <div class="overlay">
-                    <div class="text">Commonwealth v. Sacco and Vanzetti</div>
-            </a>
-        </div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="https://live.staticflickr.com/65535/54141703546_c10398c6cb_o.png" style="width:100%"
-                alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
-                <div class="overlay">
-                    <div class="text">Salem Witch Trials Papers</div>
-            </a>
-        </div>
-    </div>
-
-    <div class="mySlides fade">
-        <img src="https://live.staticflickr.com/65535/54056751821_271707accf_o.png" style="width:100%"
-            alt="Cambridge Building Inspection Plans" />
-        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">
-            <div class="overlay">
-                <div class="text">Building Inspection Plans, 1889&ndash;1987</div>
-        </a>
-    </div>
-    </div>
-
-    <div class="mySlides fade">
+  </head>
+  <body>
+    <div class="featured">
+      <div class="mySlides fade">
         <img src="https://live.staticflickr.com/65535/53956641424_99fd92e28a_o.png" style="width:100%"
-            alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945, Quabbin Reservoir Cemetery Photographs, 1928-1945" />
+          alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945, Quabbin Reservoir Cemetery Photographs, 1928-1945" />
         <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">
-            <div class="overlay">
-                <div class="text">Quabbin Reservoir Cemetery<br>Photographs, 1928&ndash;1945</div>
+          <div class="overlay">
+            <div class="text">Quabbin Reservoir Cemetery Photographs</div>
         </a>
+        </div>
+      </div>  
+      <div class="mySlides fade">
+        <img src="https://live.staticflickr.com/65535/53956571364_e39568941f_o.png" style="width:100%"
+          alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
+        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
+          <div class="overlay">
+            <div class="text">Commonwealth v. Sacco & Vanzetti</div>
+        </a>
+      </div>
     </div>
-    </div>
-
     <div class="mySlides fade">
-        <img src="https://live.staticflickr.com/65535/53954538609_305ee5ab7d_o.png" style="width:100%"
-            alt="Orang Cage Apparatus, Sheet 2, Maps and Plans, 1891-1998" />
-        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_faaef924-dc34-4811-ad3f-598d448d8d75/">
-            <div class="overlay">
-                <div class="text">Maps and Plans,<br>1895&ndash;1998</div>
-        </a>
+      <img src="https://live.staticflickr.com/65535/54141703546_c10398c6cb_o.png" style="width:100%"
+        alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
+      <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+        <div class="overlay">
+          <div class="text">Salem Witch Trials Papers</div>
+      </a>
+      </div>
     </div>
-    </div>
-
     <div class="mySlides fade">
-        <img src="https://live.staticflickr.com/65535/54038058116_178831ef8d_o.png" style="width:100%"
-            alt="Distribution Department, Low Service Pipe Lines, 20-Inch Pipe Crossing at Mystic River, Section 28, Arlington, Mass., Jun. 14, 1899, Metropolitan Water Works Photograph Collection, 1876-1930" />
-        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267/">
-            <div class="overlay">
-                <div class="text">Metropolitan Water Works<br>Photograph Collection, 1876&ndash;1930</div>
-        </a>
+      <img src="https://live.staticflickr.com/65535/54023391014_245ee8c5e1_o.png" style="width:100%"
+        alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
+      <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
+        <div class="overlay">
+          <div class="text">Folk Arts &amp; Heritage Collection</div>
+      </a>
+      </div>
     </div>
-    </div>
-
     <div class="mySlides fade">
-        <img src="https://live.staticflickr.com/65535/54023391014_245ee8c5e1_o.png" style="width:100%"
-            alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
-        <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
-            <div class="overlay">
-                <div class="text">Folk Arts and Heritage Collection, 1982&ndash;2016</div>
-        </a>
+      <img src="https://live.staticflickr.com/65535/54056751821_271707accf_o.png" style="width:100%"
+        alt="Cambridge Building Inspection Plans" />
+      <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">
+        <div class="overlay">
+          <div class="text">Building Inspection Plans</div>
+      </a>
+      </div>
     </div>
-    </div>
-
     <div class="mySlides fade">
-        <img src="https://live.staticflickr.com/65535/54023293758_8936aa8d9b_o.png" style="width:100%"
-            alt="Portrait Photograph of William L. Chase (1853-1895), Mass., ca. 1894, Metropolitan Park Commission Portrait Photographs, ca. 1892-ca. 1907" />
-        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_9cff659e-f584-42d9-908b-c57c6857b8e3">
-            <div class="overlay">
-                <div class="text">Metropolitan Park Commission Portrait Photographs,<br>ca. 1892 &ndash; ca. 1907</div>
-        </a>
+      <img src="https://live.staticflickr.com/65535/54038058116_178831ef8d_o.png" style="width:100%"
+        alt="Distribution Department, Low Service Pipe Lines, 20-Inch Pipe Crossing at Mystic River, Section 28, Arlington, Mass., Jun. 14, 1899, Metropolitan Water Works Photograph Collection, 1876-1930" />
+      <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267/">
+        <div class="overlay">
+          <div class="text">Metropolitan Water Works Photograph Collection</div>
+      </a>
+      </div>
     </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/54023293758_8936aa8d9b_o.png" style="width:100%"
+        alt="Portrait Photograph of William L. Chase (1853-1895), Mass., ca. 1894, Metropolitan Park Commission Portrait Photographs, ca. 1892-ca. 1907" />
+      <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_9cff659e-f584-42d9-908b-c57c6857b8e3">
+        <div class="overlay">
+          <div class="text">Metropolitan Park Commission Portrait Photographs</div>
+      </a>
+      </div>
     </div>
-
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
-
     </div>
-
     <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+      let slideIndex = 1;
+      showSlides(slideIndex);
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
 
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
         }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
