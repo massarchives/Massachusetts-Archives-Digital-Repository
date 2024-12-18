@@ -97,6 +97,7 @@
 
             .row>.exhibit {
                 padding: 30px;
+				padding-bottom: 0px;
             }
 
             .row:after {
@@ -244,6 +245,10 @@
                     padding-right: 10px;
                     text-align: center;
                 }
+
+                .exhibit p {
+                    display: none;
+                }
             }
 
             @media (max-width: 600px) {
@@ -267,11 +272,19 @@
                     padding-right: 5px;
                     text-align: center;
                 }
+
+                .exhibit p {
+                    display: none;
+                }
             }
 
             @media (max-width: 400px) {
                 .row>.exhibit {
                     padding: 5px;
+                }
+
+                .exhibit p {
+                    display: none;
                 }
             }
         </style>
