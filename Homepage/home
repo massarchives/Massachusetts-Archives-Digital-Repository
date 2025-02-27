@@ -1,0 +1,468 @@
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			div.featured-item {
+				border: none;
+			}
+
+			div.featured-item:hover {
+				border: none;
+			}
+
+			div.featured-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: 0.6s ease;
+			}
+
+			div.featured-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: 0.6s ease;
+			}
+
+			div.collection-title, div.collection-title a {
+				padding-top: 15px;
+				padding-left: 0px;
+				text-align: left;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 14px;
+				line-height: 140%;
+				font-weight: 500;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.featured {
+				padding-right: 20px;
+				float: left;
+				width: 33.3%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 35px;
+			}
+
+            .clearfix2:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 15px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.featured {
+					width: 49.99999%;
+					margin: 6px 0;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.featured {
+					width: 100%;
+				}
+			}
+
+            * {
+            box-sizing: border-box
+            }
+
+            .mySlides {
+                display: none;
+            }
+
+            .featured-collection img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .featured-collection img:hover {
+                opacity: 0.7;
+                transition: 0.6s ease;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: 0.6s ease;
+                background-color: #17183b;
+            }
+
+            .text,
+            text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            .text:hover,
+            text a:hover {
+                text-decoration: underline 2px !important;
+            }
+
+            .featured-collection {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .featured-collection {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .featured-collection:hover .overlay {
+                opacity: 0.9;
+            }
+
+            div.featured-collection {
+                background-color: #FAFAFA;
+            }
+
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -22px;
+                color: #FAFAFA;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .prev:hover,
+            .next:hover {
+                color: #E8E8EB;
+            }
+
+            .dot {
+                cursor: pointer;
+                height: 9px;
+                width: 9px;
+                margin: 0 2px;
+                background-color: #DBDBDB;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active,
+            .dot:hover {
+                background-color: #C2C2C2;
+            }
+
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: .4
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            /* On smaller screens, decrease text size */
+            @media only screen and (max-width: 300px) {
+
+                .prev,
+                .next,
+                .text2,
+                .text1 {
+                    font-size: 11px
+                }
+            }
+
+            .homepage-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .homepage-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            .overlay-text:hover, text a:hover {
+                text-decoration: underline 2px!important;
+            }
+
+            .homepage-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .homepage-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .homepage-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.homepage-banner {
+                background-color: #FAFAFA;
+            }
+
+            .button-container {
+				  display: grid;
+				  grid-template-columns: auto auto auto;
+				  padding: 10px;
+                  padding-bottom: 0px;
+				  text-align: center;
+			}
+			.button-item, .button-item a {
+				  padding: 10px;
+                  padding-bottom: 0px;
+				  font-size: 17px;
+				  line-height: 140%;
+				  font-family: 'Space Grotesk', sans-serif;
+				  text-transform: none;
+				  font-weight: 500;
+				  text-align: center;
+				  color: #17183b;
+			}
+				
+			.button-item a:hover {
+				text-decoration: underline 2px;	
+			}
+		</style>
+	</head>
+	<body>
+        <h2>Welcome to the Massachusetts Archives Digital Repository</h2>
+        <div class="homepage-banner">
+            <img src="https://live.staticflickr.com/65535/54310708056_604324d16c_o.png" style="width:100%" alt="Plate 54: Ruby-throated Hummingbird, Paintings from: Birds of Massachusetts and other New England states, 1921-1929" />
+              <div class="color-overlay">
+                <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_a095c0ac-3674-498a-97e6-212ce10f1b46">
+                  <div class="overlay-text">Paintings from:<br>Birds of Massachusetts <br>& Other New England States</div></a>
+              </div>
+        </div>
+        <div class="clearfix2"></div>
+		<div class="button-container">
+			<div class="button-item"><i class="fa fa-search" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Search Guide</a></div>
+			<div class="button-item"><i class="fa fa-archive" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/archive">Browse Collections</a></div>
+			<div class="button-item"><i class="fa fa-book" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Collections Guide</a></div>
+		</div>
+        <div class="clearfix"></div>
+        <h2><a href="https://digitalarchives.sec.state.ma.us/featured/">Featured Collections</a></h2>
+        <div class="featured-collection">
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54141703546_c10398c6cb_o.png" style="width:100%"
+                alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+                <div class="overlay">
+                    <div class="text">Salem Witch Trials Papers</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/53956571364_e39568941f_o.png" style="width:100%"
+                    alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
+                <div class="overlay">
+                    <div class="text">Commonwealth v. Sacco & Vanzetti</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/53956641424_99fd92e28a_o.png" style="width:100%"
+                alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945, Quabbin Reservoir Cemetery Photographs, 1928-1945" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">
+                <div class="overlay">
+                    <div class="text">Quabbin Reservoir Cemetery Photographs</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54117485268_3532def056_o.png" style="width:100%"
+                alt="Preliminary Master Plan for Franklin Park Zoological Gardens" />
+            <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_faaef924-dc34-4811-ad3f-598d448d8d75">
+                <div class="overlay">
+                    <div class="text">Maps &amp; Plans</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54023391014_245ee8c5e1_o.png" style="width:100%"
+                alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
+            <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
+                <div class="overlay">
+                    <div class="text">Folk Arts &amp; Heritage Collection</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54056751821_271707accf_o.png" style="width:100%"
+                alt="Cambridge Building Inspection Plans" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">
+                <div class="overlay">
+                    <div class="text">Building Inspection Plans</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54038058116_178831ef8d_o.png" style="width:100%"
+                alt="Distribution Department, Low Service Pipe Lines, 20-Inch Pipe Crossing at Mystic River, Section 28, Arlington, Mass., Jun. 14, 1899, Metropolitan Water Works Photograph Collection, 1876-1930" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267/">
+                <div class="overlay">
+                    <div class="text">Metropolitan Water Works Photograph Collection</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://live.staticflickr.com/65535/54023293758_8936aa8d9b_o.png" style="width:100%"
+                alt="Portrait Photograph of William L. Chase (1853-1895), Mass., ca. 1894, Metropolitan Park Commission Portrait Photographs, ca. 1892-ca. 1907" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_9cff659e-f584-42d9-908b-c57c6857b8e3">
+                <div class="overlay">
+                    <div class="text">Metropolitan Park Commission Portrait Photographs</div>
+            </a>
+        </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+    
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+    
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+    
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+    	<div class="clearfix"></div>
+        <h2>Featured Exhibits</h2>
+        <div class="featured">
+			<div class="featured-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
+					<img src="https://live.staticflickr.com/65535/54280309427_7513b6eb9f_o.png" alt="Boston Zoological Society exhibits, sheet 28" width="600" height="400"></a>
+						<div class="collection-title">Parks &amp; Zoos of Greater Boston</div>
+			</div>
+		</div>
+        <div class="featured">
+			<div class="featured-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">
+					<img src="https://live.staticflickr.com/65535/54119429645_b110bcce3f_o.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" width="600" height="400"></a>
+						<div class="collection-title">Paintings from: Birds of Massachusetts</div>
+			</div>
+		</div>
+        <div class="featured">
+			<div class="featured-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">
+					<img src="https://live.staticflickr.com/65535/54119241503_d940fe8d29_o.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" width="600" height="400"></a>
+						<div class="collection-title">Quabbin Reservoir Photographs</div>
+			</div>
+		</div>
+        <div class="clearfix"></div>
+        <h2>Recently Added</h2>
+        <div class="featured">
+			<div class="featured-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+					<img src="https://live.staticflickr.com/65535/54142076530_b66e943df5_o.png" alt="Table of cases, Salem Witch Trials Papers" width="600" height="400"></a>
+						<div class="collection-title">Salem Witch Trials Papers</div>
+			</div>
+		</div>
+		<div class="featured">
+			<div class="featured-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
+					<img src="https://live.staticflickr.com/65535/54052157156_90e4961129_o.png" alt="Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the Story of Sacco's Hunger Strike" width="600" height="400"></a>
+						<div class="collection-title">Commonwealth v. Sacco & Vanzetti</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</body>
+</html>
