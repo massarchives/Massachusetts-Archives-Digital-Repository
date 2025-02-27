@@ -1,40 +1,108 @@
-<!DOCTYPE html>
 <html>
-<head>
-<style>
-.btn-group .button2, .button2 a {
-  background-color: #fafafa;
-  color: #17183b;
-  border: none;
-  padding: 6px;
-  text-align: left;
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 18px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-}
+	<head>
+		<style>
+			div.exhibits-item {
+				border: none;
+			}
 
-.btn-group .button2:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
+			div.exhibits-item:hover {
+				border: none;
+			}
 
-.btn-group .button2:hover {
-  text-decoration: underline 2px;
-}
-</style>
-</head>
-<body>
+			div.exhibits-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: .6s ease;
+			}
 
-<div class="btn-group">
-  <button2 class="button2"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Digital Repository Collections Overview</a></button2>
-  <button2 class="button2"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Digital Repository Search Guide</a></button2>
-  <button2 class="button2"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">Searching the Folk Arts & Heritage Collection, 1982&ndash;2016</a></button2>
-  <button2 class="button2"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">Searching the Index of Massachusetts Casualties in World War II</a></button2>
-</div>
+			div.exhibits-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
 
-</body>
+			div.collection-title, div.collection-title a {
+				text-align: center;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+                padding-top: 12px;
+			}
+
+			div.collection-title a:hover {
+				text-decoration: underline;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.exhibits {
+				padding: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+				float: left;
+				width: 50%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.exhibits {
+					width: 49.99999%;
+					margin: 6px 0;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.exhibits {
+					width: 100%;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">
+                    <img src="https://live.staticflickr.com/65535/54089046375_28c9d03c90_o.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" style="width:100%"></a>
+			</div>
+            <div class="collection-title">Folk Arts & Heritage Collection, 1982–2016</div>
+		</div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">
+                    <img src="https://live.staticflickr.com/65535/54087694902_502439b5e9_o.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" style="width:100%"></a>
+			</div>
+            <div class="collection-title">Index of Massachusetts Casualties in World War II</div>
+		</div>
+		<div class="clearfix"></div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">
+                    <img src="https://live.staticflickr.com/65535/54087738407_5a6e0a278e_o.png" alt="Panel 18: American Scoter, White-winged Scoter, Surf Scoter, Ruddy Duck, Paintings from: Birds of Massachusetts and Other New England States" style="width:100%"></a>
+			</div>
+            <div class="collection-title">Digital Repository Collections Overview</div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">
+                    <img src="https://live.staticflickr.com/65535/54053058799_9c214d5b15_o.png" alt="Preliminary Master Plan for Franklin Park Zoological Gardens, Maps and Plans, 1895-1998" style="width:100%"></a>
+			</div>
+            <div class="collection-title">Digital Repository Search Guide</div>
+		</div>
+	</body>
 </html>
