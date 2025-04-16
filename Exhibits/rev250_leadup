@@ -1,0 +1,629 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            credit {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            item-title,
+            item-title a {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #ffffff;
+                padding-left: 125px;
+                padding-right: 125px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 25%;
+            }
+        
+            div.exhibit {
+                background-color: #fafafa;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #ffffff;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #ffffff;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 900px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+                transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+			<strong-text>In the 1760s and 1770s,</strong-text>&ensp;British attempts to increase control over the American colonies were met with growing contempt and hostility. The Stamp Act was passed in 1765, requiring colonies to use stamped paper for legal documents, newspapers, and commercial paper; when officials came to Boston to regulate these documents, masked men intimidated them until they retreated. British soldiers occupying Boston were frequent targets of ridicule, and surcharges on imports such as glass, paint, and tea resulted in boycotts from colonists. On March 5, 1770, the British fought back, firing into a crowd and killing five Americans&mdash; an event that is now known as the Boston Massacre. Eventually, Britain relaxed their control, and taxes were repealed, apart from a tax on tea. On December 16, 1773, the Boston Tea Party occurred when a group of men dressed as Native Americans dumped 340 chests of tea into Boston Harbor. The following year, British Parliament passed a series of measures in response to the event, including a ban on town meetings and the closing of Boston’s port. Ammunition was seized from colonists by British general Thomas Gage in an effort to alleviate the potential military threat to his troops. In April 1775, the American Revolution began when the first shots were fired at Lexington and Concord.</div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54366516622_54d5fb7bc0_o.jpg" alt="Letter from acting Massachusetts governor Thomas Hutchinson to Gov. Francis Bernard describing the Boston Massacre" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Letter from acting Massachusetts governor Thomas Hutchinson to Gov. Francis Bernard describing the<br>Boston Massacre</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367617738_31fe04f8d9_o.jpg" alt="Letter from Benjamin Franklin regarding a Parliamentary act which allowed Great Britain to put people who committed crimes in the Colonies on trial in England" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Letter from Benjamin Franklin regarding a<br>Parliamentary act</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367385656_c74a674f88_o.jpg" alt="A letter from the Speaker of the Massachusetts House of Representatives to Benjamin Franklin, recommending the removal of Gov. Thomas Hutchinson and asking Franklin to petition King George III to this effect, followed by the petition to the king" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>A letter from the<br>Speaker of the Massachusetts House<br>of Representatives to Benjamin Franklin</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54366516512_d597d3ecfa_o.jpg" alt="Proclamation of Gov. Thomas Gage, denouncing the proceedings of Provincial Congress as illegitimate" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Proclamation of<br>Gov. Thomas Gage, denouncing the proceedings of Provincial Congress as illegitimate</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367788635_b2b6a3b2bb_o.jpg" alt="Writs of Assistance case, including petition by Thomas Lechmere and writ of assistance issued June 1762" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Writs of Assistance case, including petition by Thomas Lechmere and writ of assistance issued June 1762</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367385921_1e72d7c02e_o.jpg" alt="Address to the King, thanking him for assenting to the repeal of the Stamp Act, as well as expressing anxiety about the disaffection of the colonists towards Great Britain and re-affirming the loyalty of Massachusetts Bay colony to the King" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Address to the King, thanking him for assenting to the repeal of the Stamp Act</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367594079_197e840a04_o.jpg" alt="Letter summarizing the disorder in Massachusetts in connection with the Stamp Act" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Letter summarizing<br>the disorder in Massachusetts in connection with the Stamp Act</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367385881_a86b7856e7_o.jpg" alt="Two letters from Thomas Hutchinson, one summarizing the Boston Tea Party and one discussing its aftermath" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>Two letters from Thomas Hutchinson, one summarizing the Boston Tea Party and one discussing its aftermath</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367819205_2a2e9c60d5_o.jpg" alt="Resolve electing several well-known figures as a committee to meet committees from several other colonies at Philadelphia to consider measures to restore harmony between the colonies and Great Britain" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Resolve electing several well-known figures as a committee to meet committees from several other colonies at Philadelphia</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367789170_824cd0130c_o.jpg" alt="Letter to Gov. Thomas Gage from the Massachusetts Congress on the disastrous effects of the Intolerable Acts, asking him to reconsider" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Letter to Gov.<br>Thomas Gage from the Massachusetts Congress on the disastrous effects of the Intolerable Acts, asking him to reconsider</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367618173_ee5eacd9e0_o.jpg" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Proclamation of<br>King George III to suppress rebellion and sedition in the North American colonies</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367617908_527bca4bb6_o.jpg" alt="Letter from the Massachusetts House of Representatives to the Virginia House of Burgesses, asserting the rights of a union of colonies" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Letter from the Massachusetts House<br>of Representatives to the Virginia House<br>of Burgesses</p></center>
+            </div>
+            <div class="clearfix"></div>            
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367617788_1bc2755809_o.jpg" alt="Resolve of the Massachusetts Provincial Congress establishing a pay scale for soldiers raised for the war" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Resolve of the Massachusetts Provincial Congress establishing a pay scale for soldiers raised for<br>the war</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367788975_058abfe591_o.jpg" alt="Docket entry for John Hancock, who had been sued by Advocate General Jonathan Sewall for the alleged smuggling of wine on Hancock's sloop, HMS Liberty" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Docket entry for<br>John Hancock</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367788990_de950731eb_o.jpg" alt="Docket entry for John Hancock's ship the HMS Liberty, sued by Joseph Harrison, the collector of customs, for the alleged smuggling of wine" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Docket entry for<br>John Hancock's ship,<br>the HMS Liberty</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54382535799_b842f0ab02_o.jpg" alt="Inquest of Michael Johnson (alias for Crispus Attucks) after the Boston Massacre" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>Inquest of Michael Johnson (alias for Crispus Attucks) after the Boston Massacre</p></center>
+            </div>            
+        </div>
+        <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54366516622_54d5fb7bc0_o.jpg" alt="Letter from acting Massachusetts governor Thomas Hutchinson to Gov. Francis Bernard describing the Boston Massacre" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter from acting Massachusetts governor Thomas Hutchinson to Gov. Francis Bernard describing the Boston Massacre</a></item-title>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367617738_31fe04f8d9_o.jpg" alt="Letter from Benjamin Franklin regarding a Parliamentary act which allowed Great Britain to put people who committed crimes in the Colonies on trial in England" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter from Benjamin Franklin regarding a Parliamentary act which allowed Great Britain to put people who committed crimes in the Colonies on trial in England</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367385656_c74a674f88_o.jpg" alt="A letter from the Speaker of the Massachusetts House of Representatives to Benjamin Franklin, recommending the removal of Gov. Thomas Hutchinson and asking Franklin to petition King George III to this effect, followed by the petition to the king" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">A letter from the Speaker of the Massachusetts House of Representatives to Benjamin Franklin, recommending the removal of Gov. Thomas Hutchinson and asking Franklin to petition King George III to this effect, followed by the petition to the king</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54366516512_d597d3ecfa_o.jpg" alt="Proclamation of Gov. Thomas Gage, denouncing the proceedings of Provincial Congress as illegitimate" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Proclamation of Gov. Thomas Gage, denouncing the proceedings of Provincial Congress as illegitimate</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367788635_b2b6a3b2bb_o.jpg" alt="Writs of Assistance case, including petition by Thomas Lechmere and writ of assistance issued June 1762" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Writs of Assistance case, including petition by Thomas Lechmere and writ of assistance issued June 1762</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367385921_1e72d7c02e_o.jpg" alt="Address to the King, thanking him for assenting to the repeal of the Stamp Act, as well as expressing anxiety about the disaffection of the colonists towards Great Britain and re-affirming the loyalty of Massachusetts Bay colony to the King" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Address to the King, thanking him for assenting to the repeal of the Stamp Act, as well as expressing anxiety about the disaffection of the colonists towards Great Britain and re-affirming the loyalty of Massachusetts Bay colony to the King</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367594079_197e840a04_o.jpg" alt="Letter summarizing the disorder in Massachusetts in connection with the Stamp Act" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter summarizing the disorder in Massachusetts in connection with the<br>Stamp Act</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367385881_a86b7856e7_o.jpg" alt="Two letters from Thomas Hutchinson, one summarizing the Boston Tea Party and one discussing its aftermath" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Two letters from Thomas Hutchinson, one summarizing the Boston Tea Party and one discussing its aftermath</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367819205_2a2e9c60d5_o.jpg" alt="Resolve electing several well-known figures as a committee to meet committees from several other colonies at Philadelphia to consider measures to restore harmony between the colonies and Great Britain" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Resolve electing several well-known figures as a committee to meet committees from several other colonies at Philadelphia to consider measures to restore harmony between the colonies and Great Britain</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367789170_824cd0130c_o.jpg" alt="Letter to Gov. Thomas Gage from the Massachusetts Congress on the disastrous effects of the Intolerable Acts, asking him to reconsider" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter to Gov. Thomas Gage from the Massachusetts Congress on the disastrous effects of the Intolerable Acts, asking him to reconsider</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367618173_ee5eacd9e0_o.jpg" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Proclamation of King George III to suppress rebellion and sedition in the North American colonies</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367617908_527bca4bb6_o.jpg" alt="Letter from the Massachusetts House of Representatives to the Virginia House of Burgesses, asserting the rights of a union of colonies" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter from the Massachusetts House of Representatives to the Virginia House of Burgesses, asserting the rights of a union of colonies</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367617788_1bc2755809_o.jpg" alt="Resolve of the Massachusetts Provincial Congress establishing a pay scale for soldiers raised for the war" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Resolve of the Massachusetts Provincial Congress establishing a pay scale for soldiers raised for the war</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367788975_058abfe591_o.jpg" alt="Docket entry for John Hancock, who had been sued by Advocate General Jonathan Sewall for the alleged smuggling of wine on Hancock's sloop, HMS Liberty" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Docket entry for John Hancock, who had been sued by Advocate General Jonathan Sewall for the alleged smuggling of wine on Hancock's sloop, HMS Liberty</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367788990_de950731eb_o.jpg" alt="Docket entry for John Hancock's ship the HMS Liberty, sued by Joseph Harrison, the collector of customs, for the alleged smuggling of wine" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Docket entry for John Hancock's ship, the HMS Liberty, sued by Joseph Harrison, the collector of customs, for the alleged smuggling of wine</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54382535799_b842f0ab02_o.jpg" alt="" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Inquest of Michael Johnson (alias for Crispus Attucks) after the Boston Massacre</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/revolutionary-war">Revolutionary War</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        <center><credit>Curated by: Colette Pollauf<br>Text Credit: Yolande Bennett<br>With Assistance From: Elizabeth O'Connell</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
