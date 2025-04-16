@@ -1,7 +1,100 @@
 <html>
 	<head>
 		<style>
-			div.exhibits-item {
+			.exhibit-text {
+				column-count: 1;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.exhibit-text p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 170%;
+			}
+
+			.exhibit-text a:hover {
+				text-decoration: underline;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.exhibit-text-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .exhibit-text-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .exhibit-text-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .exhibit-text-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .exhibit-text-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.exhibit-text-banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
 				border: none;
 			}
 
@@ -38,7 +131,7 @@
 			}
 
 			.exhibits {
-				padding: 20px;
+				padding: 25px;
                 padding-bottom: 10px;
                 padding-top: 10px;
 				float: left;
@@ -68,45 +161,120 @@
                     padding-bottom: 5px;
 				}
 			}
+
+			@media screen and (max-width: 400px) {
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
 		</style>
 	</head>
 	<body>
+		<div class="exhibit-text-banner">
+			<img src="https://live.staticflickr.com/65535/53956571364_e39568941f_o.png" style="width:100%" alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
+			<div class="color-overlay">
+				<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/">
+				  <div class="overlay-text">Photograph of Nicola Sacco</div></a>
+			  </div>
+		</div>
+		<div class="clearfix2"></div>
+		<div class="exhibit-text">
+			<p>Explore our selection of digital exhibits, curated by Massachusetts Archives staff to highlight fascinating collections within our vaults.<br>For more online exhibits, please visit the <a href="https://www.sec.state.ma.us/divisions/commonwealth-museum/exhibits/online-exhibits.htm">Commonwealth Museum website</a>.</p></div>
+        <div class="clearfix2"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">
-                    <img src="https://live.staticflickr.com/65535/54141666926_766ea393d8_o.png" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%"></a>
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/rev250">
+                    <img src="https://live.staticflickr.com/65535/54367918655_e13218d4b7_o.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%"></a>
 			</div>
-            <div class="collection-title">Commonwealth v. Sacco & Vanzetti</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250">Revolution 250</a></div>
 		</div>
 		<div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">
-                    <img src="https://live.staticflickr.com/65535/54119241503_d940fe8d29_o.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" style="width:100%"></a>
-			</div>
-            <div class="collection-title">Quabbin Reservoir Photographs</div>
-		</div>
+            <div class="exhibits-item">
+                <a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
+                    <img src="https://live.staticflickr.com/65535/54280309427_7513b6eb9f_o.png" alt="Boston Zoological Society exhibits, sheet 28" style="width:100%"></a>
+            </div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">Parks & Zoos of Greater Boston</a></div>
+        </div>
         <div class="clearfix"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
 				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">
                     <img src="https://live.staticflickr.com/65535/54119429645_b110bcce3f_o.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%"></a>
 			</div>
-            <div class="collection-title">Birds of Massachusetts & Other New England States</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">Birds of Massachusetts & Other New England States</a></div>
 		</div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
-                    <img src="https://live.staticflickr.com/65535/54280309427_7513b6eb9f_o.png" alt="Boston Zoological Society exhibits, sheet 28" style="width:100%"></a>
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">
+                    <img src="https://live.staticflickr.com/65535/54141666926_766ea393d8_o.png" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%"></a>
 			</div>
-            <div class="collection-title">Parks & Zoos of Greater Boston</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">Commonwealth v. Sacco & Vanzetti</a></div>
 		</div>
         <div class="clearfix"></div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">
+                    <img src="https://live.staticflickr.com/65535/54119241503_d940fe8d29_o.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" style="width:100%"></a>
+			</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">Quabbin Reservoir Photographs</a></div>
+		</div>
         <div class="exhibits">
 			<div class="exhibits-item">
 				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">
                     <img src="https://live.staticflickr.com/65535/54140708262_fece954bd4_o.png" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%"></a>
 			</div>
-            <div class="collection-title">Metropolitan Park Commission Portrait Photographs</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">Metropolitan Park Commission Portrait Photographs</a></div>
 		</div>
+		<div class="clearfix"></div>
 	</body>
 </html>
