@@ -1,0 +1,609 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 225%;
+                text-align: center;
+            }
+
+            item-title,
+            item-title a {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #ffffff;
+                padding-left: 125px;
+                padding-right: 125px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit, .row>.exhibit2 {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p, .exhibit2 p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 25%;
+            }
+
+            .exhibit2 {
+                float: left;
+                width: 50%;
+            }
+        
+            div.exhibit {
+                background-color: #fafafa;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #ffffff;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #ffffff;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 900px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+                transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img, .exhibit2 img {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img:hover, .exhibit2 img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit, .row>.exhibit2 {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p, .exhibit2 p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p, .exhibit2 p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p, .exhibit2 p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+			<strong-text>During the American Revolutionary War,</strong-text>&ensp;minority groups were vital to the American victory, and were involved on both the Patriot and Loyalist sides as soldiers, sailors, craftsmen, laborers, and farmers. Although the original call to arms was aimed at men, there were several women who fought as American patriots. In 1782, Deborah Sampson Gannett of Plympton, Massachusetts disguised herself as a man named Robert Shurtleff and joined the Fourth Massachusetts Regiment.
+            Many soldiers in the war were enslaved Africans and African Americans who were promised freedom in exchange for their service. Approximately 20,000 African Americans fought against the rebellion as Black Loyalists, while around 9,000 became Black Patriots. 
+            Immigrants from the Caribbean, France, Germany, Ireland, Poland, Scotland, Spain, and other European regions travelled to support the Patriot cause as foreign troops. Various Native American tribes fought on both sides as well, faced with the challenges of preserving their land and independence amidst the war. 
+            </div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54366862791_46f03888f3_o.jpg" alt="Speech from the Sachem of the Stockbridge Indians in answer to the request that they should enlist in the army, pledging their commitment and support to the Massachusetts cause" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Speech from the Sachem of the Stockbridge Indians</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367263200_fccb4f964e_o.jpg" alt="Letter to the Stockbridge Mohican tribe, affirming their friendship and allyship in the Revolutionary War with the Massachusetts government" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Letter to the<br>Stockbridge<br>Mohican tribe</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367093728_4b94b49c33_o.jpg" alt="Treaty between the Massachusetts government and the Micmac and St. John's Tribes of Indians, in which the tribes pledge to provide soldiers and material aid to America in the war" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Treaty between the Massachusetts government and the Micmac and St. John's Tribes of Indians</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367067269_47011d51ca_o.jpg" alt="Case of Ann Bailey (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Case of Ann Bailey</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367093408_1627a18167_o.jpg" alt="Pension application from Deborah Sampson Gannett (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Pension application<br>from Deborah Sampson Gannett</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367262930_5f8c9db610_o.jpg" alt="Lydia Cranson's petition to renew her husband's innholder license while he serves in the Continental Army" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Lydia Cranson's petition to renew her husband's innholder license while he serves in the Continental Army</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367093243_750402833c_o.jpg" alt="Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case) Pleadings" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Brom and Bett v.<br>Ashley Pleadings</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367262840_7d1ccb7579_o.jpg" alt="Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case) Verdict" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>Brom and Bett v.<br>Ashley Verdict</p></center>
+            </div>
+            <div class="clearfix"></div>            
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367067164_12c83d57e4_o.jpg" alt="Bill of Sale: Mingo, Dinah, and Quaco (Evidence in Jennison v. Caldwell, Quock Walker case)" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Bill of Sale: Mingo, Dinah, and Quaco</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367093233_0274bf7fd9_o.jpg" alt="Walker v. Jennison (Quock Walker case) Writ, Answer, and Judgement" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Walker v. Jennison Writ, Answer, and Judgement</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54365989447_55124001b4_o.jpg" alt="Petition to the Massachusetts legislature from Prince Hall and “a great number of Negroes who are detained in a state of slavery in the Bowels of a free & Christian Country,” asking that slavery be abolished in Massachusetts" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Petition to the Massachusetts legislature from<br>Prince Hall</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://live.staticflickr.com/65535/54367137314_7a8fed45f5_o.jpg" alt="Letter from General Phillip Schuyler to the Massachusetts government on the necessity of convincing the six nations of Indians to remain neutral in the war" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Letter from General Phillip Schuyler to<br>the Massachusetts government</p></center>
+            </div>
+            <div class="clearfix"></div>            
+            <div class="exhibit2">
+                <img src="https://live.staticflickr.com/65535/54367093698_13d9d38208_o.jpg" alt="Decree from a committee of the Massachusetts legislature deciding to pursue peace with the Penobscot Indians, and details for gifts to give to the tribe in order to facilitate a friendship" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Decree from a committee of the Massachusetts legislature deciding to pursue peace with the Penobscot Indians</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://live.staticflickr.com/65535/54382695645_9e72005b84_o.jpg" alt="Discharge paper for Cato Griger" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Discharge paper for Cato Griger</p></center>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54366862791_46f03888f3_o.jpg" alt="Speech from the Sachem of the Stockbridge Indians in answer to the request that they should enlist in the army, pledging their commitment and support to the Massachusetts cause" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Speech from the Sachem of the Stockbridge Indians in answer to the request that they should enlist in the army, pledging their commitment and support to the Massachusetts cause</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367263200_fccb4f964e_o.jpg" alt="Letter to the Stockbridge Mohican tribe, affirming their friendship and allyship in the Revolutionary War with the Massachusetts government" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter to the Stockbridge Mohican tribe, affirming their friendship and allyship in the Revolutionary War with the Massachusetts government</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367093728_4b94b49c33_o.jpg" alt="Treaty between the Massachusetts government and the Micmac and St. John's Tribes of Indians, in which the tribes pledge to provide soldiers and material aid to America in the war" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Treaty between the Massachusetts government and the Micmac and St. John's Tribes of Indians, in which the tribes pledge to provide soldiers and material aid to America in the war</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367067269_47011d51ca_o.jpg" alt="Case of Ann Bailey (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Case of Ann Bailey (Disguised herself as a man and served in the Continental Army during the Revolutionary War)</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367093408_1627a18167_o.jpg" alt="Pension application from Deborah Sampson Gannett (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Pension application from Deborah Sampson Gannett (Disguised herself as a man and served in the Continental Army during the Revolutionary War)</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367262930_5f8c9db610_o.jpg" alt="Lydia Cranson's petition to renew her husband's innholder license while he serves in the Continental Army" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Lydia Cranson's petition to renew her husband's innholder license while he serves in the Continental Army</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367093243_750402833c_o.jpg" alt="Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case) Pleadings" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case) Pleadings</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367262840_7d1ccb7579_o.jpg" alt="Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Brom and Bett v. Ashley (Mum Bett/Elizabeth Freeman case)</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367067164_12c83d57e4_o.jpg" alt="Bill of Sale: Mingo, Dinah, and Quaco (Evidence in Jennison v. Caldwell, Quock Walker case)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bill of Sale: Mingo, Dinah, and Quaco (Evidence in Jennison v. Caldwell, Quock Walker case)</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367093233_0274bf7fd9_o.jpg" alt="Walker v. Jennison (Quock Walker case) Writ, Answer, and Judgement" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Walker v. Jennison (Quock Walker case) Writ, Answer, and Judgement</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54365989447_55124001b4_o.jpg" alt="Petition to the Massachusetts legislature from Prince Hall and “a great number of Negroes who are detained in a state of slavery in the Bowels of a free & Christian Country,” asking that slavery be abolished in Massachusetts" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the Massachusetts legislature from Prince Hall and “a great number of Negroes who are detained in a state of slavery in the Bowels of a free & Christian Country,” asking that slavery be abolished in Massachusetts</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367137314_7a8fed45f5_o.jpg" alt="Letter from General Phillip Schuyler to the Massachusetts government on the necessity of convincing the six nations of Indians to remain neutral in the war" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter from General Phillip Schuyler to the Massachusetts government on the necessity of convincing the six nations of Indians to remain neutral in the war</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54367093698_13d9d38208_o.jpg" alt="Decree from a committee of the Massachusetts legislature deciding to pursue peace with the Penobscot Indians, and details for gifts to give to the tribe in order to facilitate a friendship" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Decree from a committee of the Massachusetts legislature deciding to pursue peace with the Penobscot Indians, and details for gifts to give to the tribe in order to facilitate a friendship</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://live.staticflickr.com/65535/54382695645_9e72005b84_o.jpg" alt="Discharge paper for Cato Griger" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Discharge paper for Cato Griger</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">Revolution 250 Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        <center><credit>Curated by: Colette Pollauf<br>Text Credit: Yolande Bennett<br>With Assistance From: Elizabeth O'Connell</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
