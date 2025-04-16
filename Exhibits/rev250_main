@@ -1,0 +1,333 @@
+<html>
+	<head>
+		<style>
+			.rev250 {
+				column-count: 2;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.rev250 p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 170%;
+			}
+
+			.rev250 a:hover {
+				text-decoration: underline;
+			}
+
+			rev250-strong {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 170%;
+				margin-bottom: 30px;
+				color: #17183b;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+			rev250-small, rev250-small a {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+			}
+
+			rev250-small a:hover {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+				text-decoration: underline;
+			} 
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.homepage-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .homepage-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .rev250-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .rev250-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .rev250-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.rev250-banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
+				border: none;
+			}
+
+			div.exhibits-item:hover {
+				border: none;
+			}
+
+			div.exhibits-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: .6s ease;
+			}
+
+			div.exhibits-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
+
+			div.collection-title, div.collection-title a {
+				text-align: center;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+                padding-top: 12px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.exhibits {
+				padding: 25px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+				float: left;
+				width: 50%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.exhibits {
+					width: 49.99999%;
+					margin: 6px 0;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.exhibits {
+					width: 100%;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media screen and (max-width: 400px) {
+				rev250-strong {
+					font-size: 14px;
+				}
+
+				rev250-small, rev250-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.rev250 {
+					column-count: 1;
+				}
+				
+				.rev250 p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				rev250-strong {
+					font-size: 14px;
+				}
+
+				rev250-small, rev250-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.rev250 {
+					column-count: 1;
+				}
+				
+				.rev250 p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				rev250-strong {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.rev250 {
+					column-count: 1;
+				}
+				
+				.rev250 p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="rev250-banner">
+			<img src="https://live.staticflickr.com/65535/54367528196_fd2d560745_o.png" style="width:100%" alt="Intaglio print showing the surrender of British commander Charles Cornwallis at Yorktown" />
+			<div class="color-overlay">
+				<a href="">
+				  <div class="overlay-text">Intaglio print showing the surrender of British commander Charles Cornwallis at Yorktown</div></a>
+			  </div>
+		</div>
+		<div class="clearfix2"></div>
+		<div class="rev250">
+			<rev250-strong>
+			<i>"By the rude bridge that arched the flood,<br>
+			Their flag to April’s breeze unfurled,<br>
+			Here once the embattled farmers stood,<br>
+			And fired the shot heard round the world."</i><br>
+			<rev250-small>&ndash;&ensp;Ralph Waldo Emerson, <i>"<a href="https://www.poetryfoundation.org/poems/45870/concord-hymn">Concord Hymn</a>"</i></rev250-small>
+			</rev250-strong>
+			<div class="clearfix2"></div>
+			<p><strong-text>On April 19, 1775,</strong-text>&ensp;the first shots of the American Revolutionary War rang out in Lexington and Concord. The following eight years brought conflict and casualty across North America, the Caribbean, and the Atlantic Ocean. An end to the war came on September 3, 1783 with the signature of the Treaty of Paris, establishing the United States of America as an independent nation. 
+			This year marks 250 years since “the shot heard round the world.” Learn more about the events that transpired by browsing our curated digital exhibits below, or by viewing the full <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">Revolution 250 digital collection</a>.</p>
+        </div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/leadup-to-revolution">
+					<img src="https://live.staticflickr.com/65535/54367864100_d072417683_o.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:99.95%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/leadup-to-revolution">Leadup to Revolution</a></div>
+		</div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/revolutionary-war">
+					<img src="https://live.staticflickr.com/65535/54368155617_d3b0ecbb59_o.png" alt="French map showing 'the troubles of America'" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/revolutionary-war">Revolutionary War</a></div>
+		</div>
+		
+		<div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/post-revolution">
+					<img src="https://live.staticflickr.com/65535/54379951354_8b378c5b47_o.png" alt="Lithograph showing the defeat of the British army at the Battle of New Orleans" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/post-revolution">Post-Revolution</a></div>
+		</div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/minorities-and-the-revolution">
+                    <img src="https://live.staticflickr.com/65535/54367369380_3026cc02c1_o.png" alt="Pension application from Deborah Sampson Gannett (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"></a>
+			</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/minorities-and-the-revolution">Minorities and the Revolution</a></div>
+		</div>
+        <div class="clearfix2"></div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">
+                    <img src="https://live.staticflickr.com/65535/54368981396_2f9a250fd3_o.png" alt="French map showing 'the troubles of America'" style="width:100%"></a>
+			</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">View Full Collection</a></div>
+		</div>
+		<div class="clearfix2"></div>
+	</body>
+</html>
