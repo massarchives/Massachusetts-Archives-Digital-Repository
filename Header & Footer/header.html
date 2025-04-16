@@ -44,7 +44,7 @@
 				line-height: 140%;
 			}
 
-			.alert {
+			.alert, .alert a {
 				padding: 25px;
 				background-color: #E8E8EB;
 				font-family: 'DM Sans', sans-serif;
@@ -57,6 +57,23 @@
 				transition: opacity 0.6s;
 				/* 600ms to fade out */
 			}
+
+            .alert learn-more a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                padding: 0px;
+            }
+
+            .alert learn-more a:hover {
+                text-decoration: underline;
+            }
+
+            .alert a:hover {
+                text-decoration: none;
+            }
 
 			.active a {
 				background-color: #FAFAFA;
@@ -77,7 +94,7 @@
 				transition: 0.3s;
 			}
 			
-			.strong {
+			.strong, .strong a {
 				font-weight: 600;
 				color: #17183b;
 			}
@@ -169,16 +186,13 @@
 			<p>William Francis Galvin</p>
 		</div>
 	</div>
-	<div class="alert">
-		<span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
-		<strong>Notice:</strong> Due to an ongoing technical issue, some digital collections may not load properly. Staff are
-		aware of the problem and working to resolve it.
-	</div>
 	<div class="topnav" id="myTopnav">
 		<a href="https://digitalarchives.sec.state.ma.us/">Home</a>
 		<a href="https://digitalarchives.sec.state.ma.us/about/">About</a>
+        	<a href="https://digitalarchives.sec.state.ma.us/archive/">Collections</a>
 		<a href="https://digitalarchives.sec.state.ma.us/guides/">Guides</a>
 		<a href="https://digitalarchives.sec.state.ma.us/exhibits/">Exhibits</a>
+		<a href="https://digitalarchives.sec.state.ma.us/rev250/">Revolution 250</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 		  <i class="fa fa-bars"></i>
 		</a>
