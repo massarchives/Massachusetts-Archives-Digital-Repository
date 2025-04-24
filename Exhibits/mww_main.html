@@ -1,0 +1,313 @@
+<html>
+	<head>
+		<style>
+			.mww {
+				column-count: 2;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.mww p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 170%;
+			}
+
+			.mww a:hover {
+				text-decoration: underline;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+			mww-small, mww-small a {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+			}
+
+			mww-small a:hover {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+				text-decoration: underline;
+			} 
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.homepage-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .homepage-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .mww-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .mww-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .mww-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.mww-banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
+				border: none;
+			}
+
+			div.exhibits-item:hover {
+				border: none;
+			}
+
+			div.exhibits-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: .6s ease;
+			}
+
+			div.exhibits-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
+
+			div.collection-title, div.collection-title a {
+				text-align: center;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+                padding-top: 12px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.exhibits {
+				padding: 25px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+				float: left;
+				width: 50%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.exhibits {
+					width: 49.99999%;
+					margin: 6px 0;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.exhibits {
+					width: 100%;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media screen and (max-width: 400px) {
+				mww-strong {
+					font-size: 14px;
+				}
+
+				mww-small, mww-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.mww {
+					column-count: 1;
+				}
+				
+				.mww p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				mww-strong {
+					font-size: 14px;
+				}
+
+				mww-small, mww-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.mww {
+					column-count: 1;
+				}
+				
+				.mww p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				mww-strong {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.mww {
+					column-count: 1;
+				}
+				
+				.mww p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="mww-banner">
+			<img src="https://live.staticflickr.com/65535/54458445629_c3cf3c4e5e_o.png" style="width:100%" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" />
+			<div class="color-overlay">
+				<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3552dd45-27ae-4acf-8c19-e7ff2238d94a/">
+				  <div class="overlay-text">Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916</div></a>
+			  </div>
+		</div>
+		<div class="clearfix2"></div>
+        <div class="exhibit-text">
+        <strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (MWW) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam.<br>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing MWW facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. These formats include dry plate glass negatives, glass lantern slides, and photographic prints.<br>
+        <view-collection><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">View collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection></div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww-people/">
+					<img src="https://live.staticflickr.com/65535/54468896479_2ea97f55c8_o.png" alt="Portrait, Mass., ca. 1900-1919" style="width:99.5%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww-people/">People</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww-buildings">
+					<img src="https://live.staticflickr.com/65535/54474104890_4d50ce8a45_o.png" alt="Distribution Department, Low Service Spot Pond Reservoir, Ducks in Dark Hollow Pond, Stoneham, Mass., Sep. 8, 1903" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww-buildings">Buildings, Landscapes & Streetscapes</a></div>
+		</div>
+        <div class="clearfix2"></div>
+	</body>
+</html>
