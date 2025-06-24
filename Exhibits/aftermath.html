@@ -1,0 +1,582 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            credit {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            item-title,
+            item-title a {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #ffffff;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+        
+            div.exhibit {
+                background-color: #fafafa;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #ffffff;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #ffffff;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 900px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+                transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+			<strong-text>The burned area in Salem</strong-text>&ensp;stretched over a mile from the Blubber Hollow industrial area all the way into the wharves in Palmer’s Cove. Over 1,300 buildings burned, including both homes and businesses. Even newer buildings which had been built to withstand fire stood no chance, surrounded by older wooden buildings which were quickly consumed by the flames.<br>One tragic loss was the twin-towered St. Joseph’s Church in the French neighborhood, which had finished construction only three years before, in 1911. The neighborhood was destroyed, including many of the historic homes on Lafayette Street. Other homes in what is now the McIntire Historic District escaped destruction only through a change in the wind.<br>The City Orphan Asylum burned as well, though not before the nuns successfully evacuated the children and older women who lived there. The same occurred at the Salem Hospital. Pequot Mills, owned by Naumkeag Steam Cotton Company, was almost entirely destroyed.</div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/1.png" alt="Report of dangerous ruins" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Report of dangerous ruins</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/2.png" alt="Building ruins after the fire" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Building ruins after the fire</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/3.png" alt="Debris falls from a burned out building" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Debris falls from a burned out building</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/4.png" alt="Building ruins after the fire" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Building ruins after the fire</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/5.png" alt="People observing the ruins" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>People observing the ruins</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/6.png" alt="Ruined chimney at or near Pequot Mills" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Ruined chimney at or near Pequot Mills</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/7.png" alt="Ruined chimneys after the fire" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Ruined chimneys after the fire</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/8.png" alt="A burned building falls in front of Saint Joseph's Church" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>A burned building falls in front of<br>Saint Joseph's Church</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/9.png" alt="Electric light station surrounded by ruins" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Electric light station surrounded<br>by ruins</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/10.png" alt="Downed electric wires and building ruins" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Downed electric wires and<br>building ruins</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/11.png" alt="Militia members and civilians in front of the ruins of Pequot Mills" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Militia members and civilians in front of the ruins of Pequot Mills</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/12.png" alt="Falling chimney" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Falling chimney</p></center>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/1.png" alt="Report of dangerous ruins" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href=""></a>Report of dangerous ruins</item-title><center><caption>This report details the investigation of the dangerous ruins in the burned area in Salem, dividing them into two categories. The first category was of ruins that presented an imminent danger to passersby, and the second was of ruins that should be demolished before any work was done in the area.</caption></center><div class="clearfix2"></div>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/2.png" alt="Building ruins after the fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Building ruins after the fire</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/3.png" alt="Debris falls from a burned out building" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Debris falls from a burned out building</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/4.png" alt="Building ruins after the fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Building ruins after the fire</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/5.png" alt="People observing the ruins" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href=""></a>People observing the ruins</item-title><center><caption>The ruins quickly became a curiosity. Newspapers reported that 200,000 people came from other towns and cities to view the destruction.</caption></center><div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/6.png" alt="Ruined chimney at or near Pequot Mills" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Ruined chimney at or near Pequot Mills</a></item-title><center><caption>The tower of Pequot Mills’ No. 5 Mill can be seen in the background.</caption></center><div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/7.png" alt="Ruined chimneys after the fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Ruined chimneys after the fire</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/8.png" alt="A burned building falls in front of Saint Joseph's Church" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">A burned building falls in front of Saint Joseph's Church</a></item-title><center><caption>A burned building, possibly the parish house, falls in front of Saint Joseph's Church on Lafayette Street. The church, only recently constructed in 1911, was gutted by the fire. The parish would use the cellar and tower bases until a new church was built in 1949. The new Saint Joseph's was later torn down and replaced with affordable housing in 2013.</caption></center><div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/9.png" alt="Electric light station surrounded by ruins" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Electric light station surrounded by ruins</a></item-title><center><caption>The electric light station on Peabody Street survived the fire, as it was constructed without any wood and had open space on three sides of the building.  It was reported that two men remained safely inside during the entire fire. Electricity was provided to Salem for eleven days by the Peabody Municipal Light Plant as a reciprocal gesture for Salem's assistance during a fire at the Peabody plant in 1913.</caption></center><div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/10.png" alt="Downed electric wires and building ruins" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Downed electric wires and building ruins</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/11.png" alt="Militia members and civilians in front of the ruins of Pequot Mills" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members and civilians in front of the ruins of Pequot Mills</a></item-title><center><caption>The Naumkeag Steam Cotton Company, the largest employer in the city, suffered the loss of nearly all of its 20 buildings at Pequot Mills, with only two small storehouses surviving. The company rebuilt, introducing electric power to the new mills, before eventually moving their operations out of Salem in 1953. The complex was converted into the Shetland Park office park in 1958.</caption></center><div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath/12.png" alt="Falling chimney" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href=""></a>Falling chimney</item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><credit>Curated by: Rhiannon Stewart<br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
