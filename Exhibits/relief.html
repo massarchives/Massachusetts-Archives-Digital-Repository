@@ -1,0 +1,701 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            credit {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            item-title,
+            item-title a {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #ffffff;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+        
+            div.exhibit {
+                background-color: #fafafa;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #ffffff;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #ffffff;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 900px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+                transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+			<strong-text>After the fire,</strong-text>&ensp;nearly half of the city’s residents had lost their homes and fled to public spaces like the Salem Common and the Broad Street Cemetery with what furniture and belongings they had saved. Camps were set up in Forest River Park, the high school’s Bertram Field and Highland Park, and Salem Willows to house the refugees. The largest of the camps, Forest River Park, housed upwards of 1,500 people at one point. The camp at Salem Willows accommodated tuberculosis patients whose homes had burnt. Refugees were provided with tents by the militia, who also distributed food and supplies in coordination with the Red Cross. Great care was taken to create sanitary facilities in order to minimize communicable disease. These recovery efforts were remarkably efficient. Just two days after the fire, on June 27, the barber was the first business to reopen, operating out of a tent. The first new chimney went up at the Sunshine Bakery on July 4, and the first new building permits followed about a week later. By July 10, most families in the camps had moved into tenements or relatives’ homes.</div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/1.png" alt="Refugees and their belongings on the street" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Refugees and their belongings on<br>the street</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/2.png" alt="Refugees on Salem Common the morning after the fire" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Refugees on Salem Common the morning after the fire</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/3.png" alt="Refugees and their belongings on the Common" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Refugees and their belongings on<br>the Common</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/4.png" alt="Report on Audit of Salem Fire Relief Committee" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Report on Audit of Salem Fire<br>Relief Committee</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/5.png" alt="Milk rations being handed out to refugees" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Milk rations being handed out<br>to refugees</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/6.png" alt="Families in a refugee camp" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Families in a refugee camp</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/7.png" alt="Children in a refugee camp" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Children in a refugee camp</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/8.png" alt="State Board of Health map showing burned district " style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>State Board of Health map showing burned district</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/9.png" alt="Refugee camp at Forest River Park" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Refugee camp at Forest River Park</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/10.png" alt="Mess tent at refugee camp" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Mess tent at refugee camp</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/11.png" alt="Camp mess tent" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Camp mess tent</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/12.png" alt="Forest River Park camp" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Forest River Park camp</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/13.png" alt="Report on health conditions in the City of Salem" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Report on health conditions in the<br>City of Salem</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/14.png" alt="Tents at Forest River Park camp" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Tents at Forest River Park camp</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/15.png" alt="Camp latrines covered by tents" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Camp latrines covered by tents</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/16.png" alt="Camp latrines being connected to city sewage" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>Camp latrines being connected to<br>city sewage</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/17.png" alt="Map of communicable diseases in Salem and neighboring towns" style="width:100%"
+                    onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+                <center><p>Map of communicable diseases in Salem and neighboring towns</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/18.png" alt="Report on water supply" style="width:100%"
+                    onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+                <center><p>Report on water supply</p></center>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/1.png" alt="Refugees and their belongings on the street" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Refugees and their belongings on the street</a></item-title>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/2.png" alt="Refugees on Salem Common the morning after the fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Refugees on Salem Common the morning after the fire</a></item-title>
+                            <center><caption>Nearly half of the residents of Salem lost their homes in the fire, and they saved what they could before their homes burned. They gathered with their possessions in public areas like the Salem Common.</caption>
+                                <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/3.png" alt="Refugees and their belongings on the Common" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Refugees and their belongings on the Common</a></item-title>
+                            <center><caption>Salem residents saved what they could from their homes before they were destroyed and gathered in public outdoor spaces. Many took wooden chairs and metal bedframes.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/4.png" alt="Report on Audit of Salem Fire Relief Committee" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report on Audit of Salem Fire Relief Committee</a></item-title>
+                            <center><caption>The Salem Fire Relief Committee was a civilian organization which worked in tandem with the militia to provide aid and relief to the citizens of Salem who had been affected by the fire. Funds were largely raised via donations and the contributions of the Commonwealth. Aid took such form as food and supplies, the running of refugee camps, business rehabilitation, and financial assistance.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </caption>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/5.png" alt="Milk rations being handed out to refugees" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Milk rations being handed out to refugees</a></item-title>
+                            <center><caption>Stations were set up to supply milk to refugees, particularly mothers and babies.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/6.png" alt="Families in a refugee camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Families in a refugee camp</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/7.png" alt="Children in a refugee camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Children in a refugee camp</a></item-title>
+                            <center><caption>A group of children pose for the camera at one of the refugee camps.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/8.png" alt="State Board of Health map showing burned district" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">State Board of Health map showing burned district</a></item-title>
+                            <center><caption>This map shows the burned areas of Salem and the locations of the refugee camps.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/9.png" alt="Refugee camp at Forest River Park" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Refugee camp at Forest River Park</a></item-title>
+                            <center><caption>Forest River Park, the largest and most permanent refugee camp, also served as military headquarters.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/10.png" alt="Mess tent at refugee camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Mess tent at refugee camp</a></item-title>
+                            <center><caption>The mess tent was a dining facility for those living in the refugee camp.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/11.png" alt="Camp mess tent" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Camp mess tent</a></item-title>
+                            <center><caption>The mess tent was a dining facility for those living in the refugee camp. Note the Sunshine Biscuits crate on the left, as the Sunshine Bakery was the first business to have a new chimney constructed on July 4.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/12.png" alt="Forest River Park camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Forest River Park camp</a></item-title>
+                            <center><caption>The refugee camps were kept clean and sanitary in order to avoid the spread of communicable disease among residents living in close proximity.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/13.png" alt="Report on health conditions in the City of Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report on health conditions in the City of Salem</a></item-title>
+                            <center><caption>The State Board of Health reported to the governor about the sanitary conditions in Salem, especially the on prevalence of communicable diseases both before and after the fire. The Board also reported on the water supply, the milk supply, typhoid fever vaccinations, and a few other illnesses. Additionally, a separate camp was set up at Salem Willows to house tuberculosis patients.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/14.png" alt="Tents at Forest River Park camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Tents at Forest River Park camp</a></item-title>
+                            <center><caption>Latrines were constructed at the camp to help maintain sanitary conditions there.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/15.png" alt="Camp latrines covered by tents" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Camp latrines covered by tents</a></item-title>
+                            <center><caption>Latrines were constructed at the camp to help maintain sanitary conditions there.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/16.png" alt="Camp latrines being connected to city sewage" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Camp latrines being connected to city sewage</a></item-title>
+                            <center><caption>The camp latrines were connected to the city sewers.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/17.png" alt="Map of communicable diseases in Salem and neighboring towns" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Map of communicable diseases in Salem and neighboring towns</a></item-title>
+                            <center><caption>This map shows the prevalence of typhoid fever, scarlet fever, diphtheria, sore throat, whooping cough, and measles in Salem and adjacent cities and towns both 24 days before the fire and 24 days after the fire. Within each colored circle representing an illness, the numbers in black show the number of cases before the fire and the numbers in red show the number of cases after the fire.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief/18.png" alt="Report on water supply" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report on water supply</a></item-title>
+                            <center><caption>The State Board of Health maintained sanitary conditions in Salem after the fire, including ensuring the safety of the water supply. The Board did periodic water testing to verify bacteria levels.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/militia-response">Militia Response</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        <center><credit>Curated by: Rhiannon Stewart<br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
