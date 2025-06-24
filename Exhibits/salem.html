@@ -1,0 +1,328 @@
+<html>
+	<head>
+		<style>
+			.quote {
+				column-count: 2;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.quote p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 170%;
+			}
+
+			.quote a:hover {
+				text-decoration: underline;
+			}
+
+			quote-strong {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 170%;
+				margin-bottom: 30px;
+				color: #17183b;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+			quote-small, quote-small a {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+			}
+
+			quote-small a:hover {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 300%;
+				text-decoration: underline;
+			} 
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.clearfix3 {
+				padding: 5px;
+			}
+
+			.homepage-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .homepage-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
+				border: none;
+			}
+
+			div.exhibits-item:hover {
+				border: none;
+			}
+
+			div.exhibits-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: .6s ease;
+			}
+
+			div.exhibits-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
+
+			div.collection-title, div.collection-title a {
+				text-align: center;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+                padding-top: 12px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.exhibits {
+				padding: 25px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+				float: left;
+				width: 50%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.exhibits {
+					width: 49.99999%;
+					margin: 6px 0;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.exhibits {
+					width: 100%;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media screen and (max-width: 400px) {
+				quote-strong {
+					font-size: 14px;
+				}
+
+				quote-small, quote-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.quote {
+					column-count: 1;
+				}
+				
+				.quote p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				quote-strong {
+					font-size: 14px;
+				}
+
+				quote-small, quote-small a {
+					line-height: 170%;
+					font-size: 12px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.quote {
+					column-count: 1;
+				}
+				
+				.quote p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				quote-strong {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.quote {
+					column-count: 1;
+				}
+				
+				.quote p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/banner.png" style="width:100%" alt="State Board of Health map showing burned district" />
+			<div class="color-overlay">
+				<a href="">
+				  <div class="overlay-text">State Board of Health map showing burned district</div></a>
+			  </div>
+		</div>
+		<div class="clearfix2"></div>
+		<div class="quote">
+			<quote-strong>
+			<i>“People were playing hoses on the roofs<br>
+			of the summer cottages on Marblehead Neck;<br>
+			the red sky was filled with flying motes,<br>
+			cinders and coals, and bigger things,<br>scorched black burnt.<br>
+			The water glowed like fire, too, but flat.”</i><br>
+			<quote-small>&mdash;&ensp;Elizabeth Bishop, “A Drunkard”</quote-small>
+			</quote-strong>
+			<div class="clearfix3"></div>
+			<p><strong-text>On the afternoon of June 25, 1914,</strong-text>&ensp;there was an explosion in Salem, Massachusetts, at the Korn Leather Factory at 57 Boston Street, when chemicals used for making patent leather were ignited. Flames quickly spread to other buildings due to hot, dry conditions and high winds. Delays in being able to get water out of the hydrants greatly inhibited attempts to get the fire under control. For thirteen hours, the fire burned a path half a mile wide and one-and-a-half miles long through the most densely-populated part of the city. Sparks and firebrands carried across the area set fires in South Salem, and caused the explosion of oil tanks at the Standard Oil Company plant in the northwest part of the city.<br>Fire departments from 21 other cities and towns were called to assist in fighting the blaze which ultimately left 20,000 homeless, 60 injured, and three dead. In addition, Mayor John F. Hurley issued a precept calling to duty members of the Massachusetts Volunteer Militia (later, the National Guard) to help with property protection. 1,700 troops contributed to the relief efforts. The fire’s aftermath led to changes in local building codes and requirements to make new and renovated buildings more fire-resistant, including the use of fireproof materials, widening of streets, and planting shade trees to protect the rebuilt city. Learn more about the Great Salem Fire of 1914, and the emergency response, by browsing our curated digital exhibits below.</p>
+        </div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/relief-for-the-people-of-salem/">
+					<img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/relief.png" alt="Refugees and their belongings on the street" style="width:99.95%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/relief-for-the-people-of-salem/">Relief for the People of Salem</a></div>
+		</div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/militia-response/">
+					<img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia.png" alt="Militia unit on patrol in Salem" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/militia-response/">Militia Response</a></div>
+		</div>
+		<div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/salem-in-the-aftermath/">
+					<img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/aftermath.png" alt="Ruined chimneys after the fire" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-in-the-aftermath/">Salem in the Aftermath</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="">
+                    <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/collection.png" alt="Map of communicable diseases in Salem and neighboring towns" style="width:100%"></a>
+			</div>
+            <div class="collection-title"><a href="">View Full Collection (Coming Soon)</a></div>
+		</div>
+		<div class="clearfix2"></div>
+	</body>
+</html>
