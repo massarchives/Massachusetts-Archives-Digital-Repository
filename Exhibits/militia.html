@@ -1,0 +1,690 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            credit {
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            item-title,
+            item-title a {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #ffffff;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+        
+            div.exhibit {
+                background-color: #fafafa;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #ffffff;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #ffffff;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 900px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+                transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+                transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+			<strong-text>Mayor Hurley of Salem</strong-text>&ensp;issued a precept calling up the Second Corps Cadets and Company H, Eighth Infantry, who happened to be drilling in nearby Newbury that day, to assist with property protection and security. As the size of the fire and the extent of relief needs became clearer by the evening, Massachusetts Adjutant General Charles H. Cole gradually called in additional soldiers. Over the next few days, militia members reported for duty from Companies E and H of the Eighth Infantry; the Fifth Company, Naval Brigade; Companies A, C, D, I, and L of the Coast Artillery; the Ninth Infantry; the First Corps Cadets; the Second Corps Cadets; the Officers’ School; and the sanitary troops. These last were trained in and responsible for a wide range of subjects, from medical care and first aid to sanitation and hygiene. Totaling 1,700 members, the Provisional Troops were commanded by Colonel Frank A. Graves of the Eighth Infantry.<br>The militia troops provided first aid care and assisted firefighters during and after the fire, maintained order, provided food and supplies, and ran the refugee camps for Salem residents displaced by the fire. The militia’s command posted an official order on the evening of the fire which placed the city under semi-martial law, restricting access to the most damaged area and dividing the city into four districts under the control of the militia units. A further order, issued June 28, established one-way streets, redirected traffic at certain intersections, and granted right-of-way to military and emergency vehicles. After twelve days of duty, the militia was discharged from duty at 8 p.m. on July 7.</div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/1.png" alt="Militia members in front of the armory" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Militia members in front of the armory</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/2.png" alt="Map of Salem under militia control" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Map of Salem under militia control</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/3.png" alt="General Order No. 2" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>General Order No. 2</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/4.png" alt="Report of observations at Salem Fire" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Report of observations at Salem Fire</p></center>
+            </div>
+                    <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/5.png" alt="Colonel Frank A. Graves" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Colonel Frank A. Graves</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/6.png" alt="Militia members encamped in Salem" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Militia members encamped in Salem</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/7.png" alt="Militia members encamped in Salem" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Militia members encamped in Salem</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/8.png" alt="Militia members unloading supplies" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>Militia members unloading supplies</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/9.png" alt="Militia members marching down the street" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Militia members marching down<br>the street</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/10.png" alt="Militia Guarding the Ruins on Lincoln St. at Big Salem Fire" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Militia Guarding the Ruins on<br>Lincoln St. at Big Salem Fire</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/11.png" alt="Militia member patrolling ruins" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Militia member patrolling ruins</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/12.png" alt="Militia unit on patrol in Salem" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Militia unit on patrol in Salem</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/13.png" alt="Militia patrolling in front of Saint Joseph's Church" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Militia patrolling in front of<br>Saint Joseph's Church</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/14.png" alt="Col. Graves speaking to the press" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Col. Graves speaking to the press</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/15.png" alt="Militia members cooking in camp" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Militia members cooking in camp</p></center>
+            </div>
+            <div class="clearfix"></div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/16.png" alt="Militia members gathered in Salem" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>Militia members gathered in Salem</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/17.png" alt="Militia members in Salem, possibly cooking" style="width:100%"
+                    onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+                <center><p>Militia members in Salem,<br>possibly cooking</p></center>
+            </div>
+                        <div class="exhibit">
+                <img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/18.png" alt="Report of unsanitary conditions in Salem" style="width:100%"
+                    onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+                <center><p>Report of unsanitary conditions<br>in Salem</p></center>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/1.png" alt="Militia members in front of the armory" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members in front of the armory</a></item-title>
+                            <center><caption>Militia members standing in front of the Salem Armory.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/2.png" alt="Map of Salem under militia control" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Map of Salem under militia control</a></item-title>
+                            <center><caption>The first general order posted by the militia's command was made on the evening of June 25, 1914, and placed Salem under semi-martial law. The city was split into several districts patrolled by assigned militia units in order to maintain security and order. Also represented in this map is the burned area of the city and the locations of the refugee camps, including the number of tents and refugees at each.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/3.png" alt="General Order No. 2" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">General Order No. 2</a></item-title>
+                            <center><caption>The second general order posted by the militia's command on June 28, 1914, established one-way streets, redirected traffic at certain intersections, and granted right-of-way to military and emergency vehicles.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/4.png" alt="Report of observations at Salem Fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report of observations at Salem Fire</a></item-title>
+                            <center><caption>This report to the Acting Inspector General, later forwarded to the Adjutant General, gives an account of the early militia response to the fire.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/5.png" alt="Colonel Frank A. Graves" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Colonel Frank A. Graves</a></item-title>
+                            <center><caption>Colonel Frank A. Graves of Marblehead, Massachusetts, commanded the Provisional Troops in Salem after the fire. He had served in the Spanish-American War in 1898 and would go on to serve as second in command on the Mexican border in 1916. Here he stands in front of the Salem Armory.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/6.png" alt="Militia members encamped in Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members encamped in Salem</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/7.png" alt="Militia members encamped in Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members encamped in Salem</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/8.png" alt="Militia members unloading supplies" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members unloading supplies</a></item-title>
+                            <center><caption>Militia members from several units were called to duty in Salem, including from the Infantry, Coast Artillery, Cadets, sanitary troops, and Naval Brigade.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/9.png" alt="Militia members marching down the street" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members marching down the street</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/10.png" alt="Militia Guarding the Ruins on Lincoln St. at Big Salem Fire" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia Guarding the Ruins on Lincoln St. at Big Salem Fire</a></item-title>
+                            <center><caption>Many postcards were made and distributed showing the fire and its aftermath.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/11.png" alt="Militia member patrolling ruins" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia member patrolling ruins</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/12.png" alt="Militia unit on patrol in Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia unit on patrol in Salem</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/13.png" alt="Militia patrolling in front of Saint Joseph's Church" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia patrolling in front of Saint Joseph's Church</a></item-title>
+                            <center><caption>Three militia members pass the ruins of Saint Joseph's Church on their patrol. The church, only recently constructed in 1911, was gutted by the fire. The parish would use the cellar and tower bases until a new church was built in 1949. The new Saint Joseph's was later torn down and replaced with affordable housing in 2013.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/14.png" alt="Col. Graves speaking to the press" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Col. Graves speaking to the press</a></item-title>
+                            <center><caption>Colonel Frank A. Graves speaking to men who appear to be members of the press.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/15.png" alt="Militia members cooking in camp" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members cooking in camp</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/16.png" alt="Militia members gathered in Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members gathered in Salem</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/17.png" alt="Militia members in Salem, possibly cooking" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Militia members in Salem, possibly cooking</a></item-title>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://yolandebennett.github.io/archivesdigexhibits.github.io/salem_fire/militia/18.png" alt="Report of unsanitary conditions in Salem" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report of unsanitary conditions in Salem</a></item-title>
+                            <center><caption>The militia and the State Board of Health attentively maintained health and sanitary conditions in Salem in the days after the fire. On June 30, 1914, certain responsibilities of the militia were turned over to civil authorities, which included the oversight and enforcement of sanitary regulations at the camps. Colonel Frank A. Graves, the commanding officer of the militia troops at Salem, wrote this letter on July 1 to Adjutant General Charles H. Cole, describing the unsanitary conditions he'd witnessed in Salem, including refugees living in unsafe structures, the poor storage conditions for food, and improper handling of waste. Grave blamed such conditions on the neglect of the civil authorities.</caption></center>
+                            <div class="clearfix2"></div>
+                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/salem-in-the-aftermath/">Salem in the Aftermath</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        <center><credit>Curated by: Rhiannon Stewart<br>
+        With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
