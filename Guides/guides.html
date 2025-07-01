@@ -1,7 +1,100 @@
 <html>
 	<head>
 		<style>
-			div.exhibits-item {
+			.exhibit-text {
+				column-count: 1;
+				max-width: 1000px;
+				padding-top: 5px;
+			}
+			
+			.exhibit-text p {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 170%;
+			}
+
+			.exhibit-text a:hover {
+				text-decoration: underline;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.exhibit-text-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .exhibit-text-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .exhibit-text-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .exhibit-text-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .exhibit-text-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.exhibit-text-banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
 				border: none;
 			}
 
@@ -33,16 +126,12 @@
                 padding-top: 12px;
 			}
 
-			div.collection-title a:hover {
-				text-decoration: underline;
-			}
-
 			* {
 				box-sizing: border-box;
 			}
 
 			.exhibits {
-				padding: 20px;
+				padding: 25px;
                 padding-bottom: 10px;
                 padding-top: 10px;
 				float: left;
@@ -72,37 +161,105 @@
                     padding-bottom: 5px;
 				}
 			}
+
+			@media screen and (max-width: 400px) {
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
 		</style>
 	</head>
-	<body>
-		<div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">
-                    <img src="https://live.staticflickr.com/65535/54089046375_28c9d03c90_o.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" style="width:100%"></a>
-			</div>
-            <div class="collection-title">Folk Arts & Heritage Collection, 1982–2016</div>
+    <body>
+    <div class="exhibit-text-banner">
+        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" />
+        <div class="color-overlay">
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11c868d2-866f-4260-b565-d26801803ef9/">
+              <div class="overlay-text">Plan of Wilbraham made by Aaron Bliss, dated 1830</div></a>
+          </div>
+    </div>
+    <div class="clearfix2"></div>
+    <div class="exhibit-text">
+        <p>These guides offer tips for discovering and using collections, as well as an overview of all materials available within the Digital Repository.</p>
+        </div>
+    <div class="clearfix2"></div>
+    <div class="exhibits">		
+    <div class="exhibits-item">
+			<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/collections.png" alt="Pension application from Deborah Sampson Gannett (Disguised herself as a man and served in the Continental Army during the Revolutionary War)" style="width:100%"></a>
 		</div>
-		<div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">
-                    <img src="https://live.staticflickr.com/65535/54087694902_502439b5e9_o.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" style="width:100%"></a>
-			</div>
-            <div class="collection-title">Index of Massachusetts Casualties in World War II</div>
+		<div class="collection-title">Digital Repository Collections Overview</div>
+	</div>
+	<div class="exhibits">
+		<div class="exhibits-item">
+			<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/search.png" alt="Glass Plate Negative for Photograph of Nicola, Rose, and Dante Sacco" style="width:100%"></a>
 		</div>
-		<div class="clearfix"></div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">
-                    <img src="https://live.staticflickr.com/65535/54087738407_5a6e0a278e_o.png" alt="Panel 18: American Scoter, White-winged Scoter, Surf Scoter, Ruddy Duck, Paintings from: Birds of Massachusetts and Other New England States" style="width:100%"></a>
-			</div>
-            <div class="collection-title">Digital Repository Collections Overview</div>
+		<div class="collection-title">Digital Repository Search Guide</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="exhibits">
+		<div class="exhibits-item">
+			<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/wwii.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" style="width:100%"></a>
 		</div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">
-                    <img src="https://live.staticflickr.com/65535/54053058799_9c214d5b15_o.png" alt="Preliminary Master Plan for Franklin Park Zoological Gardens, Maps and Plans, 1895-1998" style="width:100%"></a>
-			</div>
-            <div class="collection-title">Digital Repository Search Guide</div>
+		<div class="collection-title">Index of Massachusetts Casualties in World War II</div>
+	</div>
+	<div class="exhibits">
+		<div class="exhibits-item">
+			<a target="_blank" href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/folk.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" style="width:100%"></a>
 		</div>
-	</body>
+		<div class="collection-title">Folk Arts & Heritage Collection, 1982–2016</div>
+	</div>
+</body>
 </html>
