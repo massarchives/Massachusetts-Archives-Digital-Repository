@@ -1,0 +1,632 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text { /* Makes the first few lines of the exhibit description bold */
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #FAFAFA;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 25%;
+            }
+        
+            div.exhibit {
+                background-color: #FAFAFA;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 850px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+				transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+            <strong-text>The Reformatory for Women</strong-text>&ensp;(presently known as MCI-Framingham) was established in 1877 to house female offenders. Around 1913, the institution began generating in-depth case files on each inmate, documenting information such as mittimus, official correspondence regarding inmates, arrest warrants, inmate case summaries and histories, employment and medical information, psychological analysis, parole records, and Bertillon cards. The Bertillon system was a means of identifying criminal offenders using descriptive photography, fingerprints, specific measurements, and identifying characteristics. This information is laid out on each card contained in this collection, although they omit the typical Bertillon measurements. The cards also include information regarding the inmate’s crime, residence, place of birth, occupation, aliases, and place of disposition.<br>Due to privacy laws in Massachusetts, staff at the Massachusetts Archives must redact information related to medical or mental health in order to share this collection with patrons. In scanning these files for redaction, our staff encountered unique photographs and items which offer glimpses into lives of inmates during their time at the Reformatory. Some items were discovered with accompanying notes providing context, while others bore no explanation. This exhibit highlights some of these discovered items, dated 1918&ndash;1921, along with the Bertillon cards from the case files in which they were found.<br>
+            <view-collection><a href="">View collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection>
+        </div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/1.jpg" alt="Bertillon card of Della Patton (#11160)" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Della Patton (#11160)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/3.jpg" alt="Lock of hair tied with black thread, found in the case file of Della Patton (#11160)" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Lock of hair tied with black thread, found in the case file of Della Patton (#11160)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/4.jpg" alt="Bertillon card of Helen Frances LaFleur (#11140)" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Helen Frances LaFleur (#11140)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/6.jpg" alt="Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/7.jpg" alt="Bertillon card of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/9.jpg" alt="Group photograph found in the case file of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Group photograph found in the case file of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/10.jpg" alt="Photograph of baby found in the case file of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Photograph of baby found in the case file of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/11.jpg" alt="Bertillon card of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/13.jpg" alt="Note attached to two photographs in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Note attached to two photographs in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/14.jpg" alt="Photograph (1 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Photograph (1 of 2) found in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/15.jpg" alt="Photograph (2 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Photograph (2 of 2) found in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/16.jpg" alt="Bertillon card of Florence M. Davis (#11710)" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Florence M. Davis (#11710)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/18.jpg" alt="Film negative found in the case file of Florence M. Davis (#11710)" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Film negative found in the case file of Florence M. Davis (#11710)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/19.jpg" alt="Bertillon card of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/21.jpg" alt="Small golden broach found in the case file of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Small golden broach found in the case file of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/22.jpg" alt="An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/1.jpg" alt="Bertillon card of Della Patton (#11160)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Della Patton (#11160)</a></item-title>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/3.jpg" alt="Lock of hair tied with black thread, found in the case file of Della Patton (#11160)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Lock of hair tied with black thread, found in the case file of Della Patton (#11160)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/4.jpg" alt="Bertillon card of Helen Frances LaFleur (#11140)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Helen Frances LaFleur (#11140)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/6.jpg" alt="Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/7.jpg" alt="Bertillon card of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/9.jpg" alt="Group photograph found in the case file of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Group photograph found in the case file of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/10.jpg" alt="Photograph of baby found in the case file of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph of baby found in the case file of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/11.jpg" alt="Bertillon card of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/13.jpg" alt="Note attached to two photographs in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Note attached to two photographs in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><caption>A note for the record of M. Sliva and M. Dominich describing the photographs of the men Marion Sliva claimed to be Johnny and Stanley Sliva, the sons of her mother's husband. The note implies that Marion misidentified these men.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/14.jpg" alt="Photograph (1 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph (1 of 2) found in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/15.jpg" alt="Photograph (2 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph (2 of 2) found in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/16.jpg" alt="Bertillon card of Florence M. Davis (#11710)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Florence M. Davis (#11710)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/18.jpg" alt="Film negative found in the case file of Florence M. Davis (#11710)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Film negative found in the case file of Florence M. Davis (#11710)</a></item-title>
+                            <center><caption>A film negative depicting a woman standing outside, found in the case file of Florence M. Davis (#11710).</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/19.jpg" alt="Bertillon card of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Emma Oliveira (#11735)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/21.jpg" alt="Small golden broach found in the case file of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Small golden broach found in the case file of Emma Oliveira (#11735)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/22.jpg" alt="An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)</a></item-title>
+                            <center><caption>An envelope labelled <i>The Searchlight Publishing Company,</i> with a note written in pencil instructing to send the enclosed pin to Emma Oliveira if she writes. Found in the case file of Emma Oliveira (#11735).</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <center><credit>Curated by: Kamala Peterkin-Garcia
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
