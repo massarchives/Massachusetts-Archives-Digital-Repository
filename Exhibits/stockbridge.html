@@ -1,0 +1,698 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text { /* Makes the first few lines of the exhibit description bold */
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #FAFAFA;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 25%;
+            }
+        
+            div.exhibit {
+                background-color: #FAFAFA;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 800px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+				transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 10px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+            <strong-text>Stockbridge, a town initially intended</strong-text>&ensp;to serve as a place for Indigenous people to live together with few white settlers, soon emerged as a site of aggressive land encroachment as the English increasingly seized control of Indigenous land. The origins of the town began in the 17th century, when the Massachusetts General Court created several “praying towns” for Indigenous people that had been converted to Christianity. However, after the events of King Philip’s War, the few remaining towns were in steep decline, and the idea of Stockbridge was born. Members of the Mohican tribe of Indigenous people living near the Housatonic River in western Massachusetts sold land to the General Court for the purpose of establishing two new towns, one of which became Stockbridge. White settlers began to move in, and the provincial government saw that it would be easier to control the Indigenous people and to acquire more land if they concentrated them in one place. The town of Stockbridge was thus set aside for the Indigenous people to live together, with a few white families remaining in order to “civilize” the people.<br>However, the English settlers soon began to take control of more land than they had been given, seizing lands that had previously been set aside for the Indigenous town members. As time passed, the white families, having more children on average, continued to require more space to settle on, causing further confusion to the Indigenous people. Though various attempts were made to establish clearer divisions over land, settlers like Ephraim Williams continued to acquire lands they were not entitled to. Tension between the Indigenous people and the English settlers further declined with the murder of Waumpaungcauss, a member of the Stockbridge tribe, and complications in town meeting procedures and voting. Ephraim Williams&mdash; and later, his son Elijah&mdash; were both particularly instrumental in the continued displacement of the Indigenous tribal members from their land. Williams found many indirect ways to acquire land, other than the typical process of procuring legislative approval or a lease from an Indigenous person. He also frequently took Indigenous land that had been used as collateral for loans that the people could not pay. The Williams family aided in encouraging the Indigenous members to rely on the English, being dependent on them for various farming tools and similar items. As Indigenous debt mounted, tribal leaders petitioned the General Court to allow them to dispose of their own property freely to repay their debtors, causing large amounts of land to be sold to the English until eventually, the settlers had completely displaced the Indigenous people from their land, maintaining complete control over Stockbridge.<br>
+        </div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/1.jpg" alt="Copy of a petition to Gov. Shirley and the general court from Ephraim Williams and others on behalf of the English and Indian inhabitants of Stockbridge" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Copy of a petition to Gov. Shirley and the general court from Ephraim Williams and others on behalf of the English and Indian inhabitants of Stockbridge</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/2.jpg" alt="Petition to the general court by Ephraim Williams and Timothy Woodbridge asking that 240 acres of land granted to them by the Stockbridge Indians be confirmed to them by the court" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Petition to the general court by Ephraim Williams and Timothy Woodbridge asking that 240 acres of land granted to them by the Stockbridge Indians be confirmed to them by the court</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/3.jpg" alt="Petition to the general court from the Indian proprietors of Stockbridge, regarding the misappropriation of Indian lands by Col. Ephraim Williams" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Petition to the general court from the Indian proprietors of Stockbridge, regarding the misappropriation of Indian lands by Col. Ephraim Williams</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/4.jpg" alt="Petition to the general court from John Kuskshaump, a Stockbridge Indian, asking permission to sell certain land" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Petition to the general court from John Kuskshaump, a Stockbridge Indian, asking permission to sell certain land</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/5.jpg" alt="Letter to Josiah Willard from the Rev. Jonathan Edwards regarding the Mohawk Indian School at Stockbridge and the reluctance of the Indians to remain in the area" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Letter to Josiah Willard from the Rev. Jonathan Edwards regarding the Mohawk Indian School at Stockbridge and the reluctance of the Indians to remain in the area</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/6.jpg" alt="Letter to Gov. William Shirley from Joseph Dwight and Timothy Woodbridge, concerning Indians’ seeking revenge for the murder of Waumpaungcauss and lack of justice at the subsequent trial" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Letter to Gov. William Shirley from Joseph Dwight and Timothy Woodbridge, concerning Indians’ seeking revenge for the murder of Waumpaungcauss and lack of justice at the subsequent trial</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/7.jpg" alt="Letter to Josiah Willard from the Rev. Jonathan Edwards concerning delayed payment to the relatives of the Indian killed at Stockbridge, and rumors of Indian uneasiness and conspiracy" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Letter to Josiah Willard from the Rev. Jonathan Edwards concerning delayed payment to the relatives of the Indian killed at Stockbridge, and rumors of Indian uneasiness and conspiracy</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/8.jpg" alt="General court order that the commissioners at the Albany conference inquire into the illegal purchase of unappropriated province land from the Stockbridge Indians" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>General court order that the commissioners at the Albany conference inquire into the illegal purchase of unappropriated province land from the Stockbridge Indians</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/9.jpg" alt="Petition to Lt. Gov. Phips and the general court from Elisha Pomeroy and Eleazar Burt, asking that land owned by the late William Wohwohwoos (Wohwauwous), a Stockbridge Indian, be sold to satisfy creditors of his estate" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Petition to Lt. Gov. Phips and the general court from Elisha Pomeroy and Eleazar Burt, asking that land owned by the late William Wohwohwoos (Wohwauwous), a Stockbridge Indian, be sold to satisfy creditors of his estate</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/10.jpg" alt="Petition to the general court from John Kaukewenohnaunt and other Stockbridge Indians asking for compensation for lands settled by families from various towns" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Petition to the general court from John Kaukewenohnaunt and other Stockbridge Indians asking for compensation for lands settled by families from various towns</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/11.jpg" alt="Petition to Gov. Bernard and the general court from Mary Weebucks, a Stockbridge Indian, asking permission to sell a certain tract of land in order to support herself and pay her debts" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Bernard and the general court from Mary Weebucks, a Stockbridge Indian, asking permission to sell a certain tract of land in order to support herself and pay her debts</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/12.jpg" alt="Petition to Gov. Bernard and the general court from a group of Stockbridge Indians protesting the sale of their lands and requesting a hearing" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Bernard and the general court from a group of Stockbridge Indians protesting the sale of their lands and requesting a hearing</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/13.jpg" alt="General court order authorizing the sum of one thousand pounds to be paid to the Stockbridge Indians regarding their land claims, also stipulating that the Indians had to relinquish all claims to the land" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>General court order authorizing the sum of one thousand pounds to be paid to the Stockbridge Indians regarding their land claims, also stipulating that the Indians had to relinquish all claims to the land</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/14.jpg" alt="Report of the general court committee appointed to travel to Stockbridge to examine conflicts between the English and Indian inhabitants" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Report of the general court committee appointed to travel to Stockbridge to examine conflicts between the English and Indian inhabitants</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/15.jpg" alt="Petition to Gov. Bernard and the general court from Joseph Woodbridge and Josiah Jones, Jr. of Stockbridge (MA) stating they supplied Indians with provisions for which they now cannot pay for except in land" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Bernard and the general court from Joseph Woodbridge and Josiah Jones, Jr. of Stockbridge (MA) stating they supplied Indians with provisions for which they now cannot pay for except in land</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/16.jpg" alt="Petition to Gov. Bernard and the general court from John Konkapot and his son Robert Nungkauwawt (Konkapot) asking permission to sell a tract of land in Stockbridge (MA) in order to pay Robert’s creditors" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Bernard and the general court from John Konkapot and his son Robert Nungkauwawt (Konkapot) asking permission to sell a tract of land in Stockbridge (MA) in order to pay Robert’s creditors</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/17.jpg" alt="Petition to Gov. Bernard and the general court from Jacob Cheeksonkun and other Stockbridge Indians asking to have the same legal privileges as the English in order to sell their outlands to pay their debts" style="width:100%"
+                    onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Bernard and the general court from Jacob Cheeksonkun and other Stockbridge Indians asking to have the same legal privileges as the English in order to sell their outlands to pay their debts</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/18.jpg" alt="Petition to Gov. Hutchinson and the general court from David Naunauneekawnuck, Stockbridge Indian, asking permission to sell a lot of land for his support" style="width:100%"
+                    onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+                <center><p>Petition to Gov. Hutchinson and the general court from David Naunauneekawnuck, Stockbridge Indian, asking permission to sell a lot of land for his support</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/19.jpg" alt="General court bill, as amended, prohibiting the extension of large amounts of credit to the Stockbridge Indians" style="width:100%"
+                    onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+                <center><p>General court bill, as amended, prohibiting the extension of large amounts of credit to the Stockbridge Indians</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/20.jpg" alt="Petition to the general court by a group of Stockbridge Indians asking for the appointment of a guardian who would prevent English settlers from taking land from indebted Indians" style="width:100%"
+                    onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+                <center><p>Petition to the general court by a group of Stockbridge Indians asking for the appointment of a guardian who would prevent English settlers from taking land from indebted Indians</p></center>
+            </div>
+            <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/1.jpg" alt="Copy of a petition to Gov. Shirley and the general court from Ephraim Williams and others on behalf of the English and Indian inhabitants of Stockbridge" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Copy of a petition to Gov. Shirley and the general court from Ephraim Williams and others on behalf of the English and Indian inhabitants of Stockbridge</a></item-title>
+                            <center><caption>Copy of a petition asking that a committee be appointed to consider problems pertaining to land apportionment and town elections. The general court appointed a committee to consider the petition; their report, which was accepted, resulted in an order directing the selectmen to call a town meeting to choose officers and appointing a committee to consider the problems with land titles. The petition was revived in June 1749, when the court ordered that the committee travelling to Hoosuck (Williamstown) should also go to Stockbridge and report back to the court.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/2.jpg" alt="Petition to the general court by Ephraim Williams and Timothy Woodbridge asking that 240 acres of land granted to them by the Stockbridge Indians be confirmed to them by the court" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the general court by Ephraim Williams and Timothy Woodbridge asking that 240 acres of land granted to them by the Stockbridge Indians be confirmed to them by the court</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/3.jpg" alt="Petition to the general court from the Indian proprietors of Stockbridge, regarding the misappropriation of Indian lands by Col. Ephraim Williams" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the general court from the Indian proprietors of Stockbridge, regarding the misappropriation of Indian lands by Col. Ephraim Williams</a></item-title>
+                            <center><caption>In response to the petition, the house orders that Williams be served with a copy of the petition and be given time to reply. The council concurs. Later in response to Williams’ answer, the council and house appoint a committee to investigate the complaint.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/4.jpg" alt="Petition to the general court from John Kuskshaump, a Stockbridge Indian, asking permission to sell certain land" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the general court from John Kuskshaump, a Stockbridge Indian, asking permission to sell certain land</a></item-title>
+                            <center><caption>The general court order John Worthington to investigate the matter and sell the land if appropriate in response to the petition. Order received the consent of Gov. Shirley.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/5.jpg" alt="Letter to Josiah Willard from the Rev. Jonathan Edwards regarding the Mohawk Indian School at Stockbridge and the reluctance of the Indians to remain in the area" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter to Josiah Willard from the Rev. Jonathan Edwards regarding the Mohawk Indian School at Stockbridge and the reluctance of the Indians to remain in the area</a></item-title>
+                            <center><caption></caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/6.jpg" alt="Letter to Gov. William Shirley from Joseph Dwight and Timothy Woodbridge, concerning Indians’ seeking revenge for the murder of Waumpaungcauss and lack of justice at the subsequent trial" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter to Gov. William Shirley from Joseph Dwight and Timothy Woodbridge, concerning Indians’ seeking revenge for the murder of Waumpaungcauss and lack of justice at the subsequent trial</a></item-title>
+                            <center><caption>Within this letter, Dwight and Woodbridge inform the governor that a black servant disclosed information of a plot, and ask that a larger sum of money and message from the governor be sent to the Indians.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/7.jpg" alt="Letter to Josiah Willard from the Rev. Jonathan Edwards concerning delayed payment to the relatives of the Indian killed at Stockbridge, and rumors of Indian uneasiness and conspiracy" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter to Josiah Willard from the Rev. Jonathan Edwards concerning delayed payment to the relatives of the Indian killed at Stockbridge, and rumors of Indian uneasiness and conspiracy</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/8.jpg" alt="General court order that the commissioners at the Albany conference inquire into the illegal purchase of unappropriated province land from the Stockbridge Indians" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">General court order that the commissioners at the Albany conference inquire into the illegal purchase of unappropriated province land from the Stockbridge Indians</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/9.jpg" alt="Petition to Lt. Gov. Phips and the general court from Elisha Pomeroy and Eleazar Burt, asking that land owned by the late William Wohwohwoos (Wohwauwous), a Stockbridge Indian, be sold to satisfy creditors of his estate" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Lt. Gov. Phips and the general court from Elisha Pomeroy and Eleazar Burt, asking that land owned by the late William Wohwohwoos (Wohwauwous), a Stockbridge Indian, be sold to satisfy creditors of his estate</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/10.jpg" alt="Petition to the general court from John Kaukewenohnaunt and other Stockbridge Indians asking for compensation for lands settled by families from various towns" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the general court from John Kaukewenohnaunt and other Stockbridge Indians asking for compensation for lands settled by families from various towns</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/11.jpg" alt="Petition to Gov. Bernard and the general court from Mary Weebucks, a Stockbridge Indian, asking permission to sell a certain tract of land in order to support herself and pay her debts" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Bernard and the general court from Mary Weebucks, a Stockbridge Indian, asking permission to sell a certain tract of land in order to support herself and pay her debts</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/12.jpg" alt="Petition to Gov. Bernard and the general court from a group of Stockbridge Indians protesting the sale of their lands and requesting a hearing" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Bernard and the general court from a group of Stockbridge Indians protesting the sale of their lands and requesting a hearing</a></item-title>
+                            <center><caption>The hearing discussed in the petition was held, and the general court ordered that a committee be formed to inquire further into the Indians’ title to the lands.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/13.jpg" alt="General court order authorizing the sum of one thousand pounds to be paid to the Stockbridge Indians regarding their land claims, also stipulating that the Indians had to relinquish all claims to the land" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">General court order authorizing the sum of one thousand pounds to be paid to the Stockbridge Indians regarding their land claims, also stipulating that the Indians had to relinquish all claims to the land</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/14.jpg" alt="Report of the general court committee appointed to travel to Stockbridge to examine conflicts between the English and Indian inhabitants" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Report of the general court committee appointed to travel to Stockbridge to examine conflicts between the English and Indian inhabitants</a></item-title>
+                            <center><caption>Issues covered in the report included the legality of a recent town meeting and the English domination of town affairs. The committee recommended “special care be taken to guard Indian interests” as English influence increases in Stockbridge.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/15.jpg" alt="Petition to Gov. Bernard and the general court from John Konkapot and his son Robert Nungkauwawt (Konkapot) asking permission to sell a tract of land in Stockbridge (MA) in order to pay Robert’s creditors" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Bernard and the general court from John Konkapot and his son Robert Nungkauwawt (Konkapot) asking permission to sell a tract of land in Stockbridge (MA) in order to pay Robert’s creditors</a></item-title>
+                            <center><caption>According to John Konkapot, his son gave a deed for their house, barn and meadows to a New York Merchant, leaving the Konkapots without any way of making a living. Council dismissed the petition but authorized John Worthington to take action against the merchant.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/16.jpg" alt="Petition to Gov. Bernard and the general court from Jacob Cheeksonkun and other Stockbridge Indians asking to have the same legal privileges as the English in order to sell their outlands to pay their debts" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Bernard and the general court from Jacob Cheeksonkun and other Stockbridge Indians asking to have the same legal privileges as the English in order to sell their outlands to pay their debts</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/17.jpg" alt="Petition to Gov. Bernard and the general court from Joseph Woodbridge and Josiah Jones, Jr. of Stockbridge (MA) stating they supplied Indians with provisions for which they now cannot pay for except in land" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Bernard and the general court from Joseph Woodbridge and Josiah Jones, Jr. of Stockbridge (MA) stating they supplied Indians with provisions for which they now cannot pay for except in land</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/18.jpg" alt="Petition to Gov. Hutchinson and the general court from David Naunauneekawnuck, Stockbridge Indian, asking permission to sell a lot of land for his support" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to Gov. Hutchinson and the general court from David Naunauneekawnuck, Stockbridge Indian, asking permission to sell a lot of land for his support</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/19.jpg" alt="General court bill, as amended, prohibiting the extension of large amounts of credit to the Stockbridge Indians" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">General court bill, as amended, prohibiting the extension of large amounts of credit to the Stockbridge Indians</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/stockbridge/20.jpg" alt="Petition to the general court by a group of Stockbridge Indians asking for the appointment of a guardian who would prevent English settlers from taking land from indebted Indians" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to the general court by a group of Stockbridge Indians asking for the appointment of a guardian who would prevent English settlers from taking land from indebted Indians</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <center><credit>Curated by: Mercedes Sensinger
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
