@@ -1,295 +1,630 @@
 <html>
-	<head>
-		<style>
-			.exhibit-text {
-				column-count: 1;
-				max-width: 1000px;
-				padding-top: 5px;
-			}
-			
-			.exhibit-text p {
-				font-family: 'DM Sans', sans-serif;
-				font-weight: 400;
-				font-size: 14px;
-				line-height: 170%;
-			}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
 
-			.exhibit-text a:hover {
-				text-decoration: underline;
-			}
-
-            strong-text {
+            strong-text { /* Makes the first few lines of the exhibit description bold */
                 font-family: 'Space Grotesk', sans-serif;
-                font-size: 16px;
+                font-size: 18px;
                 font-weight: 500;
                 color: #17183b;
             }
 
-            .clearfix2 {
-                padding: 8px;
-            }
-
-			.exhibit-text-banner img {
-                opacity: 1;
-                vertical-align: middle;
-                width: 100%;
-                height: auto;
-            }
-
-            .exhibit-text-banner img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
-            }
-
-            .color-overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: .6s ease;
-                background-color: #17183b;
-            }
-
-            .overlay-text,
-            .overlay-text a {
-                color: #FAFAFA;
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                line-height: 24px;
-                font-weight: 600;
-                position: absolute;
-                top: 52%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
                 text-align: center;
             }
 
-			.overlay-text:hover, .overlay-text a:hover {
-				text-decoration: underline 2px;
-			}
-
-            .exhibit-text-banner {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
             }
 
-            .exhibit-text-banner {
-                float: center;
-                width: 100%;
-                position: relative;
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
             }
 
-            .exhibit-text-banner:hover .color-overlay {
-                opacity: 0.9;
+            prev-next a:hover {
+                text-decoration: underline;
             }
 
-            div.exhibit-text-banner {
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 30px;
+                padding-bottom: 10px;
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: center;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-weight: 400;
+                text-align: left;
+                background-color: #FAFAFA;
+                padding-left: 100px;
+                padding-right: 100px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 20px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 25%;
+            }
+        
+            div.exhibit {
                 background-color: #FAFAFA;
             }
-
-            div.exhibits-item {
-				border: none;
-			}
-
-			div.exhibits-item:hover {
-				border: none;
-			}
-
-			div.exhibits-item img {
-				width: 100%;
-				height: auto;
-				opacity: 1;
-                transition: .6s ease;
-			}
-
-			div.exhibits-item img:hover {
-				width: 100%;
-				height: auto;
-				opacity: 0.7;
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 850px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
 				transition: .6s ease;
-			}
-
-			div.collection-title, div.collection-title a {
-				text-align: center;
-				color: #181818;
-				font-family: 'DM Sans', sans-serif;
-				font-size: 15px;
-				line-height: 140%;
-				font-weight: 500;
-                padding-top: 12px;
-			}
-
-			* {
-				box-sizing: border-box;
-			}
-
-			.exhibits {
-				padding: 25px;
-                padding-bottom: 10px;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
                 padding-top: 10px;
-				float: left;
-				width: 50%;
-			}
-			
-			.clearfix:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding-bottom: 10px;
-			}
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
 
-			@media only screen and (max-width: 700px) {
-				.exhibits {
-					width: 49.99999%;
-					margin: 6px 0;
-                    padding: 10px;
-                    padding-bottom: 5px;
-				}
-			}
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
 
-			@media only screen and (max-width: 500px) {
-				.exhibits {
-					width: 100%;
-                    padding: 10px;
-                    padding-bottom: 5px;
-				}
-			}
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
 
-			@media screen and (max-width: 400px) {
-
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
-
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
-				}
-
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-			}
-
-			@media screen and (max-width: 600px) {
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
-
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
-				}
-
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-			}
-
-			@media screen and (max-width: 980px) {
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
-
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
-				}
-
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-			}
-
-		</style>
-	</head>
-	<body>
-		<div class="exhibit-text-banner">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/sacco.png" style="width:100%" alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
-			<div class="color-overlay">
-				<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/">
-				  <div class="overlay-text">Photograph of Nicola Sacco</div></a>
-			  </div>
-		</div>
-		<div class="clearfix2"></div>
-		<div class="exhibit-text">
-			<p>Explore our selection of digital exhibits, curated by Massachusetts Archives staff to highlight fascinating collections within our vaults.<br>For more online exhibits, please visit the <a href="https://www.sec.state.ma.us/divisions/commonwealth-museum/exhibits/online-exhibits.htm">Commonwealth Museum website</a>.</p></div>
-        <div class="clearfix2"></div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/salem-fire-of-1914">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_fire/salem.png" alt="State Board of Health map showing burned district" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-fire-of-1914">The Great Salem Fire of 1914</a></div>
-		</div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/rev250">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250">Revolution 250</a></div>
-		</div>
-        <div class="clearfix"></div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">Birds of Massachusetts & Other New England States</a></div>
-		</div>
-		<div class="exhibits">
-            <div class="exhibits-item">
-                <a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/zoo.png" alt="Boston Zoological Society exhibits, sheet 28" style="width:100%"></a>
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="exhibit-text">
+            <strong-text>The Reformatory for Women</strong-text>&ensp;(presently known as MCI-Framingham) was established in 1877 to house female offenders. Around 1913, the institution began generating in-depth case files on each inmate, documenting information such as mittimus, official correspondence regarding inmates, arrest warrants, inmate case summaries and histories, employment and medical information, psychological analysis, parole records, and Bertillon cards. The Bertillon system was a means of identifying criminal offenders using descriptive photography, fingerprints, specific measurements, and identifying characteristics. This information is laid out on each card displayed below, along with details regarding the inmate’s crime, residence, place of birth, occupation, aliases, and place of disposition. These cards omit the typical Bertillon measurements.<br>Due to Massachusetts privacy laws, staff at the Archives must redact information related to medical or mental health in order to share this collection with patrons. In scanning these files for redaction, our staff encountered unique photographs and items which offer glimpses into the lives of inmates during their time at the Reformatory. Some items were discovered with accompanying notes providing context, while others bore no explanation. This exhibit highlights some of these discovered items, dated 1918&ndash;1921, along with the Bertillon cards from the case files in which they were found.</div>
+        <div class="row">
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/1.jpg" alt="Bertillon card of Della Patton (#11160)" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Della Patton (#11160)</p></center>
             </div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">Parks & Zoos of Greater Boston</a></div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/quabbin.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">Quabbin Reservoir Photographs</a></div>
-		</div>
-        <div class="exhibits">
-            <div class="exhibits-item">
-                <a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mww.png" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" style="width:100%"></a>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/3.jpg" alt="Lock of hair tied with black thread, found in the case file of Della Patton (#11160)" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Lock of hair tied with black thread, found in the case file of Della Patton (#11160)</p></center>
             </div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww/">Metropolitan Water Works Photograph Collection</a></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/4.jpg" alt="Bertillon card of Helen Frances LaFleur (#11140)" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Helen Frances LaFleur (#11140)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/6.jpg" alt="Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/7.jpg" alt="Bertillon card of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/9.jpg" alt="Group photograph found in the case file of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <center><p>Group photograph found in the case file of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/10.jpg" alt="Photograph of baby found in the case file of Elsie P. Thompson (#11154)" style="width:100%"
+                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                <center><p>Photograph of baby found in the case file of Elsie P. Thompson (#11154)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/11.jpg" alt="Bertillon card of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/13.jpg" alt="Note attached to two photographs in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                <center><p>Note attached to two photographs in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/14.jpg" alt="Photograph (1 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                <center><p>Photograph (1 of 2) found in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/15.jpg" alt="Photograph (2 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"
+                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                <center><p>Photograph (2 of 2) found in the case file of Marion Sliva (#11707)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/16.jpg" alt="Bertillon card of Florence M. Davis (#11710)" style="width:100%"
+                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Florence M. Davis (#11710)</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/18.jpeg" alt="Film negative found in the case file of Florence M. Davis (#11710)" style="width:100%"
+                    onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                <center><p>Film negative found in the case file of Florence M. Davis (#11710)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/19.jpg" alt="Bertillon card of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                <center><p>Bertillon card of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/21.jpg" alt="Small golden broach found in the case file of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                <center><p>Small golden broach found in the case file of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="exhibit">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/22.jpg" alt="An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)" style="width:100%"
+                    onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                <center><p>An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)</p></center>
+            </div>
+            <div class="clearfix"></div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/1.jpg" alt="Bertillon card of Della Patton (#11160)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Della Patton (#11160)</a></item-title>
+                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/3.jpg" alt="Lock of hair tied with black thread, found in the case file of Della Patton (#11160)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Lock of hair tied with black thread, found in the case file of Della Patton (#11160)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/4.jpg" alt="Bertillon card of Helen Frances LaFleur (#11140)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Helen Frances LaFleur (#11140)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/6.jpg" alt="Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Small painting of a leaf on a strip of cloth, found in the case file of Helen Frances LaFleur (#11140)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/7.jpg" alt="Bertillon card of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/9.jpg" alt="Group photograph found in the case file of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Group photograph found in the case file of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/10.jpg" alt="Photograph of baby found in the case file of Elsie P. Thompson (#11154)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph of baby found in the case file of Elsie P. Thompson (#11154)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/11.jpg" alt="Bertillon card of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/13.jpg" alt="Note attached to two photographs in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Note attached to two photographs in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><caption>A note for the record of M. Sliva and M. Dominich describing the photographs of the men Marion Sliva claimed to be Johnny and Stanley Sliva, the sons of her mother's husband. The note implies that Marion misidentified these men.</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/14.jpg" alt="Photograph (1 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph (1 of 2) found in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/15.jpg" alt="Photograph (2 of 2) found in the case file of Marion Sliva (#11707)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Photograph (2 of 2) found in the case file of Marion Sliva (#11707)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/16.jpg" alt="Bertillon card of Florence M. Davis (#11710)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Florence M. Davis (#11710)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/18.jpeg" alt="Film negative found in the case file of Florence M. Davis (#11710)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Film negative found in the case file of Florence M. Davis (#11710)</a></item-title>
+                            <center><caption>A film negative depicting a woman standing outside, found in the case file of Florence M. Davis (#11710).</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/19.jpg" alt="Bertillon card of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Bertillon card of Emma Oliveira (#11735)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/21.jpg" alt="Small golden broach found in the case file of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Small golden broach found in the case file of Emma Oliveira (#11735)</a></item-title>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/22.jpg" alt="An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">An envelope with a handwritten note found in the case file of Emma Oliveira (#11735)</a></item-title>
+                            <center><caption>An envelope labelled <i>The Searchlight Publishing Company,</i> with a note written in pencil instructing to send the enclosed pin to Emma Oliveira if she writes. Found in the case file of Emma Oliveira (#11735).</caption></center>
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/sacco2.png" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">Commonwealth v. Sacco & Vanzetti</a></div>
-		</div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mpc.png" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%"></a>
-			</div>
-            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">Metropolitan Park Commission Portrait Photographs</a></div>
-		</div>
-		<div class="clearfix"></div>
-	</body>
+    </div>
+    <center><credit>Curated by: Kamala Peterkin-Garcia
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
 </html>
