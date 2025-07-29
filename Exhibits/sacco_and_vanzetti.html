@@ -1,310 +1,313 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                max-width: 1000px;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
+                
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
+
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        author {
+            line-height: 300%;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
+
+        view-collection a:hover {
+            text-decoration: underline;
+        }
+
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
+
+		p#caption {
+			padding-top: 100px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1260px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
 
             .exhibit p {
-                padding: 15px;
+                padding: 10px;
                 font-size: 12px;
                 line-height: 150%;
                 font-weight: 400;
             }
+		}
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
-            }
+		@media (max-width: 600px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
 
-            credit {
-		font-family: 'Space Mono', sans-serif;
-                font-size: 13px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
+			.row>.exhibit {
+				padding: 5px;
+			}
 
-            item-title,
-            item-title a {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 15px;
-                font-weight: 600;
-                color: #17183b;
-                display: inline-block;
-            }
-
-            item-title a:hover {
-                text-decoration: underline;
-            }
-
-            view-collection, view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
-
-            view-collection a:hover {
-                text-decoration: underline;
-            }
-
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            prev-next {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                font-weight: 400;
-            }
-                
-            p#caption {
-                padding-top: 150px;
-                font-size: 13px;
-                line-height: 150%;
-            }
-
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #FAFAFA;
-                padding-left: 15px;
-                padding-right: 15px;
-                color: #181818;
-            }
-
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            .row>.exhibit {
-                padding: 30px;
-		padding-bottom: 0px;
-            }
-
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            .row {
-                padding-top: 0px;
-            }
-
-            .exhibit {
-                float: left;
-                width: 33.3%;
-            }
-
-            div.exhibit {
-                background-color: #FAFAFA;
-            }
-
-            .modal {
+            .exhibit p {
                 display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #FAFAFA;
             }
-
-            .modal-content {
-                position: relative;
-                background-color: #FAFAFA;
-                margin: auto;
-                padding: 75px;
-                width: 100%;
-                max-width: 1200px;
-            }
-
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            .mySlides {
-                display: none;
-                column-count: 2;
-            }
-
-            .cursor {
-                cursor: pointer;
-            }
-
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                width: auto;
-                color: #17183b;
-                font-size: 12px;
-                line-height: 300%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
-                text-decoration: none;
-            }
-            
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
-            }
-
-            img {
-                margin-bottom: -4px;
-            }
-
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
-            }
-
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-
-            .demo {
-                opacity: 0.6;
-		transition: .6s ease;
-            }
-
-            .active,
-            .demo:hover {
-                opacity: 1;
-		transition: .6s ease;
-            }
-
-            .exhibit img {
-                opacity: 1;
-		transition: .6s ease;
-            }
-
-            .exhibit img:hover {
-                opacity: 0.7;
-		transition: .6s ease;
-            }
-
-            @media (max-width: 980px) {
-                .mySlides {
-                    display: none;
-                    column-count: 1;
-                }
-
-                p#caption {
-                padding-top: 10px;
-                }
-
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-
-                .row>.exhibit {
-                    padding: 10px;
-                }
-
-                p#caption {
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    text-align: center;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .row>.exhibit {
-                    padding: 10px;
-                }
-
-                .exhibit-text {
-                    column-count: 1;
-                }
-
-                .modal-content {
-                    padding-left: 50px;
-                    padding-right: 50px;
-                    padding-top: 100px;
-                    padding-bottom: 30px;
-                }
-
-                p#caption {
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    text-align: center;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-            }
-
-            @media (max-width: 400px) {
-                .row>.exhibit {
-                    padding: 5px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="exhibit-text">
+		}
+	</style>
+</head>
+<body>
+        <div class="exhibit-desc">
             <strong-text>On August 23, 1927,</strong-text>&ensp;two Italian-American immigrants and anarchist radicals in 
             Boston were executed for murder after a seven-year judicial battle. Muddied by anti-Italian and anti-immigrant 
             prejudice, fear of left-wing radicals, judicial ethics, and civil rights, the Sacco and Vanzetti case became one 
@@ -320,7 +323,6 @@
             letters, hearing transcripts, and image exhibits. Explore the rabbit hole that inspired state-wide judicial
             reforms, international discourse, media, protests, bombings, and a century of
             investigation.<br>
-            <view-collection><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">View collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection>
         </div>
         <div class="row">
                 <div class="exhibit">
@@ -377,7 +379,7 @@
                     <center><p>Advertisement for a<br>Bayard Automatic Colt Gun</p></center>
                 </div>
                 <div class="exhibit">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/11.png" alt="Photograph of Celestino Madeiros" style="width:100%"
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/11.jpeg" alt="Photograph of Celestino Madeiros" style="width:100%"
                         onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
                     <center><p>Photograph of Celestino Madeiros</p></center>
                 </div>
@@ -404,19 +406,19 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="exhibit">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/16.png" alt="Profile Photograph of a Man in a Hat" style="width:100%"
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/18.jpg" alt="Bertillon Card for Nicola Sacco" style="width:100%"
                         onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
-                    <center><p>Profile Photograph of a Man in a Hat</p></center>
+                    <center><p>Bertillon Card for Nicola Sacco</p></center>
                 </div>
                 <div class="exhibit">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/17.png" alt="Warrant of Bartolomeo Vanzetti and Certified Copy of Record of Conviction and Sentence of Death of Nicola Sacco and Bartolomeo Vanzetti" style="width:100%"
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/17.jpg" alt="Sentence to Death for Bartolomeo Vanzetti" style="width:100%"
                         onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
-                    <center><p>Warrant of Bartolomeo Vanzetti and Certified Copy of Record of Conviction and Sentence of Death of Nicola Sacco and Bartolomeo Vanzetti</p></center>
+                    <center><p>Sentence to Death for<br>Bartolomeo Vanzetti</p></center>
                 </div>
                 <div class="exhibit">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/18.png" alt="Photograph of Nicola, Rose, and Dante Sacco" style="width:100%"
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/16.jpeg" alt="Bertillon Card for Bartolomeo Vanzetti" style="width:100%"
                         onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
-                    <center><p>Photograph of Nicola, Rose, and<br>Dante Sacco</p></center>
+                    <center><p>Bertillon Card for Bartolomeo Vanzetti</p></center>
                 </div>
                 <div id="myModal" class="modal">
                     <span class="close cursor" onclick="closeModal()">&times;</span>
@@ -425,8 +427,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_09d24719-491d-4999-8bae-8a0c6bb7a8a5/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/1.png" alt="Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the Story of Sacco's Hunger Strike" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_09d24719-491d-4999-8bae-8a0c6bb7a8a5/">Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the Story of Sacco's Hunger Strike</a></item-title>
-                                    <br><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_09d24719-491d-4999-8bae-8a0c6bb7a8a5/">Flyer for International Protest Meeting at Ford Hall, March 11, 1923: Back Sacco's Protest! Hear the Story of Sacco's Hunger Strike</a></item-title><br>
+                                    The case against Sacco and Vanzetti sparked worldwide protests. Notable figures such as Edna St. Vincent Millay, Albert Einstein, George Bernard Shaw, and H. G. Wells urged Massachusetts governor Alvan T. Fuller to grant the men a retrial. Sacco and Vanzetti, maintaining their innocence, both went on hunger strikes. Judge Webster Thayer ultimately denied all motions for a new trial, despite Celestino Madeiros' later confession.<div class="clearfix2"></div>
+                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
                                 </p>
                             </div>
                         </div>
@@ -434,9 +437,8 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/2.png" alt="Photograph of Nicola Sacco" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/">Photograph of Nicola Sacco</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41dd9890-ad4d-4185-9126-999985120d83/">Photograph of Nicola Sacco</a></item-title><br>This portrait of Nicola Sacco was taken between 1920 and 1921. Sacco was born in Southern Italy in 1891. In 1908, at the age of seventeen, he arrived in the United States. Sacco lived in Stoughton and worked as a shoemaker and night watchman. He had a wife, Rose, and a son, Dante. At the time of his arrest, Sacco and his wife were expecting their second child.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -444,9 +446,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0f11a1d2-4866-4072-90fa-977dbac55997/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/3.png" alt="L'Ideale Anarchico" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0f11a1d2-4866-4072-90fa-977dbac55997/">L'Ideale Anarchico</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_0f11a1d2-4866-4072-90fa-977dbac55997/">L'Ideale Anarchico</a></item-title><br>
+                                    <i>L’Ideale Anarchico,</i> which translates to <i>The Anarchist Ideal,</i> is a pamphlet from 1911 that was used as evidence during the trial of Sacco and Vanzetti. Its author, Luigi Fabbri, was an Italian anarchist writer and educator.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -454,9 +456,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1af4120f-bb09-4aa1-b9d3-120be0b522ea/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/4.png" alt="Mailers from the Sacco-Vanzetti Defense Committee to Mary E. Haskell" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1af4120f-bb09-4aa1-b9d3-120be0b522ea/">Mailers from the Sacco-Vanzetti Defense Committee to<br>Mary E. Haskell</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1af4120f-bb09-4aa1-b9d3-120be0b522ea/">Mailers from the Sacco-Vanzetti Defense Committee to Mary E. Haskell</a></item-title><br>
+                                    Shortly after the arrest of Sacco and Vanzetti, the Sacco-Vanzetti Defense Committee was established by a friend of theirs, Aldino Felicani. The committee’s purpose was to defend these two men and prove their innocence through fundraising, distributing propaganda, publicity, and organizing meetings and demonstrations.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -464,9 +466,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_87bf9fc5-34d7-4646-96b9-06d6fd5f841c/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/5.jpeg" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_87bf9fc5-34d7-4646-96b9-06d6fd5f841c/">Photograph of the Railroad Shanty Looking East on Pearl Street<br>at South Braintree</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_87bf9fc5-34d7-4646-96b9-06d6fd5f841c/">Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree</a></item-title><br>
+                                    This photograph shows Pearl Street in Braintree, where the Slater and Morrill Shoe Company factory&ndash; the site of the crime&ndash; was located.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -474,9 +476,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1787568b-d0a0-4f15-be9a-3b8af70d8471/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/6.png" alt="Il Cinquantenario" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1787568b-d0a0-4f15-be9a-3b8af70d8471/">Il Cinquantenario</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1787568b-d0a0-4f15-be9a-3b8af70d8471/">Il Cinquantenario</a></item-title><br>
+                                    <i>Il Cinquantenario,</i> which translates to <i>The Fiftieth Anniversary,</i> is a pamphlet from 1911 that was used as evidence during the trial of Sacco and Vanzetti. Its author, Paolo Valera, was an Italian journalist and anarchist.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -484,9 +486,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c5f44698-4ec6-4cf6-9984-ff73019d11e9/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/7.png" alt="Glass Plate Negative for Photograph of Nicola, Rose, and Dante Sacco" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c5f44698-4ec6-4cf6-9984-ff73019d11e9/">Glass Plate Negative for Photograph of Nicola, Rose, and<br>Dante Sacco</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c5f44698-4ec6-4cf6-9984-ff73019d11e9/">Glass Plate Negative for Photograph of Nicola, Rose, and Dante Sacco</a></item-title><br>
+                                    This photograph shows Nicola Sacco standing with his wife, Rose, and their son, Dante.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -494,9 +496,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c6ab52ed-0ab6-4bd0-8f41-a12b92e24842/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/8.png" alt="Blueprint of a Primer Anvil and the End of a Shell" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c6ab52ed-0ab6-4bd0-8f41-a12b92e24842/">Blueprint of a Primer Anvil and the End of a Shell</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c6ab52ed-0ab6-4bd0-8f41-a12b92e24842/">Blueprint of a Primer Anvil and the End of a Shell</a></item-title><br>
+                                    While being searched by police following his arrest, Sacco was found to have an Italian passport, anarchist literature, a loaded .32 Colt Model 1903 automatic pistol, and several .32 automatic cartridges on his person. This was incriminating evidence due to the fact that a coroner’s report and subsequent ballistic investigation revealed that the bullets removed from Berardelli and Parmenter’s bodies were of .32 automatic caliber. Ultimately, Sacco’s .32 Colt could not be positively identified as the murder weapon.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -504,9 +506,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_91f85f3f-f2f9-457e-b34c-2d9e3e8ad283/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/9.png" alt="Indictment of Nicola Sacco and Bartolomeo Vanzetti" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_91f85f3f-f2f9-457e-b34c-2d9e3e8ad283/">Indictment of Nicola Sacco and Bartolomeo Vanzetti</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_91f85f3f-f2f9-457e-b34c-2d9e3e8ad283/">Indictment of Nicola Sacco and Bartolomeo Vanzetti</a></item-title><br>
+                                    This indictment by the Superior Court, dated September 1920, states that Nicola Sacco and Bartolomeo Vanzetti “did assault and beat Alexander Berardelli with intent to murder him by shooting him in the body with a loaded pistol and by such assault, beating and shooting did murder Alexander Berardelli.” Berardelli was a security guard at the factory where the crime occurred. In addition to Berardelli, Sacco and Vanzetti were also convicted of murdering Frederick Parmenter, a paymaster.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -514,19 +516,19 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e7be308d-6f91-4625-beb0-22cb040dce0c/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/10.png" alt="Advertisement for a Bayard Automatic Colt Gun" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e7be308d-6f91-4625-beb0-22cb040dce0c/">Advertisement for a Bayard Automatic Colt Gun</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e7be308d-6f91-4625-beb0-22cb040dce0c/">Advertisement for a Bayard Automatic Colt Gun</a></item-title><br>
+                                    While being searched by police following his arrest, Sacco was found to have an Italian passport, anarchist literature, a loaded .32 Colt Model 1903 automatic pistol, and several .32 automatic cartridges on his person. This was incriminating evidence due to the fact that a coroner’s report and subsequent ballistic investigation revealed that the bullets removed from Berardelli and Parmenter’s bodies were of .32 automatic caliber. Ultimately, Sacco’s .32 Colt could not be positively identified as the murder weapon.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
                         <div class="mySlides">
-                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_fb815a68-3294-4aa3-a84b-fbc56325e6f4/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/11.png" alt="Photograph of Celestino Madeiros" style="width:100%"></a>
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_03bb9ae8-f8f9-48ad-b51d-bd14c801fd54/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/11.jpeg" alt="Photograph of Celestino Madeiros" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_fb815a68-3294-4aa3-a84b-fbc56325e6f4/">Photograph of Celestino Madeiros</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_03bb9ae8-f8f9-48ad-b51d-bd14c801fd54/">Photograph of Celestino Madeiros</a></item-title><br>
+                                    In an <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2cc15160-31ad-4983-aed9-375b2a765e09/">affidavit</a> dated June 1926, Celestino Madeiros claimed to have been present at the time of the shooting, stating: “I had never been to South Braintree before. These four men persuaded me to go with them … They said they had done lots of jobs of this kind. They had been engaged in robbing freight cars in Providence. … I sat on the back seat of the automobile. I had a Colt 38 calibre automatic but did not use it. … Sacco and Vanzetti had nothing to do with this job … It was entirely put up by the oldest of the Italians in Providence.”<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -535,8 +537,8 @@
                             <div class="caption-container">
                                 <p id="caption">
                                     <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_78e6d25d-9a9d-482f-8257-1536c58b4fc8/">Photograph to William P. Kelley, Assistant District Attorney (Southeastern District)</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -544,9 +546,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_43957de2-4f3f-4280-9108-8816c551726c/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/13.png" alt="Financial Report of the Sacco-Vanzetti Defense Committee, from the Date of the Organization May 5, 1920 to July 1925" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_43957de2-4f3f-4280-9108-8816c551726c/">Financial Report of the Sacco-Vanzetti Defense Committee,<br>from the Date of the Organization May 5, 1920 to July 1925</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_43957de2-4f3f-4280-9108-8816c551726c/">Financial Report of the Sacco-Vanzetti Defense Committee, from the Date of the Organization May 5, 1920 to July 1925</a></item-title><br>
+                                    Shortly after the arrest of Sacco and Vanzetti, the Sacco-Vanzetti Defense Committee was established by a friend of theirs, Aldino Felicani. The committee’s purpose was to defend the men and prove their innocence through fundraising, distributing propaganda, publicity, and organizing meetings and demonstrations.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -554,9 +556,9 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c0a0b9e8-66a2-452e-b8dc-8bd55601a312/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/14.png" alt="Photograph of Buick Car - 'D'" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c0a0b9e8-66a2-452e-b8dc-8bd55601a312/">Photograph of Buick Car - 'D'</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c0a0b9e8-66a2-452e-b8dc-8bd55601a312/">Photograph of Buick Car - 'D'</a></item-title><br>
+                                    The getaway car, a stolen Buick, was found abandoned two days after the robbery.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
@@ -564,47 +566,49 @@
                             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_df456224-2bb9-47a0-b695-906564df3e34/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/15.png" alt="Order of Commitment and Warrant for Commitment to Bridgewater State Hospital for Nicola Sacco" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_df456224-2bb9-47a0-b695-906564df3e34/">Order of Commitment and Warrant for Commitment to Bridgewater State Hospital for Nicola Sacco</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_df456224-2bb9-47a0-b695-906564df3e34/">Order of Commitment and Warrant for Commitment to Bridgewater State Hospital for Nicola Sacco</a></item-title><br>
+                                    In this order signed by Judge Webster Thayer, Sacco is described as being “in such mental condition that he should be committed to an institution for the insane for proper care and observation pending the determination of his insanity … for his best interests as well as those of the Commonwealth.” Judge Thayer’s decision was influenced by evidence that Sacco “would do his best to escape from any hospital to which he might be committed.” The threat of suicide was also a factor. “If the defendant was determined to commit suicide,” Thayer stated, “he would commit it no matter to what hospital he was committed as he already had attempted at the Boston Psychopathic Hospital.”<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
                         <div class="mySlides">
-                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db8643e2-375d-4bd2-a735-13acf7b5e3d9/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/16.png" alt="Profile Photograph of a Man in a Hat" style="width:100%"></a>
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/18.jpg" alt="Bertillon Card for Nicola Sacco" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_db8643e2-375d-4bd2-a735-13acf7b5e3d9/">Profile Photograph of a Man in a Hat</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/">Bertillon Card for Nicola Sacco</a></item-title><br>   
+                                    This card, dated May 1920, includes a photograph of Nicola Sacco along with descriptive information. It states that Sacco was 29 years old and had black hair, a dark complexion, light brown eyes, a medium build, and was 5 ft. 5 in. tall.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>     
                                 </p>
                             </div>
                         </div>
                         <div class="mySlides">
-                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2be8453b-5f44-48b6-ace9-c6a74992a75f/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/17.png" alt="Warrant of Bartolomeo Vanzetti and Certified Copy of Record of Conviction and Sentence of Death of Nicola Sacco" style="width:100%"></a>
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53bbf498-a730-4577-adb9-7a0fe85fc2f1/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/17.jpg" alt="Sentence to Death for Bartolomeo Vanzetti" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2be8453b-5f44-48b6-ace9-c6a74992a75f/">Warrant of Bartolomeo Vanzetti and Certified Copy of Record<br>of Conviction and Sentence of Death of Nicola Sacco<br>and Bartolomeo Vanzetti</a></item-title>
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53bbf498-a730-4577-adb9-7a0fe85fc2f1/">Sentence to Death for Bartolomeo Vanzetti</a></item-title><br>
+                                    On April 9, 1927, Bartolomeo Vanzetti was sentenced to “suffer the punishment of death by the passage of a current of electricity through [his] body.” Nicola Sacco received the same sentence. Both men were executed at Charlestown State Prison on August 23, 1927.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
                         <div class="mySlides">
-                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/18.png" alt="Photograph of Nicola, Rose, and Dante Sacco" style="width:100%"></a>
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_03bb9ae8-f8f9-48ad-b51d-bd14c801fd54/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/sacco/16.jpeg" alt="Bertillon card for Bartolomeo Vanzetti" style="width:100%"></a>
                             <div class="caption-container">
                                 <p id="caption">
-                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b15e795b-9a47-4aa8-a035-b9780685db51/">Photograph of Nicola, Rose, and Dante Sacco</a></item-title>   
-                                    <br>
-                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a><br>      
+                                    <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_03bb9ae8-f8f9-48ad-b51d-bd14c801fd54/">Bertillon Card for Bartolomeo Vanzetti</a></item-title><br>
+                                    This card, dated October 1920, includes a photograph of Bartolomeo Vanzetti along with descriptive information. It states that Vanzetti was 33 years old and had a sandy red beard, dark complexion, and a medium build. His teeth were described as “fair,” and his ears were pierced.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next><divider>|</divider></prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
-        <center><credit>Curated by: Yolande Bennett<br>Text Credit: John Eckert</credit></center>
-        <script>
+        </div>   
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
+        <center><credit>Curated by: Yolande Bennett
+        <br>With Assistance From: John Eckert</credit></center>
+    <script>
             function openModal() {
                 document.getElementById("myModal").style.display = "block";
             }
@@ -641,6 +645,6 @@
                 dots[slideIndex - 1].className += " active";
                 captionText.innerHTML = dots[slideIndex - 1].alt;
             }
-        </script>
+    </script>
     </body>
 </html>
