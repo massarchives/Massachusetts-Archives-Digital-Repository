@@ -1,0 +1,338 @@
+<html>
+	<head>
+		<style>
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            view-collection a {
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+
+            .exhibit-text {
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            .clearfix2 {
+                padding: 8px;
+            }
+
+			.homepage-banner img {
+                opacity: 1;
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+            }
+
+            .homepage-banner img:hover {
+                opacity: 0.7;
+                transition: .6s ease;
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .6s ease;
+                background-color: #17183b;
+            }
+
+            .overlay-text,
+            .overlay-text a {
+                color: #FAFAFA;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                position: absolute;
+                top: 52%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 10px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+			.overlay-text:hover, .overlay-text a:hover {
+				text-decoration: underline 2px;
+			}
+
+            .mww-banner {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            .mww-banner {
+                float: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .mww-banner:hover .color-overlay {
+                opacity: 0.9;
+            }
+
+            div.mww-banner {
+                background-color: #FAFAFA;
+            }
+
+            div.exhibits-item {
+				border: none;
+			}
+
+			div.exhibits-item:hover {
+				border: none;
+			}
+
+			div.exhibits-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+                transition: .6s ease;
+			}
+
+			div.exhibits-item img:hover {
+				width: 100%;
+				height: auto;
+				opacity: 0.7;
+				transition: .6s ease;
+			}
+
+			div.collection-title, div.collection-title a {
+				text-align: center;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 15px;
+				line-height: 140%;
+				font-weight: 500;
+                padding-top: 12px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			.exhibits {
+				padding: 25px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+				float: left;
+				width: 50%;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 700px) {
+				.exhibits {
+					width: 49.99999%;
+					margin: 6px 0;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				.exhibits {
+					width: 100%;
+                    padding: 10px;
+                    padding-bottom: 5px;
+				}
+			}
+
+			@media screen and (max-width: 400px) {
+				strong-text {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				strong-text {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 980px) {
+				strong-text {
+					font-size: 14px;
+				}
+
+				div.collection-title, div.collection-title a {
+					font-size: 14px;
+				}
+
+				.exhibit-text {
+					column-count: 1;
+				}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
+
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="mww-banner">
+			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/banner.png" style="width:100%" alt="" />
+			<div class="color-overlay">
+				<a href="https://www.loc.gov/item/2003677961/">
+				  <div class="overlay-text">The Witch No. 1 / J.E. Baker.</div></a>
+			  </div>
+		</div>
+		<div class="clearfix2"></div>
+        <div class="exhibit-text">
+        <strong-text>After idolatry, the second capital crime</strong-text>&ensp;to be recognized in the Massachusetts Bay Colony was witchcraft. While 17th century Massachusetts had already experienced a number of witchcraft cases by 1692, no previous events could possibly compare to what would happen during the Salem settlements of that year.<br>Scarred by a recent smallpox outbreak, and suffocated by a long-brewing family feud and an ever-tightening Puritan grip, Salem Village in the early 1690s was a powder keg. When this already-tense atmosphere was stoked by an incident in which three residents were accused of bewitching two young girls, it quickly spiraled into one of the most notorious cases of mass hysteria in American history, which saw over 200 individuals accused, 30 convicted, and at least 25 dead. Fueled by religious extremism, xenophobia, misogyny, economic upheaval, and petty revenge, what followed was the deadliest witch hunt in the history of colonial North America&mdash; the Salem Witch Trials.<br>Learn more about the Salem Witch Trials by browsing our curated digital exhibits below, or by viewing the full <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">Salem Witch Trials Papers digital collection</a>.</div>
+        <div class="clearfix2"></div>
+        <center><credit>Image Credit:<br>"The Witch No. 1" / J.E. Baker<br>"Witchcraft at Salem Village" / F.O.C. Darley, William L. Shepard, or Granville Perkins<br>"The Lord Knows I Haven’t Hurt Them" / Howard Pyle<br>"Witch Hill (The Salem Martyr)" / Thomas Satterwhite Noble<br>"Giles Corey’s Punishment and Awful Death"<br>"Accused of Witchcraft" / Douglas Volk<br>"Tituba and the Children" / Alfred Fredericks</credit></center>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/prelude">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/1.png" alt="'Witchcraft at Salem Village' by F.O.C. Darley or Granville Perkins" style="width:99.5%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/prelude">Before the Devil Fell: Prelude to the Salem Witch Trials</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/early-witches">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/2.png" alt="'The Lord Knows I Haven't Hurt Them' by Howard Pyle" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/early-witches">The First of Many: Early Witches &amp; Accusers</a></div>
+		</div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/the-trials">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/3.png" alt="'Examination of a Witch' by Thomkins H. Matteson'" style="width:99.5%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/the-trials">The Trials</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/the-executions">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/4.png" alt="'Witch Hill (The Salem Martyr)' by Thomas Satterwhite Noble" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/the-exectutions">The Executions</a></div>
+		</div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/the-aftermath">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/5.png" alt="'Giles Corey's Punishment and Awful Death' by Unknown" style="width:99.5%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/the-aftermath">The Aftermath</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/hysteria-to-history">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/6.png" alt="'Accused of Witchcraft' by Douglas Volk" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/hysteria-to-history">From Hysteria to History:<br>Memory of the Salem Witch Trials</a></div>
+		</div>
+        <div class="clearfix2"></div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/power-and-persecution">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/7.png" alt="'Tituba and the Children' by Alfred Fredericks" style="width:99.5%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/power-and-persecution">Power &amp; Persecution:<br>Race &amp; Gender in the Salem Witch Trials</a></div>
+		</div>
+		<div class="exhibits">
+			<div class="exhibits-item">
+				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%"></a>
+			</div>
+			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">View Full Collection</a></div>
+		</div>
+        <div class="clearfix2"></div>
+	</body>
+</html>
