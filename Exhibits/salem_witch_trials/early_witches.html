@@ -1,0 +1,495 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text { /* Makes the first few lines of the exhibit description bold */
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 15px;
+                padding-bottom: 10px;
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: justify;
+                background-color: #FAFAFA;
+                padding-left: 55px;
+                padding-right: 55px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 15px;
+            }
+
+            .clearfix3 {
+                padding-bottom: 15px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .row>.exhibit2 {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p, .exhibit2 p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+
+            .exhibit2 {
+                float: left;
+                width: 50%;
+            }
+        
+            div.exhibit, div.exhibit2 {
+                background-color: #FAFAFA;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 850px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+				transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img, .exhibit2 img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover, .exhibit2 img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 0px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit, .row>.exhibit2 {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+        </head>
+    <body>
+        <div class="exhibit-text">
+            <strong-text>On January 20, 1698,</strong-text>&ensp;Samuel Parris discovered his daughter and niece both acting erratically, leading him to take them to the village doctor, William Griggs. Griggs, unable to identify the source of their behavior, diagnosed the girls with bewitchment. The resulting panic in Salem Village would evolve into one of the most notorious cases of mass hysteria in history. This exhibit examines the first two accusers, Betty Parris and Abagail Williams, and the three women they accused&mdash; the first victims of the Salem Witch Trials.</div>        
+		<div class="row">
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00031_001.jpeg" alt="Testimony of Abigail Williams v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Testimony of Abigail Williams v. Sarah Good, Sarah Osborne,<br>and Tituba</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00014_001.jpeg" alt="Mittimus for Sarah Good and Tituba" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Mittimus for Sarah Good and Tituba</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00008_001.jpeg" alt="List of Witnesses v. Sarah Good" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>List of Witnesses v. Sarah Good</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00029_001.jpeg" alt="Statement of William Allen, John Hughes, William Good, and Samuel Braybrook v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Statement of William Allen, John Hughes, William Good, and Samuel Braybrook v. Sarah Good, Sarah Osborne, and Tituba</p></center>
+            </div>     
+            <div class="clearfix"></div>
+            <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_54a96acd-853a-4b1e-bb82-e30324e0a4e4/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00031_001.jpeg" alt="Testimony of Abigail Williams v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_54a96acd-853a-4b1e-bb82-e30324e0a4e4/">Testimony of Abigail Williams v. Sarah Good, Sarah Osborne, and Tituba</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            The event that incited the Salem Witch Trials occurred on January 20, 1692, when Samuel Parris found his daughter Elizabeth “Betty” Parris and niece Abagail Williams experiencing inexplicable fits of screaming, contorting, and speaking gibberish. Betty, aged 9, and Abagail, aged 11 or 12, along with other girls in Salem Village, had occasionally gone missing while playing with fortune-telling methods in the woods. On January 20, Betty and Abagail were performing one of these methods, which involved an egg white placed in water and a “Venus Glass” (mirror), in order to learn <i>“what trade their sweet harts should be of.”</i> Soon after the Parris/Williams incident, other girls in Salem began to exhibit similar behaviors. This lead to village doctor William Griggs examining the girls, ultimately diagnosing them with bewitchment. Under pressure to explain themselves, Betty and Abagail accused Sarah Good, Sarah Osborne, and Tituba of using black magic against them, the first accusations of the Salem Witch Trials. A supposed dream about the Devil caused Betty Parris to be sent to live with the Sewall family, and she therefore did not participate in the trials. Abagail Williams continued to accuse other Salem residents, including John Proctor, and she became one of the most prolific accusers of the Trials.
+                            <div class="clearfix2"></div>
+                            <center><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>   
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3036f48a-1388-43c3-8eae-cd41072aa993/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00014_001.jpeg" alt="Mittimus for Sarah Good and Tituba" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3036f48a-1388-43c3-8eae-cd41072aa993/">Mittimus for Sarah Good and Tituba</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            One of the first three “witches” to be accused was a woman named Tituba. While it is unknown where and when Tituba was born&mdash; some suggest that she was from Africa, India, or was Native American&mdash; most of the available evidence points to Barbados as her likely birthplace. There is evidence to suggest that as a child, she was enslaved by a plantation owner named Samuel Thompson and served as a family cook. Upon Thompson’s death in 1679 and the distribution of his estate, Tituba was plausibly purchased or inherited by Samuel Parris, who returned to Massachusetts in 1680. This would explain how Tituba made her way to the New World before she arrived in Salem Village with the Parris family in 1689. At some point, Tituba married another of Parris’s slaves, “John Indian,” who was possibly Wampanoag or also from the Caribbean. John Indian himself was one of the accusers in the Trials, and one of the only existing records of either him or Tituba can be found in Samuel Parris’s church record, where their names appear together. After the Parris/Williams incident, Tituba was the first individual to be accused&mdash; despite her enslaved status, she was allowed to testify. Tituba was also the first of those accused to confess to witchcraft in Salem Village, as well as to making a “witch cake.” However, Tituba only confessed after being beaten by Samuel Parris. Included in her confession was an account of her interactions with the Devil, and confirmation of the witch statuses of Sarah Good and Sarah Osborne. Tituba’s confession drew from several competing concepts of witchcraft, which confused some, but her discussion of Satan was based on stock tropes commonly believed by Salem Village residents, which made her confession particularly believable. Along with Good and Osborne, Tituba was held at Boston Gaol (Jail), one of several jails used during the trials&mdash; but unlike Good and Osborne, she survived as a prisoner for 13 months. Tituba continued to testify against other “witches,” and her extensive imprisonment was due to Parris’s refusal to pay her bail. In April 1693, Tituba was released by being sold to someone for the price of her jail fees. Following this event, there are no existing records of Tituba or John Indian. However, there are some inferences that can be made about Tituba’s life after the trials. Massachusetts Bay Colony began offering compensation to Salem Witch Trials victims in 1711, but none were offered to Tituba. This may have been due to the fact that she was an enslaved person, or could imply that she had died by then. Additionally, Samuel Parris’s will names an “Indian woman” named Violet, who could possibly be Tituba’s daughter, but no other record of this person can be found.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8dd7cb96-f260-44c7-abdb-5a01d685451c/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00008_001.jpeg" alt="List of Witnesses v. Sarah Good" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8dd7cb96-f260-44c7-abdb-5a01d685451c/">List of Witnesses v. Sarah Good</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Sarah Good’s hardships began when she was 19, when her father committed suicide in 1672. As he had not left behind a will, his estate was divided among his widow and sons, leaving Sarah without a dowry, therefore significantly impacting her marriage prospects. She married an indentured servant named Daniel Poole, but when Poole died soon after, he left Sarah in substantial debt. She was forced to sell the rest of her share of her father’s estate to pay off her debt, leaving Sarah and her new husband William Good unhoused. Good and her husband would regularly go door to door begging in Salem Village, developing a reputation for being unpleasant. When Good became one of the first 3 “witches”, this reputation was used against her, including a rumor that she had walked off muttering after Samuel Parris gave her charity, seen as evidence of her placing a curse on Betty and Abagail. Good was also accused of never attending church, which she explained was due to her lack of proper attire. There are a few theories behind her accusation. These include the possibility that William Good disliked her demeanor and felt that she was not completing her duties as a wife. Other theories are that she was a challenge to Puritan values, or that she was dependent on charity, and dependent women in general were accused of witchcraft. Like the rest of the accused, Good was forced to defend herself in court, and was found guilty. Notably, Sarah Good was one of a few “witches” to be pregnant during the Trials, giving birth to Mercy Good while imprisoned at Boston Gaol. Mercy died in prison before her mother’s execution. Sarah Good was executed by hanging on the first day of mass executions, July 19, 1692, after Bridget Bishop’s execution on June 10. While the other four women executed with her remained silent, Good openly proclaimed her innocence right up until her execution. In 1710, William Good successfully sued for reparations from the Massachusetts Bay Colony, receiving one of the largest sums granted to the families of the victims.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_d4bc9137-9a76-4d27-af56-030ad6407708/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00029_001.jpeg" alt="Statement of William Allen, John Hughes, William Good, and Samuel Braybrook v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_d4bc9137-9a76-4d27-af56-030ad6407708/">Statement of William Allen, John Hughes, William Good, and Samuel Braybrook v. Sarah Good, Sarah Osborne, and Tituba</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Sarah Osborne arrived to Salem Village in 1662. Then Sarah Prince, her husband Robert Prince was the brother-in-law and neighbor of Captain John Putnam. When Prince died in 1674, Sarah hired Irish immigrant Alexander Osborne as an indentured servant. Once Osborne paid off his indenture, he and Sarah married. Robert Prince had wanted to pass his farm to his sons, but Sarah and Osborne took it over, which began a legal battle with the Prince family. Captain Putnam, as executor of Prince’s will, was involved in the proceedings. By the time she was accused of being one of the first 3 “witches” by Betty Parris and Abagail Williams, Sarah Osborne was a social outcast. This was not only because she had married an Irish indentured servant and still in a legal battle with the Putnams, but because she had been bedridden for 3 years with what was described as a long illness, now thought to have been depression. There are several factors that plausibly influenced her accusation. In addition to the people of Salem looking down on her marriage and absence from church, Osborne also contrasted with Puritan values by not only denying her sons wealth and social position, but trying to gain those things for herself. Finally, her accusation was likely influenced by her status as an enemy of the Putnam family. After Osborne was arrested, she was imprisoned in Boston Gaol with Good and Tituba. During her examinations, she did not confess or accuse anyone, and due to the prison’s unsanitary conditions, died on May 29, 1692 before the Trials formally began. She was one of at least 5 people to die in prison during the Salem Witch Trials.                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>  
+                        </p>
+                    </div>
+                </div>     
+            </div>
+        </div>
+    </div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/the-trials">The Trials</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+    <center><credit>Curated by: Andrew Fischer
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
