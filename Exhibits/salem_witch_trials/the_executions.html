@@ -1,0 +1,496 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text { /* Makes the first few lines of the exhibit description bold */
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 15px;
+                padding-bottom: 10px;
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: justify;
+                background-color: #FAFAFA;
+                padding-left: 55px;
+                padding-right: 55px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 15px;
+            }
+
+            .clearfix3 {
+                padding-bottom: 15px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .row>.exhibit2 {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p, .exhibit2 p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+
+            .exhibit2 {
+                float: left;
+                width: 50%;
+            }
+        
+            div.exhibit, div.exhibit2 {
+                background-color: #FAFAFA;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 850px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+				transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img, .exhibit2 img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover, .exhibit2 img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 0px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit, .row>.exhibit2 {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+        </head>
+    <body>
+        <div class="exhibit-text">
+        <strong-text>The Salem Witch Trials</strong-text>&ensp;are perhaps most recalled for the loss of innocent lives left in their wake. After Bridget Bishop’s execution on June 10, 1692, an additional eighteen individuals were hanged across three mass execution days on July 19, August 19, and September 22. With another death by crushing on September 19, and five or more among those imprisoned, the death toll rose to at least twenty-five. The threat of death in Salem Village was palpable, and each person’s fear for their own lives only further motivated them to accuse others. Though the brutality of the Trials would ultimately bring them to an end, for some members of the community, it was too late.</div>            
+        <div class="row">
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00031_001.jpeg" alt="Warrant for the execution of Bridget Bishop, and officer's return" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Warrant for the execution of Bridget Bishop, and officer's return</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0009_00003_001.jpeg" alt="Examination of George Burroughs and statement of Abigail Hobbs v. George Burroughs" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Examination of George Burroughs and statement of Abigail Hobbs v. George Burroughs</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00003_001.jpeg" alt="Statement of Giles Corey regarding Martha Corey" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Statement of Giles Corey regarding Martha Corey</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00014_001.jpeg" alt="Testimony of Abigail Williams v. John Proctor" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Testimony of Abigail Williams v. John Proctor</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2c8cc799-148c-40b0-82da-0dbeb53e48e6/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00031_001.jpeg" alt="Warrant for the execution of Bridget Bishop, and officer's return" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2c8cc799-148c-40b0-82da-0dbeb53e48e6/">Warrant for the execution of Bridget Bishop, and officer's return</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            This document contains the order for Bridget Bishop’s execution, signed by the Lt. Governor of Massachusetts Bay and Chief Justice of the Court of Oyer and Terminer, William Stoughton. Bridget Bishop was hanged on June 10, 1692&mdash; the first person to be executed in the Salem Witch Trials. In comparison to the cases that followed, the time between Bridget Bishop’s arrest, trial, and execution was swift. While Bishop was hanged less than a month after she was examined, the rest of the accused waited weeks to be tried, and those who were found guilty were hanged in groups on one of three chosen execution days&mdash; July 19, August 19, and September 22&mdash; over the course of the Salem Witch Trials.
+                            <div class="clearfix2"></div>
+                            <center><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>   
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41657065-583f-47c5-9f17-70802b69c8d8/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0009_00003_001.jpeg" alt="Examination of George Burroughs and statement of Abigail Hobbs v. George Burroughs" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_41657065-583f-47c5-9f17-70802b69c8d8/">Examination of George Burroughs and statement of Abigail Hobbs v. George Burroughs</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Though the majority of the victims of the Salem Witch Trials were women, 6 men were killed over the course of the ordeal. One of the most notable male victims was Reverend George Burroughs. Burroughs first arrived in Salem Village in 1680, serving as a minister. When his wife suddenly died in 1681, Burroughs was forced to borrow money from Captain John Putnam in order to pay for the funeral. Unable to repay his debts to Putnam, he left Salem Village in 1683. George Burroughs was arrested for witchcraft in May of 1692, likely because of his debt to the Putnams. During his trial, Burroughs notably performed what were seen as extraordinary feats of strength, most famously lifting a musket by putting his finger in the barrel&mdash; an act which had been deemed impossible without help from the Devil. Additionally, he faced hostility from other clergy throughout the trial, particularly Cotton Mather, who found it significant that Burroughs had not baptized most of his children or taken communion. Burroughs was convicted, despite the lack of witch’s marks, and was hanged on the second day of mass executions, August 19, 1692. Burroughs was a significant figure in the Salem Witch Trials because he was the only member of the clergy to have been executed, as well as the only minister in American history to be executed by hanging. Furthermore, while awaiting execution, he successfully recited the Lord’s Prayer. Since this was considered impossible for anyone possessed by the Devil to accomplish, Burrough’s recitation cast doubt of his guilt among the witnesses of his execution. However, Cotton Mather, as he viewed the hangings on horseback, attempted to reaffirm Burrough’s guilt by addressing the onlookers, and the rest of the August 19th executions continued as planned.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_35dcce63-4b63-4436-9086-61786313f727/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00003_001.jpeg" alt="Statement of Giles Corey regarding Martha Corey" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_35dcce63-4b63-4436-9086-61786313f727/">Statement of Giles Corey regarding Martha Corey</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Of the twenty people executed during the Salem Witch Trials, Giles Corey was an outlier. A resident of Salem for over fifty years, Corey was a prosperous farmer and landowner who had been married three times and had five children. Corey had a few criminal records, mainly petty theft, but was brought to trial for murder in 1676 after severely beating one of his indentured servants, who later died of his injuries. However, he was ultimately charged with a lighter offense, as corporal punishment against indentured servants was legal. Nearly eighty-one years old when the Salem Witch Trials began, Corey’s wife Martha was one of the first to be accused of witchcraft, and Corey stood by this accusation&mdash; that is, until he was also arrested a month later. Corey, now regarding the Court of Oyer and Terminer as a sham, refused to plead&mdash; and based on laws of the time, he therefore could not be tried. Authorities considered this to be cheating justice, and the solution was <i>peine forte et dure,</i> the process of stripping someone naked and placing a heavy board on top of them, then gradually placing rocks and boulders upon them, which Sheriff George Corwin initiated on September 17, 1692. Not only did Giles Corey continue to refuse to plead, he also did not cry out in pain. On September 19, after two days of crushing, Sheriff Corwin asked Corey to enter a plea three times. Each time, Corey famously asked for more weight, though the actual wording is disputed. Corwin complied each time, and by noon, Corey was dead. Three days later, on the third and final day of mass executions on September 22, Martha Corey was hanged. Giles Corey was the only person to be executed during the Salem Witch Trials who was not hanged, and his gruesome death added to Salem Village’s growing discontent. Corey was later acquitted, though Martha Corey was not.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8c2b63a7-c87e-4ee6-92d7-ab88f007f073/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0002_00014_001.jpeg" alt="Testimony of Abigail Williams v. John Proctor" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8c2b63a7-c87e-4ee6-92d7-ab88f007f073/">Testimony of Abigail Williams v. John Proctor</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Another male victim of note was John Proctor. Born in England but raised in Ipswich, Proctor moved to Salem Town in 1666, where he began leasing a large farm. A successful businessman, Proctor and his third wife Elizabeth owned substantial land in Ipswich and Salem, and owned a tavern near Salem Village. During the Trials, Elizabeth Proctor was accused of witchcraft, and John defended her, leading to him in turn being accused by Abigail Williams and others. Throughout his trial, Proctor consistently challenged the use of spectral evidence, and both Proctors were ultimately found guilty and sentenced to death. While John was executed on the second mass execution day on August 19, 1692, Elizabeth’s execution was delayed due to her pregnancy. Ultimately, Elizabeth was spared by a petition that John had filed, which would have also saved his life if acted upon sooner. The Proctor family was a significant target of the Salem Witch Trials, possibly due to Proctor being one of the most successful businessmen in Salem. Of the nearly 150 accusations, twelve were against the Proctor family. However, only John, Elizabeth, and Rebecca Nurse were convicted, and only John and Rebecca were executed. Today, John Proctor is one of the most high-profile figures of the Salem Witch Trials, due to his status as the protagonist in Arthur Miller’s <i>The Crucible,</i> where he is aged down from fifty-nine to thirty and placed in a sexual relationship with Abigail Williams, aged up from eleven to seventeen. Despite this, Proctor was not officially exonerated until 2001. Proctor’s Ledge, confirmed as the execution site in 2016, was not named for John Proctor, but likely one of his descendants.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>  
+                        </p>
+                    </div>
+                </div>      
+            </div>
+        </div>
+    </div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/the-aftermath">The Aftermath</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+    <center><credit>Curated by: Andrew Fischer
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
