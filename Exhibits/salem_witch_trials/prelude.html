@@ -1,0 +1,496 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            .exhibit-text { /* Exhibit description text */
+                column-count: 2;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 5px;
+                line-height: 170%;
+            }
+
+            strong-text { /* Makes the first few lines of the exhibit description bold */
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                color: #17183b;
+            }
+
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                text-align: right;
+                padding-top: 0px;
+                font-size: 13px;
+                line-height: 140%;
+                font-weight: 400;
+                padding-bottom: 50px;
+                text-transform: uppercase;
+                font-family: 'Space Mono', sans-serif;
+            }
+                
+            div.next-exhibit a:hover {
+                text-decoration: underline;
+            }
+
+            item-title,
+            item-title a { /* Item title that shows up after clicking on image */
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 150%;
+                font-style: italic;
+                color: #181818;
+                display: inline-block;
+            }
+            
+            item-title a:hover {
+                text-decoration: underline;
+            }
+
+            prev-next a { /* 'Previous' and 'Next' links */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            prev-next a:hover {
+                text-decoration: underline;
+            }
+
+            view-collection a { /* 'View Collection' link */
+                font-family: 'Space Mono', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+            }
+
+            view-collection a:hover {
+                text-decoration: underline;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: #181818;
+                margin: 0;
+            }
+            
+            divider {
+                color: #D1D1D8;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                }
+        
+            p#caption {
+                padding-top: 15px;
+                padding-bottom: 10px;
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+
+            caption {
+                text-align: justify;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        
+            .caption-container { 
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13px;
+                line-height: 170%;
+                font-weight: 400;
+                text-align: justify;
+                background-color: #FAFAFA;
+                padding-left: 55px;
+                padding-right: 55px;
+                color: #181818;
+            }
+        
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .clearfix2 {
+                padding-bottom: 15px;
+            }
+
+            .clearfix3 {
+                padding-bottom: 15px;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            .row>.exhibit {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .row>.exhibit2 {
+                padding: 30px;
+                padding-bottom: 0px;
+            }
+
+            .exhibit p, .exhibit2 p {
+                padding: 15px;
+                font-size: 12px;
+                line-height: 150%;
+                font-weight: 400;
+            }
+        
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        
+            .exhibit {
+                float: left;
+                width: 33.3%;
+            }
+
+            .exhibit2 {
+                float: left;
+                width: 50%;
+            }
+        
+            div.exhibit, div.exhibit2 {
+                background-color: #FAFAFA;
+            }
+        
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: #FAFAFA;
+            }
+        
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #FAFAFA;
+                margin: auto;
+                padding: 75px;
+                margin-top: 25px;
+                width: 100%;
+                max-width: 850px;
+            }
+        
+            /* The Close Button */
+            .close {
+                color: #17183b;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                font-size: 40px;
+                font-weight: 500;
+                z-index: 1;
+            }
+        
+            .close:hover,
+            .close:focus {
+                color: #101129;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+        
+            .cursor {
+                cursor: pointer;
+            }
+        
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                top: 98%;
+                width: 100%;
+                max-width: 400px;
+                color: #17183b;
+                font-size: 12px;
+                line-height: 200%;
+                font-family: 'Space Mono', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: left;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            .prev:hover,
+            .next:hover {
+                font-style: italic;
+                text-decoration: none;
+            }
+        
+            img {
+                margin-bottom: -4px;
+            }
+        
+            img.hover-shadow.cursor,
+            img.demo.cursor.active,
+            img.demo.cursor {
+                border-radius: 0px;
+            }
+        
+            img.demo.cursor.active,
+            img.demo.cursor {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        
+            .demo {
+                opacity: 0.6;
+				transition: .6s ease;
+            }
+        
+            .active,
+            .demo:hover {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img, .exhibit2 img {
+                opacity: 1;
+				transition: .6s ease;
+            }
+        
+            .exhibit img:hover, .exhibit2 img:hover {
+                opacity: 0.7;
+				transition: .6s ease;
+            }
+        
+            @media (max-width: 980px) {
+                .mySlides {
+                display: none;
+                column-count: 1;
+                }
+        
+                p#caption {
+                padding-top: 0px;
+                }
+        
+                item-title,
+                item-title a {
+                    margin-top: 10px;
+                }
+        
+                .row>.exhibit, .row>.exhibit2 {
+                    padding: 5px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 400px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        
+            @media (max-width: 600px) {
+                .caption-container {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+        
+                .exhibit-text {
+                    column-count: 1;
+                }
+        
+                .modal-content {
+                    padding: 25px;
+                    padding-top: 50px;
+                }
+
+                .exhibit p {
+                    display: none;
+                }
+            }
+        </style>
+        </head>
+    <body>
+        <div class="exhibit-text">
+            <strong-text>After its founding in 1629,</strong-text>&ensp;the Massachusetts Bay Colony recorded various cases of witchcraft&mdash; such as Ann Hibbins in 1656, and Ann Glover in 1688&mdash; the punishment of which was death. Fast forward to 1692, and the community of Salem Village was on edge. They had recently survived a smallpox outbreak, were under regular threat of attack from Native Americans in the area, and were reeling from the economic upheaval of recent years. This was also a period of deep division, not only between the staunchly-Puritan Salem Village and increasingly-secular Salem Town, but also due to the bitter family feud that would later push Salem to its breaking point.</div>        
+            <div class="row">
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00001_001.jpeg" alt="Table of cases" style="width:100%"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                <center><p>Table of cases</p></center>
+            </div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0012_00014_001.jpeg" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <center><p>Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse</p></center>
+            </div>
+            <div class="clearfix"></div>
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00028_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Sarah Osborne" style="width:100%"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <center><p>Deposition of Elizabeth Hubbard v. Sarah Osborne</p></center>
+            </div>        
+            <div class="exhibit2">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00034_001.jpeg" alt="Deposition of Samuel Parris, Thomas Putnam, and Ezekiel Cheever v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <center><p>Deposition of Samuel Parris, Thomas Putnam, and Ezekiel Cheever v. Sarah Good, Sarah Osborne, and Tituba</p></center>
+            </div> 
+			<div class="clearfix"></div>
+            <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_dbf44ae4-5fd5-4011-bbdd-e90cb067b48f/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00001_001.jpeg" alt="Table of cases" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_dbf44ae4-5fd5-4011-bbdd-e90cb067b48f/">Table of cases</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            This document contains an incomplete index of the approximately 200 individuals who were accused of crimes throughout the course of the Salem Witch Trials. Of those accused, twenty were executed&mdash; nineteen by hanging, and one by crushing&mdash; and countless more were imprisoned.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0012_00014_001.jpeg" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="">Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            This document contains the testimony of John and Lydia Porter, who were the heads of the influential Porter family. Central to the political climate surrounding the Salem Witch Trials was the feud between the Porter and Putnam families. The Porters were wealthy entrepreneurs who lived in Salem Town, whose diverse business interests&mdash; which spread across New England and the Caribbean&mdash; were rapidly growing the family’s wealth, and developing Salem Town into a commercial hub. The feud began in 1672, when the Putnams sued the Porters, and intensified with the arrival of Samuel Parris in 1689, with the Putnams supporting Parris and his efforts to acquire greater control of the congregation. During the Salem Witch Trials, members of the Porter family were regularly accused of witchcraft.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>         
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8fe5b129-26e8-4d77-9cad-7e12e0de7cb6/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00028_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Sarah Osburn" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8fe5b129-26e8-4d77-9cad-7e12e0de7cb6/">Deposition of Elizabeth Hubbard v. Sarah Osburn</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            Those studying the Salem Witch Trials Papers will find that the name Putnam appears frequently. Making up a significant portion of Salem Village’s population, the Putnam family were previously-wealthy farmers with strong Puritan values and political influence. While the Porter family wanted Salem Town and Salem Village to remain connected, the Putnams disapproved of Salem Town’s growing secular environment, and wanted to separate the two communities to protect Salem Village’s Puritan society. In the decades leading up to the Salem Witch Trials, several residents made enemies of the Putnam family, and it is not a coincidence that several of the victims were people in conflict with the Putnams. Additionally, the Putnam family was heavily involved with the proceedings&mdash; a number of Putnams were significant accusers, particularly Ann Putnam Jr., and Thomas Putnam transcribed some of the documents. Today, historians agree that a major factor in the Salem Witch Trials was the Putnam family’s motive to weed out threats to Salem Village’s Puritan values and settle scores.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>         
+                        </p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2b7c108a-972a-445d-993c-8992348d91cd/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00034_001.jpeg" alt="Deposition of Samuel Parris, Thomas Putnam, and Ezekiel Cheever v. Sarah Good, Sarah Osborne, and Tituba" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_2b7c108a-972a-445d-993c-8992348d91cd/">Deposition of Samuel Parris, Thomas Putnam, and Ezekiel Cheever v. Sarah Good, Sarah Osborne, and Tituba</a></item-title></center>
+                            <div class="clearfix3"></div>
+                            One of the most influential figures in Salem Village leading up to and during the Salem Witch Trials was Samuel Parris, minister of the village church. Born in London but raised in Boston, Parris became a wealthy landowner when he inherited his father’s sugar plantation in Barbados in 1673. Parris left Harvard College at the age of 20 to move to Barbados and oversee his plantation. However, the plantation was damaged in 1680, and Parris sold some of his land and moved back to Boston, likely taking his slaves Tituba and John Indian with him. Soon after returning to Massachusetts, Parris married Elizabeth Eldridge of Salem Village and had three children, including Betty. At some point, the Parris family also took in their niece, Abigail Williams, who was orphaned. In 1689, the Parris family, including Samuel Parris, Betty Parris, Abigail Williams, Tituba, and John Indian, moved to Salem Village, where the Putnams had installed Samuel as the town minister. Parris’s tenure with the Salem Village congregation was contentious from the beginning, not only because his orthodox Puritan theology divided the congregation, but also because he tried to acquire greater compensation and ownership of the parsonage, which they opposed. Parris further aggravated these divisions by forcing nonmembers of the congregation to leave during communion, and occasionally exercising his ability to jail the people of Salem Village. By the time of the Trials, Salem Village had become firmly divided into pro- and anti-Parris factions. Samuel Parris had a major influence on the Salem Witch Trials&mdash; not only because the inciting incident occurred within his family, but also because he beat the first confession out of Tituba, stoked the mass hysteria in his sermons, and transcribed some of the proceedings. Samuel Parris was so involved that after the Trials, the Salem Village congregation brought charges against him, though he was ultimately not charged. Instead, Parris apologized in a 1694 essay and resigned from the church in 1696, leaving Salem for good.
+                            <div class="clearfix2"></div>
+                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>         
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/early-witches">The First of Many: Early Witches &amp; Accusers</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+    <center><credit>Curated by: Andrew Fischer
+                <br>With Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
