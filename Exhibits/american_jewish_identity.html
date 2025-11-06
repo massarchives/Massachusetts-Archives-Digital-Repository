@@ -117,6 +117,12 @@
 			clear: both;
 		}
 
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
 		* {
 			box-sizing: border-box;
 		}
@@ -289,7 +295,11 @@
                 line-height: 150%;
                 font-weight: 400;
             }
-		}
+
+            .clearfix2, .clearfix2:after {
+                display: none;
+		    }
+        }
 
 		@media (max-width: 600px) {
 			.exhibit-desc {
@@ -297,13 +307,64 @@
 			}
 
 			.row>.exhibit {
-				padding: 5px;
+				padding: 15px;
+                padding-bottom: 0px;
 			}
+
+            .row:after {
+                padding-bottom: 15px;
+            }
 
             .exhibit p {
                 display: none;
             }
-		}
+
+            .clearfix:after {
+                display: none;
+		    }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
+                line-height: 250%;
+                font-size: 12px;
+                text-align: center;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
+            }
+
+            .caption-container {
+                text-align: center;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .close {
+                top: 5px;
+                right: 10px;
+                font-size: 60px;
+            }
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+			
+			h2 {
+                font-size: 20px;
+            }
+        }
 	</style>
 </head>
     <body>
@@ -320,6 +381,7 @@
                     onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                 <center><p>WWII Propaganda Pamphlet</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/3.jpg" alt="WWII Propaganda Pamphlet" style="width:100%"
                     onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -331,6 +393,7 @@
                 <center><p>ORT Promotional Pamphlet</p></center>
             </div>
             <div class="clearfix"></div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/5.jpg" alt="Jewish Orthodox Community Council of Greater Boston Flyer" style="width:100%"
                     onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -341,6 +404,7 @@
                     onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
                 <center><p>Images from the Hebrew Ladies' Home for Aged Memorial Year-Book, 1905&ndash;1939</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/7.jpg" alt="Image from the Hebrew Ladies' Home for Aged Memorial Yearbook, 1905-1939" style="width:100%"
                     onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
@@ -352,6 +416,7 @@
                 <center><p>Brochure for the Hebrew Ladies' Home for Aged</p></center>
             </div>
             <div class="clearfix"></div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/9.jpg" alt="Petition of Moses Ehrlich: Senate Bill 14181, 1854" style="width:100%"
                     onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -362,6 +427,7 @@
                     onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
                 <center><p>Agudath Israel<br>Yiddish Flyer, 1939</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/11.jpg" alt="Census Proclamation, 1915" style="width:100%"
                     onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
@@ -372,6 +438,7 @@
                     onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
                 <center><p>Congregation Toras Moshe Fire Newspaper Articles, 1941</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/13.jpg" alt="Young Israel Bulletin, 1923" style="width:100%"
@@ -383,6 +450,7 @@
                     onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
                 <center><p>Young Israel Educational Program, 1933&ndash;1944</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/15.jpg" alt="Congregation Mishkan Tefila Eightieth Anniversary Celebration Program, 1939" style="width:100%"
                     onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
@@ -393,6 +461,7 @@
                     onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
                 <center><p>Temple Ohabei<br>Shalom Ninetieth Anniversary Celebration Program, 1933</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
         <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
@@ -404,7 +473,7 @@
                             <item-title><a href="">The Rumor Clinic</a></item-title>
                             <br><caption>As part of the Massachusetts Public Information Division, “The Rumor Clinic” published reports about rumors circulating in the region in the hopes of preventing the spread of misinformation. This report includes noted rumors, along with a chart displaying the percentage of rumors per region. The most notable antisemitic rumors related to draft evasion and a conspiracy that Jews held high positions in federal government.</caption>
                             <div class="clearfix2"></div>
-                            <a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>          
+                            <a class="next" onclick="plusSlides(1)">Next</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>          
                         </p>
                     </div>
                 </div>
@@ -415,7 +484,7 @@
                             <item-title><a href="">WWII Propaganda Pamphlet</a></item-title>
                             <br><caption>In an effort to fight misinformation during World War II, Massachusetts established a Public Information Division to gather intel regarding ongoing rumors. As part of this effort, the division published its own series of propaganda pamphlets to dissuade the spread of rumors.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -426,7 +495,7 @@
                             <item-title><a href="">WWII Propaganda Pamphlet</a></item-title>
                             <br><caption>In an effort to fight misinformation during World War II, Massachusetts established a Public Information Division to gather intel regarding ongoing rumors. As part of this effort, the division published its own series of propaganda pamphlets to dissuade the spread of rumors.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -437,7 +506,7 @@
                             <item-title><a href="">ORT Promotional Pamphlet</a></item-title>
                             <br><caption>The purpose of the Organization for Rehabilitation through Training (ORT), founded in 1880, was to open vocational schools in Europe for non-wealthy Jews. This pamphlet contains images of Jewish German refugees training at an agricultural school in Lithuania, with trades such as embroidery, dressmaking, and mechanics displayed.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -448,7 +517,7 @@
                             <item-title><a href="">Jewish Orthodox Community Council of Greater Boston Flyer</a></item-title>
                             <br><caption>This flyer, issued by the Jewish Orthodox Community Council of Greater Boston, displays an illustration of a young child’s face superimposed on a Star of David symbol. The heading text reads, “MAMA&mdash; PLEASE KEEP OUR HOME KOSHER &ndash; FOR ME.” The flyer continues, “If you do not keep KASHRUTH, I’ll never learn what a Jewish home means."</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -459,7 +528,7 @@
                             <item-title><a href="">Images from the Hebrew Ladies' Home for Aged Memorial Yearbook, 1905&ndash;1939</a></item-title>
                             <br><caption>Founded in 1905, the Hebrew Ladies’ Home for Aged was a charitable Jewish organization that provided a safe haven for the elderly and impoverished. Members were able to enjoy numerous events such as weekly services, parties, and Torah lessons to keep them engaged. Lodging, food, clothes, and healthcare services were provided free of charge to the Home’s inhabitants.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -470,7 +539,7 @@
                             <item-title><a href="">Image from the Hebrew Ladies' Home for Aged Memorial Yearbook, 1905&ndash;1939</a></item-title>
                             <br><caption>Founded in 1905, the Hebrew Ladies’ Home for Aged was a charitable Jewish organization that provided a safe haven for the elderly and impoverished. Members were able to enjoy numerous events such as weekly services, parties, and Torah lessons to keep them engaged. Lodging, food, clothes, and healthcare services were provided free of charge to the Home’s inhabitants.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -481,7 +550,7 @@
                             <item-title><a href="">Brochure for the Hebrew Ladies' Home for Aged</a></item-title>
                             <br><caption>Founded in 1905, the Hebrew Ladies’ Home for Aged was a charitable Jewish organization that provided a safe haven for the elderly and impoverished. Members were able to enjoy numerous events such as weekly services, parties, and Torah lessons to keep them engaged. Lodging, food, clothes, and healthcare services were provided free of charge to the Home’s inhabitants.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -492,7 +561,7 @@
                             <item-title><a href="">Petition of Moses Ehrlich: Senate Bill 14181, 1854</a></item-title>
                             <br><caption>In 1854, Moses Ehrlich, the president of Ohabei Shalom, started a petition to dissolve the charter of the congregation. Ehrlich felt that because the number of Polish Jews coming into the synagogue had diminished, the quality of the congregation and the order of the synagogue had become compromised. Other members of Ohabei Shalom responded with their own petition, citing that nowhere in the original charter did it state that only certain nationalities were allowed in the congregation. Moses Ehrlich’s petition was ultimately withdrawn, and Ohabei Shalom still exists today.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -503,7 +572,7 @@
                             <item-title><a href="">Agudath Israel Yiddish Flyer, 1939</a></item-title>
                             <br><caption>In 1939, Congregation Agudath Israel printed a flyer in Yiddish and English promoting the opening of Hachnosas Orchim and Mikvah Israel. This flyer illustrates that there was still an emphasis on Yiddish as a spoken language towards the middle of the 1900s, demonstrating the strong Ashkenazi roots in the region.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -514,7 +583,7 @@
                             <item-title><a href="">Census Proclamation, 1915</a></item-title>
                             <br><caption>In 1915, Governor David Walsh issued a proclamation informing local communities in Massachusetts about the Decennial Census to be taken in 1915. The proclamation was printed in Yiddish, Mandarin, German, Polish, and several other languages to inform non-English speaking communities about the census. In the Yiddish version, the Yiddish transliteration of the English word is put into parentheses next to the original Yiddish word, possibly indicating a loss of Yiddish language in the United States.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -525,7 +594,7 @@
                             <item-title><a href="">Congregation Toras Moshe Fire Newspaper Articles, 1941</a></item-title>
                             <br><caption>In February of 1941, the synagogue of Congregation Toras Moshe caught on fire, destroying valuable amenities within the synagogue. The building was also home to the Hebrew Educational Alliance and the Hebrew Sheltering Home. These newspaper articles detail the synagogue's destruction.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -536,7 +605,7 @@
                             <item-title><a href="">Young Israel Bulletin, 1923</a></item-title>
                             <br><caption>The Young Israel Bulletin was a Jewish newsletter written by young Orthodox Jews in proximity to the Boston area. This edition references a new Hebrew school being built, known as “The Menorah Institute,” and upcoming festivities for Shavuot.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -547,7 +616,7 @@
                             <item-title><a href="">Young Israel Educational Program, 1933&ndash;1944</a></item-title>
                             <br><caption>This educational program was produced by Young Israel of Greater Boston, in conjunction with Mothers League of Young Israel. It includes descriptions of adult classes which were offered during the season of 1933&ndash;1934. The classes were held at Young Israel’s community center, located at 161 Ruthven Street in Roxbury.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -558,7 +627,7 @@
                             <item-title><a href="">Congregation Mishkan Tefila Eightieth Anniversary Celebration Program, 1939</a></item-title>
                             <br><caption>This program for Congregation Mishkan Tefila offers a glimpse into the richness of the synagogue’s cultural and religious life.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -569,15 +638,14 @@
                             <item-title><a href="">Temple Ohabei Shalom Ninetieth Anniversary Celebration Program, 1933</a></item-title>
                             <br><caption>This program for Temple Ohabei Shalom offers a glimpse into the richness of the synagogue’s cultural and religious life.</caption>
                             <div class="clearfix2"></div>
-                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>          
+                            <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>          
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <center><credit>Curated by: Sadie Mackinnon
-                <br>With Assistance From: Yolande Bennett &amp; Andrew Fischer</credit></center>
+    <center><credit>Curated by: Sadie Mackinnon<br>With assistance from:<br>Yolande Bennett &amp; Andrew Fischer</credit></center>
     <script>
             function openModal() {
                 document.getElementById("myModal").style.display = "block";
