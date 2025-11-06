@@ -117,6 +117,12 @@
 			clear: both;
 		}
 
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
 		* {
 			box-sizing: border-box;
 		}
@@ -289,7 +295,11 @@
                 line-height: 150%;
                 font-weight: 400;
             }
-		}
+
+            .clearfix2, .clearfix2:after {
+                display: none;
+		    }
+        }
 
 		@media (max-width: 600px) {
 			.exhibit-desc {
@@ -297,13 +307,68 @@
 			}
 
 			.row>.exhibit {
-				padding: 5px;
+				padding: 15px;
+                padding-bottom: 20px;
 			}
+
+            .row:after {
+                padding-bottom: 30px;
+            }
 
             .exhibit p {
                 display: none;
             }
-		}
+
+            .clearfix:after {
+                display: none;
+		    }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
+                line-height: 200%;
+                font-size: 13px;
+                text-align: center;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
+            }
+
+            .caption-container {
+                text-align: center;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .close {
+                top: 5px;
+                right: 10px;
+                font-size: 60px;
+            }
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+			
+			h2 {
+                font-size: 20px;
+            }
+        }
 	</style>
 </head>
 <body>
@@ -337,6 +402,7 @@
                 onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
 			<center><p>Plate 53: Nighthawk, Chimney Swift, Whip-poor-will</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/5.jpg" alt="Plate 25: Woodcock, Wilson's Snipe, Dowitcher" style="width:100%"
                 onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -347,6 +413,7 @@
                 onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
 			<center><p>Plate 40: Red-shouldered Hawk,<br>Red-tailed Hawk, Broad-winged Hawk</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="clearfix"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/7.jpg" alt="Plate 39: Sharp-shinned Hawk, Cooper's Hawk, Goshawk" style="width:100%"
@@ -358,6 +425,7 @@
                 onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
 			<center><p>Plate 67: Lapland Longspur,<br>Snow Bunting</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/9.jpg" alt="Plate 34: Bob-white, Spruce Partridge, European Partridge" style="width:100%"
                 onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -369,6 +437,7 @@
                 onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
 			<center><p>Plate 36: Passenger Pigeon,<br>Mourning Dove</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/11.jpg" alt="Plate 55: Crested Flycatcher, Olive-sided Flycatcher, Kingbird, Arkansas Kingbird" style="width:100%"
                 onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
@@ -379,6 +448,7 @@
                 onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
 			<center><p>Plate 54: Ruby-throated Hummingbird</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="clearfix"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/13.jpg" alt="Plate 44: Pigeon Hawk, Duck Hawk, Sparrow Hawk" style="width:100%"
@@ -390,6 +460,7 @@
                 onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
 			<center><p>Plate 20: Whistling Swan, Canada Goose, Brant, Black Brant</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/15.jpg" alt="Plate 48: Black-billed Cuckoo, Yellow-billed Cuckoo, Belted Kingfisher" style="width:100%"
                 onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
@@ -401,6 +472,7 @@
                 onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
 			<center><p>Plate 3: Black Guillemot, Puffin,<br>Razor-billed Auk, Dovekie,<br>Brunnich's Murre</p></center>
 		</div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/17.jpg" alt="Plate 32: Oystercatcher, Killdeer, American Black-bellied Plover, American Golden Plover" style="width:100%"
                 onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
@@ -427,7 +499,7 @@
                             stared fixedly at me."<br>
 							<author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=320">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -443,7 +515,7 @@
 							beats the air again and makes another shoot heavenward."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=546">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -459,7 +531,7 @@
                             the ears for which it is especially intended."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=335">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -475,7 +547,7 @@
 							seeking luckless winged insects in the over-arching skies."<br>
                             <author><i>&mdash; <a ref="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=463">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -491,7 +563,7 @@
                             the Snipe arrives at night on the south wind."<br>
                             <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=555">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -507,7 +579,7 @@
                             sky of April."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=220">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -523,7 +595,7 @@
                             black eyes punctuating the fluff."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=191">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -540,7 +612,7 @@
                             <br>
                             <author><i>&mdash; <a href="https://ia801304.us.archive.org/32/items/birdsofmassachus03forb/birdsofmassachus03forb.pdf#page=104">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -557,7 +629,7 @@
                             <author> <i>&mdash; 
 							<a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=65">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -573,7 +645,7 @@
                             leaving one acorn on the ground."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=127">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -590,7 +662,7 @@
                             other birds."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=497">
 							Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -606,7 +678,7 @@
 							in proportion to its size than any other bird that flies."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=473">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -623,7 +695,7 @@
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=272">
                             Edward Howe Forbush</a></i>
                             </author><br>
-							<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+							<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -640,7 +712,7 @@
 							promise of another spring."<br>
                             <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=429">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -656,7 +728,7 @@
                             unfold their petals, then the voice of the cuckoo is heard in the land."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=366">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -673,7 +745,7 @@
                             clear."<br>
                             <author><i>&mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=82">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -689,7 +761,7 @@
                             or water and pulls up a long marine worm."<br>
                             <author><i> &mdash; <a href="https://ia801303.us.archive.org/11/items/birdsofmassachus01forb/birdsofmassachus01forb.pdf#page=653">
                         	Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<prev-next>|</prev-next>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next>|</prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </p>
                     </div>
                 </div>
@@ -705,14 +777,14 @@
                             the long ago."<br>
                             <author><i>&mdash; <a href="https://ia801307.us.archive.org/8/items/birdsofmassachus02forb/birdsofmassachus02forb.pdf#page=571">
                             Edward Howe Forbush</a></i></author>
-                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left"  aria-hidden="true"></i>&ensp;Prev</a>
+                            <br><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left"  aria-hidden="true"></i>&emsp;Prev</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">View Full Collection</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
     <center><credit>Curated by: Yolande Bennett</credit></center>
     <script>
         function openModal() {
