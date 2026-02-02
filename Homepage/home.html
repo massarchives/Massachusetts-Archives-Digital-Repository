@@ -34,6 +34,10 @@
 				line-height: 140%;
 				font-weight: 500;
 			}
+			
+			div.collection-title a:hover {
+				text-decoration: underline 2px;
+			}
 
 			* {
 				box-sizing: border-box;
@@ -57,19 +61,6 @@
 				display: table;
 				clear: both;
 				padding-bottom: 15px;
-			}
-
-			@media only screen and (max-width: 700px) {
-				.featured {
-					width: 49.99999%;
-					margin: 6px 0;
-				}
-			}
-
-			@media only screen and (max-width: 500px) {
-				.featured {
-					width: 100%;
-				}
 			}
 
             * {
@@ -203,17 +194,6 @@
                 }
             }
 
-            /* On smaller screens, decrease text size */
-            @media only screen and (max-width: 300px) {
-
-                .prev,
-                .next,
-                .text2,
-                .text1 {
-                    font-size: 11px
-                }
-            }
-
             .homepage-banner img {
                 opacity: 1;
                 vertical-align: middle;
@@ -271,7 +251,7 @@
                 position: relative;
             }
 
-            .homepage-banner:hover .color-overlay {
+            .homepage-banner .color-overlay {
                 opacity: 0.9;
             }
 
@@ -301,51 +281,95 @@
 			.button-item a:hover {
 				text-decoration: underline 2px;	
 			}
+			
+			@media only screen and (max-width: 360px) {
+				.featured {
+					width: 49.99999%;
+					margin: 6px 0;
+				}
+
+                .clearfix:after {
+                    padding-bottom: 25px;
+                }
+
+                .overlay-text, .text {
+                    font-size: 14px;
+                }
+            
+				.homepage-banner img, .homepage-banner img:hover, .featured, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {	
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+
+                .clearfix:after {
+                    padding-bottom: 25px;
+                }
+
+                .featured-collection .overlay, .featured-collection img, .homepage-banner img {
+                    opacity: 0.9;
+                    transition: 0.6s ease-in-out;
+                }
+
+                .featured-collection img:hover, .featured-collection .overlay:hover, .homepage-banner img:hover, .homepage-banner .color-overlay {
+                    opacity: 0.9;
+                    transition: 0.6s ease-in-out;
+                }
+			}
+
+            @media only screen and (max-width: 600px) {
+                .homepage-banner img, .homepage-banner img:hover, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+            }
+
+            @media only screen and (max-width: 980px) {
+                .featured-collection .overlay, .featured-collection img, .homepage-banner img {
+                    opacity: 0.9;
+                    transition: 0.6s ease-in-out;
+                }
+
+                .homepage-banner img, .homepage-banner img:hover, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+
+                .featured-collection img:hover, .featured-collection .overlay:hover, .homepage-banner img:hover, .homepage-banner .color-overlay {
+                    opacity: 0.9;
+                    transition: 0.6s ease-in-out;
+                }
+
+                .clearfix:after {
+                    padding-bottom: 25px;
+                }
+
+                .clearfix2:after {
+                    padding-bottom: 0px;
+                }
+            }
 		</style>
 	</head>
 	<body>
         <h2>Welcome to the Massachusetts Archives Digital Repository</h2>
         <div class="homepage-banner">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_fire/banner.png" style="width:100%" alt="State Board of Health map showing burned district" />
-              <div class="color-overlay">
-                <a href="https://digitalarchives.sec.state.ma.us/salem-fire-of-1914">
-                    <div class="overlay-text">The Great Salem Fire of 1914</div></a>
-              </div>
+			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/stockbridge.png" style="width:100%" alt="Images from exhibit entitled Proprietorship and Agency in the Stockbridge Tribe" />
+			<div class="color-overlay">
+				<a href="https://digitalarchives.sec.state.ma.us/stockbridge/">
+				  <div class="overlay-text">Newest Digital Exhibit:<br>Proprietorship &amp; Agency in the Stockbridge Tribe</div></a>
+			  </div>
         </div>
         <div class="clearfix2"></div>
 		<div class="button-container">
 			<div class="button-item"><i class="fa fa-search" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Search Guide</a></div>
-			<div class="button-item"><i class="fa fa-archive" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/archive">Browse Collections</a></div>
+			<div class="button-item"><i class="fa fa-archive" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/collections">Browse Collections</a></div>
 			<div class="button-item"><i class="fa fa-book" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Collections Guide</a></div>
 		</div>
         <div class="clearfix"></div>
-        <h2><a href="https://digitalarchives.sec.state.ma.us/featured/">Featured Collections</a></h2>
+        <h2>Featured Digital Collections</h2>
         <div class="featured-collection">
-        <div class="mySlides fade">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/birds.png" style="width:100%" alt="Plate 54: Ruby-throated Hummingbird, Paintings from: Birds of Massachusetts and other New England states, 1921-1929" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">
-                <div class="overlay">
-                    <div class="overlay-text">Paintings from: Birds of Massachusetts<br>and Other New England States</div>
-                </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/salem.png" style="width:100%"
-                alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
-                <div class="overlay">
-                    <div class="text">Salem Witch Trials Papers</div>
-            </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" />        
-        <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_33f67a53-d3b2-47f7-a4c1-ecffb02a11b3">
-            <div class="overlay">
-                <div class="overlay-text">Town Plans, 1830</div>
-            </a>
-        </div>
-        </div>
         <div class="mySlides fade">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/sacco.png" style="width:100%"
                     alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
@@ -356,11 +380,37 @@
         </div>
         </div>
         <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/birds.png" style="width:100%" alt="Plate 57: Prairie Horned Lark, Horned Lark, Paintings from: Birds of Massachusetts and other New England states, 1921-1929" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">
+                <div class="overlay">
+                    <div class="overlay-text">Paintings from: Birds of Massachusetts<br>and Other New England States</div>
+                </a>
+        </div>
+        </div> 
+        <div class="mySlides fade">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/salem.png" style="width:100%"
+                alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
+            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
+                <div class="overlay">
+                    <div class="text">Salem Witch Trials Papers</div>
+            </a>
+        </div>
+        </div>   
+        <div class="mySlides fade">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/building.png" style="width:100%"
                 alt="Cambridge Building Inspection Plans" />
             <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">
                 <div class="overlay">
                     <div class="text">Building Inspection Plans,<br>1889&mdash;1987</div>
+            </a>
+        </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/folk.png" style="width:100%"
+                alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
+            <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
+                <div class="overlay">
+                    <div class="text">Folk Arts &amp; Heritage Collection</div>
             </a>
         </div>
         </div>
@@ -372,13 +422,12 @@
                     <div class="text">Quabbin Reservoir Cemetery Photographs</div>
             </a>
         </div>
-        </div>
+        </div> 
         <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/folk.png" style="width:100%"
-                alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
-            <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
-                <div class="overlay">
-                    <div class="text">Folk Arts &amp; Heritage Collection</div>
+        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" />        
+        <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_33f67a53-d3b2-47f7-a4c1-ecffb02a11b3">
+            <div class="overlay">
+                <div class="overlay-text">Town Plans, 1830</div>
             </a>
         </div>
         </div>
@@ -432,28 +481,25 @@
             }
         </script>
     	<div class="clearfix"></div>
-        <h2>Featured Exhibits</h2>
+        <h2>Featured Digital Exhibits</h2>  
         <div class="featured">
 			<div class="featured-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww/">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/mww_small.png" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" width="600" height="400"></a>
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww/">Metropolitan Water Works Photographs</a></div>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">The Salem Witch Trials Papers</a></div>
 			</div>
-		</div>
+		</div>    
         <div class="featured">
 		    <div class="featured-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/rev250">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" width="600" height="400"></a>
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250/">Revolution 250</a></div>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/american_jewish_identity.png" alt="Jewish Orthodox Community Council of Greater Boston Flyer" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">American Jewish Identity in Mass.</a></div>
 		    </div>
-		</div>
+		</div>         
         <div class="featured">
-			<div class="featured-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/zoo.png" alt="Boston Zoological Society exhibits, sheet 28" width="600" height="400"></a>
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">Parks &amp; Zoos of Greater Boston</a></div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
+		    <div class="featured-item">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250">Revolution 250</a></div>
+		    </div>
+		</div>        
+        <div class="clearfix"></div>
 	</body>
 </html>
