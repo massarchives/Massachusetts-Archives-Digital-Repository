@@ -58,13 +58,6 @@
             text-decoration: underline;
         }
 
-        author {
-            line-height: 300%;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 400;
-            font-size: 13px;
-        }
-
         view-collection a {
             font-family: 'Space Mono', sans-serif;
             font-size: 12px;
@@ -94,7 +87,7 @@
 		}
 
 		p#caption {
-			padding-top: 100px;
+			padding-top: 150px;
 			font-size: 13px;
 			line-height: 170%;
 		}
@@ -114,6 +107,12 @@
 		.clearfix:after {
 			content: "";
 			display: table;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
 			clear: both;
 		}
 
@@ -170,7 +169,7 @@
 			margin: auto;
 			padding: 75px;
 			width: 100%;
-			max-width: 1260px;
+			max-width: 1200px;
 		}
 
 		/* The Close Button */
@@ -283,26 +282,42 @@
 				padding: 10px;
 			}
 
+            .row:after {
+                padding-bottom: 30px;
+            }
+
             .exhibit p {
-                padding: 10px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+                display: none;
             }
 
             .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
                 display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
 		    }
         }
 
-		@media (max-width: 600px) {
+		@media (max-width: 800px) {
 			.exhibit-desc {
 				column-count: 1;
 			}
+			
+			.exhibit-desc br {
+                display: none;
+            }
 
-			.row>.exhibit {
-				padding: 15px;
-                padding-bottom: 20px;
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
 			}
 
             .row:after {
@@ -313,9 +328,13 @@
                 display: none;
             }
 
-            .clearfix:after {
+            .clearfix, .clearfix:after {
                 display: none;
 		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
 
             .exhibit {
                 float: left;
@@ -323,9 +342,9 @@
 		    }
 
             credit {
-                line-height: 250%;
+                line-height: 200%;
                 font-size: 12px;
-                text-align: center;
+                text-align: left;
             } 
 
             .modal-content {
@@ -334,13 +353,13 @@
             }
 
             .caption-container {
-                text-align: center;
-                padding-left: 5px;
-                padding-right: 5px;
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
 
             .close {
-                top: 5px;
+                top: 0px;
                 right: 10px;
                 font-size: 60px;
             }
@@ -358,8 +377,8 @@
             div.next-exhibit, div.next-exhibit a {
                 display: none;
             }
-
-            h2 {
+			
+			h2 {
                 font-size: 20px;
             }
         }
@@ -370,7 +389,7 @@
             <strong-text>On August 23, 1927,</strong-text>&ensp;two Italian-American immigrants and anarchist radicals in 
             Boston were executed for murder after a seven-year judicial battle. Muddied by anti-Italian and anti-immigrant 
             prejudice, fear of left-wing radicals, judicial ethics, and civil rights, the Sacco and Vanzetti case became one 
-            of America's most infamous murder trials and ignited passions worldwide.<br> 
+            of America's most infamous murder trials and ignited passions worldwide. <br> 
             The story began one night in 1920, when two factory workers transporting payroll were shot dead in a
             robbery. Weeks later, police arrested Nicola Sacco and Bartolomeo Vanzetti and found loaded pistols on their
             persons. Questions were raised about the subsequent trial and the state's investigative methods: did Sacco and
