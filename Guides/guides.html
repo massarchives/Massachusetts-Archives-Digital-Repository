@@ -1,144 +1,96 @@
 <html>
 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
-			.exhibit-text {
-				column-count: 1;
-				max-width: 1000px;
-				padding-top: 5px;
-			}
-			
-			.exhibit-text p {
-				font-family: 'DM Sans', sans-serif;
-				font-weight: 400;
-				font-size: 14px;
-				line-height: 170%;
-			}
-
-			.exhibit-text a:hover {
-				text-decoration: underline;
-			}
-
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-                color: #17183b;
-            }
-
-            .clearfix2 {
-                padding: 8px;
-            }
-
-			.exhibit-text-banner img {
-                opacity: 1;
-                vertical-align: middle;
-                width: 100%;
-                height: auto;
-            }
-
-            .exhibit-text-banner img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
-            }
-
-            .color-overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: .6s ease;
-                background-color: #17183b;
-            }
-
-            .overlay-text,
-            .overlay-text a {
-                color: #FAFAFA;
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                line-height: 24px;
-                font-weight: 600;
-                position: absolute;
-                top: 52%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-			.overlay-text:hover, .overlay-text a:hover {
-				text-decoration: underline 2px;
-			}
-
-            .exhibit-text-banner {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-            }
-
-            .exhibit-text-banner {
-                float: center;
-                width: 100%;
-                position: relative;
-            }
-
-            .exhibit-text-banner:hover .color-overlay {
-                opacity: 0.9;
-            }
-
-            div.exhibit-text-banner {
-                background-color: #FAFAFA;
-            }
-
-            div.exhibits-item {
+			div.featured-item {
 				border: none;
 			}
 
-			div.exhibits-item:hover {
+			div.featured-item:hover {
 				border: none;
 			}
 
-			div.exhibits-item img {
+			div.featured-item img {
 				width: 100%;
 				height: auto;
 				opacity: 1;
-                transition: .6s ease;
+                transition: 0.6s ease;
 			}
 
-			div.exhibits-item img:hover {
+			div.featured-item img:hover {
 				width: 100%;
 				height: auto;
 				opacity: 0.7;
-				transition: .6s ease;
+				transition: 0.6s ease;
 			}
 
-			div.collection-title, div.collection-title a {
-				text-align: center;
+			div.collection-title {
+				text-align: left;
 				color: #181818;
-				font-family: 'DM Sans', sans-serif;
-				font-size: 15px;
-				line-height: 140%;
-				font-weight: 500;
+                background-color: #E8E8EB;
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 14px;
+				font-weight: 600;
+                padding: 15px;
                 padding-top: 12px;
-                text-decoration: none;
+                padding-left: 12px;
+				padding-right: 12px;
+				line-height: 150%;
+                height: 105px;
+				position: relative;
 			}
+
+            div.collection-title a {
+				text-align: left;
+				color: #181818;
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 150%;
+                text-decoration: none;
+            }
 
             div.collection-title a:hover {
                 text-decoration: underline 2px;
             }
 
+            div.collection-title p, div.collection-title p a {
+				text-align: left;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 11.25px;
+				line-height: 150%;
+				font-weight: 400;
+            }
+
+            div.collection-title p a {
+                font-weight: 500;
+            }
+
+            div.collection-title p a:hover {
+                text-decoration: underline;
+            }
+			
+			div.collection-title p strong2 {
+				text-align: left;
+				color: #181818;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 11.25px;
+				line-height: 150%;
+				font-weight: 600;
+            }
+
+			div.record-group {
+				position: absolute; 
+				bottom: 0;
+			}
+
 			* {
 				box-sizing: border-box;
 			}
 
-			.exhibits {
-				padding: 25px;
-                padding-bottom: 10px;
-                padding-top: 10px;
+			.featured {
+				padding-right: 10px;
 				float: left;
 				width: 50%;
 			}
@@ -150,154 +102,158 @@
 				padding-bottom: 10px;
 			}
 
-			@media only screen and (max-width: 600px) {
-				.exhibits {
-					width: 100%;
-                    padding: 10px;
-                    padding-top: 0px;
-                }
+            .clearfix2:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 10px;
+			}
 
-				.exhibit-text {
-					column-count: 1;
-                    padding-top: 0px;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
-				}
+			.clearfix3:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding-bottom: 5px;
+			}
 
-                .clearfix {
-                    padding-bottom: 0px;
-                }
+			.clearfix4:after {
+				content: "";
+				display: table;
+				clear: both;
+				padding: 0px;
+			}
 
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-		
-				div.collection-title, div.collection-title a {
-					font-size: 13px;
-                    padding-bottom: 10px;
-				}
-
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
+            * {
+            box-sizing: border-box
+            }
+			
+			@media only screen and (max-width: 960px) {
+				.featured {
+					width: 49.99999%;
+					margin: 6px 0;
 				}
 
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-
-                .exhibit-text-banner img, .exhibits-item img, .exhibits img {
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-
-                .clearfix {
+                .clearfix2 {
                     display: none;
                 }
 
-                .clearfix2 {
-                    padding: 8px;
+                br {
+                    display: none;
                 }
 
-                div.exhibits-item img:hover, .exhibit-text-banner:hover .color-overlay, .exhibit-text-banner img:hover {
-                    opacity: 1;
-                }
+				div.collection-title {
+                    height: 115px;
+			    }
+            }
+
+			@media only screen and (max-width: 768px) {
+				div.collection-title {
+                    height: 135px;
+			    }
 			}
 
-			@media screen and (max-width: 600.1px) {
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-					line-height: 160%;
-					text-align: left;
-                    padding-bottom: 10px;
-				}
 
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 0px;
+            @media only screen and (max-width: 680px) {
+                div.collection-title {
+                    height: 155px;
+
+			    }
+
+                br {
+                    display: none;
+                }
+
+				div.collection-title, div.collection-title a {
 					font-size: 15px;
 				}
 
-				.overlay-text, .color-overlay {
-					display: none;
+				div.collection-title p, div.collection-title p strong2, div.record-group {
+					font-size: 12.5px;
+					line-height: 140%;
 				}
+			}
 
-                .exhibits {
-                    padding: 10px;
-                    padding-top: 0px;
-                }
+			@media only screen and (max-width: 615px) {
+                div.collection-title {
+                    height: 175px;
+			    }
 
-                .clearfix {
+                br {
                     display: none;
-                }
-
-                .exhibit-text-banner img, .exhibits-item img, .exhibits img {
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-
-                .exhibit-text-banner img:hover {
-                    opacity: 1;
-                }
-
-                .clearfix2 {
-                    padding: 8px;
-                }
-
-                div.exhibits-item img:hover, div.exhibits-item img, .exhibit-text-banner img, .exhibit-text-banner img:hover .color-overlay {
-                    opacity: 1;
                 }
 			}
 
+			@media only screen and (max-width: 545px) {
+				div.collection-title {
+                    height: 205px;
+			    }
+			}
+
+			@media only screen and (max-width: 520px) {
+				div.collection-title {
+                    height: 225px;
+			    }
+			}
+
+			@media only screen and (max-width: 480px) {
+				div.collection-title {
+                    height: 245px;
+			    }
+			}
+
+			@media only screen and (max-width: 460px) {
+				div.collection-title {
+                    height: 265px;
+			    }
+			}
+
+			@media only screen and (max-width: 454px) {
+				div.collection-title {
+                    height: 285px;
+			    }
+			}
+
+			@media only screen and (max-width: 418px) {
+				div.collection-title {
+                    height: 305px;
+				}
+			}
 		</style>
 	</head>
-    <body>
-    <div class="exhibit-text-banner">
-        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" />
-        <div class="color-overlay">
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_11c868d2-866f-4260-b565-d26801803ef9/">
-              <div class="overlay-text">Plan of Wilbraham made by Aaron Bliss, dated 1830</div></a>
-          </div>
-    </div>
-    <div class="clearfix2"></div>
-    <div class="exhibit-text">
-        <p>These guides offer tools for discovering and using collections, as well as an overview of the materials available within the Digital Repository.</p>
-        </div>
-    <div class="clearfix2"></div>
-    <div class="exhibits">		
-    <div class="exhibits-item">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%">
+	<body>
+        <h2>Collection Guides</h2>  
+        <div class="featured">
+			<div class="featured-item">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Digital Repository Collections Overview</a>
+                        <div class="clearfix3"></div>
+                        <p>This document lists the series currently accessible in the Massachusetts Archives Digital Repository, with links to their locations and expanded descriptions.</p></div>
+			</div>
+		</div>         
+        <div class="featured">
+			<div class="featured-item">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Digital Repository Search Guide</a>
+                        <div class="clearfix3"></div>
+                        <p>This guide explains how to navigate the Massachusetts Archives Digital Repository and offers tips for locating materials.</p></div>
+			</div>
 		</div>
-		<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Digital Repository Collections Overview</a></div>
-	</div>
-	<div class="exhibits">
-		<div class="exhibits-item">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%">
+        <div class="clearfix2"></div>
+        <div class="featured">
+			<div class="featured-item">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/wwii.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">Index of Massachusetts Casualties in World War II</a>
+                        <div class="clearfix3"></div>
+                        <p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_02102549-ad9c-458d-9d68-66e6f9a648b8">Index of Massachusetts Casualties in World War II</a> within the Massachusetts Archives Digital Repository.</p></div>
+			</div>
 		</div>
-		<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Digital Repository Search Guide</a></div>
-	</div>
-	<div class="clearfix"></div>
-	<div class="exhibits">
-		<div class="exhibits-item">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/wwii.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" style="width:100%">
-		</div>
-		<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">Index of Massachusetts Casualties in World War II</a></div>
-	</div>
-	<div class="exhibits">
-		<div class="exhibits-item">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/folk.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" style="width:100%">
-		</div>
-		<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">Folk Arts & Heritage Collection, 1982–2016</a></div>
-	</div>
-</body>
+        <div class="featured">
+			<div class="featured-item">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/folk.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" width="600" height="400">
+						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">Folk Arts & Heritage Collection, 1982&ndash;2016</a>
+                        <div class="clearfix3"></div>
+                        <p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">Folk Arts & Heritage Collection, 1982&ndash;2016</a> within the Massachusetts Archives Digital Repository,</p></div>
+			</div>
+		</div>	
+    </body>
 </html>
