@@ -124,7 +124,12 @@
 				line-height: 140%;
 				font-weight: 500;
                 padding-top: 12px;
+                text-decoration: none;
 			}
+
+            div.collection-title a:hover {
+                text-decoration: underline 2px;
+            }
 
 			* {
 				box-sizing: border-box;
@@ -145,27 +150,33 @@
 				padding-bottom: 10px;
 			}
 
-			@media only screen and (max-width: 700px) {
-				.exhibits {
-					width: 49.99999%;
-					margin: 6px 0;
-                    padding: 10px;
-                    padding-bottom: 5px;
-				}
-			}
-
-			@media only screen and (max-width: 500px) {
+			@media only screen and (max-width: 600px) {
 				.exhibits {
 					width: 100%;
                     padding: 10px;
-                    padding-bottom: 5px;
+                    padding-top: 0px;
+                }
+
+				.exhibit-text {
+					column-count: 1;
+                    padding-top: 0px;
 				}
-			}
+				
+				.exhibit-text p {
+					padding-top: 6px;
+				}
 
-			@media screen and (max-width: 400px) {
+                .clearfix {
+                    padding-bottom: 0px;
+                }
 
+				.overlay-text, .color-overlay {
+					display: none;
+				}
+		
 				div.collection-title, div.collection-title a {
-					font-size: 14px;
+					font-size: 13px;
+                    padding-bottom: 10px;
 				}
 
 				.exhibit-text {
@@ -179,11 +190,32 @@
 				.overlay-text, .color-overlay {
 					display: none;
 				}
+
+                .exhibit-text-banner img, .exhibits-item img, .exhibits img {
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+
+                .clearfix {
+                    display: none;
+                }
+
+                .clearfix2 {
+                    padding: 8px;
+                }
+
+                div.exhibits-item img:hover, .exhibit-text-banner:hover .color-overlay, .exhibit-text-banner img:hover {
+                    opacity: 1;
+                }
 			}
 
-			@media screen and (max-width: 600px) {
+			@media screen and (max-width: 600.1px) {
 				div.collection-title, div.collection-title a {
 					font-size: 14px;
+					line-height: 160%;
+					text-align: left;
+                    padding-bottom: 10px;
 				}
 
 				.exhibit-text {
@@ -191,30 +223,40 @@
 				}
 				
 				.exhibit-text p {
-					padding-top: 6px;
+					padding-top: 0px;
+					font-size: 15px;
 				}
 
 				.overlay-text, .color-overlay {
 					display: none;
 				}
-			}
 
-			@media screen and (max-width: 980px) {
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
+                .exhibits {
+                    padding: 10px;
+                    padding-top: 0px;
+                }
 
-				.exhibit-text {
-					column-count: 1;
-				}
-				
-				.exhibit-text p {
-					padding-top: 6px;
-				}
+                .clearfix {
+                    display: none;
+                }
 
-				.overlay-text, .color-overlay {
-					display: none;
-				}
+                .exhibit-text-banner img, .exhibits-item img, .exhibits img {
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+
+                .exhibit-text-banner img:hover {
+                    opacity: 1;
+                }
+
+                .clearfix2 {
+                    padding: 8px;
+                }
+
+                div.exhibits-item img:hover, div.exhibits-item img, .exhibit-text-banner img, .exhibit-text-banner img:hover .color-overlay {
+                    opacity: 1;
+                }
 			}
 
 		</style>
@@ -229,89 +271,92 @@
 		</div>
 		<div class="clearfix2"></div>
 		<div class="exhibit-text">
-			<p>Explore our selection of digital exhibits, curated by Massachusetts Archives staff to highlight fascinating collections within our vaults.<br>For more online exhibits, please visit the <a href="https://www.sec.state.ma.us/divisions/commonwealth-museum/exhibits/online-exhibits.htm">Commonwealth Museum website</a>.</p></div>
+			<p>Explore our selection of digital exhibits, curated by Massachusetts Archives staff to highlight fascinating collections within our vaults. For more online exhibits, please visit the <a href="https://www.sec.state.ma.us/divisions/commonwealth-museum/exhibits/online-exhibits.htm">Commonwealth Museum website</a>.</p></div>
         <div class="clearfix2"></div>
         <div class="exhibits">
             <div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/american_jewish_identity.png" alt="Jewish Orthodox Community Council of Greater Boston Flyer" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/american_jewish_identity.png" alt="Jewish Orthodox Community Council of Greater Boston Flyer" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">American Jewish Identity in Massachusetts</a></div>
 		</div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/birds-of-massachusetts/">Birds of Massachusetts & Other New England States</a></div>
 		</div>
         <div class="clearfix"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/sacco2.png" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/sacco2.png" alt="Photograph of the Railroad Shanty Looking East on Pearl Street at South Braintree" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/sacco-and-vanzetti/">Commonwealth v. Sacco & Vanzetti</a></div>
 		</div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/salem-fire-of-1914">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_fire/salem.png" alt="State Board of Health map showing burned district" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_fire/salem.png" alt="State Board of Health map showing burned district" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-fire-of-1914">The Great Salem Fire of 1914</a></div>
 		</div>
         <div class="clearfix"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/framingham-reformatory">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/framingham.png" alt="" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/framingham/framingham.png" alt="" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/framingham-reformatory">Massachusetts Reformatory for Women</a></div>
 		</div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mpc.png" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mpc.png" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mpc-portraits/">Metropolitan Park Commission Portrait Photographs</a></div>
 		</div>
         <div class="clearfix"></div>
         <div class="exhibits">
             <div class="exhibits-item">
-                <a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mww.png" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" style="width:100%"></a>
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/mww.png" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" style="width:100%">
             </div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww/">Metropolitan Water Works Photograph Collection</a></div>
         </div>
 		<div class="exhibits">
             <div class="exhibits-item">
-                <a target="_blank" href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/zoo.png" alt="Boston Zoological Society exhibits, sheet 28" style="width:100%"></a>
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/zoo.png" alt="Boston Zoological Society exhibits, sheet 28" style="width:100%">
             </div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos/">Parks & Zoos of Greater Boston</a></div>
         </div>
         <div class="clearfix"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/quabbin.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/stockbridge.png" alt="General court order that the commissioners at the Albany conference inquire into the illegal purchase of unappropriated province land from the Stockbridge Indians" style="width:100%">
+			</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/stockbridge">Proprietorship &amp; Agency in the Stockbridge Tribe</a></div>
+		</div>        
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/quabbin.png" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/quabbin-reservoir/">Quabbin Reservoir Photographs</a></div>
 		</div>
+        <div class="clearfix"></div>
         <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/rev250">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/quakers.png" alt="General Court declaration on Quakers after the executions of William Robinson and Marmaduke Stephenson" style="width:100%">
+			</div>
+            <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/quakers/">Quakers in Massachusetts</a></div>
+		</div>
+        <div class="exhibits">
+			<div class="exhibits-item">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250">Revolution 250</a></div>
 		</div>
-		<div class="clearfix"></div>
-                <div class="exhibits">
+        <div class="clearfix"></div>
+        <div class="exhibits">
 			<div class="exhibits-item">
-				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">
-                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%"></a>
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" style="width:100%">
 			</div>
             <div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">The Salem Witch Trials Papers</a></div>
-		</div>
+        </div>
+        <div class="clearfix2"></div>
 	</body>
 </html>
