@@ -8,41 +8,34 @@
 				box-sizing: border-box;
 			}
 			
-			.sec-banner {
-				background-image: url("https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/08/galvin-header-background-wide.png");
-				background-position: left bottom;
-				background-repeat: no-repeat;
-				background-size: cover;
-				padding: 25px;
-			}
+            .header {
+                padding: 30px;
+                text-align: left;
+                background-image: url("https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/08/galvin-header-background-wide.png");
+                background-position: left bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: white;
+                font-size: 10px;
+            }
 				
-			.sec-text p {
-				font-size: 13px;
-				color: #151635;
-				font-weight: 500;
-				line-height: 140%;
-				margin: 1px 0px 0px 5px;
-				padding-left: 70px;
-				font: 'DM Sans', sans-serif;
-			}
-				
-			.sec-text h1 {
-				font-size: 13px;
-				color: #151635;
-				font-weight: 500;
-				line-height: 140%;
-				font: 'DM Sans', sans-serif;
-				margin: 0px 0px 0px 5px;
-				padding-left: 70px;
-			}
-				
-			.sec-text h1 a {
-				color: #151635;
-				font-family: 'DM Sans';
+			.header h5 {
+				font-size: 12.5px;
+				color: #17183b;
 				font-weight: 600;
-				font-size: 15px;
 				line-height: 140%;
+                padding-left: 75px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+
+			.header h5 a {
+				color: #17183b;
 			}
+
+            .header h5 a:hover {
+                text-decoration: underline 2px;
+            }
 
 			.alert, .alert a {
 				padding: 25px;
@@ -115,8 +108,8 @@
 
 			.topnav {
 				overflow: hidden;
-				background-color: #FAFAFA;
-				padding-left: 12.5px;
+				background-color: #E8E8EB;
+				padding-left: 0px;
 			}
 
 			.topnav a {
@@ -124,12 +117,12 @@
 				display: block;
 				color: #17183b;
 				text-align: center;
-				padding: 25px;
+				padding: 20px;
 				text-decoration: none;
 				font-size: 15px;
 				line-height: 140%;
 				font-family: 'Space Grotesk', sans-serif;
-				font-weight: 500;
+				font-weight: 600;
 			}
 
 			.topnav a:hover {
@@ -140,22 +133,21 @@
 				display: none;
 			}
 
-			@media screen and (max-width: 600px) {
+			@media screen and (max-width: 980px) {
 				.topnav a {
 					display: none;
-					padding: 20px;
 				}
 
 				.topnav a.icon {
 					float: right;
 					display: block;
-					font-size: 20px;
-					padding-right: 10px;
-					padding: 20px;
+					font-size: 40px;
+					padding: 15px;
+                    padding-top: 0px;
 				}
 			}
 
-			@media screen and (max-width: 600px) {
+			@media screen and (max-width: 980px) {
 				.topnav.responsive {
 					position: relative;
 				}
@@ -166,32 +158,44 @@
 					top: 0;
 				}
 
+				.topnav {
+					background-color: #FAFAFA;
+				}
+
+                .topnav a {
+                    font-size: 16px;
+                    line-height: 150%;
+                    padding: 10px;
+                }
+
 				.topnav.responsive a {
 					float: none;
 					display: block;
-					text-align: left;
-					padding: 20px;
-					padding-top: 20px;
+					text-align: center;
 				}
 
 				.alert {
 					display: none;
 				}
+
+				.header h5 {
+					padding-left: 0px;
+					text-align: center;
+					font-size: 12.5px;
+				}
 			}
 		</style>
 	</head>
-	<div class="sec-banner">
-		<div class="sec-text">
-			<h1><a href="https://www.sec.state.ma.us/">Secretary of the Commonwealth of Massachusetts</a></h1>
-			<p>William Francis Galvin</p>
-		</div>
-	</div>
+    <div class="header">
+        <h5><a href="https://www.sec.state.ma.us/">Secretary of the Commonwealth of Massachusetts</a></h5><h5>William Francis Galvin</h5>
+    </div>
 	<div class="topnav" id="myTopnav">
 		<a href="https://digitalarchives.sec.state.ma.us/">Home</a>
 		<a href="https://digitalarchives.sec.state.ma.us/about/">About</a>
-        	<a href="https://digitalarchives.sec.state.ma.us/archive/">Collections</a>
-		<a href="https://digitalarchives.sec.state.ma.us/guides/">Guides</a>
+        <a href="https://digitalarchives.sec.state.ma.us/collections/">Collections</a>
 		<a href="https://digitalarchives.sec.state.ma.us/exhibits/">Exhibits</a>
+        <a href="https://digitalarchives.sec.state.ma.us/guides/">Guides</a>
+        <a href="https://digitalarchives.sec.state.ma.us/archive/">Complete Archive</a>
 		<a href="https://digitalarchives.sec.state.ma.us/rev250/">Revolution 250</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 		  <i class="fa fa-bars"></i>
