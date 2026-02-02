@@ -1,355 +1,392 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 17px;
-                font-weight: 500;
-                color: #17183b;
-            }
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
 
-            credit {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
 
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
-            }
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
                 
-            div.next-exhibit a:hover {
-                text-decoration: underline;
-            }
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
 
-            item-title,
-            item-title a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
-            }
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
 
-            prev-next a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
+        item-title a:hover {
+            text-decoration: underline;
+        }
 
-            prev-next a:hover {
-                text-decoration: underline;
-            }
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
 
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
+        view-collection a:hover {
+            text-decoration: underline;
+        }
 
-            view-collection a:hover {
-                text-decoration: underline;
-            }
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
 
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 30px;
-                padding-bottom: 10px;
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #FAFAFA;
-                padding-left: 125px;
-                padding-right: 125px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
-            .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
+
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
 
             .exhibit p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+                display: none;
             }
-        
-            .row:after {
-                content: "";
-                display: table;
+
+            .clearfix2, .clearfix2:after {
                 clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
+                display: none;
             }
-        
+
             .exhibit {
                 float: left;
-                width: 33.3%;
-            }
-        
-            div.exhibit {
-                background-color: #FAFAFA;
-            }
-        
-            /* The Modal (background) */
-            .modal {
+                width: 50%;
+		    }
+        }
+
+		@media (max-width: 800px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+
+            .exhibit-desc br {
                 display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #FAFAFA;
             }
-        
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #FAFAFA;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 1000px;
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
-        
-            /* The Close Button */
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        
-            .mySlides {
+
+            .exhibit p {
                 display: none;
-                column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
-            }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
+
+            .clearfix, .clearfix:after {
+                display: none;
+		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
                 line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
+                font-size: 12px;
                 text-align: left;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
             }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
+
+            .caption-container {
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
-        
-            img {
-                margin-bottom: -4px;
+
+            .close {
+                top: 0px;
+                right: 10px;
+                font-size: 60px;
             }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
             }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
+
+            strong-text {
+                font-size: 16px;
             }
-        
-            .demo {
-                opacity: 0.6;
-				transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img:hover {
-                opacity: 0.7;
-				transition: .6s ease;
-            }
-        
-            @media (max-width: 980px) {
-                .mySlides {
+
+            div.next-exhibit, div.next-exhibit a {
                 display: none;
-                column-count: 1;
-                }
-        
-                p#caption {
-                padding-top: 10px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
+			
+			h2 {
+                font-size: 20px;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-            }
-        </style>
+        }
+	</style>
     </head>
     <body>
-        <div class="exhibit-text">
-            <strong-text>The Metropolitan District Water Supply Commission</strong-text>&ensp;was a special construction state agency formed in 1926. As part of its function to design and construct the Quabbin Reservoir, Dam, and Aqueduct, the agency was required to remove interred bodies from cemeteries within the bounds of the Quabbin Reservoir Watershed, and to establish a cemetery to reinter the bodies from the multiple cemeteries. There were approximately 7,500 bodies in thirty-four cemeteries to be addressed.<br>The new thirty-acre cemetery was built in Ware, Massachusetts, less than three miles from the Quabbin Reservoir Administration Building in Belchertown. Its landscape was designed by Arthur A. Shurcliff, an architect and native of Boston. Beginning in 1927, the MDWSC began a census of the burials in all of the affected cemeteries and photographed each cemetery lot. Of the approximately 7,500 bodies, 945 were relocated to "outside cemeteries."<br>Quabbin Park Cemetery officially opened on August 25, 1932, although it wasn’t until 1944 when the removals from the former cemeteries were completed. In addition to cemeteries in the four disincorporated towns, there are cemeteries in the towns of Belchertown, New Salem, Pelham, Petersham, and Shutesbury.</div>
+        <div class="exhibit-desc">
+            <strong-text>The Metropolitan District Water Supply Commission</strong-text>&ensp;was a special construction state agency formed in 1926. As part of its function to design and construct the Quabbin Reservoir, Dam, and Aqueduct, the agency was required to remove interred bodies from cemeteries within the bounds of the Quabbin Reservoir Watershed, and to establish a cemetery to reinter the bodies from the multiple cemeteries. There were approximately 7,500 bodies in thirty-four cemeteries to be addressed. <br>The new thirty-acre cemetery was built in Ware, Massachusetts, less than three miles from the Quabbin Reservoir Administration Building in Belchertown. Its landscape was designed by Arthur A. Shurcliff, an architect and native of Boston. Beginning in 1927, the MDWSC began a census of the burials in all of the affected cemeteries and photographed each cemetery lot. Of the approximately 7,500 bodies, 945 were relocated to "outside cemeteries." <br>Quabbin Park Cemetery officially opened on August 25, 1932, although it wasn’t until 1944 when the removals from the former cemeteries were completed. In addition to cemeteries in the four disincorporated towns, there are cemeteries in the towns of Belchertown, New Salem, Pelham, Petersham, and Shutesbury.</div>
         <div class="row">
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/1.jpg" alt="Snow Tomb, Snow Cemetery, Lot 19, Petersham, Mass., July 12, 1939: Mrs. Grace T. Adams, Tomb ? Release" style="width:100%"
@@ -361,6 +398,7 @@
                     onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                 <center><p>Photo Showing Stone of John and Mary Torrance Damaged During Winter, East Half Lot 1758, Quabbin Park Cemetery, Ware, Mass.,<br>Apr. 15, 1947</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/3.jpg" alt="Fred Witherell, Woodlawn Cemetery, Old Section, Lot 184, Enfield, Mass., Sept. 20, 1928: Fred Witherell, Q-97" style="width:100%"
                     onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -372,7 +410,7 @@
                     onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
                 <center><p>Looking East Over Section 1,<br>Quabbin Park Cemetery, Ware, Mass.,<br>Aug. 9, 1938</p></center>
             </div>
-
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/5.jpg" alt="Emily L. Goddard, Lincoln Cemetery, Stone 14, Petersham, Mass., June 8, 1945" style="width:100%"
                     onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -383,6 +421,7 @@
                     onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
                 <center><p>William Milsop, Woodlawn Cemetery, New Section, Lot 85, Enfield, Mass., Sept. 7, 1928: William Milsop, Q-227</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/7.jpg" alt="James Thayer, Dana Center Cemetery, Lot 171, Dana, Mass., June 9, 1937: Chauncey Thayer, Q-1217" style="width:100%"
@@ -394,6 +433,7 @@
                     onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
                 <center><p>Receiving Vault, Quabbin Park Cemetery, Ware, Mass., July 6, 1938</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/9.jpg" alt="Johnson, Dana Center Cemetery, Lot 168, Dana, Mass., June 9, 1937: Redford K. Johnson, Q-1224" style="width:100%"
                     onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -405,6 +445,7 @@
                     onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
                 <center><p>Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/11.jpg" alt="General View of Brown's Evergreen Cemetery, Dana, Mass., Sept. 16, 1937: Indexed on Acc. 857, Map of Cemetery Locations" style="width:100%"
                     onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
@@ -415,6 +456,7 @@
                     onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
                 <center><p>Ruth Carter, Hannah (Spring) Carter, Snow Cemetery, Lot 10, Petersham, Mass., July 12, 1939: Lester H. Carter, Release 290</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/13.jpg" alt="Tablet on East Side Entrance to Quabbin Park Cemetery, Ware, Mass., Sept. 08, 1939" style="width:100%"
@@ -426,6 +468,7 @@
                     onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
                 <center><p>Church Cemetery Tomb, Church Cemetery, Section 2 at Left, Section 1 at Right, Enfield, Mass., Jan. 10, 1938: Indexed on Acc. 857, Cemetery Locations Plan</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/15.jpg" alt="Quabbin Park Cemetery, Lot Index Plan, Ware, Mass., June 1, 1932" style="width:100%"
                     onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
@@ -436,12 +479,12 @@
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8cc62454-7a29-4f12-9d53-89c605320d85/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/1.jpg" alt="Snow Tomb, Snow Cemetery, Lot 19, Petersham, Mass., July 12, 1939:<br>Mrs. Grace T. Adams, Tomb ? Release" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8cc62454-7a29-4f12-9d53-89c605320d85/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/1.jpg" alt="Snow Tomb, Snow Cemetery, Lot 19, Petersham, Mass., July 12, 1939: Mrs. Grace T. Adams, Tomb ? Release" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8cc62454-7a29-4f12-9d53-89c605320d85/">
-                            Snow Tomb, Snow Cemetery, Lot 19, Petersham, Mass., July 12, 1939:<br>Mrs. Grace T. Adams, Tomb ? Release</a></item-title>
-                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                            Snow Tomb, Snow Cemetery, Lot 19, Petersham, Mass., July 12, 1939: Mrs. Grace T. Adams, Tomb ? Release</a></item-title>
+                            <div class="clearfix2"></div><a class="next" onclick="plusSlides(1)">Next</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>         
                         </p>
                     </div>
                 </div>
@@ -453,17 +496,17 @@
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_c4dfb367-290f-430d-9aa1-983c90a10a2b/">
                                 Photo Showing Stone of John and Mary Torrance Damaged During Winter, East Half Lot 1758, 
                                 Quabbin Park Cemetery, Ware, Mass., Apr. 15, 1947</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3e248198-77f5-4814-9dab-7725df3cbc59/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/3.jpg" alt="Fred Witherell, Woodlawn Cemetery, Old Section, Lot 184, Enfield, Mass., Sept. 20, 1928:<br>Fred Witherell, Q-97" style="width:100%"></a>
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3e248198-77f5-4814-9dab-7725df3cbc59/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/3.jpg" alt="Fred Witherell, Woodlawn Cemetery, Old Section, Lot 184, Enfield, Mass., Sept. 20, 1928: Fred Witherell, Q-97" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3e248198-77f5-4814-9dab-7725df3cbc59/">
-                            Fred Witherell, Woodlawn Cemetery, Old Section, Lot 184, Enfield, Mass., Sept. 20, 1928:<br>Fred Witherell, Q-97</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            Fred Witherell, Woodlawn Cemetery, Old Section, Lot 184, Enfield, Mass., Sept. 20, 1928: Fred Witherell, Q-97</a></item-title>
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -472,7 +515,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b527587f-c979-48db-8571-caf45e159ed6/">Looking East Over Section 1, Quabbin Park Cemetery, Ware, Mass., Aug. 9, 1938</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -481,7 +524,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9965f34e-81dc-43f8-9877-42f71d83d4d5/">Emily L. Goddard, Lincoln Cemetery, Stone 14, Petersham, Mass., June 8, 1945</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -489,8 +532,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_918ceb38-9954-4a60-81a8-2196a9b61ffb/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/6.jpg" alt="William Milsop, Woodlawn Cemetery, New Section, Lot 85, Enfield, Mass., Sept. 7, 1928: William Milsop, Q-227" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_918ceb38-9954-4a60-81a8-2196a9b61ffb/">William Milsop, Woodlawn Cemetery, New Section, Lot 85, Enfield, Mass., Sept. 7, 1928:<br>William Milsop, Q-227</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_918ceb38-9954-4a60-81a8-2196a9b61ffb/">William Milsop, Woodlawn Cemetery, New Section, Lot 85, Enfield, Mass., Sept. 7, 1928: William Milsop, Q-227</a></item-title>
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -499,7 +542,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_56a2ae5c-2170-4cfa-9a94-b396a49ceee4/">James Thayer, Dana Center Cemetery, Lot 171, Dana, Mass., June 9, 1937: Chauncey Thayer, Q-1217</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -508,7 +551,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_890ae15e-f535-4353-bd00-c3e1c8177018/">Receiving Vault, Quabbin Park Cemetery, Ware, Mass., July 6, 1938</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -518,7 +561,7 @@
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_86c65795-b007-42c4-8aed-425700fcd840/">
                             Johnson, Dana Center Cemetery, Lot 168, Dana, Mass., June 9, 1937: Redford K. Johnson, Q-1224</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -528,7 +571,7 @@
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_442973ce-7d2f-4c86-a938-a9efa6fd024a/">
                                 Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                             </p>
                     </div>
                 </div>
@@ -536,8 +579,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53992edf-6a79-46fa-9848-4199afe0c6db/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/11.jpg" alt="General View of Brown's Evergreen Cemetery, Dana, Mass., Sept. 16, 1937: Indexed on Acc. 857, Map of Cemetery Locations" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53992edf-6a79-46fa-9848-4199afe0c6db/">General View of Brown's Evergreen Cemetery, Dana, Mass., Sept. 16, 1937: Indexed on Acc. 857,<br>Map of Cemetery Locations</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_53992edf-6a79-46fa-9848-4199afe0c6db/">General View of Brown's Evergreen Cemetery, Dana, Mass., Sept. 16, 1937: Indexed on Acc. 857, Map of Cemetery Locations</a></item-title>
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -545,8 +588,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3c57b4b3-4f10-470a-8ea6-a43f3c0aa277/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/12.jpg" alt="Ruth Carter, Hannah (Spring) Carter, Snow Cemetery, Lot 10, Petersham, Mass., July 12, 1939: Lester H. Carter, Release 290" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3c57b4b3-4f10-470a-8ea6-a43f3c0aa277/">Ruth Carter, Hannah (Spring) Carter, Snow Cemetery, Lot 10, Petersham, Mass., July 12, 1939:<br>Lester H. Carter, Release 290</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3c57b4b3-4f10-470a-8ea6-a43f3c0aa277/">Ruth Carter, Hannah (Spring) Carter, Snow Cemetery, Lot 10, Petersham, Mass., July 12, 1939: Lester H. Carter, Release 290</a></item-title>
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -555,7 +598,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_86a07756-c413-4b4b-8a57-30129a5ae225/">Tablet on East Side Entrance to Quabbin Park Cemetery, Ware, Mass., Sept. 08, 1939</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -563,8 +606,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_01523bda-647b-46a3-acef-c57842a6a572/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quabbin/14.jpg" alt="Church Cemetery Tomb, Church Cemetery, Section 2 at Left, Section 1 at Right, Enfield, Mass., Jan. 10, 1938: Indexed on Acc. 857, Cemetery Locations Plan" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_01523bda-647b-46a3-acef-c57842a6a572/">Church Cemetery Tomb, Church Cemetery, Section 2 at Left, Section 1 at Right, Enfield, Mass.,<br>Jan. 10, 1938: Indexed on Acc. 857, Cemetery Locations Plan</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_01523bda-647b-46a3-acef-c57842a6a572/">Church Cemetery Tomb, Church Cemetery, Section 2 at Left, Section 1 at Right, Enfield, Mass., Jan. 10, 1938: Indexed on Acc. 857, Cemetery Locations Plan</a></item-title>
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -573,14 +616,14 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_93d11ef8-11ef-423c-b859-72a3f44373b4/">Quabbin Park Cemetery, Lot Index Plan, Ware, Mass., June 1, 1932</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                            <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a></center>          
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">View Full Collection</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
     <center><credit>Curated by: Yolande Bennett</credit></center>
     <script>
             function openModal() {
