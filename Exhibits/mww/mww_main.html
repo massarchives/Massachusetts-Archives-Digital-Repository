@@ -1,28 +1,27 @@
 <html>
 	<head>
 		<style>
-			.mww {
+			.description {
 				column-count: 2;
 				max-width: 1000px;
 				padding-top: 5px;
 			}
 			
-			.mww p {
+			.description p {
 				font-family: 'DM Sans', sans-serif;
 				font-weight: 400;
 				font-size: 14px;
 				line-height: 170%;
 			}
 
-			.mww a:hover {
-				text-decoration: underline;
-			}
-
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
+            credit { /* Credit text at bottom of page */
+				font-family: 'Space Mono', sans-serif;
+                font-size: 10px;
+                text-transform: uppercase;
                 color: #17183b;
+                font-weight: 400;
+                line-height: 250%;
+                text-align: center;
             }
 
             view-collection a {
@@ -38,16 +37,27 @@
                 text-decoration: underline;
             }
 
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
+			.description a:hover {
+				text-decoration: underline;
+			}
+
+			description-strong {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 170%;
+				margin-bottom: 30px;
+				color: #17183b;
+			}
+
+            strong-text {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: #17183b;
             }
 
-			mww-small, mww-small a {
+			description-small, description-small a {
 				font-family: 'Space Mono', sans-serif;
                 font-size: 13px;
                 text-transform: uppercase;
@@ -56,7 +66,7 @@
                 line-height: 300%;
 			}
 
-			mww-small a:hover {
+			description-small a:hover {
 				font-family: 'Space Mono', sans-serif;
                 font-size: 13px;
                 text-transform: uppercase;
@@ -115,23 +125,23 @@
 				text-decoration: underline 2px;
 			}
 
-            .mww-banner {
+            .description-banner {
                 max-width: 1000px;
                 position: relative;
                 margin: auto;
             }
 
-            .mww-banner {
+            .description-banner {
                 float: center;
                 width: 100%;
                 position: relative;
             }
 
-            .mww-banner:hover .color-overlay {
+            .description-banner:hover .color-overlay {
                 opacity: 0.9;
             }
 
-            div.mww-banner {
+            div.description-banner {
                 background-color: #FAFAFA;
             }
 
@@ -186,6 +196,32 @@
 				padding-bottom: 10px;
 			}
 
+            .clearfix3:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+            @media only screen and (max-width: 980px) {
+                .description {
+					column-count: 1;
+				}
+
+                .description-banner img {
+                    object-fit: cover;
+                    width: auto;
+                    height: 250px;   
+                }
+
+                br {
+                    display: none;
+                }
+
+                view-collection {
+                    display: none;
+                }
+            }
+
 			@media only screen and (max-width: 700px) {
 				.exhibits {
 					width: 49.99999%;
@@ -193,96 +229,78 @@
                     padding: 10px;
                     padding-bottom: 5px;
 				}
-			}
 
-			@media only screen and (max-width: 500px) {
 				.exhibits {
 					width: 100%;
                     padding: 10px;
+                    margin: 6px 0;
                     padding-bottom: 5px;
 				}
-			}
 
-			@media screen and (max-width: 400px) {
-				mww-strong {
-					font-size: 14px;
-				}
-
-				mww-small, mww-small a {
-					line-height: 170%;
-					font-size: 12px;
-				}
-
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
-
-				.mww {
+				.description {
 					column-count: 1;
 				}
-				
-				.mww p {
-					padding-top: 6px;
-				}
+
+                br {
+                    display: none;
+                }
 
 				.overlay-text, .color-overlay {
 					display: none;
 				}
-			}
 
-			@media screen and (max-width: 600px) {
-				mww-strong {
-					font-size: 14px;
-				}
+                .clearfix2 {
+                    padding: 8px;
+                }
 
-				mww-small, mww-small a {
-					line-height: 170%;
-					font-size: 12px;
-				}
+                .exhibits {
+                    padding: 10px;
+                    padding-top: 0px;
+                }
 
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
+                .clearfix {
+                    display: none;
+                }
 
-				.mww {
-					column-count: 1;
-				}
-				
-				.mww p {
-					padding-top: 6px;
+                .exhibit-text p {
+					padding-top: 0px;
 				}
 
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-			}
+                .description description-strong, .description description-strong i {
+                    font-size: 16px;
+                    line-height: 170%;
+                }
 
-			@media screen and (max-width: 980px) {
-				mww-strong {
-					font-size: 14px;
+                .description strong-text {
+                    font-size: 18px;
+                }
+
+                .description description-small, .description description-small a {
+                    font-size: 12px;
+                }
+
+                .exhibits .collection-title, .exhibits .collection-title a {
+                    font-size: 14px;
+					text-align: left;
+					line-height: 160%;
+                }
+
+                h2 {
+                    font-size: 22px;
+                }
+
+				credit {
+					font-size: 11px;
 				}
 
-				div.collection-title, div.collection-title a {
-					font-size: 14px;
-				}
-
-				.mww {
-					column-count: 1;
-				}
-				
-				.mww p {
-					padding-top: 6px;
-				}
-
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-			}
-
+                view-collection {
+                    display: none;
+                }
+            }
 		</style>
 	</head>
 	<body>
-		<div class="mww-banner">
+		<div class="description-banner">
 			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/banner.png" style="width:100%" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" />
 			<div class="color-overlay">
 				<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3552dd45-27ae-4acf-8c19-e7ff2238d94a/">
@@ -290,10 +308,10 @@
 			  </div>
 		</div>
 		<div class="clearfix2"></div>
-        <div class="exhibit-text">
-        <strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (MWW) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam.<br>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing MWW facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. These formats include dry plate glass negatives, glass lantern slides, and photographic prints.<br>
-        <view-collection><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">View collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection></div>
-        <div class="clearfix2"></div>
+        <div class="description">
+        <p><strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (description) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam. <br>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing description facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. These formats include dry plate glass negatives, glass lantern slides, and photographic prints.<br>
+        <view-collection><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection></div></p>
+        <div class="clearfix3"></div>
 		<div class="exhibits">
 			<div class="exhibits-item">
 				<a target="_blank" href="https://digitalarchives.sec.state.ma.us/mww-people/">
