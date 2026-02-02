@@ -1,368 +1,408 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
-            }
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
 
-            credit {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
 
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
-            }
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
                 
-            div.next-exhibit a:hover {
-                text-decoration: underline;
-            }
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
 
-            item-title,
-            item-title a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
-            }
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
 
-            prev-next a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
+        item-title a:hover {
+            text-decoration: underline;
+        }
 
-            prev-next a:hover {
-                text-decoration: underline;
-            }
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
 
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
+        view-collection a:hover {
+            text-decoration: underline;
+        }
 
-            view-collection a:hover {
-                text-decoration: underline;
-            }
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
 
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 30px;
-                padding-bottom: 10px;
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #ffffff;
-                padding-left: 125px;
-                padding-right: 125px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
 
-            .clearfix2 {
-                padding-top: 15px;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
-            .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+        .clearfix2 {
+            padding-top: 15px;
+        }
+
+        .clearfix3:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
 
             .exhibit p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
-				opacity: 1;
+                display: none;
             }
 
-            p a:hover {
-                text-decoration: underline;
-            }
-        
-            .row:after {
-                content: "";
-                display: table;
+            .clearfix3, .clearfix3:after {
                 clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
+                display: none;
             }
-        
+
             .exhibit {
                 float: left;
-                width: 33.3%;
+                width: 50%;
+		    }
+
+            .clearfix2 {
+                padding-top: 5px;
             }
-        
-            div.exhibit {
-                background-color: #fafafa;
-            }
-        
-            /* The Modal (background) */
-            .modal {
+        }
+
+		@media (max-width: 800px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+			
+			.exhibit-desc br {
                 display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #ffffff;
             }
-        
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #ffffff;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 1000px;
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
-        
-            /* The Close Button */
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        
-            .mySlides {
+
+            .exhibit p {
                 display: none;
-                column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
-            }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
+
+            .clearfix, .clearfix:after {
+                display: none;
+		    }
+
+            .clearfix3, .clearfix3:after {
+                clear: both;
+        	}
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
                 line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
+                font-size: 12px;
                 text-align: left;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
             }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
+
+            .caption-container {
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
-        
-            img {
-                margin-bottom: -4px;
+
+            .close {
+                top: 0px;
+                right: 10px;
+                font-size: 60px;
             }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
             }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
+
+            strong-text {
+                font-size: 16px;
             }
-        
-            .demo {
-                opacity: 0.6;
-				transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img:hover {
-                opacity: 0.7;
-				transition: .6s ease;
-            }
-        
-            @media (max-width: 980px) {
-                .mySlides {
+
+            div.next-exhibit, div.next-exhibit a {
                 display: none;
-                column-count: 1;
-                }
-        
-                p#caption {
-                padding-top: 10px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
+			
+			h2 {
+                font-size: 20px;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            .clearfix2 {
+                padding-top: 5px;
             }
-        </style>
+        }
+	</style>
     </head>
     <body>
-        <div class="exhibit-text">
-			<strong-text>Situated in Boston’s largest historic park,</strong-text>&ensp;and a focal point of Frederick Law Olmsted's Emerald Necklace, the Franklin Park Zoo opened to the public on October 4, 1912. Olmsted's original plans for Franklin Park included a naturalistic zoological garden designed for native animals, as opposed to a more traditional zoo. The new zoo, however, represented a major departure from Olmsted's initial concept and included more exotic animals. With free public admission, Franklin Park Zoo quickly became a popular attraction, drawing an estimated two-million visitors in 1920. The 72-acre site was managed by the City of Boston up until 1958, when it was taken over by the state Metropolitan District Commission (MDC).<br>
-            <strong-text>Stone Zoo,</strong-text>&ensp;formerly known as the Middlesex Fells Zoo, is located on a 26-acre site near the Spot Pond reservoir in Stoneham. It was founded in 1905 by Charles Price, who served as Superintendent of the MDC's Middlesex Fells Reservation. At its inception, the zoo contained a small collection of local animals, which grew to include more exotic species. It was renamed in 1969 in honor of Walter D. Stone, a former Zoo Director. In 1991, the Commonwealth Zoological Corporation (CZC), later renamed to Zoo New England in 1997, was established to oversee both the Stone Zoo and Franklin Park Zoo.<br>
+        <div class="exhibit-desc">
+			<strong-text>Situated in Boston’s largest historic park,</strong-text>&ensp;and a focal point of Frederick Law Olmsted's Emerald Necklace, the Franklin Park Zoo opened to the public on October 4, 1912. Olmsted's original plans for Franklin Park included a naturalistic zoological garden designed for native animals, as opposed to a more traditional zoo. The new zoo, however, represented a major departure from Olmsted's initial concept and included more exotic animals. With free public admission, Franklin Park Zoo quickly became a popular attraction, drawing an estimated two-million visitors in 1920. The 72-acre site was managed by the City of Boston up until 1958, when it was taken over by the state Metropolitan District Commission (MDC). <br>
+            Stone Zoo, formerly known as the Middlesex Fells Zoo, is located on a 26-acre site near the Spot Pond reservoir in Stoneham. It was founded in 1905 by Charles Price, who served as Superintendent of the MDC's Middlesex Fells Reservation. At its inception, the zoo contained a small collection of local animals, which grew to include more exotic species. It was renamed in 1969 in honor of Walter D. Stone, a former Zoo Director. In 1991, the Commonwealth Zoological Corporation (CZC), later renamed to Zoo New England in 1997, was established to oversee both the Stone Zoo and Franklin Park Zoo.<br>
         </div>
         <div class="clearfix2"></div>
-        <center><p><i>For additional resources on the work of Frederick Law Olmsted, visit the <a href="https://ww3.rediscov.com/Olmsted/MHomeA.aspx?dir=AR_FRLA">Olmsted Research Guide Online</a></i>.</p></center>
+        <p><i>For additional resources on the work of Frederick Law Olmsted, visit the <a href="https://ww3.rediscov.com/Olmsted/MHomeA.aspx?dir=AR_FRLA">Olmsted Research Guide Online</a></i>.</p>
         <div class="row">
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/1.png" alt="General plan of Franklin Park" style="width:100%"
@@ -374,6 +414,7 @@
                     onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                 <center><p>Rock Garden at Franklin Park, Sheet 3</p></center>
             </div>
+            <div class="clearfix3"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/3.png" alt="Plan for Proposed Zoo at Middlesex Fells Reservation" style="width:100%"
                     onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -385,6 +426,7 @@
                     onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
                 <center><p>Development Plan for Franklin Park Zoo</p></center>
             </div>
+            <div class="clearfix3"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/5.png" alt="Preliminary Master Plan, Franklin Park Zoological Gardens" style="width:100%"
                     onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -395,6 +437,7 @@
                     onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
                 <center><p>Preliminary Master Plan for Franklin Park Zoological Gardens</p></center>
             </div>
+            <div class="clearfix3"></div>
             <div class="clearfix"></div>            
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/7.png" alt="Boston Zoological Society Exhibits, Sheet 28" style="width:100%"
@@ -406,6 +449,7 @@
                     onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
                 <center><p>Orang Cage Apparatus, Sheet 2</p></center>
             </div>
+            <div class="clearfix3"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/9.png" alt="Franklin Park Zoo, Phase II" style="width:100%"
                     onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -421,7 +465,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ef92a7bd-e2bd-452e-905b-71969457d88b/">General Plan of Franklin Park</a></item-title>
-                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                                <div class="clearfix3"></div><a class="next" onclick="plusSlides(1)">Next</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>     
                         </p>
                     </div>
                 </div>
@@ -430,7 +474,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3396a970-47a0-4b3a-84d7-32c44d4d035c/">Rock Garden at Franklin Park, Sheet 3</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>        
                         </p>
                     </div>
                 </div>
@@ -439,7 +483,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_f95a46c5-6dd5-44b4-b3c1-6517950d13a4/">Plan for Proposed Zoo at Middlesex Fells Reservation</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -448,7 +492,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b505a223-b723-4d92-81a7-f3ba79b23d58/">Development Plan for Franklin Park Zoo</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -457,7 +501,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a73db4e2-67ad-4495-a9fa-f937fac6b4c8/">Preliminary Master Plan, Franklin Park Zoological Gardens</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>      
                         </p>
                     </div>
                 </div>
@@ -466,7 +510,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_64264f6a-b3b2-486f-be30-60a9b7e0db43/">Preliminary Master Plan for Franklin Park Zoological Gardens</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -475,7 +519,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_186c679c-39ce-4a47-b073-8a1fe0e00fff/">Boston Zoological Society Exhibits, Sheet 28</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
@@ -484,23 +528,22 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_aa6528e4-cec3-45cf-8e8c-02ac27f31943/">Orang Cage Apparatus, Sheet 2</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>         
                         </p>
                     </div>
                 </div>
-
                 <div class="mySlides">
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_f6b18840-f8a1-4f0a-a82d-c54a8ca33912/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/parkszoos/9.png" alt="" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_f6b18840-f8a1-4f0a-a82d-c54a8ca33912/">Franklin Park Zoo, Phase II</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>         
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_faaef924-dc34-4811-ad3f-598d448d8d75">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_faaef924-dc34-4811-ad3f-598d448d8d75">View Full Collection</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
     <center><credit>Curated by: Yolande Bennett</credit></center>
     <script>
             function openModal() {
