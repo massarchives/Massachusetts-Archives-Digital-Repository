@@ -1,0 +1,740 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
+                
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
+
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
+
+        view-collection a:hover {
+            text-decoration: underline;
+        }
+
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
+
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 25%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+        }
+
+		@media (max-width: 800px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+
+            .exhibit-desc br {
+                display: none;
+            }
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
+                line-height: 200%;
+                font-size: 12px;
+                text-align: left;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
+            }
+
+            .caption-container {
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
+            }
+
+            .close {
+                top: 0px;
+                right: 10px;
+                font-size: 60px;
+            }
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+			
+			h2 {
+                font-size: 22px;
+            }
+        }
+	</style>
+</head>
+<body>
+        <div class="exhibit-desc">
+            <strong-text>On July 11, 1656,</strong-text>&ensp;two women sailed into Boston Harbor aboard the ship Swallow, becoming the first Quakers to step foot in North America. What should have been a routine event became historic when the leaders of the Puritan colony immediately imprisoned the pair, seized their belongings, and deported them five weeks later. <br>Despite the best attempts of the leaders of the fledgling colony&mdash; Massachusetts Bay had been settled only 16 years earlier&mdash; another group of Quakers arrived in New England a year later. The harsher the punishments levied against them, the more that arrived, until the trickle of Quakers arriving to protest laws against them became a flood. Even after multiple Quakers were banished from the colony upon pain of death, they still returned, culminating in the execution of four Quakers and the imprisonment of dozens more. An order by King Charles II in 1661 brought an end to the executions and a gradual decline in persecution over the next few decades. <br>However, this was not the end of the story for Quakers or the Society of Friends, as the religion would come to be known. They continued to live and worship in Massachusetts, and also continued to clash with the government. The right of refusal to bear arms, the right not to be taxed for state-sponsored ministers, and the right not to swear oaths were all fought for at various points, as Quakers continued to be fined and even imprisoned for their actions. <br>This exhibit explores documents from the early days of Quakers in Massachusetts through the Revolutionary War, highlighting changes within the Quaker religion and its relationship to the Massachusetts government.<br>
+        </div>
+        <div class="row">
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/1.jpeg" alt="Council record ordering that Quaker missionaries Mary Fisher and Ann Austin be imprisoned, and that all books brought by Quakers for spreading their belief be burned" style="width:100%"
+                        onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                    <center><p>Council record ordering that Quaker missionaries Mary Fisher and Ann Austin be imprisoned</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/2.jpg" alt="Entry in General Court record book relative to punishments to be faced by Quakers that come into the colony" style="width:100%"
+                        onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                    <center><p>Entry in General Court record book relative to punishments to be faced by Quakers that come into the colony</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/3.jpeg" alt="Petition by several inhabitants of Boston asking for more severe laws to prevent the spreading of Quaker doctrines" style="width:100%"
+                        onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                    <center><p>Petition by several inhabitants of Boston asking for more severe laws to prevent the spreading of Quaker doctrines</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/4.jpeg" alt="General Court declaration on Quakers after the executions of William Robinson and Marmaduke Stephenson" style="width:100%"
+                        onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                    <center><p>General Court declaration on Quakers after the executions of William Robinson and Marmaduke Stephenson</p></center>    
+                </div>
+                <div class="clearfix2"></div>
+                <div class="clearfix"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/5.jpeg" alt="Letter from Quaker missionary Mary Dyer to the General Court, prior to her execution" style="width:100%"
+                        onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                    <center><p>Letter from Quaker missionary Mary Dyer to the General Court, prior to her execution</p></center> 
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/6.jpg" alt="Entry in General Court record book relative to laws concerning Quakers" style="width:100%"
+                        onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                    <center><p>Entry in General Court record book relative to laws concerning Quakers</p></center> 
+                </div>
+                <div class="clearfix2"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/7.jpg" alt="Order that all Quakers in prison be acquainted with the new laws relative to them, released, and banished, except for those condemned to be whipped" style="width:100%"
+                        onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                    <center><p>Order that all Quakers in prison be acquainted with the new laws relative to them, released, and banished, except for those condemned to be whipped</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/8.jpg" alt="Order that Quaker Nicholas Upsall be sent to Castle Island, with no one allowed to visit, after King Charles II ordered an end to Quaker persecutions" style="width:100%"
+                        onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                    <center><p>Order that Quaker Nicholas Upsall be sent to Castle Island, with no one allowed to visit, after King Charles II ordered an end to Quaker persecutions</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="clearfix"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/9.jpeg" alt="Warrant as to whipping a Quaker for disrupting a religious meeting" style="width:100%"
+                        onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                    <center><p>Warrant as to whipping a Quaker for disrupting a religious meeting</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/10_combined.jpeg" alt="Broadside printed in 1669, in defense of Quakers in New England" style="width:100%"
+                        onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+                    <center><p>Broadside printed in 1669, in defense of Quakers in New England</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/11.jpeg" alt="Petition from Quakers that they be exempt from paying taxes to ministers of other denominations" style="width:100%"
+                        onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+                    <center><p>Petition from Quakers that they be exempt from paying taxes to ministers of other denominations</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/12.jpeg" alt="Letter to Massachusetts Gov. Joseph Dudley from the Quaker meeting in Newport, Rhode Island, relative to the injustice of Quakers being compelled to contribute to the support of Presbyterian or Independent ministers" style="width:100%"
+                        onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+                    <center><p>Letter to Massachusetts Gov. Joseph Dudley from the Quaker meeting in Newport, Rhode Island</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="clearfix"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/13.jpeg" alt="An Act To Exempt Persons Commonly Called Anabaptists, And Those Called Quakers, Within This Province, From Being Taxed For And Towards The Support Of Ministers" style="width:100%"
+                        onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+                    <center><p>An Act To Exempt Persons Commonly Called Anabaptists, And Those Called Quakers, Within This Province, From Being Taxed For And Towards The Support Of Ministers</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/14.jpeg" alt="An Act Providing That The Solemn Affirmation Of The People Called Quakers Shall, In Certain Cases, Be Accepted Instead Of An Oath In The Usual Form; And For Preventing Inconvenienc[i]es By Means Of Their Having Heretofore Acted In Some Town Offices Without Taking The Oaths By Law Required For Such Offices" style="width:100%"
+                        onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+                    <center><p>An Act Providing That The Solemn Affirmation Of The People Called Quakers Shall, In Certain Cases, Be Accepted Instead Of An Oath In The Usual Form</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/15.jpeg" alt="List of Quakers impressed into military service in Dartmouth, Massachusetts" style="width:100%"
+                        onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+                    <center><p>List of Quakers impressed into military service in Dartmouth, Massachusetts</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/16.jpeg" alt="Vote of Massachusetts Council that Quakers should not be exempt from bearing arms in time of war" style="width:100%"
+                        onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+                    <center><p>Vote of Massachusetts Council that Quakers should not be exempt from bearing arms in time of war</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="clearfix"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/17.jpeg" alt="Petition of Quakers of Falmouth and Yarmouth asking to be released from Barnstable jail" style="width:100%"
+                        onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+                    <center><p>Petition of Quakers of Falmouth and Yarmouth asking to be released from Barnstable jail</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/18.jpeg" alt="Bill to levy additional tax on Quaker inhabitants of Nantucket in lieu of military service, passed to be engrossed" style="width:100%"
+                        onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+                    <center><p>Bill to levy additional tax on Quaker inhabitants of Nantucket in lieu of military service, passed to be engrossed</p></center>
+                </div>
+                <div class="clearfix2"></div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/19.jpeg" alt="Congratulatory address of the yearly meeting of Friends to Governor Thomas Hutchinson on his advancement in office" style="width:100%"
+                        onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+                    <center><p>Congratulatory address of the yearly meeting of Friends to Governor Thomas Hutchinson on his advancement<br>in office</p></center>
+                </div>
+                <div class="exhibit">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/20.jpeg" alt="Letter to the treasurer of Massachusetts from the town of Dartmouth regarding the 'Quaker tax'" style="width:100%"
+                        onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+                    <center><p>Letter to the treasurer<br>of Massachusetts from the town of Dartmouth regarding the<br>"Quaker tax"</p></center>
+                </div>
+                <div id="myModal" class="modal">
+                    <span class="close cursor" onclick="closeModal()">&times;</span>
+                    <div class="modal-content">
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/1.jpeg" alt="Council record ordering that Quaker missionaries Mary Fisher and Ann Austin be imprisoned, and that all books brought by Quakers for spreading their belief be burned" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Council record ordering that Quaker missionaries Mary Fisher and Ann Austin be imprisoned, and that all books brought by Quakers for spreading their belief be burned</a></item-title><br>
+                                    Mary Fisher and Ann Austin are the first known Quakers to visit the British North American colonies. Upon their arrival in July of 1656, they were arrested, strip-searched, and had their books seized by the Puritan leaders of Massachusetts Bay. After being imprisoned for five weeks, they were deported. It is of note that both Fisher and Austin were women, during a time in which strict gender hierarchies were the norm in both England and the British colonies. A belief in gender equality is one of the most radical parts of the early Quaker philosophy. Although this philosophy was imperfect, women were able to speak during Quaker meetings, travel alone, and publish their writings from the beginning of the movement. Many of the most notable early Quakers were women.<div class="clearfix2"></div>
+                                    <a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/2.jpg" alt="Entry in General Court record book relative to punishments to be faced by Quakers that come into the colony" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Entry in General Court record book relative to punishments to be faced by Quakers that come into the colony</a></item-title><br>
+                                    This is the first entry in the General Court record book relative to Quakers, appearing about 3 months after the first Quakers arrived in North America. It was ordered that commanders of any ships that knowingly brought Quakers into the jurisdiction would be fined 100 pounds or imprisoned if they could not pay. Any Quakers who arrived in Massachusetts Bay were to be whipped, committed to prison, and assigned hard labor. Fines were also set for those who defended Quaker opinions, dispersed or concealed Quaker writings, or committed other similar offenses. To read a full transcription, see <u><a href="https://archive.org/details/cu31924091024590">p. 277-278 of Records of the General Court, v. 4, part 1</u>.</a><div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/3.jpeg" alt="Petition by several inhabitants of Boston asking for more severe laws to prevent the spreading of Quaker doctrines" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Petition by several inhabitants of Boston asking for more severe laws to prevent the spreading of Quaker doctrines</a></item-title><br>While the modern perception of Quakerism is one of pacifism, quiet, and contemplation, this has not always been the case. Before the religion was organized into the disciplined and respectable Society of Friends, Quakers of the mid-17th century were an unorganized, disruptive, and radical group of activists. They stridently opposed the established church and society of Massachusetts Bay in many different ways. To the Puritans who immigrated to escape the unruliness and corruption of England, Quakers represented a direct threat to their new society, which was built on the premises of order, hierarchy, and discipline.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/4.jpeg" alt="General Court declaration on Quakers after the executions of William Robinson and Marmaduke Stephenson" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">General Court declaration on Quakers after the executions of William Robinson and Marmaduke Stephenson</a></item-title><br>
+                                    William Robinson and Marmaduke Stephenson were the first two Quakers executed in Massachusetts Bay. Robinson was a merchant from London, and Stephenson had been a ploughman in Yorkshire, England. Both men, along with Mary Dyer and two other Quakers, came to Boston in 1659 expressly to protest the harsh laws against Quakers. They were arrested and banished upon pain of death, but returned. This presented a great difficulty for the General Court, who had been banishing people from the colony since its beginning but had never faced such a concerted effort to defy its laws. In the end, Robinson and Stephenson were executed on October 27, 1659.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/5.jpeg" alt="Letter from Quaker missionary Mary Dyer to the General Court, prior to her execution" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Letter from Quaker missionary Mary Dyer to the General Court, prior to her execution</a></item-title><br>Mary Dyer (born Marie Barrett) is one of the best-known historical Quakers. She and her husband, William Dyer, were Puritans who emigrated from England to Boston in 1635. Mary Dyer converted to Quakerism in the 1650s and was imprisoned multiple times before being banished upon pain of death from Massachusetts Bay. Defying the banishment, she returned to Boston to support other imprisoned Quakers in 1659, and was nearly executed, but given a reprieve at the last moment. She returned again to Boston in 1660 and was executed on June 1, 1660. This letter was written the day before her first intended execution in 1659, and was published after her death. However, the published version of the letter was significantly edited and altered by Quaker Edward Burrough, likely to tone down the harshness of the language and attempt to propagate the Quaker movement more effectively. Burrough’s version is the one which has survived, but this is Dyer's original letter in her own words. Further reading and a full transcription can be found <u><a href="https://www.jstor.org/stable/24896279?seq=1">here</a></u>.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/6.jpg" alt="Entry in General Court record book relative to laws concerning Quakers" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Entry in General Court record book relative to laws concerning Quakers</a></item-title><br>This entry includes an addition to an existing law about the trials of Quakers after banishment, an order about Quaker missionaries Margaret Smith and Mary Trask, and orders that Quakers in prison should be given liberty to go to England if they desire. To read a full transcription, see <u><a href="https://archive.org/details/cu31924091024590">p. 433-434 of Records of the General Court, v. 4, part 1</u></a>.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/7.jpg" alt="Order that all Quakers in prison be acquainted with the new laws relative to them, released, and banished, except for those condemned to be whipped" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Order that all Quakers in prison be acquainted with the new laws relative to them, released, and banished, except for those condemned to be whipped</a></item-title><br>Under the harsh laws of Puritan-dominated Massachusetts Bay, four Quakers were executed and dozens more imprisoned and subject to corporal punishments between the years of 1656 and 1661. King Charles II, newly restored to the throne, eventually ordered an end to the executions in 1661 after much lobbying by Quakers in England. The Quakers released from the Boston jail were cart-whipped across the Rhode Island border, where they joined a growing movement of Quakers in the religiously-tolerant colony. While no more Quakers were executed after this order, persecution and intolerance in Massachusetts would take many more years to subside.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/8.jpg" alt="Order that Quaker Nicholas Upsall be sent to Castle Island, with no one allowed to visit, after King Charles II ordered an end to Quaker persecutions" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Order that Quaker Nicholas Upsall be sent to Castle Island, with no one allowed to visit, after King Charles II ordered an end to Quaker persecutions</a></item-title><br>Nicholas Upsall is the first known North American Puritan to convert to Quakerism. When Mary Fisher and Ann Austin arrived in Boston in 1656 and were immediately imprisoned, Upsall offered to pay their fines if he were permitted to speak with them in prison, but his request was refused. Upsall then bribed the prison warden with five shillings a week to allow him to bring the women food, which saved their lives. He continued to speak out against the anti-Quaker laws in Massachusetts Bay, founded the first monthly meeting of Quakers in Sandwich, and eventually left for Rhode Island before returning to Massachusetts Bay and being imprisoned for two years.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/9.jpeg" alt="Warrant as to whipping a Quaker for disrupting a religious meeting" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Warrant as to whipping a Quaker for disrupting a religious meeting</a></item-title><br>Disruption of religious meetings was a very common practice among early Quakers, as they attempted to spread their religion. It was common for one or more Quakers to enter a religious meeting and shout at the minister. In 1658, bottles were broken on the floor of the Boston meetinghouse to illustrate the fate in store for the congregation. In the 1660s and 1670s, some Quaker women chose to disrupt Puritan meetings or appear in public naked, a form of protest referred to as "going naked as a sign."<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/10_combined.jpeg" alt="Broadside printed in 1669, in defense of Quakers in New England" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Broadside printed in 1669, in defense of Quakers in New England</a></item-title><br>The most basic definition of a broadside is simply a large sheet of paper printed on one side. However, they were an incredibly prolific form of mass media in Europe from the 16th century and in America from the mid-17th century, until newspapers became cheap and widely available enough to largely replace them. Broadsides were used to advertise and promote entertainment and merchandise, disseminate propaganda and news, and provide political comment and satire to the masses, as they cost only a penny apiece. Broadside production was at its peak in the 1660s, with print shops in major cities in Britain churning out over 400,000 copies per year.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/11.jpeg" alt="Petition from Quakers that they be exempt from paying taxes to ministers of other denominations" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Petition from Quakers that they be exempt from paying taxes to ministers of other denominations</a></item-title><br>Although executions against Quakers were a thing of the past by the early 1700s, they still faced discrimination. Members of the Society of Friends created and attended their own religious meetings and did not agree with the teachings of the state-supported churches, so they refused to pay the tithes that supported those churches. This resulted in harsh fines and seizures of goods.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/12.jpeg" alt="Letter to Massachusetts Gov. Joseph Dudley from the Quaker meeting in Newport, Rhode Island, relative to the injustice of Quakers being compelled to contribute to the support of Presbyterian or Independent ministers" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Letter to Massachusetts Gov. Joseph Dudley from the Quaker meeting in Newport, Rhode Island, relative to the injustice of Quakers being compelled to contribute to the support of Presbyterian or Independent ministers</a></item-title><br>Throughout this and many other letters written by Quakers in the 17th and 18th centuries, the use of the second person pronouns "thee" and "thou" as opposed to the far more common "you" stands out. This was a deliberate choice on the part of many Quakers. By the 17th century, thee/thou was generally used in English to express familiarity or to address one's social inferiors, as opposed to the more formal "you". As the idea of a social hierarchy was inconsistent with Quakers' tenants of equality, many Friends adopted the practice of using "thee" and "thou" with everyone. They also refused to bow or remove their hats before judges and upper-class individuals, in order to further reject the idea of social superiority and inferiority.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/13.jpeg" alt="An Act To Exempt Persons Commonly Called Anabaptists, And Those Called Quakers, Within This Province, From Being Taxed For And Towards The Support Of Ministers" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">An Act To Exempt Persons Commonly Called Anabaptists, And Those Called Quakers, Within This Province, From Being Taxed For And Towards The Support Of Ministers</a></item-title><br>St. 1728-29, Ch. 4, exempted Quakers from taxation for ministers of other denominations as long as they regularly attended meetings of their professed society. Quakers also had to make a declaration of fidelity to the King and a profession of Christian belief, and were not allowed to vote in affairs relating to state-sponsored churches and ministers. Read a full transcription <u><a href="hdl.handle.net/2452/117739">here</a></u>.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/14.jpeg" alt="An Act Providing That The Solemn Affirmation Of The People Called Quakers Shall, In Certain Cases, Be Accepted Instead Of An Oath In The Usual Form; And For Preventing Inconvenienc[i]es By Means Of Their Having Heretofore Acted In Some Town Offices Without Taking The Oaths By Law Required For Such Offices" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">An Act Providing That The Solemn Affirmation Of The People Called Quakers Shall, In Certain Cases, Be Accepted Instead Of An Oath In The Usual Form; And For Preventing Inconvenienc[i]es By Means Of Their Having Heretofore Acted In Some Town Offices Without Taking The Oaths By Law Required For Such Offices</a></item-title><br>St. 1743-44, Ch. 20, provided a form of affirmation Quakers could take in lieu of swearing an oath. Quakers believed that swearing oaths implied a double standard of truth and violated Christ's commandment not to swear, so they refused to swear oaths, which often resulted in fines, seizures of goods, and imprisonments. This act allowed Quakers not to swear oaths, but the affirmation was not accepted in all cases. This meant that, among other things, Quakers could not give evidence in criminal cases, serve on juries, or serve in public office beyond town offices. Read full transcription <u><a href="http://hdl.handle.net/2452/118077">here</u></a>.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/15.jpeg" alt="List of Quakers impressed into military service in Dartmouth, Massachusetts" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">List of Quakers impressed into military service in Dartmouth, Massachusetts</a></item-title><br>
+                                    This list of Quakers was sent to the yearly meeting of Friends in Newport, Rhode Island, which traces its origins to 1661, when imprisoned Quakers in Massachusetts Bay were forcibly removed across the border. The founder of the Quaker religion, George Fox, visited New England in the 1670s. He and other Quaker leaders recognized the need for discipline and structure in the disorganized religion, and recommended that worshipping groups create monthly business meetings (including separate meetings for women), which would report to a quarterly regional meeting. Regional meetings would then report to the New England yearly meeting in Rhode Island, which in turn reported to London. This began the transformation of Quakerism into an organized religion.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/16.jpeg" alt="Vote of Massachusetts Council that Quakers should not be exempt from bearing arms in time of war" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Vote of Massachusetts Council that Quakers should not be exempt from bearing arms in time of war</a></item-title><br>
+                                    The commitment of Quakers to non-violence is one of the best-known tenants of the religion. George Fox, the founder of the Quaker religion, made a statement in 1651 that is widely regarded as the basis for the Friends' testimony of peace:<br>“I told [the Commonwealth Commissioners] I lived in the virtue of that life and power that took away the occasion of all wars … I told them I was come into the covenant of peace which was before wars and strife were.”<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/17.jpeg" alt="Petition of Quakers of Falmouth and Yarmouth asking to be released from Barnstable jail" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Petition of Quakers of Falmouth and Yarmouth asking to be released from Barnstable jail</a></item-title><br>
+                                    Historically, the refusal of Quakers to serve in armed forces has resulted in persecution. In this case, an act passed in 1756 titled "An Act For The More Speedy Levying of Soldiers For The Expedition Against Crown Point" (St. 1755-56, Ch. 40) allowed those who refused to serve when impressed to be imprisoned if they did not pay a steep fine and the worth of their goods and chattel was not enough to cover the cost of the fine.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/18.jpeg" alt="Bill to levy additional tax on Quaker inhabitants of Nantucket in lieu of military service, passed to be engrossed" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Bill to levy additional tax on Quaker inhabitants of Nantucket in lieu of military service, passed to be engrossed</a></item-title><br>
+                                    Quakers were the largest religious group in Nantucket throughout most of the 18th century. They were the first religious group to formally organize on the island. The Nantucket Meeting was formed in 1708 and led by Mary Coffin Starbuck and her husband Nathaniel. The philosophy of Quakers was influential in the development of Nantucket's architecture, home furnishings, clothing, and social behavior.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/19.jpeg" alt="Congratulatory address of the yearly meeting of Friends to Governor Thomas Hutchinson on his advancement in office" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Congratulatory address of the yearly meeting of Friends to Governor Thomas Hutchinson on his advancement in office</a></item-title><br>
+                                    Persecution of Quakers did not end overnight after King Charles II ordered an end to executions, but they did gradually die out. By the late 17th century, Quakers were living and worshipping freely in Massachusetts Bay Colony. Although conflicts continued, relations between Quakers and the Massachusetts leaders were so drastically improved by 1771 that they would have been unthinkable just over a century earlier. This is illustrated by this congratulatory address, sent from the yearly meeting of Friends at Newport, Rhode Island, to newly appointed Massachusetts governor Thomas Hutchinson.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<prev-next><divider>|</divider></prev-next>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mySlides">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/quaker/20.jpeg" alt="Letter to the treasurer of Massachusetts from the town of Dartmouth regarding the 'Quaker tax'" style="width:100%"></a>
+                            <div class="caption-container">
+                                <p id="caption">
+                                    <item-title><a href="">Letter to the treasurer of Massachusetts from the town of Dartmouth regarding the “Quaker tax”</a></item-title><br>
+                                    Beginning in 1780, the Militia Act (St. 1780, Ch. 21) allowed Quakers to be exempt from military service in the Revolutionary War on the grounds of their religious pacifism. However, because of their exemption, they were required to pay the expenses for raising men in their place for military service along with an additional 10% charge to defray the expense of raising those men. This was commonly known as the Quaker tax.<div class="clearfix2"></div>
+                                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>   
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>   
+        <center><credit>Curated by: Colette Pollauf
+        <br>Assistance From: Yolande Bennett</credit></center>
+    <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+    </script>
+    </body>
+</html>
