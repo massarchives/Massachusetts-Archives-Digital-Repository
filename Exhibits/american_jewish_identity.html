@@ -58,13 +58,6 @@
             text-decoration: underline;
         }
 
-        author {
-            line-height: 300%;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 400;
-            font-size: 13px;
-        }
-
         view-collection a {
             font-family: 'Space Mono', sans-serif;
             font-size: 12px;
@@ -94,7 +87,7 @@
 		}
 
 		p#caption {
-			padding-top: 100px;
+			padding-top: 150px;
 			font-size: 13px;
 			line-height: 170%;
 		}
@@ -176,7 +169,7 @@
 			margin: auto;
 			padding: 75px;
 			width: 100%;
-			max-width: 1260px;
+			max-width: 1200px;
 		}
 
 		/* The Close Button */
@@ -290,38 +283,58 @@
 			}
 
             .exhibit p {
-                padding: 10px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+              	display: none;
             }
 
             .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
                 display: none;
+            }
+			
+			.row:after {
+                padding-bottom: 30px;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
 		    }
         }
 
-		@media (max-width: 600px) {
+		@media (max-width: 800px) {
 			.exhibit-desc {
 				column-count: 1;
 			}
 
-			.row>.exhibit {
-				padding: 15px;
-                padding-bottom: 0px;
+			.exhibit-desc br {
+                display: none;
+            }
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
 			}
 
             .row:after {
-                padding-bottom: 15px;
+                padding-bottom: 30px;
             }
 
             .exhibit p {
                 display: none;
             }
 
-            .clearfix:after {
+            .clearfix, .clearfix:after {
                 display: none;
 		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
 
             .exhibit {
                 float: left;
@@ -329,9 +342,9 @@
 		    }
 
             credit {
-                line-height: 250%;
-                font-size: 12px;
-                text-align: center;
+                line-height: 200%;
+                font-size: 11px;
+                text-align: left;
             } 
 
             .modal-content {
@@ -340,13 +353,13 @@
             }
 
             .caption-container {
-                text-align: center;
-                padding-left: 5px;
-                padding-right: 5px;
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
 
             .close {
-                top: 5px;
+                top: 0px;
                 right: 10px;
                 font-size: 60px;
             }
@@ -360,6 +373,10 @@
             strong-text {
                 font-size: 16px;
             }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
 			
 			h2 {
                 font-size: 20px;
@@ -369,7 +386,7 @@
 </head>
     <body>
         <div class="exhibit-desc">
-            <strong-text>Due to rampant religious intolerance</strong-text>&ensp;and limited economic opportunities, the beginnings of the Jewish settlement in Boston came late in comparison to other major cities in the United States. The earliest record of Judaism in Boston can be traced back to the arrival of Solomon Franco, a Sephardic Jew, in 1649. The few Jews that lived in the city in its early days were more likely to be transient than long-term settlers. By the 1840s, as Jews and other minorities sought refuge in the United States, the country experienced a significant wave of German Jewish emigration, and the Jewish population increased about fourfold from around 1845&ndash;1875.<br>By the end of the nineteenth century, antisemitism was rife across the globe. All eyes were on the Dreyfus Affair in France, which began in 1894 when Alfred Dreyfus, a French artillery officer of Jewish descent, was wrongfully accused of treason and sentenced to life imprisonment. The case accelerated a new Zionist movement&mdash; in 1897, the first Zionist organization in the United States, the Federation of American Zionists, was founded in New York. Later, in 1913, the Anti-Defamation League (ADL) was established to challenge antisemitism by providing education about Jewish life.<br>The cultural and spiritual lives of Boston’s Jewish communities were enriched by the city’s various synagogues, some of which remain active today. The first Jewish congregation in Massachusetts, Temple Ohabei Shalom in Brookline, was organized in 1842. Community centers helped to further cultivate Jewish communities by offering social, cultural, and physical development opportunities for young men and women.</div>
+            <strong-text>Due to rampant religious intolerance</strong-text>&ensp;and limited economic opportunities, the beginnings of the Jewish settlement in Boston came late in comparison to other major cities in the United States. The earliest record of Judaism in Boston can be traced back to the arrival of Solomon Franco, a Sephardic Jew, in 1649. The few Jews that lived in the city in its early days were more likely to be transient than long-term settlers. By the 1840s, as Jews and other minorities sought refuge in the United States, the country experienced a significant wave of German Jewish emigration, and the Jewish population increased about fourfold from around 1845&ndash;1875. <br>By the end of the nineteenth century, antisemitism was rife across the globe. All eyes were on the Dreyfus Affair in France, which began in 1894 when Alfred Dreyfus, a French artillery officer of Jewish descent, was wrongfully accused of treason and sentenced to life imprisonment. The case accelerated a new Zionist movement&mdash; in 1897, the first Zionist organization in the United States, the Federation of American Zionists, was founded in New York. Later, in 1913, the Anti-Defamation League (ADL) was established to challenge antisemitism by providing education about Jewish life. <br>The cultural and spiritual lives of Boston’s Jewish communities were enriched by the city’s various synagogues, some of which remain active today. The first Jewish congregation in Massachusetts, Temple Ohabei Shalom in Brookline, was organized in 1842. Community centers helped to further cultivate Jewish communities by offering social, cultural, and physical development opportunities for young men and women.</div>
         <div class="row">
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/jewish/1.jpg" alt="The Rumor Clinic" style="width:100%"
@@ -645,7 +662,7 @@
             </div>
         </div>
     </div>
-    <center><credit>Curated by: Sadie Mackinnon<br>With assistance from:<br>Yolande Bennett &amp; Andrew Fischer</credit></center>
+    <center><credit>Curated by: Sadie Mackinnon<br>Assistance from: Yolande Bennett &amp; Andrew Fischer</credit></center>
     <script>
             function openModal() {
                 document.getElementById("myModal").style.display = "block";
