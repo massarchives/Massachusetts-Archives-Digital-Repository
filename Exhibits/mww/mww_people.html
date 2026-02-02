@@ -1,355 +1,398 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-                color: #17183b;
-            }
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
 
-            credit {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
 
-            item-title,
-            item-title a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
-            }
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
+                
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
 
-            prev-next a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
 
-            prev-next a:hover {
-                text-decoration: underline;
-            }
+        item-title a:hover {
+            text-decoration: underline;
+        }
 
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
 
-            view-collection a:hover {
-                text-decoration: underline;
-            }
+        view-collection a:hover {
+            text-decoration: underline;
+        }
 
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
 
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
-            }
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
 
-            div.next-exhibit a:hover {
-                text-decoration: underline;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 30px;
-                padding-bottom: 10px;
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #FAFAFA;
-                padding-left: 125px;
-                padding-right: 125px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
-            .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+			.row>.exhibit {
+				padding: 10px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
 
             .exhibit p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+                display: none;
             }
-        
-            .row:after {
-                content: "";
-                display: table;
+
+            .clearfix2, .clearfix2:after {
                 clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
+                display: none;
             }
-        
+
             .exhibit {
                 float: left;
-                width: 33.3%;
-            }
-        
-            div.exhibit {
-                background-color: #FAFAFA;
-            }
-        
-            /* The Modal (background) */
-            .modal {
+                width: 50%;
+		    }
+        }
+
+		@media (max-width: 800px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+
+			.exhibit-desc br {
                 display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #FAFAFA;
             }
-        
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #FAFAFA;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 1000px;
+			
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
-        
-            /* The Close Button */
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        
-            .mySlides {
+
+            .exhibit p {
                 display: none;
-                column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
-            }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
+
+            .clearfix, .clearfix:after {
+                display: none;
+		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .exhibit {
+                float: left;
+                width: 50%;
+		    }
+
+            credit {
                 line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
+                font-size: 12px;
                 text-align: left;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
+            } 
+
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
             }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
+
+            .caption-container {
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
-        
-            img {
-                margin-bottom: -4px;
+
+            .close {
+                top: 0px;
+                right: 10px;
+                font-size: 60px;
             }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
+
+            .prev, .next, divider {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 200%;
             }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
+
+            strong-text {
+                font-size: 16px;
             }
-        
-            .demo {
-                opacity: 0.6;
-				transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img:hover {
-                opacity: 0.7;
-				transition: .6s ease;
-            }
-        
-            @media (max-width: 980px) {
-                .mySlides {
+
+            div.next-exhibit, div.next-exhibit a {
                 display: none;
-                column-count: 1;
-                }
-        
-                p#caption {
-                padding-top: 10px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
+			
+			h2 {
+                font-size: 20px;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-            }
-        </style>
+        }
+	</style>
     </head>
     <body>
-        <div class="exhibit-text">
-        <strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (MWW) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam.<br>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing MWW facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. In the construction images, contractor's workers camps, and laborers of various race and ethnicity, are depicted.<br><view-collection><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">View collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection></div>
+        <div class="exhibit-desc">
+        <strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (MWW) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam. Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing MWW facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. In the construction images, contractor's workers camps, and laborers of various race and ethnicity, are depicted.</div>
         <div class="row">
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/1.jpg" alt="Portrait, Mass., ca. 1900-1919" style="width:100%"
@@ -361,6 +404,7 @@
                     onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                 <center><p>Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass.,<br>Aug. 27, 1916</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/3.jpg" alt="Wachusett Aqueduct, Section of Aqueduct, with Mr. Silvio Casparis on Horseback, Section 5, Station 204, Berlin, Mass., Oct. 23, 1897" style="width:100%"
                     onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -372,6 +416,7 @@
                     onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
                 <center><p>Chestnut Hill Pumping Station, During Boston Police Strike, Detail from Company B, 14th Regiment, State Guard, Quartered in Barn, Brighton, Mass., Sep. 17, 1919</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/5.jpg" alt="Weston Aqueduct, Section 15, Ledge Excavations, Stations 688 to 687+50, Weston, Mass., Jun. 23, 1902" style="width:100%"
                     onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -382,6 +427,7 @@
                     onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
                 <center><p>Group of Eight Men, Mass.,<br>ca. 1900-1919</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/7.jpg" alt="Wachusett Aqueduct, Italian Camp, Shoemaker, Berlin, Mass., Oct. 21, 1897" style="width:100%"
@@ -393,6 +439,7 @@
                     onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
                 <center><p>Ink Drawing Key to Names in Employee Outing, Clinton, Mass.,<br>Sep. 27, 1919</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/9.jpg" alt="Chestnut Hill Pumping Station, During Boston Police Strike, Effluent Gatehouse No. 2, Brighton, Mass., Sep. 18, 1919" style="width:100%"
                     onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -404,6 +451,7 @@
                     onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
                 <center><p>Wachusett Reservoir, Group Photo of Worcester County Society of Antiquity, West Boylston, Mass.,<br>Oct. 16, 1897</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/11.jpg" alt="ortrait of Four Men, Mass., ca. 1900-1919" style="width:100%"
                     onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
@@ -414,6 +462,7 @@
                     onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
                 <center><p>Portrait of Ten Men; Inside of a Pumping Station?, Mass., ca. 1900-1919</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/13.jpg" alt="Weston Aqueduct, Section 8, Castings at Siphon Chamber No. 2, Wayland, Mass., Aug. 7, 1902" style="width:100%"
@@ -425,6 +474,7 @@
                     onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
                 <center><p>Consulting Engineers for the Panama Canal, Looking Towards Boylston Street, Clinton, Mass., Sep. 27, 1905</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/15.jpg" alt="Weston Aqueduct, Section 2, West Drift of Tunnel No. 1, Near Portal, Framingham, Mass., Sep. 22, 1902" style="width:100%"
                     onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
@@ -436,6 +486,7 @@
                     onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
                 <center><p>Wachusett Dam, Laying the Last Stone, Laid by John Mercer, Laborer, Clinton, Mass., Jun. 24, 1905</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/17.jpg" alt="Spot Pond Brook, Virginia Woods Weir, Stoneham, Mass., Apr. 30, 1904" style="width:100%"
                     onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
@@ -454,7 +505,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_25f044b0-18a9-4f55-b833-a98a6a92fc02/">Portrait, Mass., ca. 1900-1919</a></item-title>
-                                <center><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -463,7 +514,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3552dd45-27ae-4acf-8c19-e7ff2238d94a/">Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -472,7 +523,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_43a26cbd-53e3-4055-bbcf-b89080013189/">Wachusett Aqueduct, Section of Aqueduct, with Mr. Silvio Casparis on Horseback, Section 5, Station 204, Berlin, Mass., Oct. 23, 1897</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -481,7 +532,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_19487345-ef28-4f96-82ba-aaf75c78a335/">Chestnut Hill Pumping Station, During Boston Police Strike, Detail from Company B, 14th Regiment, State Guard, Quartered in Barn, Brighton, Mass., Sep. 17, 1919</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -489,8 +540,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_cc0f7a49-925b-426d-8dfe-57dec03dce61/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/5.jpg" alt="Weston Aqueduct, Section 15, Ledge Excavations, Stations 688 to 687+50, Weston, Mass., Jun. 23, 1902" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_cc0f7a49-925b-426d-8dfe-57dec03dce61/">Weston Aqueduct, Section 15, Ledge Excavations, Stations 688 to 687+50, Weston, Mass.,<br>Jun. 23, 1902</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_cc0f7a49-925b-426d-8dfe-57dec03dce61/">Weston Aqueduct, Section 15, Ledge Excavations, Stations 688 to 687+50, Weston, Mass., Jun. 23, 1902</a></item-title>
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -499,7 +550,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_83839378-be32-496a-ae22-8bd5c28c06a8/">Group of Eight Men, Mass., ca. 1900-1919</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -508,7 +559,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b13e2b6d-dfc4-484e-8c7f-62ea031c720f/">Wachusett Aqueduct, Italian Camp, Shoemaker, Berlin, Mass., Oct. 21, 1897</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -517,7 +568,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ee4f916b-bd6f-420b-ac28-e0c6aeab24a6/">Ink Drawing Key to Names in Employee Outing, Clinton, Mass., Sep. 27, 1919</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                                <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -526,7 +577,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_696ed8b5-6ce1-4968-be4d-d23351fd9ebe/">Chestnut Hill Pumping Station, During Boston Police Strike, Effluent Gatehouse No. 2, Brighton, Mass., Sep. 18, 1919</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -535,7 +586,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_6e5540e7-1d1f-4f36-a884-37434259fdea/">Wachusett Reservoir, Group Photo of Worcester County Society of Antiquity, West Boylston, Mass., Oct. 16, 1897</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -544,7 +595,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ff49b895-6a18-4ea3-9fe7-65786f6a6243/">Portrait of Four Men, Mass., ca. 1900-1919</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -553,7 +604,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_e134ac18-7497-426d-8c79-5e58e5736d04/">Portrait of Ten Men; Inside of a Pumping Station?, Mass., ca. 1900-1919</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -562,7 +613,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b591a550-a474-4718-a1b8-338c08ac37ed/">Weston Aqueduct, Section 8, Castings at Siphon Chamber No. 2, Wayland, Mass., Aug. 7, 1902</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -570,8 +621,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a20b18af-8aa6-4af0-9fbd-5c09812fb536/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/14.jpg" alt="Consulting Engineers for the Panama Canal, Looking Towards Boylston Street, Clinton, Mass., Sep. 27, 1905" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a20b18af-8aa6-4af0-9fbd-5c09812fb536/">Consulting Engineers for the Panama Canal, Looking Towards Boylston Street, Clinton, Mass.,<br>Sep. 27, 1905</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a20b18af-8aa6-4af0-9fbd-5c09812fb536/">Consulting Engineers for the Panama Canal, Looking Towards Boylston Street, Clinton, Mass., Sep. 27, 1905</a></item-title>
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -579,8 +630,8 @@
                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ce2fb756-f170-415a-a571-ab74a405170d/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people/15.jpg" alt="Weston Aqueduct, Section 2, West Drift of Tunnel No. 1, Near Portal, Framingham, Mass., Sep. 22, 1902" style="width:100%"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ce2fb756-f170-415a-a571-ab74a405170d/">Weston Aqueduct, Section 2, West Drift of Tunnel No. 1, Near Portal, Framingham, Mass.,<br>Sep. 22, 1902</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_ce2fb756-f170-415a-a571-ab74a405170d/">Weston Aqueduct, Section 2, West Drift of Tunnel No. 1, Near Portal, Framingham, Mass., Sep. 22, 1902</a></item-title>
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -589,7 +640,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_b20322a0-7a19-41bb-958e-9aab73424b07/">Wachusett Dam, Laying the Last Stone, Laid by John Mercer, Laborer, Clinton, Mass., Jun. 24, 1905</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -598,7 +649,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_8f487002-79e2-4a89-a542-1c3f81970f75/">Spot Pond Brook, Virginia Woods Weir, Stoneham, Mass., Apr. 30, 1904</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>          
                         </p>
                     </div>
                 </div>
@@ -607,7 +658,7 @@
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_22b0f91e-b1b3-4f61-9e6b-2f410b158202/">Portrait, Mass., ca. 1900-1919</a></item-title>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                            <div class="clearfix3"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a></center>          
                         </p>
                     </div>
                 </div>
@@ -615,7 +666,7 @@
             </div>
         </div>
     </div>
-    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/mww-buildings/">Buildings, Landscapes & Streetscapes</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/mww-buildings/">Buildings, Landscapes & Streetscapes</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
     <center><credit>Curated by: Yolande Bennett</credit></center>
     <script>
             function openModal() {
