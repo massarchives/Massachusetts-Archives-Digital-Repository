@@ -12,7 +12,7 @@
             line-height: 170%;
         }
 
-        strong-line {
+        strong-text {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 18px;
             font-weight: 500;
@@ -288,27 +288,43 @@
 			.row>.exhibit {
 				padding: 10px;
 			}
+			
+			.row:after {
+                padding-bottom: 30px;
+            }
 
             .exhibit p {
-                padding: 10px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+                display: none;
             }
 
             .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
                 display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
 		    }
         }
 
-		@media (max-width: 600px) {
+		@media (max-width: 800px) {
 			.exhibit-desc {
 				column-count: 1;
 			}
+			
+			.exhibit-desc br {
+                display: none;
+            }
 
-			.row>.exhibit {
-				padding: 15px;
-                padding-bottom: 20px;
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
 			}
 
             .row:after {
@@ -319,9 +335,13 @@
                 display: none;
             }
 
-            .clearfix:after {
+            .clearfix, .clearfix:after {
                 display: none;
 		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
 
             .exhibit {
                 float: left;
@@ -330,8 +350,8 @@
 
             credit {
                 line-height: 200%;
-                font-size: 13px;
-                text-align: center;
+                font-size: 12px;
+                text-align: left;
             } 
 
             .modal-content {
@@ -340,13 +360,13 @@
             }
 
             .caption-container {
-                text-align: center;
-                padding-left: 5px;
-                padding-right: 5px;
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 15px;
             }
 
             .close {
-                top: 5px;
+                top: 0px;
                 right: 10px;
                 font-size: 60px;
             }
@@ -363,17 +383,19 @@
 
             div.next-exhibit, div.next-exhibit a {
                 display: none;
+                padding-bottom: 0px;
+                line-height: 0%;
             }
 			
 			h2 {
                 font-size: 20px;
             }
-        }
-	</style>
+        }	
+    </style>
 </head>
 <body>
     <div class="exhibit-desc">
-        <strong-line>In 1921, the Commonwealth of Massachusetts</strong-line>&ensp;authorized a comprehensive study of the region's birdlife. The result was <i>Birds of Massachusetts and Other New England States,</i> a richly detailed, three-volume publication exploring the economic value, geographical distribution, and life history of New England's birds, complete with full-color illustrations.
+        <strong-text>In 1921, the Commonwealth of Massachusetts</strong-text>&ensp;authorized a comprehensive study of the region's birdlife. The result was <i>Birds of Massachusetts and Other New England States,</i> a richly detailed, three-volume publication exploring the economic value, geographical distribution, and life history of New England's birds, complete with full-color illustrations.
         Renowned American artist and ornithologist Louis Agassiz Fuertes was selected to illustrate the series, whose lifelike, expressive paintings set a new standard for ornithological art and naturalist depiction. Following Fuertes' untimely death, Canadian ornithologist and artist Allan Brooks stepped in to complete the artwork.
         The text for the publication was authored by Edward Howe Forbush, a notable ornithologist and pioneer in bird conservation. Forbush became interested in birds at an early age through taxidermy and field observation, and stood at the forefront of various conservation initiatives across New England throughout his lifetime.
         Published in 1925, <i>Birds of Massachusetts and Other New England States</i> remains a significant achievement in the study and celebration of regional birdlife.<br>
@@ -391,6 +413,7 @@
                 onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
 			<center><p>Plate 57: Prairie Horned Lark,<br>Horned Lark</p></center>
         </div>
+        <div class="clearfix2"></div>
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/birds/3.jpg" alt="Plate 47: Hawk Owl, Screech Owl, Richardson's Owl, Saw-whet Owl" style="width:100%"
                 onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
