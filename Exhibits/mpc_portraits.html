@@ -1,344 +1,402 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                max-width: 1000px;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 170%;
-                padding-bottom: 5px;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        credit {
+			font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+            text-align: center;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 13px;
+            line-height: 140%;
+            font-weight: 400;
+            padding-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+        }
+                
+        div.next-exhibit a:hover {
+            text-decoration: underline;
+        }
+
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #17183b;
+            display: inline-block;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        view-collection a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            line-height: 250%;
+        }
+
+        view-collection a:hover {
+            text-decoration: underline;
+        }
+
+        prev-next {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+		body {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #181818;
+			margin: 0;
+		}
+
+		p#caption {
+			padding-top: 150px;
+			font-size: 13px;
+			line-height: 170%;
+		}
+
+		.caption-container {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 13px;
+			line-height: 150%;
+			font-weight: 400;
+			text-align: left;
+			background-color: #FAFAFA;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #181818;
+		}
+
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+        .clearfix2:after {
+			content: "";
+			display: none;
+			clear: both;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.row>.exhibit, .row>.exhibit2 {
+			padding: 30px;
+			padding-bottom: 0px;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.exhibit {
+			float: left;
+			width: 33.3%;
+		}
+
+        .exhibit2 {
+			float: left;
+			width: 50%;
+		}
+
+		div.exhibit {
+			background-color: #FAFAFA;
+		}
+
+		.exhibit p, .exhibit2 p {
+			padding: 15px;
+			font-size: 12px;
+			line-height: 150%;
+			font-weight: 400;
+            opacity: 1;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding: 25px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #FAFAFA;
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #FAFAFA;
+			margin: auto;
+			padding: 75px;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #17183b;
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			font-size: 40px;
+			font-weight: 500;
+			z-index: 1;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #101129;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.mySlides {
+			display: none;
+			column-count: 2;
+		}
+
+		.cursor {
+			cursor: pointer;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			width: auto;
+			color: #17183b;
+			font-size: 12px;
+			font-family: 'Space Mono', sans-serif;
+			font-weight: 400;
+			line-height: 300%;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		img {
+			margin-bottom: -4px;
+		}
+
+		img.hover-shadow.cursor,
+		img.demo.cursor.active,
+		img.demo.cursor {
+			border-radius: 0px;
+		}
+
+		img.demo.cursor.active,
+		img.demo.cursor {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.demo {
+			opacity: 0.6;
+			transition: .6s ease;
+		}
+
+		.active,
+		.demo:hover {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img, .exhibit2 img,
+		.mySlides img {
+			opacity: 1;
+			transition: .6s ease;
+		}
+
+		.exhibit img:hover, .exhibit2 img:hover,
+		.mySlides img:hover {
+			opacity: 0.7;
+			transition: .6s ease;
+		}
+
+		.content_wrapper.spacer.medium_padding {
+			padding-bottom: 25px;
+		}
+
+		@media (max-width: 980px) {
+			.mySlides {
+				display: none;
+				column-count: 1;
+			}
+
+			p#caption {
+				padding-top: 10px;
+			}
+
+			item-title,
+			item-title a {
+				margin-top: 10px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
+            }
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding: 10px;
+			}
+
+            .exhibit p, .exhibit2 p {
+                display: none;
+            }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .exhibit, .exhibit2 {
+                float: left;
+                width: 50%;
+		    }
+        }
+
+		@media (max-width: 800px) {
+			.exhibit-desc {
+				column-count: 1;
+			}
+
+			.exhibit-desc br {
+                display: none;
+            }
+
+			.row>.exhibit, .row>.exhibit2 {
+				padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+			}
+
+            .row:after {
+                padding-bottom: 30px;
             }
 
             .exhibit p, .exhibit2 p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
+                display: none;
             }
+
+            .clearfix, .clearfix:after {
+                display: none;
+		    }
+
+            .clearfix2, .clearfix2:after {
+                clear: both;
+        	}
+
+            .exhibit, .exhibit2 {
+                float: left;
+                width: 50%;
+		    }
 
             credit {
-				font-family: 'Space Mono', sans-serif;
+                line-height: 200%;
                 font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
-
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
-            }
-                
-            div.next-exhibit a:hover {
-                text-decoration: underline;
-            }
-
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
-            }
-
-            item-title,
-            item-title a {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 15px;
-                line-height: 150%;
-                font-weight: 600;
-                color: #17183b;
-                display: inline-block;
-            }
-
-            item-title a:hover {
-                text-decoration: underline;
-            }
-
-            view-collection,
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
-
-            view-collection a:hover {
-                text-decoration: underline;
-            }
-
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                font-weight: 400;
-            }
-
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-
-            p#caption {
-                padding-top: 150px;
-                font-size: 13px;
-                line-height: 150%;
+                text-align: left;
+            } 
+			
+            .modal-content {
+                padding: 10px;
+                padding-top: 60px;
             }
 
             .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
                 text-align: left;
-                background-color: #FAFAFA;
-                padding-left: 15px;
+                padding-left: 0px;
                 padding-right: 15px;
-                color: #181818;
             }
 
-            .caption-container p {
-                font-size: 13px;
-                line-height: 150%;
-            }
-
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            .row>.exhibit,
-            .row>.exhibit2 {
-                padding: 30px;
-                padding-bottom: 0px;
-            }
-
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            .exhibit {
-                float: left;
-                width: 33.3%;
-            }
-
-            .exhibit2 {
-                float: left;
-                width: 50%;
-            }
-
-            div.exhibit,
-            div.exhibit2 {
-                background-color: #fafafa;
-            }
-
-            /* The Modal (background) */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #FAFAFA;
-            }
-
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #FAFAFA;
-                margin: auto;
-                padding: 75px;
-                width: 100%;
-                max-width: 1200px;
-            }
-
-            /* The Close Button */
             .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
+                top: 0px;
+                right: 10px;
+                font-size: 60px;
+            }
+
+            .prev, .next, divider {
+                font-size: 14px;
                 font-weight: 500;
-                z-index: 1;
+                line-height: 200%;
             }
 
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
+            strong-text {
+                font-size: 16px;
             }
 
-            .mySlides {
+            div.next-exhibit, div.next-exhibit a {
                 display: none;
-                column-count: 2;
             }
-
-            .cursor {
-                cursor: pointer;
+			
+			h2 {
+                font-size: 20px;
             }
-
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                width: auto;
-                color: #17183b;
-                font-size: 12px;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                line-height: 250%;
-                text-transform: uppercase;
-                text-decoration: none;
-            }
-
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
-            }
-
-            img {
-                margin-bottom: -4px;
-            }
-
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
-            }
-
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-
-            .demo {
-                opacity: 0.6;
-				transition: .6s ease;
-            }
-
-            .active,
-            .demo:hover {
-                opacity: 1;
-				transition: .6s ease;
-            }
-
-            .exhibit img,
-            .exhibit2 img {
-                opacity: 1;
-				transition: .6s ease;
-            }
-
-            .exhibit img:hover,
-            .exhibit2 img:hover {
-                opacity: 0.7;
-				transition: .6s ease;
-            }
-
-            @media (max-width: 980px) {
-                .mySlides {
-                    display: none;
-                    column-count: 1;
-                }
-
-                p#caption {
-                    padding-top: 10px;
-                    text-align: center;
-                }
-
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-
-                .row>.exhibit,
-                .row>.exhibit2 {
-                    padding: 10px;
-                }
-
-                .exhibit-text {
-                    column-count: 1;
-                }
-
-                .caption-container {
-                    padding-left: 5px;
-                    padding-right: 5px;
-                }
-
-                .caption-container p {
-                    text-align: center;
-                }
-
-                .modal-content {
-                    padding-top: 100px;
-                    padding-right: 50px;
-                    padding-left: 50px;
-                }
-
-                divider, a.prev, a.next {
-                    text-align: center;
-                }
-
-                .exhibit p, .exhibit2 p {
-                    padding: 10px;
-                }
-            }
-
-            @media (max-width: 600px) {
-
-                .row>.exhibit,
-                .row>.exhibit2 {
-                    padding: 5px;
-                }
-
-                divider, a.prev, a.next {
-                    text-align: center;
-                }
-
-                .exhibit p, .exhibit2 p {
-                    display: none;
-                }
-            }
-        </style>
+        }
+	</style>
     </head>
     <body>
-        <div class="exhibit-text">
+        <div class="exhibit-desc">
             <strong-text>In 1892, the Massachusetts Legislature</strong-text>&ensp;authorized a Preliminary Board of a Metropolitan Park
             Commission (MPC) to "consider the advisability of laying out ample open spaces for the use of the public, in the
             towns and cities in the vicinity of Boston." The Preliminary Board was comprised of Charles Francis Adams as Chairman, 
             Philip A. Chase and William B. de las Casas as associate board members, Sylvester Baxter as Secretary, and Charles Eliot 
             as Landscape Architect, all of whom are recognized as the founders of the Massachusetts Metropolitan Parks
-            System.<br>In January of 1893, the Board issued a report to the Legislature recommending for the permanent
+            System. <br>In January of 1893, the Board issued a report to the Legislature recommending for the permanent
             establishment of a Metropolitan Park Commission. Also known as the Board of Metropolitan Park Commissioners, the
             Metropolitan Park Commission was authorized by the Massachusetts Legislature on June 3, 1893 to acquire,
             maintain, and make available to the public for exercise and recreation open space in Boston and surrounding
@@ -361,6 +419,7 @@
                     onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                 <center><p>Forrest C. Manchester (1859–1899),<br>ca. 1898</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/3.jpg" alt="Charles Francis Adams (1835–1915), ca. 1892" style="width:100%"
                     onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -372,6 +431,7 @@
                     onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
                 <center><p>Philip A. Chase (1834–1903), ca. 1892</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/5.jpg" alt="Sylvester Baxter (1850–1927), ca. 1892" style="width:100%"
                     onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
@@ -382,6 +442,7 @@
                     onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
                 <center><p>Augustus Hemenway (1853–1931),<br>ca. 1895</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="clearfix"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/7.jpg" alt="Charles Eliot (1859–1897), ca. 1892" style="width:100%"
@@ -393,6 +454,7 @@
                     onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
                 <center><p>William B. de las Casas (1857–1930), ca. 1892</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/9.jpg" alt="James Jeffrey Roche (1847–1908), ca. 1893" style="width:100%"
                     onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
@@ -404,6 +466,7 @@
                     onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
                 <center><p>William L. Chase (1853–1895), ca. 1894</p></center>
             </div>
+            <div class="clearfix2"></div>
             <div class="exhibit2">
                 <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/11.jpg" alt="Thomas L. Livermore (1844–1918), ca. 1897" style="width:100%"
                     onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
@@ -420,9 +483,10 @@
                             <p id="caption">
                                 <item-title>
                                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1c5384fa-48c4-40ff-b399-bd5fa21e98eb/">
-                                    Edwin B. Haskell (1837&ndash;1907), ca. 1895</a></item-title>
-                                    <p>Commissioner</p>
-                                    <p><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    Edwin B. Haskell (1837&ndash;1907), ca. 1895</a></item-title><br>
+                                    Commissioner
+                                    <div class="clearfix2"></div>
+                                    <a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -433,10 +497,9 @@
                             <p id="caption">
                                 <item-title>
                                     <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_316f57dc-876d-4432-a9f4-f9af03410d73/">
-                                    Forrest C. Manchester (1859&ndash;1899), ca. 1898</a></item-title>
-                                    <p>Commissioner</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                                    &ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    Forrest C. Manchester (1859&ndash;1899), ca. 1898</a></item-title><br>
+                                    Commissioner
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -446,10 +509,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">Charles Francis Adams (1835&ndash;1915), ca. 1892</a></item-title>
-                                    <p>Founder & Chairman</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">Charles Francis Adams (1835&ndash;1915), ca. 1892</a></item-title><br>
+                                    Founder & Chairman
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -459,10 +521,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">Philip A. Chase (1834&ndash;1903), ca. 1892</a></item-title>
-                                    <p>Founder & Associate Board Member</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">Philip A. Chase (1834&ndash;1903), ca. 1892</a></item-title><br>
+                                    Founder & Associate Board Member
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -472,10 +533,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">Sylvester Baxter (1850&ndash;1927), ca. 1892</a></item-title>
-                                    <p>Founder & Secretary</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">Sylvester Baxter (1850&ndash;1927), ca. 1892</a></item-title><br>
+                                    Founder & Secretary
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -485,10 +545,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">Augustus Hemenway (1853&ndash;1931), ca. 1895</a></item-title>
-                                    <p>Commissioner</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">Augustus Hemenway (1853&ndash;1931), ca. 1895</a></item-title><br>
+                                    Commissioner
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -498,10 +557,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">Charles Eliot (1859&ndash;1897), ca. 1892</a></item-title>
-                                    <p>Founder & Landscape Architect</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">Charles Eliot (1859&ndash;1897), ca. 1892</a></item-title><br>
+                                    Founder & Landscape Architect
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -511,10 +569,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">William B. de las Casas (1857&ndash;1930), ca. 1892</a></item-title>
-                                    <p>Founder & Associate Board Member</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">William B. de las Casas (1857&ndash;1930), ca. 1892</a></item-title><br>
+                                    Founder & Associate Board Member
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -524,10 +581,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">James Jeffrey Roche (1847&ndash;1908), ca. 1893</a></item-title>
-                                        <p>Commissioner</p>
-                                        <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                        <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">James Jeffrey Roche (1847&ndash;1908), ca. 1893</a></item-title><br>
+                                        Commissioner
+                                        <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -537,10 +593,9 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">William L. Chase (1853&ndash;1895), ca. 1894</a></item-title>
-                                    <p>Commissioner</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;
-                                    <a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">William L. Chase (1853&ndash;1895), ca. 1894</a></item-title><br>
+                                    Commissioner
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </p>
                         </div>
                     </div>
@@ -550,16 +605,16 @@
                         <div class="caption-container">
                             <p id="caption">
                                 <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">Thomas L. Livermore (1844&ndash;1918), ca. 1897</a></item-title>
-                                    <p>Commissioner</p>
-                                    <p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></p>
+                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">Thomas L. Livermore (1844&ndash;1918), ca. 1897</a></item-title><br>
+                                    Commissioner
+                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_9cff659e-f584-42d9-908b-c57c6857b8e3">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
+        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_9cff659e-f584-42d9-908b-c57c6857b8e3">View Full Collection</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
         <center><credit>Curated by: Yolande Bennett</credit></center>
         <script>
             function openModal() {
