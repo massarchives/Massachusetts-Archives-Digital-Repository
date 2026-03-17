@@ -1,673 +1,709 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
 
-            credit {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #17183b;
+        }
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
-            }
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
 
-            			.rev250 {
-				column-count: 2;
-				max-width: 1000px;
-				padding-top: 5px;
-			}
-			
-			.rev250 p {
-				font-family: 'DM Sans', sans-serif;
-				font-weight: 400;
-				font-size: 14px;
-				line-height: 170%;
-			}
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
 
-			.rev250 a:hover {
-				text-decoration: underline;
-			}
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
 
-			rev250-strong {
-				font-family: 'DM Sans', sans-serif;
-				font-size: 20px;
-				font-weight: 500;
-				line-height: 170%;
-				margin-bottom: 30px;
-				color: #17183b;
-			}
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
+        }
 
-            rev250-small, rev250-small a {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 13px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 300%;
-			}
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 12px;
+            line-height: 250%;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
 
-			rev250-small a:hover {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 13px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 300%;
-				text-decoration: underline;
-			} 
+        div.next-exhibit a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
 
-            item-title,
-            item-title a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
-            }
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
 
-            prev-next a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
 
-            prev-next a:hover {
-                text-decoration: underline;
-            }
+        item-title,
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #17183b;
+            display: block;
+        }
 
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
+        item-title a:hover {
+            text-decoration: underline;
+        }
 
-            view-collection a:hover {
-                text-decoration: underline;
-            }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #181818;
+            margin: 0;
+        }
 
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 30px;
-                padding-bottom: 10px;
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
 
-            caption {
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 170%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #ffffff;
-                padding-left: 100px;
-                padding-right: 100px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
 
-            .clearfix2 {
-                padding-bottom: 20px;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
-            .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
-            }
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
 
-            .exhibit p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
-            }
-        
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        
-            .exhibit {
-                float: left;
-                width: 33.3%;
-            }
-        
-            div.exhibit {
-                background-color: #fafafa;
-            }
-        
-            /* The Modal (background) */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #ffffff;
-            }
-        
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #ffffff;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 850px;
-            }
-        
-            /* The Close Button */
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix2:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.exhibit {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .exhibit {
+            float: left;
+            width: 25%;
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+            opacity: 1;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+            column-count: 2;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        divider {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
             .mySlides {
                 display: none;
                 column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
-            }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
-                line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
-                text-align: center;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
-            }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
-            }
-        
-            img {
-                margin-bottom: -4px;
-            }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
-            }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-        
-            .demo {
-                opacity: 0.6;
-                transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-                transition: .6s ease;
-            }
-        
-            .exhibit img {
-                opacity: 1;
-                transition: .6s ease;
-            }
-        
-            .exhibit img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
+
+            p#caption {
+                padding-top: 12px;
             }
 
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
+            item-title,
+            item-title a {
+                margin-top: 10px;
             }
-                
-            div.next-exhibit a:hover {
-                text-decoration: underline;
+
+            .row>.exhibit {
+                padding: 8px;
             }
-        
-            @media (max-width: 980px) {
-                .mySlides {
+
+            .exhibit p {
                 display: none;
+            }
+
+            /* clearfix2 fires after every 2 items on mobile */
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /* desktop row-break clearfixes hidden on mobile */
+            .clearfix,
+            .clearfix:after {
+                display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            /* intro text single column */
+            .exhibit-desc {
                 column-count: 1;
-                }
-        
-                p#caption {
-                padding-top: 10px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
-
-                rev250-small, rev250-small a {
-					line-height: 150%;
-				}
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
+        }
 
-                .exhibit p {
-                    display: none;
-                }
-
-                rev250-small, rev250-small a {
-					line-height: 150%;
-				}
+        @media (max-width: 800px) {
+            .exhibit-desc {
+                column-count: 1;
             }
-        </style>
-    </head>
-    <body>
-		<div class="rev250">
-			<rev250-strong>
-			<i>"We have ... learned one melancholy truth, which is, that the Americans, if they were equally well commanded, are full as good soldiers as ours.”</i><br>
-			<rev250-small>&ndash;&ensp;A British officer in Boston, after the battle</rev250-small>
-			</rev250-strong>
-            <div class="clearfix2"></div>
-			<p><strong-text>On June 17, 1775,</strong-text>&ensp;during the Siege of Boston, 2,400 colonial troops under the command of William Prescott, Israel Putnam, Joseph Warren, and other colonial leaders clashed with over 3,000 British troops, led by William Howe and Thomas Gage, over the strategic Bunker and Breed’s Hills. Whoever gained control of these hills would gain control over Boston Harbor. Regrettably, confusion and lack of strong direction from command meant the American forces were in disarray throughout the battle, with some commanders directly disobeying orders and failing to provide reinforcement to the defense on Breed’s Hill. The battle proved to be a tactical victory for the British, in large part due to the poor chain of command of the Colonialists, but it cost them over twice the casualties as the Americans, many of whom were officers. The number of losses spooked the British and led to their more cautious engagement of colonial troops, the hiring of Hessians to bolster the British infantry, and a hardening of British attitude towards the Americans, leading to the Proclamation of Rebellion. Simultaneously, reports of the battle offered hope to George Washington that his army, better trained and organized, might prevail against the British, and the British response to the battle strengthened American support for independence throughout the colonies.</p>
+
+            .exhibit-desc br {
+                display: none;
+            }
+
+            .row>.exhibit {
+                padding: 6px 4px;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix,
+            .clearfix:after {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            /* Modal: full-width, minimal padding */
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 56px 12px 20px 12px;
+            }
+
+            /* Slides single column */
+            .mySlides {
+                column-count: 1;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            p#caption {
+                padding-top: 12px;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+
+            caption {
+                font-size: 12px;
+            }
+
+            /* Close button: top-right, finger-friendly */
+            .close {
+                top: 8px;
+                right: 12px;
+                font-size: 48px;
+                line-height: 1;
+            }
+
+            /* Nav bar: larger tap targets */
+            .nav-bar {
+                margin-top: 14px;
+                padding-top: 12px;
+                gap: 16px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 2;
+                opacity: 1;
+                padding: 4px 0;
+            }
+
+            strong-text {
+                font-size: 15px;
+            }
+
+            description-strong {
+                font-size: 16px;
+            }
+
+            div.next-exhibit,
+            div.next-exhibit a {
+                display: none;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="exhibit-desc">
+        <div class="quote-block">
+            <description-strong>
+                <i>&ldquo;We have &hellip; learned one melancholy truth, which is, that the Americans, if they were equally well commanded, are full as good soldiers as ours.&rdquo;</i>
+            </description-strong>
+            <description-small>&ndash;&ensp;A British officer in Boston, after the battle</description-small>
         </div>
-        <div class="row">
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg" alt="Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776" style="width:100%"
-                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                <center><p>Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill,<br>Feb. 1776</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg" alt="Payments for the Battle of Lexington/Bunker Hill, 1776" style="width:100%"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <center><p>Payments for the Battle of Lexington/Bunker Hill, 1776</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg" alt="Receipt for fiddeling work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780" style="width:100%"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                <center><p>Receipt for “fiddeling” work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
-            </div>         
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-                <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg" alt="Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill" style="width:100%"
-                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
-                <center><p>Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg" alt="Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, attested by Ephraim Hinds, Justice of the Peace, June 14, 1826" style="width:100%"
-                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
-                <center><p>Affidavit of Jonathan Beard of<br>Harvard testifying that he fought in the Battle of Bunker Hill, attested by Ephraim Hinds, Justice of the Peace, June 14, 1826</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg" alt="Affidavit of Jacob B. Currier of Amesbury that he was “stationed in the intrenchment north or northeast of the redoubt” during the Battle of Bunker Hill, and that he “was at Charlestown and on said Bunker Hill … at the celebration of that day.” Attested by Jacob Brown, Justice of the Peace, September 1, 1825" style="width:100%"
-                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
-                <center><p>Affidavit of Jacob B. Currier of Amesbury, attested by Jacob Brown, Justice of the Peace,<br>September 1, 1825</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg" alt="Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill" style="width:100%"
-                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
-                <center><p>Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg" alt="Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, June 28, 1825" style="width:100%"
-                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
-                <center><p>Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, June 28, 1825</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8k.jpeg" alt="Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, sworn before William Woast, Notary Public, June 30, 1825" style="width:100%"
-                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
-                <center><p>Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, sworn before William Woast, Notary Public, June 30, 1825</p></center>
-            </div>
+        <div><strong-text>On June 17, 1775,</strong-text>&ensp;during the Siege of Boston, 2,400 colonial troops under the command of William Prescott, Israel Putnam, Joseph Warren, and other colonial leaders clashed with over 3,000 British troops, led by William Howe and Thomas Gage, over the strategic Bunker and Breed's Hills. Whoever gained control of these hills would gain control over Boston Harbor. Regrettably, confusion and lack of strong direction from command meant the American forces were in disarray throughout the battle, with some commanders directly disobeying orders and failing to provide reinforcement to the defense on Breed's Hill. The battle proved to be a tactical victory for the British, in large part due to the poor chain of command of the Colonialists, but it cost them over twice the casualties as the Americans, many of whom were officers. The number of losses spooked the British and led to their more cautious engagement of colonial troops, the hiring of Hessians to bolster the British infantry, and a hardening of British attitude towards the Americans, leading to the Proclamation of Rebellion. Simultaneously, reports of the battle offered hope to George Washington that his army, better trained and organized, might prevail against the British, and the British response to the battle strengthened American support for independence throughout the colonies.</div>
+    </div>
+    <div class="row">
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg" alt="Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg" alt="Payments for the Battle of Lexington/Bunker Hill, 1776" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>Payments for the Battle of Lexington/Bunker Hill, 1776</p></center>
+        </div>
+        <div class="clearfix2"></div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg" alt="Receipt for fiddeling work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Receipt for &ldquo;fiddeling&rdquo; work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
         </div>
         <div class="clearfix"></div>
-            <div id="myModal" class="modal">
-                <span class="close cursor" onclick="closeModal()">&times;</span>
-                <div class="modal-content">
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg" alt="Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776</a></item-title>
-                                    <center><p><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center></caption><div class="clearfix2"></div>
-                            </p>
-                        </div>
+        <div class="clearfix2"></div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823</p></center>
+        </div>
+        <div class="clearfix2"></div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg" alt="Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            <center><p>Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg" alt="Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, attested by Ephraim Hinds, Justice of the Peace, June 14, 1826" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            <center><p>Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, attested by Ephraim Hinds, Justice of the Peace, June 14, 1826</p></center>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clearfix2"></div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg" alt="Affidavit of Jacob B. Currier of Amesbury, attested by Jacob Brown, Justice of the Peace, September 1, 1825" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            <center><p>Affidavit of Jacob B. Currier of Amesbury, attested by Jacob Brown, Justice of the Peace, September 1, 1825</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg" alt="Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            <center><p>Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill</p></center>
+        </div>
+        <div class="clearfix2"></div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg" alt="Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, June 28, 1825" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            <center><p>Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, June 28, 1825</p></center>
+        </div>
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8k.jpeg" alt="Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, sworn before William Woast, Notary Public, June 30, 1825" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+            <center><p>Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, sworn before William Woast, Notary Public, June 30, 1825</p></center>
+        </div>
+        <div class="clearfix2"></div>
+        <div class="clearfix"></div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776</a></item-title>
+                            <div class="nav-bar"><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg" alt="Payments for the Battle of Lexington/Bunker Hill, 1776" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Payments for the Battle of Lexington/Bunker Hill, 1776</a></item-title>
-                                    <center><caption>Many soldiers and their families petitioned the General Court for payment to make up for losses sustained at the Battle of Bunker Hill. This list included 227 total named individuals who received payments, noted in pounds and shillings.</center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/5.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Payments for the Battle of Lexington/Bunker Hill, 1776</a></item-title>
+                            <caption>Many soldiers and their families petitioned the General Court for payment to make up for losses sustained at the Battle of Bunker Hill. This list included 227 total named individuals who received payments, noted in pounds and shillings.</caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg" alt="Receipt for fiddeling work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Receipt for “fiddeling” work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780</a></item-title>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/6.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Receipt for &ldquo;fiddeling&rdquo; work on ships by Salem Poor, an enslaved man who purchased his freedom and fought in the Battle of Bunker Hill, Apr. 1780</a></item-title>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
-                                    <center><caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>“The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the ‘unalienable rights of man.’”</i></center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center></caption><div class="clearfix2"></div>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to incorporate the Bunker Hill Monument Association, p. 1, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
+                            <caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>&ldquo;The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the &lsquo;unalienable rights of man.&rsquo;&rdquo;</i></caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
-                                    <center><caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>“The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the ‘unalienable rights of man.’”</i></center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_2.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to incorporate the Bunker Hill Monument Association, p. 2, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
+                            <caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>&ldquo;The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the &lsquo;unalienable rights of man.&rsquo;&rdquo;</i></caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg" alt="Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
-                                    <center><caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>“The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the ‘unalienable rights of man.’”</i></center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/7_3.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Petition to incorporate the Bunker Hill Monument Association, p. 3, Acts of 1823 c. 1, Approved June 7, 1823</a></item-title>
+                            <caption>In 1823, a group of men petitioned the General Court with the goal of erecting a monument to honor the patriots who fought at Bunker Hill. <i>&ldquo;The whole human race are destined to venerate the names of those gallant citizens of New England, who there breasted the tempest of war, for the &lsquo;unalienable rights of man.&rsquo;&rdquo;</i></caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg" alt="Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill</a></item-title>
-                                    <center><caption>Includes the greatest, lowest, and average age among survivors of each regiment. Ages of survivors range from 95 to 65, making the oldest survivors 45 years old at the time of the battle, and the youngest only 15.</center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8c.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Table noting the number of surviving officers and soldiers from each regiment present at the Battle of Bunker Hill</a></item-title>
+                            <caption>Includes the greatest, lowest, and average age among survivors of each regiment. Ages of survivors range from 95 to 65, making the oldest survivors 45 years old at the time of the battle, and the youngest only 15.</caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg" alt="Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, attested by Ephraim Hinds, Justice of the Peace, June 14, 1826" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, “helped build the fort on Bunker Hill,” and was present at the celebration of the battle. Attested by Ephraim Hinds, Justice of the Peace, June 14, 1826</a></item-title>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8e.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Affidavit of Jonathan Beard of Harvard testifying that he fought in the Battle of Bunker Hill, &ldquo;helped build the fort on Bunker Hill,&rdquo; and was present at the celebration of the battle. Attested by Ephraim Hinds, Justice of the Peace, June 14, 1826</a></item-title>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg" alt="Affidavit of Jacob B. Currier of Amesbury that he was “stationed in the intrenchment north or northeast of the redoubt” during the Battle of Bunker Hill, and that he “was at Charlestown and on said Bunker Hill … at the celebration of that day.” Attested by Jacob Brown, Justice of the Peace, September 1, 1825" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Affidavit of Jacob B. Currier of Amesbury that he was “stationed in the intrenchment north or northeast of the redoubt” during the Battle of Bunker Hill, and that he “was at Charlestown and on said Bunker Hill … at the celebration of that day.” Attested by Jacob Brown, Justice of the Peace, September 1, 1825</a></item-title>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8h.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Affidavit of Jacob B. Currier of Amesbury that he was &ldquo;stationed in the intrenchment north or northeast of the redoubt&rdquo; during the Battle of Bunker Hill. Attested by Jacob Brown, Justice of the Peace, September 1, 1825</a></item-title>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg" alt="Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill</a></item-title>
-                                    <center><caption>Davidson claims he was stationed at <i>“the Rail fence and at that place I received my wound and was carried from that place as I was afterwards informed having fainted with the loss of blood.”</i> Accompanied by an attestation by Samuel Amos, Justice of the Peace, and a request for Davidson to be paid seven dollars for attendance and travel to the celebration.</center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8i.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Affidavit of Francis Davidson of Londonderry, NH that he fought and was wounded at Bunker Hill</a></item-title>
+                            <caption>Davidson claims he was stationed at <i>&ldquo;the Rail fence and at that place I received my wound and was carried from that place as I was afterwards informed having fainted with the loss of blood.&rdquo;</i> Accompanied by an attestation by Samuel Amos, Justice of the Peace, and a request for Davidson to be paid seven dollars for attendance and travel to the celebration.</caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg" alt="Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, June 28, 1825" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, as any other person who could certify his participation “are dead and gone,” June 28, 1825</a></item-title>
-                                    <center><caption>Fisher writes that on the way to Bunker Hill, <i>“two flooding batteries & … two sloops of war were continually cannonading us,”</i> and that as the British soldiers approached, <i>“we fired upon them & put them into great confusion & when the wind blew the smoak away we could see may lay flat on their backs we supposed them dead &ndash; it was some little time before they could form their line again.”</i> He also describes the final engagement, where <i>“no doubt we killed many of the poor fellows they being perhaps not more than 6 or 8 rods off [100&ndash;130 feet], and many of us fired two balls each, & one ball & 3 or 4 buck shot. after this fire we was ordered to retreat as fast as possible.”</i> After his description of the battle, Fisher requests payment for his attendance and travel to the celebration of the battle.</center></caption><div class="clearfix2"></div>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8j.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Letter from Nathan Fisher of Westborough to William H. Sumner, Adjutant General, containing a detailed account of his participation at the Battle of Bunker Hill, as any other person who could certify his participation &ldquo;are dead and gone,&rdquo; June 28, 1825</a></item-title>
+                            <caption>Fisher writes that on the way to Bunker Hill, <i>&ldquo;two flooding batteries &amp; &hellip; two sloops of war were continually cannonading us,&rdquo;</i> and that as the British soldiers approached, <i>&ldquo;we fired upon them &amp; put them into great confusion &amp; when the wind blew the smoak away we could see may lay flat on their backs we supposed them dead.&rdquo;</i></caption>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a><divider>|</divider><a class="next" onclick="plusSlides(1)">Next &rsaquo;</a></div>
+                        </p>
                     </div>
-                    <div class="mySlides">
-                        <a href="">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8k.jpeg" alt="Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, sworn before William Woast, Notary Public, June 30, 1825" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="">Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, and that on June 17, 1775, he “was in the Fort on Bunkers or Breeds, in the memorable battle which was fought with the British troops on that day,” and “that during the engagement … he received a wound from a musket ball of the enemy, which entered the left thigh.” Sworn before William Woast, Notary Public, June 30, 1825</a></item-title>
-                                    <center><p><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></p></center>
-                            </p>
-                        </div>
+                </div>
+                <div class="mySlides">
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/8k.jpeg" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="">Testimony of Elias Pike of Newburyport that he attended the celebration of the battle, and that on June 17, 1775, he &ldquo;was in the Fort on Bunkers or Breeds, in the memorable battle which was fought with the British troops on that day.&rdquo; Sworn before William Woast, Notary Public, June 30, 1825</a></item-title>
+                            <div class="nav-bar"><a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a></div>
+                        </p>
                     </div>
+                </div>
             </div>
         </div>
-        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">Revolution 250 Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-        <center><credit>Curated by: Joseph Solis<br>With Assistance From: Yolande Bennett &amp; Elizabeth O'Connell</credit></center>    
-        <script>
-            function openModal() {
-                document.getElementById("myModal").style.display = "block";
-            }
+    </div>
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_28022fd3-ee26-48f3-91ed-c3cc6729aeda/">Revolution 250 Collection</a>&ensp;&rsaquo;</div>
 
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
-            }
-
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
+    <script>
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
     </script>
-    </body>
+</body>
 </html>
