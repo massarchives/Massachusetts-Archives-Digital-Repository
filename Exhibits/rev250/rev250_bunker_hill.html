@@ -17,6 +17,7 @@
         strong-text {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
+            text-transform: uppercase;
             font-weight: 500;
             color: #17183b;
         }
@@ -340,6 +341,15 @@
                 column-count: 1;
             }
 
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
             p#caption {
                 padding-top: 12px;
             }
@@ -351,13 +361,14 @@
 
             .row>.exhibit {
                 padding: 8px;
+                padding-bottom: 0;
             }
 
             .exhibit p {
                 display: none;
             }
 
-            /* clearfix2 fires after every 2 items on mobile */
+            /* clearfix2 fires after every 2nd item on mobile */
             .clearfix2:after {
                 content: "";
                 display: block;
@@ -365,8 +376,7 @@
             }
 
             /* desktop row-break clearfixes hidden on mobile */
-            .clearfix,
-            .clearfix:after {
+            .clearfix, .clearfix:after {
                 display: none;
             }
 
@@ -375,14 +385,34 @@
                 width: 50%;
             }
 
-            /* intro text single column */
-            .exhibit-desc {
-                column-count: 1;
+            .modal {
+                padding: 0;
             }
 
-            .quote-block {
-                break-after: auto;
-                margin-bottom: 16px;
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
             }
         }
 
@@ -391,20 +421,21 @@
                 column-count: 1;
             }
 
-            .exhibit-desc br {
-                display: none;
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
             }
 
             .row>.exhibit {
-                padding: 6px 4px;
+                padding: 6px;
+                padding-bottom: 0;
             }
 
             .exhibit p {
                 display: none;
             }
 
-            .clearfix,
-            .clearfix:after {
+            .clearfix, .clearfix:after {
                 display: none;
             }
 
@@ -419,26 +450,29 @@
                 width: 50%;
             }
 
-            /* Modal: full-width, minimal padding */
             .modal {
                 padding: 0;
             }
 
             .modal-content {
-                padding: 56px 12px 20px 12px;
+                padding: 70px 12px 24px 12px;
             }
 
-            /* Slides single column */
-            .mySlides {
-                column-count: 1;
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
             }
 
             .caption-container {
                 padding: 0 12px 20px 12px;
             }
 
-            p#caption {
-                padding-top: 12px;
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
             }
 
             item-title,
@@ -446,50 +480,12 @@
                 font-size: 14px;
             }
 
-            caption {
-                font-size: 12px;
-            }
-
-            /* Close button: top-right, finger-friendly */
-            .close {
-                top: 8px;
-                right: 12px;
-                font-size: 48px;
-                line-height: 1;
-            }
-
-            /* Nav bar: larger tap targets */
-            .nav-bar {
-                margin-top: 14px;
-                padding-top: 12px;
-                gap: 16px;
-            }
-
-            .nav-bar .prev,
-            .nav-bar .next {
-                font-size: 13px;
-                font-weight: 500;
-                line-height: 2;
-                opacity: 1;
-                padding: 4px 0;
-            }
-
-            strong-text {
-                font-size: 15px;
-            }
-
-            description-strong {
-                font-size: 16px;
-            }
-
-            div.next-exhibit,
-            div.next-exhibit a {
+            div.next-exhibit, div.next-exhibit a {
                 display: none;
             }
 
-            .quote-block {
-                break-after: auto;
-                margin-bottom: 16px;
+            strong-text {
+                font-size: 16px;
             }
         }
     </style>
@@ -504,6 +500,7 @@
         </div>
         <div><strong-text>On June 17, 1775,</strong-text>&ensp;during the Siege of Boston, 2,400 colonial troops under the command of William Prescott, Israel Putnam, Joseph Warren, and other colonial leaders clashed with over 3,000 British troops, led by William Howe and Thomas Gage, over the strategic Bunker and Breed's Hills. Whoever gained control of these hills would gain control over Boston Harbor. Regrettably, confusion and lack of strong direction from command meant the American forces were in disarray throughout the battle, with some commanders directly disobeying orders and failing to provide reinforcement to the defense on Breed's Hill. The battle proved to be a tactical victory for the British, in large part due to the poor chain of command of the Colonialists, but it cost them over twice the casualties as the Americans, many of whom were officers. The number of losses spooked the British and led to their more cautious engagement of colonial troops, the hiring of Hessians to bolster the British infantry, and a hardening of British attitude towards the Americans, leading to the Proclamation of Rebellion. Simultaneously, reports of the battle offered hope to George Washington that his army, better trained and organized, might prevail against the British, and the British response to the battle strengthened American support for independence throughout the colonies.</div>
     </div>
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
     <div class="row">
         <div class="exhibit">
             <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/bunkerhill/1.jpeg" alt="Resolve for payment to Eliphalet Hastings, a soldier at Bunker Hill, Feb. 1776" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
