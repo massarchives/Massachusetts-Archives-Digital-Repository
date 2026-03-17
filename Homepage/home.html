@@ -1,505 +1,414 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Massachusetts Archives Digital Repository</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style>
-			div.featured-item {
-				border: none;
+			@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+			:root {
+				--navy: #17183b;
+				--ink: #181818;
+				--mist: #E8E8EB;
+				--white: #FAFAFA;
 			}
 
-			div.featured-item:hover {
-				border: none;
-			}
+			* { box-sizing: border-box; margin: 0; padding: 0; }
 
-			div.featured-item img {
-				width: 100%;
-				height: auto;
-				opacity: 1;
-                transition: 0.6s ease;
-			}
-
-			div.featured-item img:hover {
-				width: 100%;
-				height: auto;
-				opacity: 0.7;
-				transition: 0.6s ease;
-			}
-
-			div.collection-title, div.collection-title a {
-				padding-top: 15px;
-				padding-left: 0px;
-				text-align: left;
-				color: #181818;
+			body {
 				font-family: 'DM Sans', sans-serif;
-				font-size: 14px;
-				line-height: 140%;
-				font-weight: 500;
-			}
-			
-			div.collection-title a:hover {
-				text-decoration: underline 2px;
+				font-size: 13px;
+				font-weight: 400;
+				color: var(--ink);
+				background: var(--white);
 			}
 
-			* {
-				box-sizing: border-box;
-			}
+			/* ── Featured items ── */
 
 			.featured {
 				padding-right: 20px;
 				float: left;
 				width: 33.3%;
 			}
-			
+
 			.clearfix:after {
 				content: "";
 				display: table;
 				clear: both;
-				padding-bottom: 50px;
+				padding-bottom: 32px;
 			}
 
-            .clearfix2:after {
+			.clearfix2:after {
 				content: "";
 				display: table;
 				clear: both;
-				padding-bottom: 15px;
+				padding-bottom: 12px;
 			}
 
-            * {
-            box-sizing: border-box
-            }
-
-            .mySlides {
-                display: none;
-            }
-
-            .featured-collection img {
-                opacity: 1;
-                vertical-align: middle;
-                width: 100%;
-                height: auto;
-            }
-
-            .featured-collection img:hover {
-                opacity: 0.7;
-                transition: 0.6s ease;
-            }
-
-            .overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: 0.6s ease;
-                background-color: #17183b;
-            }
-
-            .text,
-            text a {
-                color: #FAFAFA;
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                line-height: 24px;
-                font-weight: 600;
-                position: absolute;
-                top: 52%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-            .text:hover,
-            text a:hover {
-                text-decoration: underline 2px !important;
-            }
-
-            .featured-collection {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-            }
-
-            .featured-collection {
-                float: center;
-                width: 100%;
-                position: relative;
-            }
-
-            .featured-collection:hover .overlay {
-                opacity: 0.9;
-            }
-
-            div.featured-collection {
-                background-color: #FAFAFA;
-            }
-
-            .prev,
-            .next {
-                cursor: pointer;
-                position: absolute;
-                top: 50%;
-                width: auto;
-                padding: 16px;
-                margin-top: -22px;
-                color: #FAFAFA;
-                font-weight: bold;
-                font-size: 18px;
-                transition: 0.6s ease;
-                border-radius: 0 3px 3px 0;
-                user-select: none;
-            }
-
-            .next {
-                right: 0;
-                border-radius: 3px 0 0 3px;
-            }
-
-            .prev:hover,
-            .next:hover {
-                color: #E8E8EB;
-            }
-
-            .dot {
-                cursor: pointer;
-                height: 9px;
-                width: 9px;
-                margin: 0 2px;
-                background-color: #DBDBDB;
-                border-radius: 50%;
-                display: inline-block;
-                transition: background-color 0.6s ease;
-            }
-
-            .active,
-            .dot:hover {
-                background-color: #C2C2C2;
-            }
-
-            .fade {
-                animation-name: fade;
-                animation-duration: 1.5s;
-            }
-
-            @keyframes fade {
-                from {
-                    opacity: .4
-                }
-
-                to {
-                    opacity: 1
-                }
-            }
-
-            .homepage-banner img {
-                opacity: 1;
-                vertical-align: middle;
-                width: 100%;
-                height: auto;
-            }
-
-            .homepage-banner img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
-            }
-
-            .color-overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: .6s ease;
-                background-color: #17183b;
-            }
-
-            .overlay-text,
-            .overlay-text a {
-                color: #FAFAFA;
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                line-height: 24px;
-                font-weight: 600;
-                position: absolute;
-                top: 52%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-            .overlay-text:hover, text a:hover {
-                text-decoration: underline 2px!important;
-            }
-
-            .homepage-banner {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-            }
-
-            .homepage-banner {
-                float: center;
-                width: 100%;
-                position: relative;
-            }
-
-            .homepage-banner .color-overlay {
-                opacity: 0.9;
-            }
-
-            div.homepage-banner {
-                background-color: #FAFAFA;
-            }
-
-            .button-container {
-				  display: grid;
-				  grid-template-columns: auto auto auto;
-				  padding: 10px;
-                  padding-bottom: 0px;
-				  text-align: center;
+			div.featured-item img {
+				width: 100%;
+				height: auto;
+				opacity: 1;
+				transition: opacity 0.5s ease;
+				display: block;
 			}
-			.button-item, .button-item a {
-				  padding: 10px;
-                  padding-bottom: 0px;
-				  font-size: 17px;
-				  line-height: 140%;
-				  font-family: 'Space Grotesk', sans-serif;
-				  text-transform: none;
-				  font-weight: 500;
-				  text-align: center;
-				  color: #17183b;
+
+			div.featured-item img:hover { opacity: 0.7; }
+
+			.featured-item {
+				position: relative;
 			}
-				
-			.button-item a:hover {
-				text-decoration: underline 2px;	
+
+			.exhibit-overlay {
+				display: none;
 			}
-			
-			@media only screen and (max-width: 360px) {
-				.featured {
-					width: 49.99999%;
-					margin: 6px 0;
+
+			.featured-item a {
+				display: inline-block;
+				position: relative;
+				margin-bottom: 8px;
+			}
+
+			div.collection-title, div.collection-title a {
+				text-align: left;
+				color: #181818;
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 15px;
+				line-height: 1.3;
+				font-weight: 500;
+				text-decoration: none;
+			}
+
+			div.collection-title a:hover { text-decoration: underline 2px; }
+
+
+			/* ── Carousel ── */
+
+			.slideshow-track {
+				position: relative;
+				width: 100%;
+				aspect-ratio: 16 / 7;
+				overflow: hidden;
+			}
+
+			.mySlides {
+				position: absolute;
+				inset: 0;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.6s ease;
+			}
+
+			.mySlides.visible {
+				opacity: 1;
+				pointer-events: auto;
+			}
+
+			.mySlides img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			.overlay {
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(to top, rgba(23,24,59,0.80) 0%, rgba(23,24,59,0.05) 55%, transparent 100%);
+				display: flex;
+				align-items: flex-end;
+				padding: 28px 20px 14px;
+			}
+
+			.overlay-text, .overlay-text a {
+				color: #FAFAFA;
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 1.3;
+				text-decoration: none;
+			}
+
+			.overlay-text a { color: #FAFAFA; text-decoration: none; }
+			.overlay-text a:hover { text-decoration: none; }
+			.overlay-text a:visited { color: #FAFAFA; }
+
+			.featured-collection { max-width: 1000px; position: relative; margin: auto; width: 100%; }
+			div.featured-collection { background-color: var(--white); }
+
+			.prev, .next {
+				cursor: pointer;
+				position: absolute;
+				top: 50%;
+				width: auto;
+				padding: 16px;
+				margin-top: -22px;
+				color: #FAFAFA;
+				font-weight: bold;
+				font-size: 18px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+				z-index: 2;
+			}
+
+			.next { right: 0; border-radius: 3px 0 0 3px; }
+			.prev:hover, .next:hover { color: var(--mist); }
+
+			/* ── Homepage banner ── */
+
+			.homepage-banner { max-width: 1000px; position: relative; margin: auto; width: 100%; }
+
+			.homepage-banner img {
+				opacity: 1;
+				vertical-align: middle;
+				width: 100%;
+				height: auto;
+				max-height: 350px;
+				aspect-ratio: 16 / 9;
+				object-fit: cover;
+				display: block;
+			}
+
+			.homepage-banner img:hover { opacity: 0.7; }
+			.homepage-banner .overlay { height: 100%; }
+			div.homepage-banner { background-color: var(--white); }
+
+			/* ── Button row ── */
+
+			.button-container {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 12px;
+				padding: 0;
+			}
+
+			.button-item {
+				display: flex;
+			}
+
+			.button-item a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 15px;
+				width: 100%;
+				background-color: var(--mist);
+				text-decoration: none;
+				border-bottom: 2.5px solid transparent;
+				transition: border-color 0.15s ease;
+			}
+
+			.button-item a:hover { border-bottom-color: #B9BAC4; }
+
+			.button-item .btn-label {
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 15px;
+				font-weight: 600;
+				color: var(--navy);
+				line-height: 1.3;
+			}
+
+			/* ── Slideshow dots ── */
+
+			.dots-container {
+				text-align: center;
+				padding: 10px 0 0;
+			}
+
+			.dot {
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				margin: 0 4px;
+				background-color: var(--mist);
+				border-radius: 50%;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+
+			.dot.active { background-color: var(--navy); }
+
+			.spacer { padding-bottom: 32px; }
+			.spacer-sm { padding-bottom: 12px; }
+
+			/* ── Responsive ── */
+
+			@media only screen and (max-width: 980px) {
+				.homepage-banner img,
+				.homepage-banner img:hover,
+				div.featured-item img,
+				div.featured-item img:hover {
+					object-fit: cover;
+					width: 100%;
+					height: 250px;
+					aspect-ratio: unset;
+				}
+				.slideshow-track {
+					aspect-ratio: unset;
+					height: 250px;
 				}
 
-                .clearfix:after {
-                    padding-bottom: 25px;
-                }
+				.button-item a {
+					text-align: center;
+				}
 
-                .overlay-text, .text {
-                    font-size: 14px;
-                }
-            
-				.homepage-banner img, .homepage-banner img:hover, .featured, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {	
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-
-                .clearfix:after {
-                    padding-bottom: 25px;
-                }
-
-                .featured-collection .overlay, .featured-collection img, .homepage-banner img {
-                    opacity: 0.9;
-                    transition: 0.6s ease-in-out;
-                }
-
-                .featured-collection img:hover, .featured-collection .overlay:hover, .homepage-banner img:hover, .homepage-banner .color-overlay {
-                    opacity: 0.9;
-                    transition: 0.6s ease-in-out;
-                }
+			@media only screen and (max-width: 600px) {
+				.overlay-text { font-size: 14px; }
+				}
 			}
-
-            @media only screen and (max-width: 600px) {
-                .homepage-banner img, .homepage-banner img:hover, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-            }
-
-            @media only screen and (max-width: 980px) {
-                .featured-collection .overlay, .featured-collection img, .homepage-banner img {
-                    opacity: 0.9;
-                    transition: 0.6s ease-in-out;
-                }
-
-                .homepage-banner img, .homepage-banner img:hover, div.featured-item img, div.featured-item img:hover, .featured-collection img, .featured-collection img:hover, .homepage-banner img, .homepage-banner img:hover {
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-
-                .featured-collection img:hover, .featured-collection .overlay:hover, .homepage-banner img:hover, .homepage-banner .color-overlay {
-                    opacity: 0.9;
-                    transition: 0.6s ease-in-out;
-                }
-
-                .clearfix:after {
-                    padding-bottom: 25px;
-                }
-
-                .clearfix2:after {
-                    padding-bottom: 0px;
-                }
-            }
 		</style>
 	</head>
 	<body>
+
         <h2>Welcome to the Massachusetts Archives Digital Repository</h2>
+
         <div class="homepage-banner">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/stockbridge.png" style="width:100%" alt="Images from exhibit entitled Proprietorship and Agency in the Stockbridge Tribe" />
-			<div class="color-overlay">
-				<a href="https://digitalarchives.sec.state.ma.us/stockbridge/">
-				  <div class="overlay-text">Newest Digital Exhibit:<br>Proprietorship &amp; Agency in the Stockbridge Tribe</div></a>
-			  </div>
+			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/rev250.png" style="width:100%" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" loading="eager" />
+			<div class="overlay">
+                <div class="overlay-text">
+                    <a href="https://digitalarchives.sec.state.ma.us/rev250/">Digital Exhibit: Revolution 250</a>
+                </div>
+			</div>
         </div>
-        <div class="clearfix2"></div>
+
+		<div class="spacer-sm"></div>
 		<div class="button-container">
-			<div class="button-item"><i class="fa fa-search" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Search Guide</a></div>
-			<div class="button-item"><i class="fa fa-archive" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/collections">Browse Collections</a></div>
-			<div class="button-item"><i class="fa fa-book" aria-hidden="true"></i>&ensp;<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Collections Guide</a></div>
+			<div class="button-item">
+				<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">
+					<span class="btn-label">Search Guide</span>
+				</a>
+			</div>
+			<div class="button-item">
+				<a href="https://digitalarchives.sec.state.ma.us/collections">
+					<span class="btn-label">Browse Collections</span>
+				</a>
+			</div>
+			<div class="button-item">
+				<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">
+					<span class="btn-label">Collections Guide</span>
+				</a>
+			</div>
 		</div>
-        <div class="clearfix"></div>
+
+        <div class="spacer"></div>
         <h2>Featured Digital Collections</h2>
+
         <div class="featured-collection">
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/sacco.png" style="width:100%"
-                    alt="Photograph of Nicola Sacco, Commonwealth v. Sacco and Vanzetti" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">
-                <div class="overlay">
-                    <div class="text">Commonwealth v. Sacco & Vanzetti</div>
-            </a>
+        <div class="slideshow-track">
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/birds.png" style="width:100%" alt="Plate 57: Prairie Horned Lark, Horned Lark" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">Paintings from: Birds of Massachusetts &amp; Other New England States, 1921&ndash;1929</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/sacco.png" style="width:100%" alt="Photograph of Nicola Sacco" loading="eager" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_1cbc2ed1-b759-44aa-a235-a10010ac1a5f/">Commonwealth v. Sacco &amp; Vanzetti</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/salem.png" style="width:100%" alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">Salem Witch Trials Papers</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/building.png" style="width:100%" alt="Cambridge Building Inspection Plans" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">Building Inspection Plans, 1889&ndash;1987</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/folk.png" style="width:100%" alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">Folk Arts &amp; Heritage Collection, 1982&ndash;2016</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/quabbin.png" style="width:100%" alt="Mary A. and Francis R. Bruce, Lincoln Cemetery" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">Quabbin Reservoir Cemetery Photographs, 1928&ndash;1945</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_33f67a53-d3b2-47f7-a4c1-ecffb02a11b3">Town Plans, 1830</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/mww.png" style="width:100%" alt="Distribution Department, Low Service Pipe Lines" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267/">Metropolitan Water Works Photograph Collection, 1876&ndash;1930</a></div></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/mpc.png" style="width:100%" alt="Portrait Photograph of William L. Chase" loading="lazy" />
+                <div class="overlay"><div class="overlay-text"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_9cff659e-f584-42d9-908b-c57c6857b8e3">Metropolitan Park Commission Portrait Photographs, 1892&ndash;1907</a></div></div>
+            </div>
+
+        </div><!-- /.slideshow-track -->
+            <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
+
         </div>
+
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+            <span class="dot" onclick="currentSlide(9)"></span>
         </div>
-        <div class="mySlides fade">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/birds.png" style="width:100%" alt="Plate 57: Prairie Horned Lark, Horned Lark, Paintings from: Birds of Massachusetts and other New England states, 1921-1929" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a095c0ac-3674-498a-97e6-212ce10f1b46/">
-                <div class="overlay">
-                    <div class="overlay-text">Paintings from: Birds of Massachusetts<br>and Other New England States</div>
-                </a>
-        </div>
-        </div> 
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/salem.png" style="width:100%"
-                alt="Testimony of William Batten, William Shaw, and Deborah Shaw v. Sarah Good, Salem Witch Trials Papers" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">
-                <div class="overlay">
-                    <div class="text">Salem Witch Trials Papers</div>
-            </a>
-        </div>
-        </div>   
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/building.png" style="width:100%"
-                alt="Cambridge Building Inspection Plans" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_6b6d1561-f9c2-475f-a43f-5d164915f5ed/">
-                <div class="overlay">
-                    <div class="text">Building Inspection Plans,<br>1889&mdash;1987</div>
-            </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/folk.png" style="width:100%"
-                alt="Maggie Holtzberg Fieldwork on Cranberry Rug Hookers Guild 09, Folk Arts and Heritage Collection, 1982-2016" />
-            <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">
-                <div class="overlay">
-                    <div class="text">Folk Arts &amp; Heritage Collection</div>
-            </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/quabbin.png" style="width:100%"
-                alt="Mary A. and Francis R. Bruce, Lincoln Cemetery, Stones 5, 6, Petersham, Mass., June 8, 1945, Quabbin Reservoir Cemetery Photographs, 1928-1945" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_a46278fa-b590-4b49-8f02-d5b6558951a2/">
-                <div class="overlay">
-                    <div class="text">Quabbin Reservoir Cemetery Photographs</div>
-            </a>
-        </div>
-        </div> 
-        <div class="mySlides fade">
-        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/plans.png" style="width:100%" alt="Plan of Wilbraham made by Aaron Bliss, dated 1830" />        
-        <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_33f67a53-d3b2-47f7-a4c1-ecffb02a11b3">
-            <div class="overlay">
-                <div class="overlay-text">Town Plans, 1830</div>
-            </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/mww.png" style="width:100%"
-                alt="Distribution Department, Low Service Pipe Lines, 20-Inch Pipe Crossing at Mystic River, Section 28, Arlington, Mass., Jun. 14, 1899, Metropolitan Water Works Photograph Collection, 1876-1930" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267/">
-                <div class="overlay">
-                    <div class="text">Metropolitan Water Works Photograph Collection</div>
-            </a>
-        </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/homepage/mpc.png" style="width:100%"
-                alt="Portrait Photograph of William L. Chase (1853-1895), Mass., ca. 1894, Metropolitan Park Commission Portrait Photographs, ca. 1892-ca. 1907" />
-            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_9cff659e-f584-42d9-908b-c57c6857b8e3">
-                <div class="overlay">
-                    <div class="text">Metropolitan Park Commission Portrait Photographs</div>
-            </a>
-        </div>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
+
         <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
-    
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
+            let slideIndex = 0;
+            const slides = Array.from(document.getElementsByClassName("mySlides"));
+            const dots = Array.from(document.getElementsByClassName("dot"));
+
+            function goToSlide(n) {
+                slides[slideIndex].classList.remove("visible");
+                slideIndex = (n + slides.length) % slides.length;
+                slides[slideIndex].classList.add("visible");
+                dots.forEach((d, i) => d.classList.toggle("active", i === slideIndex));
             }
-    
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-    
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                let dots = document.getElementsByClassName("dot");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-            }
+
+            function plusSlides(n) { goToSlide(slideIndex + n); }
+            function currentSlide(n) { goToSlide(n - 1); }
+
+            goToSlide(0);
         </script>
-    	<div class="clearfix"></div>
-        <h2>Featured Digital Exhibits</h2>  
+
+    	<div class="spacer"></div>
+        <h2>Featured Digital Exhibits</h2>
+
         <div class="featured">
 			<div class="featured-item">
-				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">The Salem Witch Trials Papers</a></div>
+				<a href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" width="600" height="400" loading="lazy">
+				</a>
+				<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/salem-witch-trials">The Salem Witch Trials Papers</a></div>
 			</div>
-		</div>    
+		</div>
+
         <div class="featured">
 		    <div class="featured-item">
-				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/american_jewish_identity.png" alt="Jewish Orthodox Community Council of Greater Boston Flyer" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">American Jewish Identity in Mass.</a></div>
+				<a href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/american_jewish_identity.png" alt="Jewish Orthodox Community Council of Greater Boston Flyer" width="600" height="400" loading="lazy">
+				</a>
+				<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/american-jewish-identity/">American Jewish Identity in Mass.</a></div>
 		    </div>
-		</div>         
+		</div>
+
         <div class="featured">
 		    <div class="featured-item">
-				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/rev250.png" alt="Proclamation of King George III to suppress rebellion and sedition in the North American colonies" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/rev250">Revolution 250</a></div>
+				<a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos">
+					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/zoo.png" alt="Boston Zoological Society exhibits, sheet 28" width="600" height="400" loading="lazy">
+				</a>
+				<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/parks-and-zoos">Parks &amp; Zoos of Greater Boston</a></div>
 		    </div>
-		</div>        
-        <div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
 	</body>
 </html>
