@@ -98,14 +98,21 @@
             text-decoration: none;
         }
 
-        item-title,
-        item-title a {
+        item-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 8px;
             color: #17183b;
             display: block;
+        }
+
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline; /* was: block */
         }
 
         item-title a:hover {
