@@ -1,6 +1,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
         .exhibit-desc {
             column-count: 2;
@@ -14,34 +16,85 @@
 
         strong-text {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 500;
             color: #17183b;
         }
 
-        credit {
-			font-family: 'Space Mono', sans-serif;
-            font-size: 12px;
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
+
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
+
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
             text-transform: uppercase;
             color: #17183b;
             font-weight: 400;
-            line-height: 250%;
-            text-align: center;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
         }
 
         div.next-exhibit, div.next-exhibit a {
             text-align: right;
             padding-top: 0px;
-            font-size: 13px;
-            line-height: 140%;
+            font-size: 12px;
+            line-height: 250%;
             font-weight: 400;
-            padding-bottom: 50px;
             text-transform: uppercase;
             font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
         }
-                
+
         div.next-exhibit a:hover {
-            text-decoration: underline;
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
         }
 
         item-title,
@@ -49,352 +102,400 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             color: #17183b;
-            display: inline-block;
+            display: block;
         }
 
         item-title a:hover {
             text-decoration: underline;
         }
 
-        view-collection a {
-            font-family: 'Space Mono', sans-serif;
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #17183b;
-            font-weight: 400;
-            line-height: 250%;
-        }
-
-        view-collection a:hover {
-            text-decoration: underline;
-        }
-
-        prev-next {
-            color: #D1D1D8;
-            font-family: 'Space Mono', sans-serif;
+        body {
+            font-family: 'DM Sans', sans-serif;
             font-size: 13px;
             font-weight: 400;
+            color: #181818;
+            margin: 0;
         }
 
-		body {
-			font-family: 'DM Sans', sans-serif;
-			font-size: 13px;
-			font-weight: 400;
-			color: #181818;
-			margin: 0;
-		}
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
 
-		p#caption {
-			padding-top: 150px;
-			font-size: 13px;
-			line-height: 170%;
-		}
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
 
-		.caption-container {
-			font-family: 'DM Sans', sans-serif;
-			font-size: 13px;
-			line-height: 150%;
-			font-weight: 400;
-			text-align: left;
-			background-color: #FAFAFA;
-			padding-left: 15px;
-			padding-right: 15px;
-			color: #181818;
-		}
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
 
-		.clearfix:after {
-			content: "";
-			display: table;
-			clear: both;
-		}
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
         .clearfix2:after {
-			content: "";
-			display: none;
-			clear: both;
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		.row>.exhibit, .row>.exhibit2 {
-			padding: 30px;
-			padding-bottom: 0px;
-		}
-
-		.row:after {
-			content: "";
-			display: table;
-			clear: both;
-		}
-
-		.exhibit {
-			float: left;
-			width: 33.3%;
-		}
-
-        .exhibit2 {
-			float: left;
-			width: 50%;
-		}
-
-		div.exhibit {
-			background-color: #FAFAFA;
-		}
-
-		.exhibit p, .exhibit2 p {
-			padding: 15px;
-			font-size: 12px;
-			line-height: 150%;
-			font-weight: 400;
-            opacity: 1;
-		}
-
-		/* The Modal (background) */
-		.modal {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			padding: 25px;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: #FAFAFA;
-		}
-
-		/* Modal Content */
-		.modal-content {
-			position: relative;
-			background-color: #FAFAFA;
-			margin: auto;
-			padding: 75px;
-			width: 100%;
-			max-width: 1200px;
-		}
-
-		/* The Close Button */
-		.close {
-			color: #17183b;
-			position: absolute;
-			top: 50px;
-			right: 50px;
-			font-size: 40px;
-			font-weight: 500;
-			z-index: 1;
-		}
-
-		.close:hover,
-		.close:focus {
-			color: #101129;
-			text-decoration: none;
-			cursor: pointer;
-		}
-
-		.mySlides {
-			display: none;
-			column-count: 2;
-		}
-
-		.cursor {
-			cursor: pointer;
-		}
-
-		/* Next & previous buttons */
-		.prev,
-		.next {
-			cursor: pointer;
-			width: auto;
-			color: #17183b;
-			font-size: 12px;
-			font-family: 'Space Mono', sans-serif;
-			font-weight: 400;
-			line-height: 300%;
-			text-transform: uppercase;
-			text-decoration: none;
-		}
-
-		/* On hover, add a black background color with a little bit see-through */
-		.prev:hover,
-		.next:hover {
-			font-style: italic;
-			text-decoration: none;
-		}
-
-		img {
-			margin-bottom: -4px;
-		}
-
-		img.hover-shadow.cursor,
-		img.demo.cursor.active,
-		img.demo.cursor {
-			border-radius: 0px;
-		}
-
-		img.demo.cursor.active,
-		img.demo.cursor {
-			padding-left: 30px;
-			padding-right: 30px;
-		}
-
-		.demo {
-			opacity: 0.6;
-			transition: .6s ease;
-		}
-
-		.active,
-		.demo:hover {
-			opacity: 1;
-			transition: .6s ease;
-		}
-
-		.exhibit img, .exhibit2 img,
-		.mySlides img {
-			opacity: 1;
-			transition: .6s ease;
-		}
-
-		.exhibit img:hover, .exhibit2 img:hover,
-		.mySlides img:hover {
-			opacity: 0.7;
-			transition: .6s ease;
-		}
-
-		.content_wrapper.spacer.medium_padding {
-			padding-bottom: 25px;
-		}
-
-		@media (max-width: 980px) {
-			.mySlides {
-				display: none;
-				column-count: 1;
-			}
-
-			p#caption {
-				padding-top: 10px;
-			}
-
-			item-title,
-			item-title a {
-				margin-top: 10px;
-			}
-
-            .row:after {
-                padding-bottom: 30px;
-            }
-
-			.row>.exhibit, .row>.exhibit2 {
-				padding: 10px;
-			}
-
-            .exhibit p, .exhibit2 p {
-                display: none;
-            }
-
-            .clearfix2, .clearfix2:after {
-                clear: both;
-        	}
-
-            .clearfix, .clearfix:after {
-                display: none;
-            }
-
-            .exhibit, .exhibit2 {
-                float: left;
-                width: 50%;
-		    }
+            content: "";
+            display: none;
+            clear: both;
         }
 
-		@media (max-width: 800px) {
-			.exhibit-desc {
-				column-count: 1;
-			}
+        * {
+            box-sizing: border-box;
+        }
 
-			.exhibit-desc br {
+        .row>.exhibit, .row>.exhibit2 {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .exhibit {
+            float: left;
+            width: 33.3%;
+        }
+
+        .exhibit2 {
+            float: left;
+            width: 50%;
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p, .exhibit2 p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+            column-count: 2;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        divider {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img, .exhibit2 img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover, .exhibit2 img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
+            .mySlides {
                 display: none;
+                column-count: 1;
             }
 
-			.row>.exhibit, .row>.exhibit2 {
-				padding-top: 15px;
-                padding-bottom: 15px;
-                padding-left: 5px;
-                padding-right: 5px;
-			}
+            .exhibit-desc {
+                column-count: 1;
+            }
 
-            .row:after {
-                padding-bottom: 30px;
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            p#caption {
+                padding-top: 12px;
+            }
+
+            item-title,
+            item-title a {
+                margin-top: 10px;
+            }
+
+            .row>.exhibit, .row>.exhibit2 {
+                padding: 8px;
+                padding-bottom: 0;
             }
 
             .exhibit p, .exhibit2 p {
                 display: none;
             }
 
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
             .clearfix, .clearfix:after {
                 display: none;
-		    }
-
-            .clearfix2, .clearfix2:after {
-                clear: both;
-        	}
+            }
 
             .exhibit, .exhibit2 {
                 float: left;
                 width: 50%;
-		    }
-
-            credit {
-                line-height: 200%;
-                font-size: 12px;
-                text-align: left;
-            } 
-			
-            .modal-content {
-                padding: 10px;
-                padding-top: 60px;
             }
 
-            .caption-container {
-                text-align: left;
-                padding-left: 0px;
-                padding-right: 15px;
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
             }
 
             .close {
-                top: 0px;
-                right: 10px;
-                font-size: 60px;
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
             }
 
-            .prev, .next, divider {
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
                 font-size: 14px;
-                font-weight: 500;
-                line-height: 200%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .exhibit-desc {
+                column-count: 1;
             }
 
-            strong-text {
-                font-size: 16px;
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            .row>.exhibit, .row>.exhibit2 {
+                padding: 6px;
+                padding-bottom: 0;
+            }
+
+            .exhibit p, .exhibit2 p {
+                display: none;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .exhibit, .exhibit2 {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
             }
 
             div.next-exhibit, div.next-exhibit a {
                 display: none;
             }
-			
-			h2 {
-                font-size: 20px;
+
+            strong-text {
+                font-size: 16px;
             }
         }
-	</style>
-    </head>
-    <body>
-        <div class="exhibit-desc">
+    </style>
+</head>
+<body>
+
+    <div class="exhibit-desc">
+        <div>
             <strong-text>In 1892, the Massachusetts Legislature</strong-text>&ensp;authorized a Preliminary Board of a Metropolitan Park
             Commission (MPC) to "consider the advisability of laying out ample open spaces for the use of the public, in the
-            towns and cities in the vicinity of Boston." The Preliminary Board was comprised of Charles Francis Adams as Chairman, 
-            Philip A. Chase and William B. de las Casas as associate board members, Sylvester Baxter as Secretary, and Charles Eliot 
+            towns and cities in the vicinity of Boston." The Preliminary Board was comprised of Charles Francis Adams as Chairman,
+            Philip A. Chase and William B. de las Casas as associate board members, Sylvester Baxter as Secretary, and Charles Eliot
             as Landscape Architect, all of whom are recognized as the founders of the Massachusetts Metropolitan Parks
             System. <br>In January of 1893, the Board issued a report to the Legislature recommending for the permanent
             establishment of a Metropolitan Park Commission. Also known as the Board of Metropolitan Park Commissioners, the
@@ -403,256 +504,314 @@
             communities to be known as the Metropolitan Parks District. The legislation set limits to be observed in
             acquiring property, but granted the commission authority to make and enforce regulations for its
             use.<br>Photographic portraits were made of each person who served on either the Preliminary Board or the
-            permanent MPC, including the five founders. The other portraits include Everett C. Benton; William L. Chase; 
-            Edwin B. Haskell; Augustus Hemenway; Thomas L. Livermore; Forrest C. Manchester; Abraham L. Richards; and James Jeffrey Roche. 
-            Many of these individuals were distinguished in their professions, both within and outside of Massachusetts. 
+            permanent MPC, including the five founders. The other portraits include Everett C. Benton; William L. Chase;
+            Edwin B. Haskell; Augustus Hemenway; Thomas L. Livermore; Forrest C. Manchester; Abraham L. Richards; and James Jeffrey Roche.
+            Many of these individuals were distinguished in their professions, both within and outside of Massachusetts.
             Nearly all of the photographs were made by the Boston photographic studio of Elmer Chickering.
         </div>
-        <div class="row">
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/1.jpg" alt="Edwin B. Haskell (1837–1907), ca. 1895" style="width:100%"
-                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                <center><p>Edwin B. Haskell (1837–1907), ca. 1895</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/2.jpg" alt="Forrest C. Manchester (1859–1899), ca. 1898" style="width:100%"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <center><p>Forrest C. Manchester (1859–1899),<br>ca. 1898</p></center>
-            </div>
-            <div class="clearfix2"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/3.jpg" alt="Charles Francis Adams (1835–1915), ca. 1892" style="width:100%"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                <center><p>Charles Francis Adams (1835–1915),<br>ca. 1892</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/4.jpg" alt="Philip A. Chase (1834–1903), ca. 1892" style="width:100%"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <center><p>Philip A. Chase (1834–1903), ca. 1892</p></center>
-            </div>
-            <div class="clearfix2"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/5.jpg" alt="Sylvester Baxter (1850–1927), ca. 1892" style="width:100%"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <center><p>Sylvester Baxter (1850–1927), ca. 1892</p></center>
-            </div>            
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/6.jpg" alt="Augustus Hemenway (1853–1931), ca. 1895" style="width:100%"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-                <center><p>Augustus Hemenway (1853–1931),<br>ca. 1895</p></center>
-            </div>
-            <div class="clearfix2"></div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/7.jpg" alt="Charles Eliot (1859–1897), ca. 1892" style="width:100%"
-                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
-                <center><p>Charles Eliot (1859–1897), ca. 1892</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/8.jpg" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%"
-                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
-                <center><p>William B. de las Casas (1857–1930), ca. 1892</p></center>
-            </div>
-            <div class="clearfix2"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/9.jpg" alt="James Jeffrey Roche (1847–1908), ca. 1893" style="width:100%"
-                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
-                <center><p>James Jeffrey Roche (1847–1908),<br>ca. 1893</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit2">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/10.jpg" alt="William L. Chase (1853–1895), ca. 1894" style="width:100%"
-                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
-                <center><p>William L. Chase (1853–1895), ca. 1894</p></center>
-            </div>
-            <div class="clearfix2"></div>
-            <div class="exhibit2">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/11.jpg" alt="Thomas L. Livermore (1844–1918), ca. 1897" style="width:100%"
-                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
-                <center><p>Thomas L. Livermore (1844–1918), ca. 1897</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div id="myModal" class="modal">
-                <span class="close cursor" onclick="closeModal()">&times;</span>
-                <div class="modal-content">
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1c5384fa-48c4-40ff-b399-bd5fa21e98eb/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/1.jpg" alt="Edwin B. Haskell (1837&ndash;1907), ca. 1895" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1c5384fa-48c4-40ff-b399-bd5fa21e98eb/">
-                                    Edwin B. Haskell (1837&ndash;1907), ca. 1895</a></item-title><br>
-                                    Commissioner
-                                    <div class="clearfix2"></div>
-                                    <a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_316f57dc-876d-4432-a9f4-f9af03410d73/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/2.jpg" alt="Forrest C. Manchester (1859&ndash;1899), ca. 1898" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_316f57dc-876d-4432-a9f4-f9af03410d73/">
-                                    Forrest C. Manchester (1859&ndash;1899), ca. 1898</a></item-title><br>
-                                    Commissioner
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/3.jpg" alt="Charles Francis Adams (1835&ndash;1915), ca. 1892" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">Charles Francis Adams (1835&ndash;1915), ca. 1892</a></item-title><br>
-                                    Founder & Chairman
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/4.jpg" alt="Philip A. Chase (1834&ndash;1903), ca. 1892" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">Philip A. Chase (1834&ndash;1903), ca. 1892</a></item-title><br>
-                                    Founder & Associate Board Member
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/5.jpg" alt="Sylvester Baxter (1850&ndash;1927), ca. 1892" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">Sylvester Baxter (1850&ndash;1927), ca. 1892</a></item-title><br>
-                                    Founder & Secretary
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/6.jpg" alt="Augustus Hemenway (1853&ndash;1931), ca. 1895" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">Augustus Hemenway (1853&ndash;1931), ca. 1895</a></item-title><br>
-                                    Commissioner
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/7.jpg" alt="Charles Eliot (1859&ndash;1897), ca. 1892" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">Charles Eliot (1859&ndash;1897), ca. 1892</a></item-title><br>
-                                    Founder & Landscape Architect
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/8.jpg" alt="William B. de las Casas (1857&ndash;1930), ca. 1892" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">William B. de las Casas (1857&ndash;1930), ca. 1892</a></item-title><br>
-                                    Founder & Associate Board Member
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/9.jpg" alt="James Jeffrey Roche (1847&ndash;1908), ca. 1893" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">James Jeffrey Roche (1847&ndash;1908), ca. 1893</a></item-title><br>
-                                        Commissioner
-                                        <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/10.jpg" alt="William L. Chase (1853&ndash;1895), ca. 1894" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">William L. Chase (1853&ndash;1895), ca. 1894</a></item-title><br>
-                                    Commissioner
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>&emsp;<divider>|</divider>&emsp;<a class="next" onclick="plusSlides(1)">Next&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">
-                        <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/11.jpg" alt="Thomas L. Livermore (1844&ndash;1918), ca. 1897" style="width:100%"></a>
-                        <div class="caption-container">
-                            <p id="caption">
-                                <item-title>
-                                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">Thomas L. Livermore (1844&ndash;1918), ca. 1897</a></item-title><br>
-                                    Commissioner
-                                    <div class="clearfix2"></div><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&emsp;Prev</a>
-                            </p>
-                        </div>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
+
+    <div class="row">
+        <!-- ITEM 1 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/1.jpg" alt="Edwin B. Haskell (1837–1907), ca. 1895" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Edwin B. Haskell (1837–1907), ca. 1895</p></center>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/2.jpg" alt="Forrest C. Manchester (1859–1899), ca. 1898" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>Forrest C. Manchester (1859–1899),<br>ca. 1898</p></center>
+        </div>
+        <div class="clearfix2"></div>
+
+        <!-- ITEM 3 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/3.jpg" alt="Charles Francis Adams (1835–1915), ca. 1892" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Charles Francis Adams (1835–1915),<br>ca. 1892</p></center>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- ITEM 4 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/4.jpg" alt="Philip A. Chase (1834–1903), ca. 1892" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Philip A. Chase (1834–1903), ca. 1892</p></center>
+        </div>
+        <div class="clearfix2"></div>
+
+        <!-- ITEM 5 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/5.jpg" alt="Sylvester Baxter (1850–1927), ca. 1892" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Sylvester Baxter (1850–1927), ca. 1892</p></center>
+        </div>
+
+        <!-- ITEM 6 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/6.jpg" alt="Augustus Hemenway (1853–1931), ca. 1895" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Augustus Hemenway (1853–1931),<br>ca. 1895</p></center>
+        </div>
+        <div class="clearfix2"></div>
+        <div class="clearfix"></div>
+
+        <!-- ITEM 7 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/7.jpg" alt="Charles Eliot (1859–1897), ca. 1892" style="width:100%"
+                onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            <center><p>Charles Eliot (1859–1897), ca. 1892</p></center>
+        </div>
+
+        <!-- ITEM 8 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/8.jpg" alt="William B. de las Casas (1857–1930), ca. 1892" style="width:100%"
+                onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            <center><p>William B. de las Casas (1857–1930), ca. 1892</p></center>
+        </div>
+        <div class="clearfix2"></div>
+
+        <!-- ITEM 9 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/9.jpg" alt="James Jeffrey Roche (1847–1908), ca. 1893" style="width:100%"
+                onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            <center><p>James Jeffrey Roche (1847–1908),<br>ca. 1893</p></center>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- ITEM 10 -->
+        <div class="exhibit2">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/10.jpg" alt="William L. Chase (1853–1895), ca. 1894" style="width:100%"
+                onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            <center><p>William L. Chase (1853–1895), ca. 1894</p></center>
+        </div>
+        <div class="clearfix2"></div>
+
+        <!-- ITEM 11 -->
+        <div class="exhibit2">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/11.jpg" alt="Thomas L. Livermore (1844–1918), ca. 1897" style="width:100%"
+                onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            <center><p>Thomas L. Livermore (1844–1918), ca. 1897</p></center>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- MODAL -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <!-- SLIDE 1 — first: Next only -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1c5384fa-48c4-40ff-b399-bd5fa21e98eb/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/1.jpg" alt="Edwin B. Haskell (1837&ndash;1907), ca. 1895" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1c5384fa-48c4-40ff-b399-bd5fa21e98eb/">Edwin B. Haskell (1837&ndash;1907), ca. 1895</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 2 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_316f57dc-876d-4432-a9f4-f9af03410d73/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/2.jpg" alt="Forrest C. Manchester (1859&ndash;1899), ca. 1898" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_316f57dc-876d-4432-a9f4-f9af03410d73/">Forrest C. Manchester (1859&ndash;1899), ca. 1898</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/3.jpg" alt="Charles Francis Adams (1835&ndash;1915), ca. 1892" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_9e58d063-3ecf-4a80-b61e-463e5aa928e3/">Charles Francis Adams (1835&ndash;1915), ca. 1892</a></item-title>
+                            Founder &amp; Chairman
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/4.jpg" alt="Philip A. Chase (1834&ndash;1903), ca. 1892" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_82113422-ec0d-4958-9a65-abb0ac781247/">Philip A. Chase (1834&ndash;1903), ca. 1892</a></item-title>
+                            Founder &amp; Associate Board Member
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/5.jpg" alt="Sylvester Baxter (1850&ndash;1927), ca. 1892" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_1758f5c6-2324-4fa5-81ea-20ef9a249daa/">Sylvester Baxter (1850&ndash;1927), ca. 1892</a></item-title>
+                            Founder &amp; Secretary
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/6.jpg" alt="Augustus Hemenway (1853&ndash;1931), ca. 1895" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_4c02d530-ccc5-467b-9ca4-de667b605780/">Augustus Hemenway (1853&ndash;1931), ca. 1895</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 7 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/7.jpg" alt="Charles Eliot (1859&ndash;1897), ca. 1892" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a318560d-abea-4f78-91c3-693ddf8de9e9/">Charles Eliot (1859&ndash;1897), ca. 1892</a></item-title>
+                            Founder &amp; Landscape Architect
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 8 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/8.jpg" alt="William B. de las Casas (1857&ndash;1930), ca. 1892" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_a511aebc-613b-4a33-99a9-256acb4ead64/">William B. de las Casas (1857&ndash;1930), ca. 1892</a></item-title>
+                            Founder &amp; Associate Board Member
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 9 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/9.jpg" alt="James Jeffrey Roche (1847&ndash;1908), ca. 1893" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_bddd27fc-c9b4-447c-bf35-ee80eaee8f51/">James Jeffrey Roche (1847&ndash;1908), ca. 1893</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 10 -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/10.jpg" alt="William L. Chase (1853&ndash;1895), ca. 1894" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_68436192-2225-4f1c-bd87-3b2480b68243/">William L. Chase (1853&ndash;1895), ca. 1894</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 11 — last: Prev only -->
+                <div class="mySlides">
+                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/mpc/11.jpg" alt="Thomas L. Livermore (1844&ndash;1918), ca. 1897" style="width:100%"></a>
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_551cffb9-aee4-4de3-a231-42e45811956f/">Thomas L. Livermore (1844&ndash;1918), ca. 1897</a></item-title>
+                            Commissioner
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_9cff659e-f584-42d9-908b-c57c6857b8e3">View Full Collection</a>&emsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div> 
-        <center><credit>Curated by: Yolande Bennett</credit></center>
-        <script>
-            function openModal() {
-                document.getElementById("myModal").style.display = "block";
-            }
+    </div>
 
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
-            }
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_9cff659e-f584-42d9-908b-c57c6857b8e3">View Full Collection</a>&ensp;&rsaquo;</div>
 
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
-        </script>
-    </body>
+    <script>
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
+    </script>
+</body>
 </html>
