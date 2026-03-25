@@ -1,574 +1,768 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text {
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
 
-            credit {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 225%;
-                text-align: center;
-            }
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #17183b;
+        }
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
-            }
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
 
-            item-title,
-            item-title a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
-            }
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
 
-            prev-next a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
 
-            prev-next a:hover {
-                text-decoration: underline;
-            }
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
+        }
 
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 12px;
+            line-height: 250%;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
 
-            view-collection a:hover {
-                text-decoration: underline;
-            }
+        div.next-exhibit a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
 
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 30px;
-                padding-bottom: 10px;
-                text-align: center;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-weight: 400;
-                text-align: left;
-                background-color: #ffffff;
-                padding-left: 125px;
-                padding-right: 125px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
-            .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
-            }
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
 
-            .exhibit p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
-            }
-        
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        
-            .exhibit {
-                float: left;
-                width: 33.3%;
-            }
-        
-            div.exhibit {
-                background-color: #fafafa;
-            }
-        
-            /* The Modal (background) */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #ffffff;
-            }
-        
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: #ffffff;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 850px;
-            }
-        
-            /* The Close Button */
-            .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
-            }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #17183b;
+            display: block;
+        }
+
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #181818;
+            margin: 0;
+        }
+
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
+
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
+
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix2:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.exhibit {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* 3-column grid */
+        .exhibit {
+            float: left;
+            width: 33.3%;
+        }
+
+        /* 2-column variant for the final row */
+        .exhibit.exhibit-half {
+            width: 50%;
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+            opacity: 1;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+            column-count: 2;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
             .mySlides {
                 display: none;
                 column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
-            }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
-                line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
-                text-align: left;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
-            }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
-            }
-        
-            img {
-                margin-bottom: -4px;
-            }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
-            }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-        
-            .demo {
-                opacity: 0.6;
-                transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-                transition: .6s ease;
-            }
-        
-            .exhibit img {
-                opacity: 1;
-                transition: .6s ease;
-            }
-        
-            .exhibit img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
-            }
-        
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
-            }
-                
-            div.next-exhibit a:hover {
-                text-decoration: underline;
-            }
 
-            @media (max-width: 980px) {
-                .mySlides {
-                display: none;
-                column-count: 1;
-                }
-        
-                p#caption {
+            p#caption {
                 padding-top: 10px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            item-title,
+            item-title a {
+                margin-top: 10px;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            .row>.exhibit {
+                padding: 10px;
             }
-        </style>
-    </head>
-    <body>
-        <div class="exhibit-text">
-			<strong-text>The period following the Revolution</strong-text>&ensp;was marked by great instability and change, driven by factors such as the end of monarchical rule, evolving government structures, religious divisions, social challenges, economic uncertainty, and significant population shifts. While the states had come together politically in 1777 under the Articles of Confederation, they were not yet a united nation; each state maintained individual sovereignty and functioned under its own constitution. Due to a lack of funds, Congress struggled to cover war debts, maintain the military, and support other government costs. The new ability to borrow money sparked entrepreneurial development, but as complications arose, new businesses collapsed and economic instability persisted. In 1787, a group of delegates developed a new Constitution to replace the Articles of Confederation, uniting the states as a single nation and helping to stabilize the economy.
+
+            .row:after {
+                padding-bottom: 30px;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .clearfix:after {
+                display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            /* half-width items stay 50% on tablet — they already are */
+            .exhibit.exhibit-half {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .exhibit-desc br {
+                display: none;
+            }
+
+            .row>.exhibit {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .row:after {
+                padding-bottom: 30px;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix:after {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .exhibit,
+            .exhibit.exhibit-half {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INTRO / DESCRIPTION BLOCK -->
+    <div class="exhibit-desc">
+        <div>
+            <strong-text>The period following the Revolution</strong-text>&ensp;was marked by great instability and change, driven by factors such as the end of monarchical rule, evolving government structures, religious divisions, social challenges, economic uncertainty, and significant population shifts. While the states had come together politically in 1777 under the Articles of Confederation, they were not yet a united nation; each state maintained individual sovereignty and functioned under its own constitution. Due to a lack of funds, Congress struggled to cover war debts, maintain the military, and support other government costs. The new ability to borrow money sparked entrepreneurial development, but as complications arose, new businesses collapsed and economic instability persisted. In 1787, a group of delegates developed a new Constitution to replace the Articles of Confederation, uniting the states as a single nation and helping to stabilize the economy.
         </div>
-        <div class="row">
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/1.jpeg" alt="Assorted notes from the State of Massachusetts Bay (later the Commonwealth of Massachusetts)" style="width:100%"
-                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                <center><p>Assorted notes from the<br>State of Massachusetts Bay</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://live.staticflickr.com/65535/54118967856_25c2c83ac5_o.png" alt="State of Massachusetts Bay treasury certificate, issued to Captain William Moore for 31 pounds, 2 shillings, and 4 pence" style="width:100%"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <center><p>State of Massachusetts Bay<br>treasury certificate, issued to<br>Captain William Moore<br><i>(Coming soon)</i></p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/3.jpeg" alt="Discharge paper for York Ruggles" style="width:100%"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                <center><p>Discharge paper for York Ruggles</p></center>
-            </div>
-            <div class="clearfix"></div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/4.jpeg" alt="Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton" style="width:100%"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <center><p>Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/5.jpeg" alt="Proclamation from Governor John Hancock related to Shay's Rebellion" style="width:100%"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <center><p>Proclamation from Governor John Hancock related to Shay's Rebellion</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/6.jpeg" alt="Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion, and the rebels killed during the encounter" style="width:100%"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-                <center><p>Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion</p></center>
-            </div>
-            <div class="clearfix"></div>            
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/7.jpeg" alt="Oath of allegiance sworn to Massachusetts with signatures" style="width:100%"
-                    onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
-                <center><p>Oath of allegiance sworn to Massachusetts with signatures</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/8.jpeg" alt="Paul Revere probate record" style="width:100%"
-                    onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
-                <center><p>Paul Revere probate record</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/9.jpeg" alt="James Otis Jr. probate record" style="width:100%"
-                    onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
-                <center><p>James Otis Jr. probate record</p></center>
-            </div>
-            <div class="clearfix"></div>            
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/10.jpeg" alt="Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)" style="width:100%"
-                    onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
-                <center><p>Lithograph showing the defeat of<br>the British army at the Battle of<br>New Orleans (1815)</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/11.jpeg" alt="French map of the 13 original states" style="width:100%"
-                    onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
-                <center><p>French map of the 13 original states</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/12.jpeg" alt="Plan of northern part of United States, as well as Nova Scotia and Canada" style="width:100%"
-                    onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
-                <center><p>Plan of northern part of United States, as well as Nova Scotia and Canada</p></center>
-            </div>
-            </div>
-            <div class="clearfix"></div>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
+
+    <!-- IMAGE GRID
+         Rows 1–3: 3-column (.exhibit, 33.3%), .clearfix after every 3rd item, .clearfix2 after every 2nd
+         Row 4: 2-column (.exhibit.exhibit-half, 50%), .clearfix2 after item 10 -->
+    <div class="row">
+
+        <!-- ITEM 1 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/1.jpeg" alt="Assorted notes from the State of Massachusetts Bay (later the Commonwealth of Massachusetts)" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Assorted notes from the State of Massachusetts Bay</p></center>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/3.jpeg" alt="Discharge paper for York Ruggles" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>Discharge paper for York Ruggles</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 2 on mobile -->
+
+        <!-- ITEM 3 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/4.jpeg" alt="Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row 1 (3-col) -->
+
+        <!-- ITEM 4 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/5.jpeg" alt="Proclamation from Governor John Hancock related to Shay's Rebellion" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Proclamation from Governor John Hancock related to Shay&rsquo;s Rebellion</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 4 on mobile -->
+
+        <!-- ITEM 5 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/6.jpeg" alt="Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion, and the rebels killed during the encounter" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Letter from Major General William Shepard, providing a first-hand account of his militia&rsquo;s defense of the Springfield armory during Shay&rsquo;s rebellion</p></center>
+        </div>
+
+        <!-- ITEM 6 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/7.jpeg" alt="Oath of allegiance sworn to Massachusetts with signatures" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Oath of allegiance sworn to Massachusetts with signatures</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 6 on mobile -->
+        <div class="clearfix"></div><!-- end of desktop row 2 (3-col) -->
+
+        <!-- ITEM 7 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/8.jpeg" alt="Paul Revere probate record" style="width:100%"
+                onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            <center><p>Paul Revere probate record</p></center>
+        </div>
+
+        <!-- ITEM 8 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/9.jpeg" alt="James Otis Jr. probate record" style="width:100%"
+                onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            <center><p>James Otis Jr. probate record</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 8 on mobile -->
+
+        <!-- ITEM 9 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/10.jpeg" alt="Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)" style="width:100%"
+                onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            <center><p>Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row 3 (3-col) -->
+
+        <!-- ITEM 10 — 2-col row begins -->
+        <div class="exhibit exhibit-half">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/11.jpeg" alt="French map of the 13 original states" style="width:100%"
+                onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            <center><p>French map of the 13 original states</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 10 on mobile -->
+
+        <!-- ITEM 11 -->
+        <div class="exhibit exhibit-half">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/12.jpeg" alt="Plan of northern part of United States, as well as Nova Scotia and Canada" style="width:100%"
+                onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            <center><p>Plan of northern part of United States, as well as Nova Scotia and Canada</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row 4 (2-col) -->
+
+        <!-- ============================================================
+             MODAL
+             ============================================================ -->
         <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
+
+                <!-- SLIDE 1 — first slide: Next only -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/1.jpeg" alt="Assorted notes from the State of Massachusetts Bay (later the Commonwealth of Massachusetts)" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/1.jpeg" style="width:100%" alt="Assorted notes from the State of Massachusetts Bay (later the Commonwealth of Massachusetts)"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="">Assorted notes from the State of Massachusetts Bay<br>(later the Commonwealth of Massachusetts)</a></item-title>
-                            <center><a class="next" onclick="plusSlides(1)">Next</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></center>          
+                            <item-title><a href="">Assorted notes from the State of Massachusetts Bay (later the Commonwealth of Massachusetts)</a></item-title>
+                            <div class="nav-bar">
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 2 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://live.staticflickr.com/65535/54118967856_25c2c83ac5_o.png" alt="State of Massachusetts Bay treasury certificate, issued to Captain William Moore for 31 pounds, 2 shillings, and 4 pence" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <item-title><a href="">State of Massachusetts Bay treasury certificate, issued to Captain William Moore for 31 pounds, 2 shillings, and 4 pence<br>(Coming soon)</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
-                        </p>
-                    </div>
-                </div>
-                <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/3.jpeg" alt="Discharge paper for York Ruggles" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/3.jpeg" style="width:100%" alt="Discharge paper for York Ruggles"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Discharge paper for York Ruggles</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 3 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/4.jpeg" alt="Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/4.jpeg" style="width:100%" alt="Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Proclamation of Massachusetts governor James Bowdoin to suppress riots, instigated by disorder at the courthouse in Northampton</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 4 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/5.jpeg" alt="Proclamation from Governor John Hancock related to Shay's Rebellion" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/5.jpeg" style="width:100%" alt="Proclamation from Governor John Hancock related to Shay's Rebellion"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="">Proclamation from Governor John Hancock related to Shay's Rebellion</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="">Proclamation from Governor John Hancock related to Shay&rsquo;s Rebellion</a></item-title>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 5 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/6.jpeg" alt="Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion, and the rebels killed during the encounter" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/6.jpeg" style="width:100%" alt="Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion, and the rebels killed during the encounter"></a>
                     <div class="caption-container">
                         <p id="caption">
-                            <item-title><a href="">Letter from Major General William Shepard, providing a first-hand account of his militia's defense of the Springfield armory during Shay's rebellion, and the rebels killed during the encounter</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <item-title><a href="">Letter from Major General William Shepard, providing a first-hand account of his militia&rsquo;s defense of the Springfield armory during Shay&rsquo;s rebellion, and the rebels killed during the encounter</a></item-title>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 6 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/7.jpeg" alt="Oath of allegiance sworn to Massachusetts with signatures" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/7.jpeg" style="width:100%" alt="Oath of allegiance sworn to Massachusetts with signatures"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Oath of allegiance sworn to Massachusetts with signatures</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 7 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/8.jpeg" alt="Paul Revere probate record" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/8.jpeg" style="width:100%" alt="Paul Revere probate record"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Paul Revere probate record</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 8 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/9.jpeg" alt="James Otis Jr. probate record" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/9.jpeg" style="width:100%" alt="James Otis Jr. probate record"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">James Otis Jr. probate record</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 9 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/10.jpeg" alt="Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/10.jpeg" style="width:100%" alt="Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Lithograph showing the defeat of the British army at the Battle of New Orleans (1815)</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 10 -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/11.jpeg" alt="French map of the 13 original states" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/11.jpeg" style="width:100%" alt="French map of the 13 original states"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">French map of the 13 original states</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
+                <!-- SLIDE 11 — last slide: Prev only -->
                 <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/12.jpeg" alt="Plan of northern part of United States, as well as Nova Scotia and Canada" style="width:100%"></a>
+                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/postrev/12.jpeg" style="width:100%" alt="Plan of northern part of United States, as well as Nova Scotia and Canada"></a>
                     <div class="caption-container">
                         <p id="caption">
                             <item-title><a href="">Plan of northern part of United States, as well as Nova Scotia and Canada</a></item-title>
-                                <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>          
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                            </div>
                         </p>
                     </div>
                 </div>
+
             </div>
         </div>
-        <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/minorities-and-the-revolution">Minorities and the Revolution</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-        <center><credit>Curated by: Colette Pollauf<br>With Assistance From: Yolande Bennett &amp; Elizabeth O'Connell</credit></center>
+    </div>
+
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/minorities-and-the-revolution">Minorities and the Revolution</a>&ensp;&rsaquo;</div>
+
     <script>
-            function openModal() {
-                document.getElementById("myModal").style.display = "block";
-            }
-
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
-            }
-
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
     </script>
-    </body>
+</body>
 </html>
