@@ -1,329 +1,305 @@
-<html>
-	<head>
-		<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap');
+
+		:root {
+			--navy: #17183b;
+			--ink: #181818;
+			--mist: #E8E8EB;
+			--fog: #f4f4f6;
+			--white: #FAFAFA;
+			--rule: #d0d0d6;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: var(--white);
+			color: var(--ink);
+		}
+
+		/* ── Banner ── */
+
+		.description-banner {
+			width: 100%;
+			position: relative;
+			background-color: var(--white);
+			overflow: hidden;
+			max-height: 420px;
+		}
+
+		.description-banner img {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: cover;
+			transition: opacity 0.6s ease;
+		}
+
+		.description-banner:hover img {
+			opacity: 0.88;
+		}
+
+		.color-overlay {
+			position: absolute;
+			inset: 0;
+			opacity: 0;
+			transition: opacity 0.6s ease;
+			background-color: var(--navy);
+			z-index: 1;
+		}
+
+		.description-banner:hover .color-overlay {
+			opacity: 0.85;
+		}
+
+		.overlay-text,
+		.overlay-text a {
+			color: var(--white);
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 18px;
+			line-height: 24px;
+			font-weight: 600;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			white-space: nowrap;
+			text-decoration: none;
+			opacity: 0;
+			transition: opacity 0.6s ease;
+			z-index: 2;
+		}
+
+		.description-banner:hover .overlay-text {
+			opacity: 1;
+		}
+
+		.overlay-text:hover,
+		.overlay-text a:hover {
+			text-decoration: underline 2px;
+		}
+
+		/* ── Body layout ── */
+
+		.page-body {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
+
+		/* ── Description ── */
+
+		.description-wrap {
+			padding: 36px 0 28px;
+			border-bottom: 1px solid var(--rule);
+			margin-bottom: 32px;
+		}
+
+		.description {
+			column-count: 2;
+			column-gap: 48px;
+			column-fill: balance;
+		}
+
+		.description p {
+			font-family: 'DM Sans', sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 175%;
+			color: #2a2a2a;
+		}
+
+		.description a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.description a:hover {
+			text-decoration: underline;
+		}
+
+		strong-text {
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 15px;
+			font-weight: 600;
+			color: var(--navy);
+		}
+
+		view-collection a {
+			font-family: 'Space Mono', sans-serif;
+			font-size: 11px;
+			text-transform: uppercase;
+			color: var(--navy);
+			font-weight: 400;
+			letter-spacing: 0.04em;
+			text-decoration: none;
+		}
+
+		view-collection a:hover {
+			text-decoration: underline;
+		}
+
+		/* ── Exhibits section ── */
+
+		.exhibits-header {
+			margin-bottom: 20px;
+		}
+
+		subheader {
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 20px;
+			font-weight: 600;
+			color: var(--navy);
+			display: block;
+		}
+
+		/* ── Featured grid ── */
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 12px;
+			margin-bottom: 40px;
+		}
+
+		.featured-item {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.featured-item img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			display: block;
+			opacity: 1;
+			transition: opacity 0.5s ease;
+		}
+
+		.featured-item:hover img {
+			opacity: 0.75;
+		}
+
+		.collection-title {
+			background-color: var(--mist);
+			padding: 12px;
+			flex: 1;
+		}
+
+		.collection-title a {
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 150%;
+			color: var(--ink);
+			text-decoration: none;
+		}
+
+		.collection-title a:hover {
+			text-decoration: underline 2px;
+		}
+
+		.collection-title p {
+			font-family: 'DM Sans', sans-serif;
+			font-size: 11.25px;
+			line-height: 150%;
+			font-weight: 400;
+			color: var(--ink);
+			margin-top: 7px;
+		}
+
+		/* ── Responsive ── */
+
+		@media only screen and (max-width: 860px) {
+			.description-banner {
+				height: 300px;
+			}
+
+			.description-banner img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+
 			.description {
-				column-count: 2;
-				max-width: 1000px;
-				padding-top: 5px;
+				column-count: 1;
 			}
-			
-			.description p {
-				font-family: 'DM Sans', sans-serif;
-				font-weight: 400;
-				font-size: 14px;
-				line-height: 170%;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.description-banner {
+				height: 200px;
 			}
 
-            credit { /* Credit text at bottom of page */
-				font-family: 'Space Mono', sans-serif;
-                font-size: 10px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
-            }
-
-            view-collection a {
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
-
-            view-collection a:hover {
-                text-decoration: underline;
-            }
-
-			.description a:hover {
-				text-decoration: underline;
+			.grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 8px;
 			}
 
-			description-strong {
-				font-family: 'DM Sans', sans-serif;
-				font-size: 20px;
-				font-weight: 500;
-				line-height: 170%;
-				margin-bottom: 30px;
-				color: #17183b;
+			.overlay-text, .color-overlay {
+				display: none;
 			}
 
-            strong-text {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-                color: #17183b;
-            }
-
-			description-small, description-small a {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 13px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 300%;
+			.description-wrap {
+				padding: 24px 0 20px;
 			}
 
-			description-small a:hover {
-				font-family: 'Space Mono', sans-serif;
-                font-size: 13px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 300%;
-				text-decoration: underline;
-			} 
-
-            .clearfix2 {
-                padding: 8px;
-            }
-
-			.homepage-banner img {
-                opacity: 1;
-                vertical-align: middle;
-                width: 100%;
-                height: auto;
-            }
-
-            .homepage-banner img:hover {
-                opacity: 0.7;
-                transition: .6s ease;
-            }
-
-            .color-overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: .6s ease;
-                background-color: #17183b;
-            }
-
-            .overlay-text,
-            .overlay-text a {
-                color: #FAFAFA;
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                line-height: 24px;
-                font-weight: 600;
-                position: absolute;
-                top: 52%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-			.overlay-text:hover, .overlay-text a:hover {
-				text-decoration: underline 2px;
+			.page-body {
+				padding: 0 16px;
 			}
 
-            .description-banner {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-            }
-
-            .description-banner {
-                float: center;
-                width: 100%;
-                position: relative;
-            }
-
-            .description-banner:hover .color-overlay {
-                opacity: 0.9;
-            }
-
-            div.description-banner {
-                background-color: #FAFAFA;
-            }
-
-            div.exhibits-item {
-				border: none;
+			.collection-title a {
+				font-size: 12px;
 			}
 
-			div.exhibits-item:hover {
-				border: none;
+			.collection-title p {
+				font-size: 10.5px;
 			}
+		}
+	</style>
+</head>
+<body>
+	<div class="description-banner">
+		<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/banner.png" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" />
+		<div class="color-overlay"></div>
+		<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3552dd45-27ae-4acf-8c19-e7ff2238d94a/" class="overlay-text">Spot Pond Reservoir, Vicinity of Spring at Porter Cove,<br>Stoneham, Mass., Aug. 27, 1916</a>
+	</div>
 
-			div.exhibits-item img {
-				width: 100%;
-				height: auto;
-				opacity: 1;
-                transition: .6s ease;
-			}
-
-			div.exhibits-item img:hover {
-				width: 100%;
-				height: auto;
-				opacity: 0.7;
-				transition: .6s ease;
-			}
-
-			div.collection-title, div.collection-title a {
-				text-align: center;
-				color: #181818;
-				font-family: 'DM Sans', sans-serif;
-				font-size: 15px;
-				line-height: 140%;
-				font-weight: 500;
-                padding-top: 12px;
-			}
-
-			* {
-				box-sizing: border-box;
-			}
-
-			.exhibits {
-				padding: 25px;
-                padding-bottom: 10px;
-                padding-top: 10px;
-				float: left;
-				width: 50%;
-			}
-			
-			.clearfix:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding-bottom: 10px;
-			}
-
-            .clearfix3:after {
-				content: "";
-				display: table;
-				clear: both;
-			}
-
-            @media only screen and (max-width: 980px) {
-                .description {
-					column-count: 1;
-				}
-
-                .description-banner img {
-                    object-fit: cover;
-                    width: auto;
-                    height: 250px;   
-                }
-
-                br {
-                    display: none;
-                }
-
-                view-collection {
-                    display: none;
-                }
-            }
-
-			@media only screen and (max-width: 700px) {
-				.exhibits {
-					width: 49.99999%;
-					margin: 6px 0;
-                    padding: 10px;
-                    padding-bottom: 5px;
-				}
-
-				.exhibits {
-					width: 100%;
-                    padding: 10px;
-                    margin: 6px 0;
-                    padding-bottom: 5px;
-				}
-
-				.description {
-					column-count: 1;
-				}
-
-                br {
-                    display: none;
-                }
-
-				.overlay-text, .color-overlay {
-					display: none;
-				}
-
-                .clearfix2 {
-                    padding: 8px;
-                }
-
-                .exhibits {
-                    padding: 10px;
-                    padding-top: 0px;
-                }
-
-                .clearfix {
-                    display: none;
-                }
-
-                .exhibit-text p {
-					padding-top: 0px;
-				}
-
-                .description description-strong, .description description-strong i {
-                    font-size: 16px;
-                    line-height: 170%;
-                }
-
-                .description strong-text {
-                    font-size: 18px;
-                }
-
-                .description description-small, .description description-small a {
-                    font-size: 12px;
-                }
-
-                .exhibits .collection-title, .exhibits .collection-title a {
-                    font-size: 14px;
-					text-align: left;
-					line-height: 160%;
-                }
-
-                h2 {
-                    font-size: 22px;
-                }
-
-				credit {
-					font-size: 11px;
-				}
-
-                view-collection {
-                    display: none;
-                }
-            }
-		</style>
-	</head>
-	<body>
-		<div class="description-banner">
-			<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/banner.png" style="width:100%" alt="Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916" />
-			<div class="color-overlay">
-				<a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_3552dd45-27ae-4acf-8c19-e7ff2238d94a/">
-				  <div class="overlay-text">Spot Pond Reservoir, Vicinity of Spring at Porter Cove, Stoneham, Mass., Aug. 27, 1916</div></a>
-			  </div>
-		</div>
-		<div class="clearfix2"></div>
-        <div class="description">
-        <p><strong-text>The Metropolitan Water Works Photograph Collection</strong-text>&ensp;documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (description) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam. <br>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing description facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. These formats include dry plate glass negatives, glass lantern slides, and photographic prints.<br>
-        <view-collection><a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></view-collection></p></div>
-        <div class="clearfix3"></div>
-		<div class="exhibits">
-			<div class="exhibits-item">
-				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people.png" alt="Portrait, Mass., ca. 1900-1919" style="width:99.5%">
+	<div class="page-body">
+		<div class="description-wrap">
+			<div class="description">
+				<p><strong-text>The Metropolitan Water Works Photograph Collection </strong-text>documents the real estate takings for, and the construction and operations of the Metropolitan Water Works (MWW) system, as well as the expansion of a water supply distribution system throughout metropolitan Boston. The construction of the Boston Water Board between 1890 and 1895 is also documented, representing the Hopkinton Reservoir and Dam, and Sudbury Reservoir and Dam.</p>
+				<p>Between 1876 and 1930, over 8,000 meticulously labeled photographs of various formats were taken of each phase of the construction by staff photographers and engineers, representing MWW facilities in about fifty Massachusetts cities, towns, and Boston neighborhood districts. These formats include dry plate glass negatives, glass lantern slides, and photographic prints. Browse our curated digital exhibits below, or view the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_0e0ec1d1-cc38-48e8-9ca4-a40c6b8fd267">full Metropolitan Water Works Photograph Collection</a>.</p>
 			</div>
-			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww-people/">People</a></div>
 		</div>
-        <div class="exhibits">
-			<div class="exhibits-item">
-				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/buildings.png" alt="Distribution Department, Low Service Spot Pond Reservoir, Ducks in Dark Hollow Pond, Stoneham, Mass., Sep. 8, 1903" style="width:100%">
+
+		<div class="exhibits-header">
+			<subheader>Exhibits</subheader>
+		</div>
+
+		<div class="grid">
+			<div class="featured-item">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/people.png" alt="Portrait, Mass., ca. 1900–1919">
+				<div class="collection-title">
+					<a href="https://digitalarchives.sec.state.ma.us/mww-people/">People</a>
+				</div>
 			</div>
-			<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/mww-buildings">Buildings, Landscapes &amp; Streetscapes</a></div>
+			<div class="featured-item">
+				<img src="https://massarchives.github.io/archivesdigexhibits.github.io/mww/buildings.png" alt="Distribution Department, Low Service Spot Pond Reservoir, Ducks in Dark Hollow Pond, Stoneham, Mass., Sep. 8, 1903">
+				<div class="collection-title">
+					<a href="https://digitalarchives.sec.state.ma.us/mww-buildings">Buildings, Landscapes &amp; Streetscapes</a>
+				</div>
+			</div>
 		</div>
-        <div class="clearfix2"></div>
-	</body>
+	</div>
+</body>
 </html>
