@@ -1,530 +1,731 @@
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head>
-        <style>
-            .exhibit-text { /* Exhibit description text */
-                column-count: 2;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 400;
-                font-size: 14px;
-                padding-bottom: 5px;
-                line-height: 170%;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
+
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
+
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 12px;
+            line-height: 250%;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.next-exhibit a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #17183b;
+            display: block;
+        }
+
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #181818;
+            margin: 0;
+        }
+
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
+
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
+
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix2:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.exhibit {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* 3-column grid */
+        .exhibit {
+            float: left;
+            width: 33.3%;
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .slide-inner {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .slide-img {
+            flex: 0 0 55%;
+            max-width: 55%;
+        }
+
+        .slide-img img {
+            width: 100%;
+            display: block;
+        }
+
+        .slide-text {
+            flex: 1 1 auto;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        divider {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
+            .mySlides {
+                display: none;
             }
 
-            strong-text { /* Makes the first few lines of the exhibit description bold */
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                color: #17183b;
+            .slide-inner {
+                flex-direction: column;
+                gap: 0;
             }
 
-            credit { /* Credit text at bottom of page */
-				font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-                text-align: center;
+            .slide-img {
+                flex: 0 0 100%;
+                max-width: 100%;
             }
 
-            div.next-exhibit, div.next-exhibit a {
-                text-align: right;
-                padding-top: 0px;
-                font-size: 13px;
-                line-height: 140%;
-                font-weight: 400;
-                padding-bottom: 50px;
-                text-transform: uppercase;
-                font-family: 'Space Mono', sans-serif;
+            .exhibit-desc {
+                column-count: 1;
             }
-                
-            div.next-exhibit a:hover {
-                text-decoration: underline;
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            p#caption {
+                padding-top: 12px;
             }
 
             item-title,
-            item-title a { /* Item title that shows up after clicking on image */
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 150%;
-                font-style: italic;
-                color: #181818;
-                display: inline-block;
-            }
-            
-            item-title a:hover {
-                text-decoration: underline;
+            item-title a {
+                margin-top: 10px;
             }
 
-            prev-next a { /* 'Previous' and 'Next' links */
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 150%;
-            }
-
-            prev-next a:hover {
-                text-decoration: underline;
-            }
-
-            view-collection a { /* 'View Collection' link */
-                font-family: 'Space Mono', sans-serif;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #17183b;
-                font-weight: 400;
-                line-height: 250%;
-            }
-
-            view-collection a:hover {
-                text-decoration: underline;
-            }
-
-            body {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                font-weight: 400;
-                color: #181818;
-                margin: 0;
-            }
-            
-            divider {
-                color: #D1D1D8;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                }
-        
-            p#caption {
-                padding-top: 15px;
-                padding-bottom: 10px;
-                text-align: justify;
-                font-size: 13px;
-                line-height: 150%;
-            }
-
-            caption {
-                text-align: justify;
-                font-size: 13px;
-                line-height: 150%;
-            }
-        
-            .caption-container { 
-                font-family: 'DM Sans', sans-serif;
-                font-size: 13px;
-                line-height: 170%;
-                font-weight: 400;
-                text-align: justify;
-                background-color: #FAFAFA;
-                padding-left: 55px;
-                padding-right: 55px;
-                color: #181818;
-            }
-        
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            .clearfix2 {
-                padding-bottom: 15px;
-            }
-
-            .clearfix3 {
-                padding-bottom: 15px;
-            }
-        
-            * {
-                box-sizing: border-box;
-            }
-        
             .row>.exhibit {
-                padding: 30px;
-                padding-bottom: 0px;
+                padding: 8px;
+                padding-bottom: 0;
             }
 
-            .row>.exhibit2 {
-                padding: 30px;
-                padding-bottom: 0px;
+            .exhibit p {
+                display: none;
             }
 
-            .exhibit p, .exhibit2 p {
-                padding: 15px;
-                font-size: 12px;
-                line-height: 150%;
-                font-weight: 400;
-            }
-        
-            .row:after {
+            .clearfix2:after {
                 content: "";
-                display: table;
+                display: block;
                 clear: both;
             }
-        
-            .exhibit {
-                float: left;
-                width: 33.3%;
+
+            .clearfix, .clearfix:after {
+                display: none;
             }
 
-            .exhibit2 {
+            /* 2-col on mobile */
+            .exhibit {
                 float: left;
                 width: 50%;
             }
-        
-            div.exhibit, div.exhibit2 {
-                background-color: #FAFAFA;
-            }
-        
-            /* The Modal (background) */
+
             .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                padding: 25px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: #FAFAFA;
+                padding: 0;
             }
-        
-            /* Modal Content */
+
             .modal-content {
-                position: relative;
-                background-color: #FAFAFA;
-                margin: auto;
-                padding: 75px;
-                margin-top: 25px;
-                width: 100%;
-                max-width: 850px;
+                padding: 70px 12px 24px 12px;
             }
-        
-            /* The Close Button */
+
             .close {
-                color: #17183b;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                font-size: 40px;
-                font-weight: 500;
-                z-index: 1;
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
             }
-        
-            .close:hover,
-            .close:focus {
-                color: #101129;
-                text-decoration: none;
-                cursor: pointer;
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
             }
-        
-            .mySlides {
-                display: none;
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .exhibit-desc {
                 column-count: 1;
             }
-        
-            .cursor {
-                cursor: pointer;
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
             }
-        
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                top: 98%;
-                width: 100%;
-                max-width: 400px;
-                color: #17183b;
-                font-size: 12px;
-                line-height: 200%;
-                font-family: 'Space Mono', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
-                text-align: left;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
+
+            .row>.exhibit {
+                padding: 6px;
+                padding-bottom: 0;
             }
-            
-            .prev:hover,
-            .next:hover {
-                font-style: italic;
-                text-decoration: none;
-            }
-        
-            img {
-                margin-bottom: -4px;
-            }
-        
-            img.hover-shadow.cursor,
-            img.demo.cursor.active,
-            img.demo.cursor {
-                border-radius: 0px;
-            }
-        
-            img.demo.cursor.active,
-            img.demo.cursor {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-        
-            .demo {
-                opacity: 0.6;
-				transition: .6s ease;
-            }
-        
-            .active,
-            .demo:hover {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img, .exhibit2 img {
-                opacity: 1;
-				transition: .6s ease;
-            }
-        
-            .exhibit img:hover, .exhibit2 img:hover {
-                opacity: 0.7;
-				transition: .6s ease;
-            }
-        
-            @media (max-width: 980px) {
-                .mySlides {
+
+            .exhibit p {
                 display: none;
-                column-count: 1;
-                }
-        
-                p#caption {
-                padding-top: 0px;
-                }
-        
-                item-title,
-                item-title a {
-                    margin-top: 10px;
-                }
-        
-                .row>.exhibit, .row>.exhibit2 {
-                    padding: 5px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
-
-                .exhibit p {
-                    display: none;
-                }
             }
-        
-            @media (max-width: 400px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            .clearfix, .clearfix:after {
+                display: none;
             }
-        
-            @media (max-width: 600px) {
-                .caption-container {
-                    padding-left: 25px;
-                    padding-right: 25px;
-                }
-        
-                .exhibit-text {
-                    column-count: 1;
-                }
-        
-                .modal-content {
-                    padding: 25px;
-                    padding-top: 50px;
-                }
 
-                .exhibit p {
-                    display: none;
-                }
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
             }
-        </style>
-        </head>
-    <body>
-        <div class="exhibit-text">
-            <strong-text>Despite the many white, male victims</strong-text>&ensp;of the Trials, it was primarily women and people of color who endured the brunt of Salem’s wrath. In addition to the three women of color in Salem Village, nearly eighty percent of the Salem Witch Trials' victims were women. The answer to why this was can be found within the Puritan religion itself. Puritans believed that women were naturally more sinful than men, and more predisposed to damnation. Though this group believed that all people were equal in the eyes of God, they could not say the same for the Devil.<br>Outside of these firmly-held Puritanical values, New England society in the 17th century was deeply patriarchal, and women were inherently at risk. The documents below demonstrate the ways in which racial and gender discrimination were at the center of the Salem Witch Trials.</div>
-            <div class="row">
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00032_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Tituba" style="width:100%"
-                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                <center><p>Deposition of Elizabeth Hubbard<br>v. Tituba</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00037_001.jpeg" alt="Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard" style="width:100%"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <center><p>Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard</p></center>
-            </div>
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00027_001.jpeg" alt="Deposition of Ann Putnam Jr. v. Sarah Osborne" style="width:100%"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                <center><p>Deposition of Ann Putnam Jr.<br>v. Sarah Osborne</p></center>
-            </div>
-            <div class="clearfix"></div>    
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0003_00033_001.jpeg" alt="Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop" style="width:100%"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <center><p>Statement of Elizabeth Hubbard<br>v. Mary Warren and Bridget Bishop</p></center>
-            </div>  
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0004_00016_001.jpeg" alt="Examinations of Abigail Hobbs in prison" style="width:100%"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <center><p>Examinations of Abigail Hobbs<br>in prison</p></center>
-            </div> 
-            <div class="exhibit">
-                <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0014_00029_001.jpeg" alt="Testimony of Samuel Sibley v. Sarah Good" style="width:100%"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-                <center><p>Testimony of Samuel Sibley<br>v. Sarah Good</p></center>
-            </div>             
-            <div class="clearfix"></div>
-            <div id="myModal" class="modal">
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INTRO / DESCRIPTION BLOCK -->
+    <div class="exhibit-desc">
+        <div>
+            <strong-text>Despite the many white, male victims </strong-text>of the Trials, it was primarily women and people of color who endured the brunt of Salem's wrath. In addition to the three women of color in Salem Village, nearly eighty percent of the Salem Witch Trials' victims were women. The answer to why this was can be found within the Puritan religion itself. Puritans believed that women were naturally more sinful than men, and more predisposed to damnation. Though this group believed that all people were equal in the eyes of God, they could not say the same for the Devil. Outside of these firmly-held Puritanical values, New England society in the 17th century was deeply patriarchal, and women were inherently at risk. The documents below demonstrate the ways in which racial and gender discrimination were at the center of the Salem Witch Trials.
+        </div>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
+
+    <!-- IMAGE GRID — 3-column, two rows of 3 -->
+    <div class="row">
+
+        <!-- ITEM 1 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00032_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Tituba" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Deposition of Elizabeth Hubbard <br>v. Tituba</p></center>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00037_001.jpeg" alt="Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 2 on mobile -->
+
+        <!-- ITEM 3 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00027_001.jpeg" alt="Deposition of Ann Putnam Jr. v. Sarah Osborne" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Deposition of Ann Putnam Jr. v. <br>Sarah Osborne</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row 1 -->
+
+        <!-- ITEM 4 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0003_00033_001.jpeg" alt="Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop</p></center>
+        </div>
+
+        <!-- ITEM 5 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0004_00016_001.jpeg" alt="Examinations of Abigail Hobbs in prison" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Examinations of Abigail Hobbs <br>in prison</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 5 on mobile -->
+
+        <!-- ITEM 6 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0014_00029_001.jpeg" alt="Testimony of Samuel Sibley v. Sarah Good" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Testimony of Samuel Sibley v. <br>Sarah Good</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row 2 -->
+
+        <!-- MODAL -->
+        <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
+
+                <!-- SLIDE 1 — first slide: Next only -->
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_784da853-8f62-4b59-8630-e3065e09d796/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00032_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Tituba" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_784da853-8f62-4b59-8630-e3065e09d796/">Deposition of Elizabeth Hubbard v. Tituba</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            Given that she was one of the only people of color in Salem Village, it is not surprising that Tituba was the first person to be accused in the Salem Witch Trials&mdash; and she was not alone. The two other enslaved women in Salem, Candy and Mary Black, were likewise accused of witchcraft, meaning that all women of color in the village were accused. The only non-white person to escape persecution was John Indian, and that was because he testified. Additionally, their statuses as slaves meant that these women were not fully considered people, making it even easier to target them.
-                            <div class="clearfix2"></div>
-                            <center><a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>   
-                        </p>
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_784da853-8f62-4b59-8630-e3065e09d796/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00032_001.jpeg" alt="Deposition of Elizabeth Hubbard v. Tituba"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_784da853-8f62-4b59-8630-e3065e09d796/">Deposition of Elizabeth Hubbard v. Tituba</a></item-title>
+                                <caption>Given that she was one of the only people of color in Salem Village, it is not surprising that Tituba was the first person to be accused in the Salem Witch Trials&mdash; and she was not alone. The two other enslaved women in Salem, Candy and Mary Black, were likewise accused of witchcraft, meaning that all women of color in the village were accused. The only non-white person to escape persecution was John Indian, and that was because he testified. Additionally, their statuses as slaves meant that these women were not fully considered people, making it even easier to target them.</caption>
+                                <div class="nav-bar">
+                                    <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SLIDE 2 — middle slide: Prev | Next -->
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_daa4911e-9047-4395-8f65-de3d47437aa3/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00037_001.jpeg" alt="Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_daa4911e-9047-4395-8f65-de3d47437aa3/">Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            Martha Corey, wife of Giles Corey, had a controversial reputation in Salem Village. This was not only due to her husband’s past, but also because more than twenty years prior to the Salem Witch Trials, she had a child out of wedlock who was of mixed race, either African or Native American. This made her a natural target for the Puritans, who were outraged by what they considered to be a sinful and shameful past. She was executed on September 22, 1692, three days after her husband was crushed to death.
-                            <div class="clearfix2"></div>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
-                        </p>
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_daa4911e-9047-4395-8f65-de3d47437aa3/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00037_001.jpeg" alt="Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_daa4911e-9047-4395-8f65-de3d47437aa3/">Indictment No. 1 of Martha Corey for afflicting Elizabeth Hubbard</a></item-title>
+                                <caption>Martha Corey, wife of Giles Corey, had a controversial reputation in Salem Village. This was not only due to her husband's past, but also because more than twenty years prior to the Salem Witch Trials, she had a child out of wedlock who was of mixed race, either African or Native American. This made her a natural target for the Puritans, who were outraged by what they considered to be a sinful and shameful past. She was executed on September 22, 1692, three days after her husband was crushed to death.</caption>
+                                <div class="nav-bar">
+                                    <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                    <divider>|</divider>
+                                    <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SLIDE 3 — middle slide: Prev | Next -->
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_d3b56779-a786-4a6a-ad8e-c43a7da1aac7/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00027_001.jpeg" alt="Deposition of Ann Putnam Jr. v. Sarah Osborne" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_d3b56779-a786-4a6a-ad8e-c43a7da1aac7/">Deposition of Ann Putnam Jr. v. Sarah Osborne</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            As an enemy of the Putnams, and the subject of scandal regarding her premarital sexual relationship with an immigrant indentured servant, Sarah Osborne was clearly vulnerable to persecution. However, it was her status as a woman seeking wealth and power&mdash; taking that wealth and power from men, no less&mdash; which made her a threat to the Puritan way of life as well.
-                            <div class="clearfix2"></div>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
-                        </p>
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_d3b56779-a786-4a6a-ad8e-c43a7da1aac7/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0001_00027_001.jpeg" alt="Deposition of Ann Putnam Jr. v. Sarah Osborne"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_d3b56779-a786-4a6a-ad8e-c43a7da1aac7/">Deposition of Ann Putnam Jr. v. Sarah Osborne</a></item-title>
+                                <caption>As an enemy of the Putnams, and the subject of scandal regarding her premarital sexual relationship with an immigrant indentured servant, Sarah Osborne was clearly vulnerable to persecution. However, it was her status as a woman seeking wealth and power&mdash; taking that wealth and power from men, no less&mdash; which made her a threat to the Puritan way of life as well.</caption>
+                                <div class="nav-bar">
+                                    <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                    <divider>|</divider>
+                                    <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SLIDE 4 — middle slide: Prev | Next -->
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_feea750a-13c7-4063-9484-926415e3a112/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0003_00033_001.jpeg" alt="Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_feea750a-13c7-4063-9484-926415e3a112/">Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            Bridget Bishop’s status as the first victim of the Salem Witch Trials is a testament to the previously unseen violence and cruelty towards women that was on display during the Trials, and the lengths to which the Puritans were willing to go in order to maintain their values.
-                            <div class="clearfix2"></div>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
-                        </p>
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_feea750a-13c7-4063-9484-926415e3a112/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0003_00033_001.jpeg" alt="Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_feea750a-13c7-4063-9484-926415e3a112/">Statement of Elizabeth Hubbard v. Mary Warren and Bridget Bishop</a></item-title>
+                                <caption>Bridget Bishop's status as the first victim of the Salem Witch Trials is a testament to the previously unseen violence and cruelty towards women that was on display during the Trials, and the lengths to which the Puritans were willing to go in order to maintain their values.</caption>
+                                <div class="nav-bar">
+                                    <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                    <divider>|</divider>
+                                    <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SLIDE 5 — middle slide: Prev | Next -->
                 <div class="mySlides">
-                    <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_af37eb8a-56f6-4bfd-82dd-6c8427f23784/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0004_00016_001.jpeg" alt="Examinations of Abigail Hobbs in prison" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_af37eb8a-56f6-4bfd-82dd-6c8427f23784/">Examinations of Abigail Hobbs in prison</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            Abigail Hobbs, who was among those accused of witchcraft, also confessed and accused others. She was likely targeted due to her adolescent rebelliousness, as an independent woman who refused to go to church or submit to Puritan values. Luckily, Hobbs and her family were spared.
-                            <div class="clearfix2"></div>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a>&ensp;<divider>|</divider>&ensp;<a class="next" onclick="plusSlides(1)">Next&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></center>  
-                        </p>
-                    </div>
-                </div>                
-                <div class="mySlides">
-                    <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0014_00029_001.jpeg" alt="Testimony of Samuel Sibley v. Sarah Good" style="width:100%"></a>
-                    <div class="caption-container">
-                        <p id="caption">
-                            <center><item-title><a href="">Testimony of Samuel Sibley v. Sarah Good</a></item-title></center>
-                            <div class="clearfix3"></div>
-                            As an unhoused woman, Sarah Good was dependent on others to survive. In general, dependent women were more often accused of witchcraft, which was yet another card stacked against Good’s survival.
-                            <div class="clearfix2"></div>
-                            <center><a class="prev" onclick="plusSlides(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&ensp;Prev</a></center>  
-                        </p>
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_af37eb8a-56f6-4bfd-82dd-6c8427f23784/"><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0004_00016_001.jpeg" alt="Examinations of Abigail Hobbs in prison"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="https://digitalarchives.sec.state.ma.us/uncategorised/IO_af37eb8a-56f6-4bfd-82dd-6c8427f23784/">Examinations of Abigail Hobbs in prison</a></item-title>
+                                <caption>Abigail Hobbs, who was among those accused of witchcraft, also confessed and accused others. She was likely targeted due to her adolescent rebelliousness, as an independent woman who refused to go to church or submit to Puritan values. Luckily, Hobbs and her family were spared.</caption>
+                                <div class="nav-bar">
+                                    <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                    <divider>|</divider>
+                                    <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SLIDE 6 — last slide: Prev only -->
+                <div class="mySlides">
+                    <div class="slide-inner">
+                        <div class="slide-img">
+                            <a href=""><img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/OAT_NO_003_0014_00029_001.jpeg" alt="Testimony of Samuel Sibley v. Sarah Good"></a>
+                        </div>
+                        <div class="slide-text caption-container">
+                            <p id="caption">
+                                <item-title><a href="">Testimony of Samuel Sibley v. Sarah Good</a></item-title>
+                                <caption>As an unhoused woman, Sarah Good was dependent on others to survive. In general, dependent women were more often accused of witchcraft, which was yet another card stacked against Good's survival.</caption>
+                                <div class="nav-bar">
+                                    <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">View Full Collection</a>&ensp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-    <center><credit>Curated by: Andrew Fischer
-                <br>With Assistance From: Yolande Bennett</credit></center>
+
+    <!-- NEXT EXHIBIT LINK -->
+    <div class="next-exhibit"><a href="https://digitalarchives.sec.state.ma.us/uncategorised/SO_c029b931-fbfa-49d0-b95c-7030a64d37e8/">View Full Collection</a>&ensp;&rsaquo;</div>
+
     <script>
-            function openModal() {
-                document.getElementById("myModal").style.display = "block";
-            }
-
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
-            }
-
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
     </script>
-    </body>
+</body>
 </html>
