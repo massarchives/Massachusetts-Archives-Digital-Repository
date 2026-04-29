@@ -1,0 +1,1028 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
+
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
+
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 12px;
+            line-height: 250%;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.next-exhibit a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #17183b;
+            display: block;
+        }
+
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #181818;
+            margin: 0;
+        }
+
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
+
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
+
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix2:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.exhibit {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* === GRID WIDTH ===
+             4-column: width: 25%   — add .clearfix after every 4th item
+             3-column: width: 33.3% — add .clearfix after every 3rd item
+             2-column: width: 50%   — no .clearfix needed
+        */
+        .exhibit {
+            float: left;
+            width: 33.3%; /* CHANGE THIS for 4-col (25%) or 2-col (50%) */
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+            column-count: 2;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        divider {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            p#caption {
+                padding-top: 12px;
+            }
+
+            item-title,
+            item-title a {
+                margin-top: 10px;
+            }
+
+            .row>.exhibit {
+                padding: 8px;
+                padding-bottom: 0;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            .row>.exhibit {
+                padding: 6px;
+                padding-bottom: 0;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         INTRO / DESCRIPTION BLOCK
+         - Use .quote-block for a pull quote (optional — delete if unused)
+         - description-strong = large italic quote text
+         - description-small  = attribution line below quote
+         - strong-text        = bold inline label at start of body paragraph
+         ============================================================ -->
+    <div class="exhibit-desc">
+
+        <div>
+            <!-- Body text. Use <strong-text>Opening phrase,</strong-text>&ensp; for bold lead-in -->
+            <strong-text>As George Washington, </strong-text>the new general of the Continental Army, attempted to organize local militias into a proper army in 1775, he faced a dilemma&mdash; there were not enough cannons. A solution arrived in May of that year, when Ethan Allen and Benedict Arnold successfully led the capture of Fort Ticonderoga, with its cannons and gunpowder intact. Henry Knox, newly commissioned as Lieutenant Colonel in the Army, subsequently traveled to New York in the middle of winter to secure the captured artillery. Knox’s plan for transporting the cannons (some of which weighed over 1,000 lbs) involved disassembling them, mounting them on sleds, and hauling them back to Boston. Despite harsh weather conditions and rough terrain, the supplies made it to Cambridge on January 24, 1776. An attack was planned, and the cannons were moved into place. On March 2, Knox's artillery bombarded Boston from their positions in Cambridge and Roxbury, startling the British troops. It was not long until British general William Howe realized that the most sensible option for his army was to evacuate Boston. A settlement was reached between Howe and Washington&mdash; if Washington would allow the British soldiers to peacefully exit, then they would not damage the city on their way out. On March 17, British troops officially withdrew from Boston, signifying a victory for the Continental Army and a critical moment in the Revolutionary War. Today, Massachusetts celebrates March 17 as Evacuation Day, which was officially declared as a holiday in 1901 by Boston mayor Thomas N. Hart.
+        </div>
+
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
+
+    <!-- ============================================================
+         IMAGE GRID
+         GRID RULES:
+           3-col (default): add .clearfix after every 3rd item
+           4-col:           change .exhibit width to 25%, .clearfix after every 4th
+           2-col:           change .exhibit width to 50%, no .clearfix needed
+
+         MOBILE CLEARFIX:
+           Always place a .clearfix2 div after every 2nd item (regardless of
+           desktop column count). These are invisible on desktop and fire on mobile.
+
+         PATTERN (3-col example, 6 items):
+           item 1, item 2, clearfix2, item 3, clearfix, clearfix2,
+           item 4, item 5, clearfix2, item 6, clearfix
+
+         First slide: nav-bar has Next only (no Prev)
+         Last slide:  nav-bar has Prev only (no Next)
+         All others:  nav-bar has Prev | Next
+         ============================================================ -->
+    <div class="row">
+
+        <!-- ITEM 1 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_96a.jpeg" alt="Letter from Provincial Congress to Benedict Arnold at Ticonderoga, May 22, 1775" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Letter from Provincial Congress to Benedict Arnold at Ticonderoga, <br>May 22, 1775</p></center>
+        </div>
+        <!-- ITEM 2 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v77_432a.jpeg" alt="List of soldiers killed and wounded in the attack on Fort Ticonderoga, July 6-8, 1758" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>List of soldiers killed and wounded in the attack on Fort Ticonderoga, <br>July 6&ndash;8, 1758</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 3 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v138_225.jpeg" alt="Payroll for the crew of the sloop Enterprise, which sailed on Lake Champlain, for May-July 1775" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Payroll for the crew of the sloop Enterprise, which sailed on Lake Champlain, for May&ndash;July 1775</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 4 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v182_102.jpeg" alt="Memorial of Gen. Henry Knox to the Council that the Continental Congress had ordered 16 new Continental battalions, with increase of bounty, January 31, 1777" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Memorial of Gen. Henry Knox to the Council that the Continental Congress had ordered 16 new Continental battalions, with increase of bounty, January 31, 1777</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 6 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v180_416.jpeg" alt="Petition of Scipio Fayerweather, a Black man whose house in Boston was destroyed by the British, submitted April 27, 1776" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Petition of Scipio Fayerweather, a Black man whose house in Boston was destroyed by the British, submitted April 27, 1776</p></center>
+        </div>
+        <!-- ITEM 7 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v182_292.jpeg" alt="Petition of Ann Swift requesting pay for damage done to her house in Dorchester by the Continental Army in 1775, submitted March 31, 1777" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Petition of Ann Swift requesting pay for damage done to her house in Dorchester by the Continental Army in 1775, submitted March 31, 1777</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 9 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/57x_v77_35.jpeg" alt="Daily proceedings of March 21-24, 1776, relating to Battle of Dorchester Heights" style="width:100%"
+                onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            <center><p>Daily proceedings of March 21&ndash;24, 1776, relating to Battle of <br>Dorchester Heights</p></center>
+        </div>
+        <!-- ITEM 10 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v137_65.jpeg" alt="Report of Committee conferring with General Washington regarding the removal of Continental troops from Boston after the withdrawal of the British, March 22, 1776" style="width:100%"
+                onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            <center><p>Report of Committee conferring with General Washington regarding the removal of Continental troops from Boston after the withdrawal of the British, March 22, 1776</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 11 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_281.jpeg" alt="Printed memorial by Hopestill Capen, a Tory prisoner in Boston, stating that he was acting on the principles of his religion and conscience, August 29, 1776" style="width:100%"
+                onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            <center><p>Printed memorial by Hopestill Capen, a Tory prisoner in Boston, stating that he was acting on the principles of his religion and conscience, <br>August 29, 1776</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 12 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v154_40c.jpeg" alt="Resolve of Council to arrest Royalists in Boston who joined the British troops or endeavored to 'further the measures of the British administration for enslaving the united American colonies,' January 1776" style="width:100%"
+                onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            <center><p>Resolve of Council to arrest Royalists in Boston who joined the British troops or endeavored to &ldquo;further the measures of the British administration for enslaving the united American colonies,&rdquo; January 1776</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 14 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_141.jpeg" alt="Petition of the Committee of Spencer reporting suspicious meetings of Tories, and requesting instructions 'to prevent their Evil Designs,' July 13, 1776" style="width:100%"
+                onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            <center><p>Petition of the Committee of Spencer reporting suspicious meetings of Tories, and requesting instructions &ldquo;to prevent their Evil Designs,&rdquo; July 13, 1776</p></center>
+        </div>
+        <!-- ITEM 15 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_65.jpeg" alt="Petition of the Committee of Cape Elizabeth, Maine for cannon and ammunition to arm a fort under construction, which they say guards 'the Key of the whole Province of Maine,' submitted June 1, 1776" style="width:100%"
+                onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+            <center><p>Petition of the Committee of Cape Elizabeth, Maine for cannon and ammunition to arm a fort under construction, which they say guards &ldquo;the Key of the whole Province of Maine,&rdquo; submitted June 1, 1776</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 16 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_82.jpeg" alt="Petition of the Committee of Deer Island, Maine for instructions regarding captured vessels, and accompanying resolve directing them to detain the ships, June 6, 1776" style="width:100%"
+                onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+            <center><p>Petition of the Committee of Deer Island, Maine for instructions regarding captured vessels, and accompanying resolve directing them to detain the ships, June 6, 1776</p></center>
+        </div>
+        <!-- ITEM 18 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v194_297.jpeg" alt="Letter from George Washington concerning the defense of Boston Harbor, March 22, 1776" style="width:100%"
+                onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+            <center><p>Letter from George Washington concerning the defense of Boston Harbor, March 22, 1776</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 19 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v208_223.jpeg" alt="Printed resolve of Congress allowing for the capture of British vessels, March 23, 1776" style="width:100%"
+                onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+            <center><p>Printed resolve of Congress allowing for the capture of British vessels, March 23, 1776</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 20 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_365.jpeg" alt="Report on the importance of fortifying Hull and Boston Harbor due to their exposed conditions, January 1776" style="width:100%"
+                onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+            <center><p>Report on the importance of fortifying Hull and Boston Harbor due to their exposed conditions, January 1776</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 21 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_200.jpeg" alt="Resolve of the Committee of Safety to fortify Bunker Hill and Dorchester Heights, June 15, 1775" style="width:100%"
+                onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+            <center><p>Resolve of the Committee of Safety to fortify Bunker Hill and Dorchester Heights, June 15, 1775</p></center>
+        </div>
+        <!-- ITEM 22 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v193_66.jpeg" alt="Draft of a letter of resolve to be sent to neighboring colonies of Connecticut, New Hampshire, and Rhode Island, April 23, 1775" style="width:100%"
+                onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+            <center><p>Draft of a letter of resolve to be sent to neighboring colonies of Connecticut, New Hampshire, and Rhode Island, April 23, 1775</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <div class="clearfix"></div><!-- end of desktop row -->
+        <!-- ITEM 23 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v166_242.jpeg" alt="Letter from General Henry Knox to James Bowdoin requesting cannons from Boston, February 12, 1777" style="width:100%"
+                onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+            <center><p>Letter from General Henry Knox to James Bowdoin requesting cannons from Boston, February 12, 1777</p></center>
+        </div>
+        <!-- ITEM 24 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v193_293.jpeg" alt="Letter to Benedict Arnold at Ticonderoga from Joseph Warren notifying him of reinforcements sent by Connecticut and New York, June 1, 1775" style="width:100%"
+                onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+            <center><p>Letter to Benedict Arnold at Ticonderoga from Joseph Warren notifying him of reinforcements sent by Connecticut and New York, <br>June 1, 1775</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires on mobile -->
+        <!-- ITEM 25 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v110_721.jpeg" alt="Speech by Governor Thomas Gage to the General Court upon his arrival in Massachusetts, May 26, 1774" style="width:100%"
+                onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+            <center><p>Speech by Governor Thomas Gage to the General Court upon his arrival in Massachusetts, May 26, 1774</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row -->
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                
+                <!-- SLIDE 1 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_96a.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Letter from Provincial Congress to Benedict Arnold at Ticonderoga, May 22, 1775</item-title>
+                            <caption>The Congress applauds <i>&ldquo;the conduct of the troops and esteem [the fort] a very valuable acquisition,&rdquo;</i> and reports that they have written to Connecticut asking them to take the matter under their control. <i>SC1/series 45X. v. 146, p. 96a.</i></caption>
+                            <div class="nav-bar">
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 2 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v77_432a.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>List of soldiers killed and wounded in the attack on Fort Ticonderoga, July 6&ndash;8, 1758</item-title>
+                            <caption>Note the single mark in the first column of the row labelled <i>&ldquo;55th, the Late Lord How,&rdquo;</i> which represents the death of the eldest brother of William Howe. <i>SC1/series 45X. v. 77 p. 432a.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 3 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v138_225.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Payroll for the crew of the sloop Enterprise, which sailed on Lake Champlain, for May&ndash;July 1775</item-title>
+                            <caption>Submitted by Benedict Arnold. <i>SC1/series 45X. v. 138, pp. 225-227.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 4 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v182_102.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Memorial of Gen. Henry Knox to the Council that the Continental Congress had ordered 16 new Continental battalions, with increase of bounty, January 31, 1777</item-title>
+                            <caption><i>SC1/series 45X. v. 182, pp. 102-103.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 6 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v180_416.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Petition of Scipio Fayerweather, a Black man whose house in Boston was destroyed by the British, submitted April 27, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 180 pp. 416-417.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 7 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v182_292.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Petition of Ann Swift requesting pay for damage done to her house in Dorchester by the Continental Army in 1775, submitted March 31, 1777</item-title>
+                            <caption><i>SC1/series 45X. v. 182, p. 292.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 9 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/57x_v77_35.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Daily proceedings of March 21&ndash;24, 1776, relating to Battle of Dorchester Heights</item-title>
+                            <caption>On March 24, 1776, General Washington urged vigilance against British troops remaining in the harbor. <i>SC1/series 57X. v. 77, p. 35.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 10 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v137_65.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Report of Committee conferring with General Washington regarding the removal of Continental troops from Boston after the withdrawal of the British, March 22, 1776</item-title>
+                            <caption>The report also discusses the construction of fortifications for securing the town. <i>SC1/series 45X. v. 137, p. 65.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 11 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_281.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Printed memorial by Hopestill Capen, a Tory prisoner in Boston, stating that he was acting on the principles of his religion and conscience, August 29, 1776</item-title>
+                            <caption> <i>SC1/series 45X. v. 181, pp. 281-286.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 12 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v154_40c.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Resolve of Council to arrest Royalists in Boston who joined the British troops or endeavored to &ldquo;further the measures of the British administration for enslaving the united American colonies,&rdquo; January 1776</item-title>
+                            <caption>Includes reports of arrests from 1777. <i>SC1/series 45X. v. 154, pp. 40-45a.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 14 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_141.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Petition of the Committee of Spencer reporting suspicious meetings of Tories, and requesting instructions &ldquo;to prevent their Evil Designs,&rdquo; July 13, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 181 p. 141.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 15 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_65.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Petition of the Committee of Cape Elizabeth, Maine for cannon and ammunition to arm a fort under construction, which they say guards &ldquo;the Key of the whole Province of Maine,&rdquo; submitted June 1, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 181, p. 65.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 16 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v181_82.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Petition of the Committee of Deer Island, Maine for instructions regarding captured vessels, and accompanying resolve directing them to detain the ships, June 6, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 181, pp. 82-84.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 18 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v194_297.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Letter from George Washington concerning the defense of Boston Harbor, March 22, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 194, p. 297.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 19 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v208_223.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Printed resolve of Congress allowing for the capture of British vessels, March 23, 1776</item-title>
+                            <caption><i>SC1/series 45X. v. 208, p. 223.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 20 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_365.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Report on the importance of fortifying Hull and Boston Harbor due to their exposed conditions, January 1776</item-title>
+                            <caption>The report claims that, should the British take and fortify Hull, <i>&ldquo;not 40,000 men perhaps could dislodge them.&rdquo;</i> <i>SC1/series 45X. v. 146, pp. 365-367.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 21 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v146_200.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Resolve of the Committee of Safety to fortify Bunker Hill and Dorchester Heights, June 15, 1775</item-title>
+                            <caption><i>SC1/series 45X. v.146, p. 200.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 22 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v193_66.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Draft of a letter of resolve to be sent to neighboring colonies of Connecticut, New Hampshire, and Rhode Island, April 23, 1775</item-title>
+                            <caption>This resolve of the Provincial Congress involved raising an army of 30,000 to defend the liberties of the people. <i>SC1/series 45X. v. 193, p. 66-67.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 23 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v166_242.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Letter from General Henry Knox to James Bowdoin requesting cannons from Boston, February 12, 1777</item-title>
+                            <caption>In this letter, Knox states that the cannons were <i>&ldquo;much wanted at Ticonderoga.&rdquo;</i> <i>SC1/series 45X. v. 166, p. 242.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 24 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v193_293.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Letter to Benedict Arnold at Ticonderoga from Joseph Warren notifying him of reinforcements sent by Connecticut and New York, June 1, 1775</item-title>
+                            <caption>In this letter, Warren makes note of <i>&ldquo;great satisfaction in the acquisitions&hellip; at Ticonderoga.&rdquo;</i> <i>SC1/series 45X. v. 193, p. 293-294.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <!-- SLIDE 25 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/rev250/evacuationday/45x_v110_721.jpeg" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Speech by Governor Thomas Gage to the General Court upon his arrival in Massachusetts, May 26, 1774</item-title>
+                            <caption><i>SC1/series 45X. v. 110, p. 721.</i></caption>
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
+    </script>
+</body>
+</html>
