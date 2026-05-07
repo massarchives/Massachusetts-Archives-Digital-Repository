@@ -1,0 +1,844 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .exhibit-desc {
+            column-count: 2;
+            max-width: 1000px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-bottom: 5px;
+            line-height: 170%;
+        }
+
+        strong-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #17183b;
+        }
+
+        .quote-block {
+            border-left: 3px solid #d0d0d6;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            break-inside: avoid;
+            break-after: column;
+        }
+
+        description-strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 165%;
+            color: #17183b;
+            display: block;
+        }
+
+        description-small, description-small a {
+            font-family: 'Space Mono', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #17183b;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+
+        description-small {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0;
+            margin-top: 10px;
+        }
+
+        div.next-exhibit, div.next-exhibit a {
+            text-align: right;
+            padding-top: 0px;
+            font-size: 12px;
+            line-height: 250%;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.next-exhibit a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        div.backbutton, div.backbutton a {
+            text-align: left;
+            margin-top: 10px;
+            color: #17183b;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', sans-serif;
+            text-decoration: none;
+            color: #17183b;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        div.backbutton a:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #17183b;
+            display: block;
+        }
+
+        item-title a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #17183b;
+            display: inline;
+        }
+
+        item-title a:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #181818;
+            margin: 0;
+        }
+
+        p#caption {
+            margin: 0;
+            padding: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 170%;
+        }
+
+        .caption-container {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            line-height: 160%;
+            font-weight: 400;
+            text-align: left;
+            background-color: #FAFAFA;
+            padding: 0 20px 24px 20px;
+            color: #181818;
+        }
+
+        caption {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 165%;
+            color: #555;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid #e0e0e6;
+        }
+
+        .nav-bar .prev,
+        .nav-bar .next {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar .prev:hover,
+        .nav-bar .next:hover {
+            opacity: 1;
+            font-style: normal;
+        }
+
+        .nav-bar divider {
+            color: #d0d0d6;
+            font-size: 11px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix2:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.exhibit {
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* === GRID WIDTH ===
+             4-column: width: 25%   — add .clearfix after every 4th item
+             3-column: width: 33.3% — add .clearfix after every 3rd item
+             2-column: width: 50%   — no .clearfix needed
+        */
+        .exhibit {
+            float: left;
+            width: 33.3%; /* CHANGE THIS for 4-col (25%) or 2-col (50%) */
+        }
+
+        div.exhibit {
+            background-color: #FAFAFA;
+        }
+
+        .exhibit p {
+            padding: 15px;
+            font-size: 12px;
+            line-height: 150%;
+            font-weight: 400;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 25px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #FAFAFA;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #FAFAFA;
+            margin: auto;
+            padding: 75px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .close {
+            color: #17183b;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #101129;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+            column-count: 2;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            width: auto;
+            color: #17183b;
+            font-size: 12px;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            line-height: 300%;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        divider {
+            color: #D1D1D8;
+            font-family: 'Space Mono', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        img.hover-shadow.cursor,
+        img.demo.cursor.active,
+        img.demo.cursor {
+            border-radius: 0px;
+        }
+
+        img.demo.cursor.active,
+        img.demo.cursor {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: .6s ease;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img,
+        .mySlides img {
+            opacity: 1;
+            transition: .6s ease;
+        }
+
+        .exhibit img:hover,
+        .mySlides img:hover {
+            opacity: 0.7;
+            transition: .6s ease;
+        }
+
+        @media (max-width: 980px) {
+            .mySlides {
+                display: none;
+                column-count: 1;
+            }
+
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            p#caption {
+                padding-top: 12px;
+            }
+
+            item-title,
+            item-title a {
+                margin-top: 10px;
+            }
+
+            .row>.exhibit {
+                padding: 8px;
+                padding-bottom: 0;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .exhibit-desc {
+                column-count: 1;
+            }
+
+            .quote-block {
+                break-after: auto;
+                margin-bottom: 16px;
+            }
+
+            .row>.exhibit {
+                padding: 6px;
+                padding-bottom: 0;
+            }
+
+            .exhibit p {
+                display: none;
+            }
+
+            .clearfix, .clearfix:after {
+                display: none;
+            }
+
+            .clearfix2:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .exhibit {
+                float: left;
+                width: 50%;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 70px 12px 24px 12px;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+                font-size: 44px;
+            }
+
+            .caption-container {
+                padding: 0 12px 20px 12px;
+            }
+
+            .nav-bar .prev,
+            .nav-bar .next {
+                font-size: 13px;
+                line-height: 180%;
+                opacity: 1;
+            }
+
+            item-title,
+            item-title a {
+                font-size: 14px;
+            }
+
+            div.next-exhibit, div.next-exhibit a {
+                display: none;
+            }
+
+            strong-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         INTRO / DESCRIPTION BLOCK
+         - Use .quote-block for a pull quote (optional — delete if unused)
+         - description-strong = large italic quote text
+         - description-small  = attribution line below quote
+         - strong-text        = bold inline label at start of body paragraph
+         ============================================================ -->
+    <div class="exhibit-desc">
+
+        <div>
+            <!-- Body text. Use <strong-text>Opening phrase,</strong-text>&ensp; for bold lead-in -->
+            <strong-text>The month of May is Asian-American, Native Hawaiian, and Pacific Islander (AANHPI) Heritage Month!</strong-text> In the Commonwealth of Massachusetts, roughly half a million residents identify as either Asian, Native Hawaiian, or Pacific Islander. Reflective of this population, communities across the state have organized cultural events highlighting food, music, and dance, such as the August Moon Festival, the Philippine Independence Day Festival, the Cambodian American Literary Arts Festival, and the Shadaj Music Festival. These events are brought to life by dancers, singers, cooks, writers, artists, and other individuals of the AANHPI diaspora, thus keeping alive the skills and practices taught to them by their predecessors. 
+            In 1999, the Massachusetts Cultural Council (MCC) established its Folk Arts and Heritage Program, the successor to its Folklife and Ethnic Arts Program. Its purpose &ldquo;is to identify craftspeople, performers and cultural specialists, help sustain the practice of tradition where they live, and increase appreciation of their artistry within the community and beyond.&rdquo;
+            The aforementioned craftspeople, performers, and cultural specialists are integral to the creation and sustenance of culture within and beyond ethnic and social groups. In diasporic groups, these are the individuals that help to maintain skills and practices in a new environment, either by taking on apprentices, organizing public events in celebration of a tradition, or by allowing for their craft or practice to be documented. From ethnographic material found within our collections, this exhibit includes a highlight of Asian and Asian American folk artists photographed between 2015–2023 who have connected with the Massachusetts Cultural Council.
+        </div>
+
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e6; margin: 24px 0 0 0;">
+
+    <!-- ============================================================
+         IMAGE GRID
+         GRID RULES:
+           3-col (default): add .clearfix after every 3rd item
+           4-col:           change .exhibit width to 25%, .clearfix after every 4th
+           2-col:           change .exhibit width to 50%, no .clearfix needed
+
+         MOBILE CLEARFIX:
+           Always place a .clearfix2 div after every 2nd item (regardless of
+           desktop column count). These are invisible on desktop and fire on mobile.
+
+         PATTERN (3-col example, 6 items):
+           item 1, item 2, clearfix2, item 3, clearfix, clearfix2,
+           item 4, item 5, clearfix2, item 6, clearfix
+
+         First slide: nav-bar has Next only (no Prev)
+         Last slide:  nav-bar has Prev only (no Next)
+         All others:  nav-bar has Prev | Next
+         ============================================================ -->
+    <div class="row">
+        <!-- ITEM 1 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/1.jpeg" alt="Jahar Ghalley, Bhutanese Back Strap Weaver, 2015" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <center><p>Jahar Ghalley, Bhutanese Back Strap Weaver, 2015</p></center>
+        </div>
+        <!-- ITEM 2 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/2.jpeg" alt="Maita Subba, Bhutanese Back Strap Weaver, 2015" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <center><p>Maita Subba, Bhutanese Back Strap Weaver, 2015</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 2 on mobile -->
+        <!-- ITEM 3 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/3.jpeg" alt="Tamil Makkal Mandram, Inc., Kolam Artists, 2016" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <center><p>Tamil Makkal Mandram, Inc., Kolam Artists, 2016</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row (3-col) -->
+        <!-- ITEM 4 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/4.jpeg" alt="Surya Sundararajan and Apprentice Bharath Ramesh, Carnatic Violinists, 2019" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <center><p>Surya Sundararajan and Apprentice Bharath Ramesh, Carnatic Violinists, 2019</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 4 on mobile -->
+        <!-- ITEM 5 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/5.jpeg" alt="Newah (Newar) Organization, Indra Jatra Festival, 2019" style="width:100%"
+                onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            <center><p>Newah (Newar) Organization, Indra Jatra Festival, 2019</p></center>
+        </div>
+        <!-- ITEM 6 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/6.jpeg" alt="Zhonghe (Elena) Li, Chinese Papercutting Artist, 2022" style="width:100%"
+                onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            <center><p>Zhonghe (Elena) Li, Chinese Papercutting Artist, 2022</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row (3-col) -->
+        <div class="clearfix2"></div><!-- fires after item 6 on mobile -->
+        <!-- ITEM 7 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/7.jpeg" alt="Abilikim Emet and Apprentice Munawwar Abdullah, Uyghur Calligraphers, 2023" style="width:100%"
+                onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            <center><p>Abilikim Emet and Apprentice Munawwar Abdullah, Uyghur Calligraphers, 2023</p></center>
+        </div>
+        <!-- ITEM 8 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/8.jpeg" alt="Chu Ling Summer Dance Festival, Chinese Long Ribbon Dancer, 2023" style="width:100%"
+                onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            <center><p>Chu Ling Summer Dance Festival, Chinese Long Ribbon Dancer, 2023</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 8 on mobile -->
+        <!-- ITEM 9 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/9.jpeg" alt="Tuan Do, Vovinam Martial Artist, 2018" style="width:100%"
+                onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            <center><p>Tuan Do, Vovinam Martial Artist, 2018</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row (3-col) -->
+        <!-- ITEM 10 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/10.jpeg" alt="Tuyet Thi Nguyen, Vietnamese Home Cook, 2018" style="width:100%"
+                onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            <center><p>Tuyet Thi Nguyen, Vietnamese Home Cook, 2018</p></center>
+        </div>
+        <div class="clearfix2"></div><!-- fires after item 10 on mobile -->
+        <!-- ITEM 11 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/11.jpeg" alt="Thai Huynh, Vietnamese Zither Player, 2018" style="width:100%"
+                onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            <center><p>Thai Huynh, Vietnamese Zither Player, 2018</p></center>
+        </div>
+        <!-- ITEM 12 -->
+        <div class="exhibit">
+            <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/12.jpeg" alt="Yary Livan, Cambodian Ceramicist, 2016" style="width:100%"
+                onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+            <center><p>Yary Livan, Cambodian Ceramicist, 2016</p></center>
+        </div>
+        <div class="clearfix"></div><!-- end of desktop row (3-col) -->
+        <div class="clearfix2"></div><!-- fires after item 12 on mobile -->
+
+        <!-- ============================================================
+             MODAL
+             ============================================================ -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <!-- SLIDE 1 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/1.jpeg" alt="Jahar Ghalley, Bhutanese Back Strap Weaver, 2015" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Jahar Ghalley, Bhutanese Back Strap Weaver, 2015</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/2.jpeg" alt="Maita Subba, Bhutanese Back Strap Weaver, 2015" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Maita Subba, Bhutanese Back Strap Weaver, 2015</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/3.jpeg" alt="Tamil Makkal Mandram, Inc., Kolam Artists, 2016" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Tamil Makkal Mandram, Inc., Kolam Artists, 2016</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/4.jpeg" alt="Surya Sundararajan and Apprentice Bharath Ramesh, Carnatic Violinists, 2019" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Surya Sundararajan and Apprentice Bharath Ramesh, Carnatic Violinists, 2019</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/5.jpeg" alt="Newah (Newar) Organization, Indra Jatra Festival, 2019" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Newah (Newar) Organization, Indra Jatra Festival, 2019</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/6.jpeg" alt="Zhonghe (Elena) Li, Chinese Papercutting Artist, 2022" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Zhonghe (Elena) Li, Chinese Papercutting Artist, 2022</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 7 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/7.jpeg" alt="Abilikim Emet and Apprentice Munawwar Abdullah, Uyghur Calligraphers, 2023" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Abilikim Emet and Apprentice Munawwar Abdullah, Uyghur Calligraphers, 2023</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 8 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/8.jpeg" alt="Chu Ling Summer Dance Festival, Chinese Long Ribbon Dancer, 2023" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Chu Ling Summer Dance Festival, Chinese Long Ribbon Dancer, 2023</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 9 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/9.jpeg" alt="Tuan Do, Vovinam Martial Artist, 2018" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Tuan Do, Vovinam Martial Artist, 2018</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 10 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/10.jpeg" alt="Tuyet Thi Nguyen, Vietnamese Home Cook, 2018" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Tuyet Thi Nguyen, Vietnamese Home Cook, 2018</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 11 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/11.jpeg" alt="Thai Huynh, Vietnamese Zither Player, 2018" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Thai Huynh, Vietnamese Zither Player, 2018</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                                <divider>|</divider>
+                                <a class="next" onclick="plusSlides(1)">Next &rsaquo;</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 12 -->
+                <div class="mySlides">
+                    <img src="https://massarchives.github.io/archivesdigexhibits.github.io/AANHPI/12.jpeg" alt="Yary Livan, Cambodian Ceramicist, 2016" style="width:100%">
+                    <div class="caption-container">
+                        <p id="caption">
+                            <item-title>Yary Livan, Cambodian Ceramicist, 2016</item-title>
+                            <!-- Optional: <caption>EXTRA DESCRIPTION</caption> -->
+                            <div class="nav-bar">
+                                <a class="prev" onclick="plusSlides(-1)">&lsaquo; Prev</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() { document.getElementById("myModal").style.display = "block"; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots[slideIndex - 1]) { dots[slideIndex - 1].className += " active"; }
+        }
+    </script>
+</body>
+</html>
