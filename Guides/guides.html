@@ -2,258 +2,162 @@
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
-			div.featured-item {
-				border: none;
-			}
+			@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-			div.featured-item:hover {
-				border: none;
-			}
-
-			div.featured-item img {
-				width: 100%;
-				height: auto;
-				opacity: 1;
-                transition: 0.6s ease;
-			}
-
-			div.featured-item img:hover {
-				width: 100%;
-				height: auto;
-				opacity: 0.7;
-				transition: 0.6s ease;
-			}
-
-			div.collection-title {
-				text-align: left;
-				color: #181818;
-                background-color: #E8E8EB;
-				font-family: 'Space Grotesk', sans-serif;
-				font-size: 14px;
-				font-weight: 600;
-                padding: 15px;
-                padding-top: 12px;
-                padding-left: 12px;
-				padding-right: 12px;
-				line-height: 150%;
-                height: 105px;
-				position: relative;
-			}
-
-            div.collection-title a {
-				text-align: left;
-				color: #181818;
-				font-family: 'Space Grotesk', sans-serif;
-				font-size: 14px;
-				font-weight: 600;
-				line-height: 150%;
-                text-decoration: none;
-            }
-
-            div.collection-title a:hover {
-                text-decoration: underline 2px;
-            }
-
-            div.collection-title p, div.collection-title p a {
-				text-align: left;
-				color: #181818;
-				font-family: 'DM Sans', sans-serif;
-				font-size: 11.25px;
-				line-height: 150%;
-				font-weight: 400;
-            }
-
-            div.collection-title p a {
-                font-weight: 500;
-            }
-
-            div.collection-title p a:hover {
-                text-decoration: underline;
-            }
-			
-			div.collection-title p strong2 {
-				text-align: left;
-				color: #181818;
-				font-family: 'DM Sans', sans-serif;
-				font-size: 11.25px;
-				line-height: 150%;
-				font-weight: 600;
-            }
-
-			div.record-group {
-				position: absolute; 
-				bottom: 0;
+			:root {
+				--navy: #17183b;
+				--ink: #181818;
+				--mist: #E8E8EB;
+				--white: #FAFAFA;
 			}
 
 			* {
 				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
 			}
 
-			.featured {
-				padding-right: 10px;
-				float: left;
-				width: 50%;
-			}
-			
-			.clearfix:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding-bottom: 10px;
+			body {
+				background: var(--white);
+				color: var(--ink);
+				font-family: 'Space Grotesk', sans-serif;
 			}
 
-            .clearfix2:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding-bottom: 10px;
+			h2 {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 12px;
 			}
 
-			.clearfix3:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding-bottom: 5px;
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 12px;
+				margin-bottom: 40px;
 			}
 
-			.clearfix4:after {
-				content: "";
-				display: table;
-				clear: both;
-				padding: 0px;
+			.grid > div {
+				display: grid;
+				grid-template-rows: auto 1fr;
 			}
 
-            * {
-            box-sizing: border-box
-            }
-			
+			.card-img {
+				width: 100%;
+				height: 160px;
+				object-fit: cover;
+				display: block;
+				opacity: 1;
+				transition: opacity 0.5s ease;
+			}
+
+			.card-img:hover {
+				opacity: 0.75;
+			}
+
+			.collection-title {
+				background-color: var(--mist);
+				padding: 12px;
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			.collection-title a {
+				font-family: 'Space Grotesk', sans-serif;
+				font-size: 13px;
+				font-weight: 600;
+				line-height: 148%;
+				color: var(--ink);
+				text-decoration: none;
+				display: block;
+				margin-bottom: 6px;
+			}
+
+			.collection-title a:hover {
+				text-decoration: underline 2px;
+			}
+
+			.collection-title p {
+				font-family: 'DM Sans', sans-serif;
+				font-size: 11px;
+				line-height: 150%;
+				font-weight: 400;
+				color: #444;
+				margin-bottom: 8px;
+			}
+
+			.collection-title p a {
+				display: inline;
+				font-size: 11px;
+				font-weight: 500;
+				color: #444;
+			}
+
 			@media only screen and (max-width: 960px) {
-				.featured {
-					width: 49.99999%;
-					margin: 6px 0;
-				}
-
-                .clearfix2 {
-                    display: none;
-                }
-
-                br {
-                    display: none;
-                }
-
-				div.collection-title {
-                    height: 115px;
-			    }
-            }
-
-			@media only screen and (max-width: 768px) {
-				div.collection-title {
-                    height: 135px;
-			    }
-			}
-
-
-            @media only screen and (max-width: 680px) {
-                div.collection-title {
-                    height: 155px;
-
-			    }
-
-                br {
-                    display: none;
-                }
-
-				div.collection-title, div.collection-title a {
-					font-size: 15px;
-				}
-
-				div.collection-title p, div.collection-title p strong2, div.record-group {
-					font-size: 12.5px;
-					line-height: 140%;
+				.grid {
+					grid-template-columns: repeat(2, 1fr);
 				}
 			}
 
-			@media only screen and (max-width: 615px) {
-                div.collection-title {
-                    height: 175px;
-			    }
+			@media only screen and (max-width: 500px) {
+				.grid {
+					grid-template-columns: 1fr;
+				}
 
-                br {
-                    display: none;
-                }
-			}
-
-			@media only screen and (max-width: 545px) {
-				div.collection-title {
-                    height: 205px;
-			    }
-			}
-
-			@media only screen and (max-width: 520px) {
-				div.collection-title {
-                    height: 225px;
-			    }
-			}
-
-			@media only screen and (max-width: 480px) {
-				div.collection-title {
-                    height: 245px;
-			    }
-			}
-
-			@media only screen and (max-width: 460px) {
-				div.collection-title {
-                    height: 265px;
-			    }
-			}
-
-			@media only screen and (max-width: 454px) {
-				div.collection-title {
-                    height: 285px;
-			    }
-			}
-
-			@media only screen and (max-width: 418px) {
-				div.collection-title {
-                    height: 305px;
+				.card-img {
+					height: 200px;
 				}
 			}
 		</style>
 	</head>
 	<body>
-        <h2>Collection Guides</h2>  
-        <div class="featured">
-			<div class="featured-item">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Digital_Repository_Collections_Overview_Oct_2024.pdf">Digital Repository Collections Overview</a>
-                        <div class="clearfix3"></div>
-                        <p>This document lists the series currently accessible in the Massachusetts Archives Digital Repository, with links to their locations and expanded descriptions.</p></div>
+
+		<h2>Collection Guides</h2>
+
+		<div class="grid">
+
+			<div>
+				<img class="card-img" src="https://massarchives.github.io/archivesdigexhibits.github.io/salem_witch_trials/8.png" alt="Testimony of John Porter and Lydia Porter regarding Sarah Bibber, in support of Rebecca Nurse">
+				<div class="collection-title">
+					<div>
+						<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2026/11/Digital_Repository_Collections_Overview_Nov_2026.pdf">Collections Overview</a>
+						<p>This document lists the series currently accessible in the Massachusetts Archives Digital Repository, with links to their locations and expanded descriptions.</p>
+					</div>
+				</div>
 			</div>
-		</div>         
-        <div class="featured">
-			<div class="featured-item">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Digital Repository Search Guide</a>
-                        <div class="clearfix3"></div>
-                        <p>This guide explains how to navigate the Massachusetts Archives Digital Repository and offers tips for locating materials.</p></div>
+
+			<div>
+				<img class="card-img" src="https://massarchives.github.io/archivesdigexhibits.github.io/exhibits/birds.png" alt="Plate 3: Black Guillemot, Puffin, Razor-billed Auk, Dovekie, Brunnich's Murre">
+				<div class="collection-title">
+					<div>
+						<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/09/Digital_Repository_Search_Guide_September_2024.pdf">Search Guide</a>
+						<p>This guide explains how to navigate the Massachusetts Archives Digital Repository and offers tips for locating materials.</p>
+					</div>
+				</div>
 			</div>
+
+			<div>
+				<img class="card-img" src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/wwii.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery">
+				<div class="collection-title">
+					<div>
+						<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">Index of Massachusetts Casualties in World War II</a>
+						<p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_02102549-ad9c-458d-9d68-66e6f9a648b8">Index of Massachusetts Casualties in World War II</a> within the Massachusetts Archives Digital Repository.</p>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<img class="card-img" src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/folk.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection">
+				<div class="collection-title">
+					<div>
+						<a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">Folk Arts &amp; Heritage Collection, 1982&ndash;2016</a>
+						<p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">Folk Arts &amp; Heritage Collection, 1982&ndash;2016</a> within the Massachusetts Archives Digital Repository.</p>
+					</div>
+				</div>
+			</div>
+
 		</div>
-        <div class="clearfix2"></div>
-        <div class="featured">
-			<div class="featured-item">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/wwii.png" alt="Floral wreath at memorial group as placed for May 30, 1940, Quabbin Park Cemetery, Ware, Mass., June 5, 1940, Quabbin Reservoir cemetery photographs, 1928-1945" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Searching_the_Index_of_MA_Casualties_WWII_2024.pdf">Index of Massachusetts Casualties in World War II</a>
-                        <div class="clearfix3"></div>
-                        <p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_02102549-ad9c-458d-9d68-66e6f9a648b8">Index of Massachusetts Casualties in World War II</a> within the Massachusetts Archives Digital Repository.</p></div>
-			</div>
-		</div>
-        <div class="featured">
-			<div class="featured-item">
-					<img src="https://massarchives.github.io/archivesdigexhibits.github.io/guides/folk.png" alt="Josh Luke and Corinna D'Schoto, apprenticeship in sign painting and gold leaf, Folk Arts and Heritage collection, 1982–2016" width="600" height="400">
-						<div class="collection-title"><a href="https://digitalarchives.sec.state.ma.us/wp-content/uploads/2024/10/Folk_Arts_and_Heritage_Guide_October_2024.pdf">Folk Arts & Heritage Collection, 1982&ndash;2016</a>
-                        <div class="clearfix3"></div>
-                        <p>This guide details how to search the <a href="https://digitalarchives.sec.state.ma.us/index.php?name=SO_5de95a21-464a-47e3-841b-b4d8897768d1">Folk Arts & Heritage Collection, 1982&ndash;2016</a> within the Massachusetts Archives Digital Repository,</p></div>
-			</div>
-		</div>	
-    </body>
+
+	</body>
 </html>
